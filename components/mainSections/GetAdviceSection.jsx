@@ -10,12 +10,12 @@ const GetAdviceSection = () => {
           <div className="rounded-full bg-[#68bb59] w-[65px] h-[65px]">
             <Image src={GetAdviceImg} alt="" className="ml-2" />
           </div>
-          <h2 className="text-[28px] font-medium text-center">
+          <h2 className="text-white text-[28px] font-medium text-center">
             Get Expert Plant Core Advice
           </h2>
         </div>
         <div className="flex flex-col items-center gap-8">
-          <p className="leading-7 text-center">
+          <p className="text-white leading-7 text-center">
             Unlock the secrets to successful plant care with guidance from our
             team of seasoned experts. Access a wealth of knowledge and receive
             personalized advice tailored to your specific plants and gardening
@@ -23,7 +23,7 @@ const GetAdviceSection = () => {
             techniques, our platform equips you with the expertise you need to
             nurture your plants and watch them flourish.
           </p>
-          <button className="center bg-[#68bb59] py-[14px] px-[22px] rounded-md w-[138px] h-[46px]">
+          <button className="center text-white bg-[#68bb59] py-[14px] px-[22px] rounded-md w-[138px] h-[46px]">
             GET ADVICE
           </button>
         </div>

@@ -16,12 +16,12 @@ const Footer = () => {
     <footer className="w-full bg-[#0F0701]">
       <div className="center justify-around gap-20 flex-wrap max-w-[1440px] mx-auto py-36 px-[200px] max-[1460px]:px-[100px] max-[1190px]:px-[50px]">
         <div>
-          <h2 className="text-[26px] font-medium mb-2 max-[1090px]:text-center">AYGI AI</h2>
-          <p className="leading-[22px] max-w-[310px] mb-[37px] max-[1090px]:text-center">
+          <h2 className="text-white text-[26px] font-medium mb-2 max-[1090px]:text-center">AYGI AI</h2>
+          <p className="text-white leading-[22px] max-w-[310px] mb-[37px] max-[1090px]:text-center">
             The best free plant identifier app for plant lovers and experts
           </p>
           <div className="flex justify-center flex-wrap gap-4">
-            <button className="center p-[10px] border rounded-md font-medium gap-2 tracking-wider">
+            <button className="center text-white p-[10px] border rounded-md font-medium gap-2 tracking-wider">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -61,7 +61,7 @@ const Footer = () => {
               </svg>
               Google Play
             </button>
-            <button className="center p-[10px] border rounded-md font-medium gap-2 tracking-wider">
+            <button className="center text-white p-[10px] border rounded-md font-medium gap-2 tracking-wider">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
@@ -131,19 +131,19 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex justify-center flex-wrap gap-6 py-2">
-            <button className="p-2 bg-transparent hover:text-[#318C21]">
+            <button className="text-white p-2 bg-transparent hover:text-[#318C21]">
               Privacy and policy
             </button>
             <div className="w-[1px] h-[39px] bg-[#68bb59]"></div>
-            <button className="p-2 bg-transparent hover:text-[#318C21]">
+            <button className="text-white p-2 bg-transparent hover:text-[#318C21]">
               Terms of Use
             </button>
             <div className="w-[1px] h-[39px] bg-[#68bb59]"></div>
-            <button className="p-2 bg-transparent hover:text-[#318C21]">
+            <button className="text-white p-2 bg-transparent hover:text-[#318C21]">
               FAQ
             </button>
             <div className="w-[1px] h-[39px] bg-[#68bb59]"></div>
-            <button className="p-2 bg-transparent hover:text-[#318C21]">
+            <button className="text-white p-2 bg-transparent hover:text-[#318C21]">
               Contact us
             </button>
           </div>

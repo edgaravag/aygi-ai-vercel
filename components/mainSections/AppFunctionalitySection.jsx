@@ -53,17 +53,17 @@ const AppFunctionalitySection = () => {
                   />
                 </div>
                 <div className="flex flex-col gap-4">
-                  <h2 className="font-semibold text-[28px] leading-9 text-center max-w-full md:max-w-[437px] md:text-start">
+                  <h2 className="text-white font-semibold text-[28px] leading-9 text-center max-w-full md:max-w-[437px] md:text-start">
                     {info.title}
                   </h2>
-                  <p className="text-center leading-7 md:text-justify">
+                  <p className="text-white text-center leading-7 md:text-justify">
                     {info.description}
                   </p>
                 </div>
               </div>
             );
           })}
-          <button className="center self-center md:self-end bg-[#0F0701] w-[150px] h-11 p-[10px] font-medium tracking-wider rounded-md">
+          <button className="center self-center text-white md:self-end bg-[#0F0701] w-[150px] h-11 p-[10px] font-medium tracking-wider rounded-md">
             Let's Start
           </button>
         </div>

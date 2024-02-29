@@ -2,11 +2,11 @@ const AppStoresSection = () => {
   return (
     <section className="w-full center bg-[#0f0701] py-16 px-5">
       <div className="flex flex-col gap-8">
-        <h2 className="text-[26px] font-medium text-center">
+        <h2 className="text-white text-[26px] font-medium text-center">
           Start your plant care journey on
         </h2>
         <div className="flex justify-center flex-wrap gap-4">
-          <button className="center p-[10px] border rounded-md font-medium gap-2 tracking-wider">
+          <button className="center text-white  p-[10px] border rounded-md font-medium gap-2 tracking-wider">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
@@ -46,7 +46,7 @@ const AppStoresSection = () => {
             </svg>
             Google Play
           </button>
-          <button className="center p-[10px] border rounded-md font-medium gap-2 tracking-wider">
+          <button className="center text-white p-[10px] border rounded-md font-medium gap-2 tracking-wider">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="22"

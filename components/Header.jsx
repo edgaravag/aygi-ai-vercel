@@ -12,13 +12,13 @@ const Header = () => {
         </div>
         <div className="flex gap-4">
           <button
-            className="center px-[24px] py-[10px] bg-[#68bb59] rounded-md font-medium font-aygiFont"
+            className="center px-[24px] py-[10px] text-white bg-[#68bb59] rounded-md font-medium font-aygiFont"
             onClick={() => setShowSignIn(true)}
           >
             Sign In
           </button>
           <button 
-            className="center px-[24px] py-[10px] bg-transparent border border-[#68bb59] rounded-md font-medium font-aygiFont"
+            className="center px-[24px] py-[10px] text-white bg-transparent border border-[#68bb59] rounded-md font-medium font-aygiFont"
             onClick={() => setShowSignIn(true)}
           >
             Sign Up
