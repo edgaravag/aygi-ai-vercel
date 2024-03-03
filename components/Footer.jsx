@@ -10,7 +10,6 @@ import twitterIconHover from "../public/twitterIcon-hover.svg";
 import pinterestIconHover from "../public/pinterestIcon-hover.svg";
 import youtubeIconHover from "../public/youtubeIcon-hover.svg";
 import instagramIconHover from "../public/instagramIcon-hover.svg";
-
 const Footer = () => {
   return (
     <footer className="w-full bg-[#0F0701]">
@@ -110,23 +109,23 @@ const Footer = () => {
         <div className="flex flex-col items-end pt-8 gap-[43px] max-[1090px]:items-center">
           <div className="flex justify-center flex-wrap items-center gap-6">
             <div className="relative w-[55px] h-[55px] center">
-              <Image src={facebookIcon} alt="" className="absolute hover:opacity-0" />
+              <Image src={facebookIcon} alt="" className="absolute hover:opacity-1" />
               <Image src={facebookIconHover} alt="" className="opacity-0 hover:opacity-100" />
             </div>
             <div className="relative w-[55px] h-[55px] center">
-              <Image src={twitterIcon} alt="" className="absolute hover:opacity-0" />
+              <Image src={twitterIcon} alt="" className="absolute hover:opacity-1" />
               <Image src={twitterIconHover} alt="" className="opacity-0 hover:opacity-100"/>
             </div>
             <div className="relative w-[55px] h-[55px] center">
-              <Image src={pinterestIcon} alt="" className="absolute hover:opacity-0" />
+              <Image src={pinterestIcon} alt="" className="absolute hover:opacity-1" />
               <Image src={pinterestIconHover} alt="" className="opacity-0 hover:opacity-100" />
             </div>
             <div className="relative w-[55px] h-[55px] center">
-              <Image src={youtubeIcon} alt="" className="absolute hover:opacity-0" />
+              <Image src={youtubeIcon} alt="" className="absolute hover:opacity-1" />
               <Image src={youtubeIconHover} alt="" className="opacity-0 hover:opacity-100" />
             </div>
             <div className="relative w-[55px] h-[55px] center">
-              <Image src={instagramIcon} alt="" className="absolute hover:opacity-0" />
+              <Image src={instagramIcon} alt="" className="absolute hover:opacity-1" />
               <Image src={instagramIconHover} alt="" className="opacity-0 hover:opacity-100" />
             </div>
           </div>

@@ -9,9 +9,7 @@ export default function RootLayout({ children }) {
         <Header />
         <div className="bg-[#F7F7F7] flex justify-between">
           <LeftAside />
-          {/* <div className="pt-[97px]"> */}
           	{children}
-          {/* </div> */}
           <RightAside />
         </div>
       </body>
