@@ -4,19 +4,39 @@ import FacebookIcon from "../../../public/colorfullFacebookIcon.svg";
 import GoogleIcon from "../../../public/googleIcon.svg";
 import Image from "next/image";
 
-const SignUp = ({ onClose }) => {
+const SignUp = () => {
   return (
     <form className="mt-12" autoComplete="off">
-      <div className="relative">
-        <p className="absolute left-4 px-[5px] bg-white text-[#808080] text-xs">
-          Email
-        </p>
-        <input
-          type="email"
-          className="w-full mt-2 border border-[#808080] px-5 rounded-md h-[54px] text-black text-sm outline-none"
-        />
-        <button className="w-full center mt-6 h-[54px] bg-[#68bb59] font-medium rounded-md">
-          Send verification
+      <div className="flex flex-col gap-4 relative">
+        <div>
+          <p className="absolute left-4 px-[5px] bg-white text-[#808080] text-xs">
+            Your name
+          </p>
+          <input
+            type="email"
+            className="w-full mt-2 border border-[#808080] px-5 rounded-md h-[54px] text-black text-sm outline-none"
+          />
+        </div>
+        <div>
+          <p className="absolute left-4 px-[5px] bg-white text-[#808080] text-xs">
+            Email
+          </p>
+          <input
+            type="email"
+            className="w-full mt-2 border border-[#808080] px-5 rounded-md h-[54px] text-black text-sm outline-none"
+          />
+        </div>
+        <div>
+          <p className="absolute left-4 px-[5px] bg-white text-[#808080] text-xs">
+            Password
+          </p>
+          <input
+            type="email"
+            className="w-full mt-2 border border-[#808080] px-5 rounded-md h-[54px] text-black text-sm outline-none"
+          />
+        </div>
+        <button className="w-full center mt-6 h-[54px] text-white bg-[#68bb59] font-medium rounded-md">
+          Sign Up
         </button>
       </div>
       <div className="flex items-center justify-between mt-5">

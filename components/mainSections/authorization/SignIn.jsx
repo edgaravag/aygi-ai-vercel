@@ -4,7 +4,7 @@ import FacebookIcon from "../../../public/colorfullFacebookIcon.svg";
 import GoogleIcon from "../../../public/googleIcon.svg";
 import Image from "next/image";
 
-const SignIn = ({ onClose }) => {
+const SignIn = () => {
   return (
     <form className="mt-12" autoComplete="off">
       <div className="relative">
@@ -28,9 +28,10 @@ const SignIn = ({ onClose }) => {
             />
           </div>
         </div>
-        <button className="w-full center mt-6 h-[54px] bg-[#68bb59] font-medium rounded-md">
+        <button className="w-full center mt-6 h-[54px] text-white bg-[#68bb59] font-medium rounded-md">
           Sign in
         </button>
+        <button className="text-sm font-normal text-black opacity-60 mt-5">Forgot Password?</button>
       </div>
       <div className="flex items-center justify-between mt-5">
         <div className="border border-[#bfbfbf] w-[43%] h-[1.5px]"></div>

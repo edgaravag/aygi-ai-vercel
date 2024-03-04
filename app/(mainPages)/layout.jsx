@@ -5,9 +5,9 @@ import RightAside from "./components/RightAside";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-[#F7F7F7]">
         <Header />
-        <div className="bg-[#F7F7F7] flex justify-between">
+        <div className="flex justify-between">
           <LeftAside />
           	{children}
           <RightAside />

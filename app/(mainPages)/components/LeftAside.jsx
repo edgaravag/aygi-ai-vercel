@@ -1,16 +1,25 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 import UserImage from "../../../public/userIcon.png";
 import HomeIcon from "../../../public/homeIcon.png";
-import Link from "next/link";
+import PlantIcon from "../../../public/plant.png";
+import UserIcon from "../../../public/user.png";
+import FavoritesIcon from "../../../public/favorites.png";
+import DetectionsIcon from "../../../public/detections.png";
+import ChatIcon from "../../../public/aichat.png";
+import FaqIcon from "../../../public/faq.png";
+import LogoutIcon from "../../../public/logout.png";
+
 
 const leftSideLinks = [
-  { img: HomeIcon.src, title: "Profile", path: "/profile" },
-  { img: HomeIcon.src, title: "Dashboard", path: "/dashboard" },
-  { img: HomeIcon.src, title: "Favorites", path: "/favorites" },
-  { img: HomeIcon.src, title: "Detections", path: "/detections" },
-  { img: HomeIcon.src, title: "AI Chat", path: "/aichat" },
-  { img: HomeIcon.src, title: "FAQ", path: "/faq" },
+  { img: HomeIcon.src, title: "Home", path: "/home" },
+  { img: UserIcon.src, title: "Profile", path: "/profile" },
+  { img: PlantIcon.src, title: "Feed", path: "/feed" },
+  { img: FavoritesIcon.src, title: "Favorites", path: "/favorites" },
+  { img: DetectionsIcon.src, title: "Detections", path: "/detections" },
+  { img: ChatIcon.src, title: "AI Chat", path: "/aichat" },
+  { img: FaqIcon.src, title: "FAQ", path: "/faq" },
 ];
 
 const LeftAside = () => {
@@ -45,7 +54,7 @@ const LeftAside = () => {
         </div>
       </div>
       <button className="flex items-center gap-6 tracking-widest font-normal text-sm text-[#666666]">
-        <Image src={HomeIcon} alt="" width={30} height={30} />
+        <Image src={LogoutIcon} alt="" width={30} height={30} />
         Log Out
       </button>
     </aside>

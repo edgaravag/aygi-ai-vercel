@@ -20,7 +20,7 @@ const users = [
 const RightAside = () => {
   const [value, onChange] = useState(new Date());
   return (
-    <aside className='bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.10)] w-[280px] h-[750px] px-4 py-5'>
+    <aside className='bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.10)] w-[365px] h-[1360px] px-4 py-5'>
       <div className='flex flex-col gap-2'>
       <h2 className='font-medium'>Calendar</h2>
         <Calendar onChange={onChange} value={value} />
@@ -29,7 +29,7 @@ const RightAside = () => {
         {
           users.map((user) => {
             return (
-              <div key={user.name} className='flex items-center gap-3'>
+              <div key={user.name} className='flex items-center gap-[8px] w-[283px] h-[114px] top-[551px] left-[1116px]'>
                   <Image src={user.icon} alt='' width={25} height={25} />
                   <p>{user.name + ' ' + user.surname}</p>
               </div>
