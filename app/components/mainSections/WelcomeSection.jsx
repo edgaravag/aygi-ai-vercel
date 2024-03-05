@@ -1,5 +1,5 @@
 import React from "react";
-import ModbileImg from "../../public/mobile.png";
+import ModbileImg from "../../../public/mobile.png";
 import Image from "next/image";
 
 const WelcomeSection = () => {

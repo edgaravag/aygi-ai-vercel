@@ -1,9 +1,9 @@
 'use client'
 import React, { useState } from "react";
-import SearchIcon from "../../../public/graySearchIcon.svg";
 import DiaryImg from "../../../public/diaryImg.png";
 import Image from "next/image";
 import { CreateDiary } from "../components/CreateDiary";
+import DiaryPage from "../components/DiaryPage";
 
 const diaries = [
   {
@@ -57,22 +57,15 @@ const diaries = [
 ];
 
 const MyGarden = () => {
-  const [showDiary, setShowDiary] = useState(false)
+  const [showAddDiary, setShowAddDiary] = useState(false)
+  const [showDiaryPage, setShowDiaryPage] = useState(false)
 
   return (
-    <main className="w-full h-screen px-5 py-[52px]">
-      <div className="flex justify-between gap-6">
-        <div className="flex justify-between items-center py-3 px-3 gap-2 bg-white w-[360px] rounded-md">
-          <input
-            type="search"
-            placeholder="Find diary"
-            className="w-full outline-none placeholder:text-[#808080] placeholder:text-sm"
-          />
-          <Image src={SearchIcon} alt="" className="cursor-pointer" />
-        </div>
+    <main className="w-full h-screen px-16 py-[52px]">
+      <div className="flex justify-start">
         <div 
           className="center p-1 gap-2 cursor-pointer"
-          onClick={() => setShowDiary(!showDiary)}
+          onClick={() => setShowAddDiary(!showAddDiary)}
         >
           <p className="text-[#68BB59] font-normal">Add New Diary</p>
           <svg
@@ -110,7 +103,11 @@ const MyGarden = () => {
       <div className="center flex-wrap gap-4 mt-11">
         {diaries.map((diary) => {
           return (
-            <div key={diary.title} className="w-[344px]">
+            <div 
+              key={Math.random()} 
+              className="w-[344px] cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-200 active:scale-95"
+              onClick={() => setShowDiaryPage(true)}
+            >
               <div className="flex justify-between items-center gap-14">
                 <div className="flex flex-col p-3 pb-2">
                   <p className="font-medium tracking-wider">
@@ -176,7 +173,8 @@ const MyGarden = () => {
           );
         })}
       </div>
-      { showDiary && <CreateDiary onClose={() => setShowDiary(false)} /> }
+      { showAddDiary && <CreateDiary onClose={() => setShowAddDiary(false)} /> }
+      { showDiaryPage && <DiaryPage onClose={() => setShowDiaryPage(false)} /> }
     </main>
   );
 };

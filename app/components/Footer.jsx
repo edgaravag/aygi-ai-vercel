@@ -1,15 +1,15 @@
 import Image from "next/image";
 import React from "react";
-import facebookIcon from "../public/facebookIcon.svg";
-import twitterIcon from "../public/twitterIcon.svg";
-import pinterestIcon from "../public/pinterestIcon.svg";
-import youtubeIcon from "../public/youtubeIcon.svg";
-import instagramIcon from "../public/instagramIcon.svg";
-import facebookIconHover from "../public/facebookIcon-hover.svg";
-import twitterIconHover from "../public/twitterIcon-hover.svg";
-import pinterestIconHover from "../public/pinterestIcon-hover.svg";
-import youtubeIconHover from "../public/youtubeIcon-hover.svg";
-import instagramIconHover from "../public/instagramIcon-hover.svg";
+import facebookIcon from "../../public/facebookIcon.svg";
+import twitterIcon from "../../public/twitterIcon.svg";
+import pinterestIcon from "../../public/pinterestIcon.svg";
+import youtubeIcon from "../../public/youtubeIcon.svg";
+import instagramIcon from "../../public/instagramIcon.svg";
+import facebookIconHover from "../../public/facebookIcon-hover.svg";
+import twitterIconHover from "../../public/twitterIcon-hover.svg";
+import pinterestIconHover from "../../public/pinterestIcon-hover.svg";
+import youtubeIconHover from "../../public/youtubeIcon-hover.svg";
+import instagramIconHover from "../../public/instagramIcon-hover.svg";
 const Footer = () => {
   return (
     <footer className="w-full bg-[#0F0701]">

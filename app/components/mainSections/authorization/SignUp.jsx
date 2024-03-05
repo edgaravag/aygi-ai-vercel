@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import FacebookIcon from "../../../public/colorfullFacebookIcon.svg";
-import GoogleIcon from "../../../public/googleIcon.svg";
+import FacebookIcon from "../../../../public/colorfullFacebookIcon.svg";
+import GoogleIcon from "../../../../public/googleIcon.svg";
 import Image from "next/image";
 
 const SignUp = () => {

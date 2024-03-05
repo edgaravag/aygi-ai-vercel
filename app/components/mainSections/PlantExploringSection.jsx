@@ -1,7 +1,7 @@
 import React from "react";
-import TomatoImg from "../../public/tomato.png";
-import CornImg from "../../public/corn.png";
-import RaspberriesImg from "../../public/raspberries.png";
+import TomatoImg from "../../../public/tomato.png";
+import CornImg from "../../../public/corn.png";
+import RaspberriesImg from "../../../public/raspberries.png";
 import Image from "next/image";
 
 const plants = [

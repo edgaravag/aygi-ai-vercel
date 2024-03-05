@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import GetAdviceImg from "../../public/getAdvice.svg";
+import GetAdviceImg from "../../../public/getAdvice.svg";
 
 const GetAdviceSection = () => {
   return (

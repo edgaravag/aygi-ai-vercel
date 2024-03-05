@@ -1,8 +1,8 @@
 import React from "react";
-import FirstImage from "../../public/appDescriptionImg1.svg";
-import SecondImage from "../../public/appDescriptionImg2.svg";
-import ThirdImage from "../../public/appDescriptionImg3.svg";
-import FourthImage from "../../public/appDescriptionImg4.svg";
+import FirstImage from "../../../public/appDescriptionImg1.svg";
+import SecondImage from "../../../public/appDescriptionImg2.svg";
+import ThirdImage from "../../../public/appDescriptionImg3.svg";
+import FourthImage from "../../../public/appDescriptionImg4.svg";
 import Image from "next/image";
 
 const descriptionData = [

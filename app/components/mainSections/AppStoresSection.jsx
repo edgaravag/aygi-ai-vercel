@@ -1,3 +1,5 @@
+import React from "react";
+
 const AppStoresSection = () => {
   return (
     <section className="w-full center bg-[#0f0701] py-16 px-5">

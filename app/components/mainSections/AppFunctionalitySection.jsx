@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
-import FunctionalityImg1 from "../../public/functionalityImg1.svg";
-import FunctionalityImg2 from "../../public/functionalityImg2.svg";
-import FunctionalityImg3 from "../../public/functionalityImg3.svg";
-import FunctionalityImg4 from "../../public/functionalityImg4.svg";
+import FunctionalityImg1 from "../../../public/functionalityImg1.svg";
+import FunctionalityImg2 from "../../../public/functionalityImg2.svg";
+import FunctionalityImg3 from "../../../public/functionalityImg3.svg";
+import FunctionalityImg4 from "../../../public/functionalityImg4.svg";
 
 const infos = [
   {

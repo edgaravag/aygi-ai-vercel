@@ -6,7 +6,7 @@ const Header = () => {
   const [showSignIn, setShowSignIn] = useState(false);
   return (
     <>
-      <header className="fixed z-10 h-auto py-[25px] flex justify-around items-center flex-wrap bg-black w-full gap-x-12 gap-y-5 px-4 2xl:px-[237px] xl:px-32 lg:px-20 sm:justify-between sm:px-14">
+      <header className="fixed z-10 h-auto py-[29px] flex justify-around items-center flex-wrap bg-black w-full gap-x-12 gap-y-5 px-4 2xl:px-[237px] xl:px-32 lg:px-20 sm:justify-between sm:px-14">
         <div>
           <p className="text-white text-2xl font-bold font-aygiFont">AYGI AI</p>
         </div>
