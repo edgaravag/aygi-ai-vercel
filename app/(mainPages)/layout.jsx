@@ -7,7 +7,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="bg-[#F7F7F7]">
         <Header />
-        <div className="flex justify-between">
+        <div className="flex">
           <LeftAside />
           	{children}
           <RightAside />

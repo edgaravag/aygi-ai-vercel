@@ -24,37 +24,25 @@ const leftSideLinks = [
 
 const LeftAside = () => {
   return (
-    <aside className="flex flex-col justify-between bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.10)] w-[280px] h-[750px] px-6 py-5">
-      <div>
-        <div className="center flex-col gap-3">
-          <Image
-            src={UserImage}
-            alt="User Image"
-            width={40}
-            height={40}
-            className="rounded-full"
-          />
-          <p className="text-black">user.email@gmail.com</p>
-        </div>
-        <div className="flex flex-col gap-3 mt-7">
-          {leftSideLinks.map((link) => {
-            return (
-              <Link
-                href={link.path}
-                key={link.title}
-                className="flex items-center gap-6 cursor-pointer py-3"
-              >
-                <Image src={link.img} alt="" width={30} height={30} />
-                <p className="text-black font-normal tracking-wider">
-                  {link.title}
-                </p>
-              </Link>
-            );
-          })}
-        </div>
+    <aside className="flex flex-col justify-between bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.10)] min-w-[243px] h-[647px] px-6 pb-[25px] py-4">
+      <div className="flex flex-col gap-6">
+        {leftSideLinks.map((link) => {
+          return (
+            <Link
+              href={link.path}
+              key={link.title}
+              className="flex items-center gap-6 cursor-pointer py-3"
+            >
+              <Image src={link.img} alt="" width={24} height={24} />
+              <p className="text-black text-sm font-normal tracking-wider">
+                {link.title}
+              </p>
+            </Link>
+          );
+        })}
       </div>
       <button className="flex items-center gap-6 tracking-widest font-normal text-sm text-[#666666]">
-        <Image src={LogoutIcon} alt="" width={30} height={30} />
+        <Image src={LogoutIcon} alt="" width={24} height={24} />
         Log Out
       </button>
     </aside>
