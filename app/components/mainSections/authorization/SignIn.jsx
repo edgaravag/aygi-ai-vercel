@@ -42,7 +42,7 @@ const SignIn = ({ onClose }) => {
               setShowForgot(!showForgot);
             }}
           >
-            Forgot Password?
+            Forgot Password ?
           </button>
         </div>
         <div className="flex items-center justify-between mt-5">
