@@ -110,23 +110,23 @@ const Footer = () => {
           <div className="flex justify-center flex-wrap items-center gap-6">
             <div className="relative w-[55px] h-[55px] center">
               <Image src={facebookIcon} alt="" className="absolute hover:opacity-1" />
-              <Image src={facebookIconHover} alt="" className="opacity-0 hover:opacity-100" />
+              <Image src={facebookIconHover} alt="" className="opacity-0 hover:opacity-100 z-10" />
             </div>
             <div className="relative w-[55px] h-[55px] center">
               <Image src={twitterIcon} alt="" className="absolute hover:opacity-1" />
-              <Image src={twitterIconHover} alt="" className="opacity-0 hover:opacity-100"/>
+              <Image src={twitterIconHover} alt="" className="opacity-0 hover:opacity-100 z-10"/>
             </div>
             <div className="relative w-[55px] h-[55px] center">
               <Image src={pinterestIcon} alt="" className="absolute hover:opacity-1" />
-              <Image src={pinterestIconHover} alt="" className="opacity-0 hover:opacity-100" />
+              <Image src={pinterestIconHover} alt="" className="opacity-0 hover:opacity-100 z-10" />
             </div>
             <div className="relative w-[55px] h-[55px] center">
               <Image src={youtubeIcon} alt="" className="absolute hover:opacity-1" />
-              <Image src={youtubeIconHover} alt="" className="opacity-0 hover:opacity-100" />
+              <Image src={youtubeIconHover} alt="" className="opacity-0 hover:opacity-100 z-10" />
             </div>
             <div className="relative w-[55px] h-[55px] center">
               <Image src={instagramIcon} alt="" className="absolute hover:opacity-1" />
-              <Image src={instagramIconHover} alt="" className="opacity-0 hover:opacity-100" />
+              <Image src={instagramIconHover} alt="" className="opacity-0 hover:opacity-100 z-10" />
             </div>
           </div>
           <div className="flex justify-center flex-wrap gap-6 py-2">

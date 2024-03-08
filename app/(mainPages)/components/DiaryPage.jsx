@@ -37,7 +37,7 @@ const DiaryPage = ({ onClose }) => {
       className="center z-50 bg-black bg-opacity-60 fixed top-0 left-0 right-0 bottom-0"
       onClick={handleClose}
     >
-      <div className="w-[816px] h-[889px] px-16 py-8 bg-white rounded-md overflow-y-scroll">
+      <div className="w-[816px] h-[909px] px-16 py-8 bg-white rounded-md overflow-y-scroll">
         <div className="flex items-center justify-between">
           <h2 className="font-semibold tracking-widest">
             Information about Pepper Plant
