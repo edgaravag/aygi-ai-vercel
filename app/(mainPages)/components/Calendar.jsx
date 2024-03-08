@@ -1,6 +1,6 @@
 "use client";
-import { Menu, Transition } from "@headlessui/react";
-import { DotsVerticalIcon } from "@heroicons/react/outline";
+// import { Menu, Transition } from "@headlessui/react";
+// import { DotsVerticalIcon } from "@heroicons/react/outline";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import {
   add,
@@ -9,57 +9,55 @@ import {
   format,
   getDay,
   isEqual,
-  isSameDay,
   isSameMonth,
   isToday,
   parse,
-  parseISO,
   startOfToday,
 } from "date-fns";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 
-const meetings = [
-  {
-    id: 1,
-    name: "Leslie Alexander",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    startDatetime: "2022-05-11T13:00",
-    endDatetime: "2022-05-11T14:30",
-  },
-  {
-    id: 2,
-    name: "Michael Foster",
-    imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    startDatetime: "2022-05-20T09:00",
-    endDatetime: "2022-05-20T11:30",
-  },
-  {
-    id: 3,
-    name: "Dries Vincent",
-    imageUrl:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    startDatetime: "2022-05-20T17:00",
-    endDatetime: "2022-05-20T18:30",
-  },
-  {
-    id: 4,
-    name: "Leslie Alexander",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    startDatetime: "2022-06-09T13:00",
-    endDatetime: "2022-06-09T14:30",
-  },
-  {
-    id: 5,
-    name: "Michael Foster",
-    imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    startDatetime: "2022-05-13T14:00",
-    endDatetime: "2022-05-13T14:30",
-  },
-];
+// const meetings = [
+//   {
+//     id: 1,
+//     name: "Leslie Alexander",
+//     imageUrl:
+//       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+//     startDatetime: "2022-05-11T13:00",
+//     endDatetime: "2022-05-11T14:30",
+//   },
+//   {
+//     id: 2,
+//     name: "Michael Foster",
+//     imageUrl:
+//       "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+//     startDatetime: "2022-05-20T09:00",
+//     endDatetime: "2022-05-20T11:30",
+//   },
+//   {
+//     id: 3,
+//     name: "Dries Vincent",
+//     imageUrl:
+//       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+//     startDatetime: "2022-05-20T17:00",
+//     endDatetime: "2022-05-20T18:30",
+//   },
+//   {
+//     id: 4,
+//     name: "Leslie Alexander",
+//     imageUrl:
+//       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+//     startDatetime: "2022-06-09T13:00",
+//     endDatetime: "2022-06-09T14:30",
+//   },
+//   {
+//     id: 5,
+//     name: "Michael Foster",
+//     imageUrl:
+//       "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+//     startDatetime: "2022-05-13T14:00",
+//     endDatetime: "2022-05-13T14:30",
+//   },
+// ];
 
 let colStartClasses = [
   "",
@@ -132,16 +130,14 @@ const Calendar = () => {
         {days.map((day, dayIdx) => (
           <div
             key={day.toString()}
-            className={classNames(
-              dayIdx === 0 && colStartClasses[getDay(day)]
-            )}
+            className={classNames(dayIdx === 0 && colStartClasses[getDay(day)])}
           >
             <button
               type="button"
               onClick={() => setSelectedDay(day)}
               className={classNames(
                 isEqual(day, selectedDay) && "text-white",
-                !isEqual(day, selectedDay) && isToday(day) && "text-[#333333]",
+                !isEqual(day, selectedDay) && isToday(day) && "text-white bg-[#68BB59]",
                 !isEqual(day, selectedDay) &&
                   !isToday(day) &&
                   isSameMonth(day, firstDayCurrentMonth) &&
@@ -152,21 +148,24 @@ const Calendar = () => {
                   "text-gray-400",
                 isEqual(day, selectedDay) && isToday(day) && "bg-[#68BB59]",
                 isEqual(day, selectedDay) && !isToday(day) && "bg-[#0C41FF]",
-                !isEqual(day, selectedDay) && "hover:bg-gray-200",
+                !isEqual(day, selectedDay) && !isToday(day) && "hover:bg-gray-200",
                 (isEqual(day, selectedDay) || isToday(day)) && "font-semibold",
-                "mx-auto flex h-8 w-8 items-center justify-center rounded-full"
+                "mx-auto flex h-9 w-7 items-center justify-center rounded-full"
               )}
             >
-              <time dateTime={format(day, "yyyy-MM-dd")} className=" text-sm font-medium">
+              <time
+                dateTime={format(day, "yyyy-MM-dd")}
+                className=" text-sm font-medium"
+              >
                 {format(day, "d")}
               </time>
             </button>
 
-            <div className="w-1 h-1 mx-auto mt-1">
+            {/* <div className="w-1 h-1 mx-auto mt-1">
               {meetings.some((meeting) =>
                 isSameDay(parseISO(meeting.startDatetime), day)
               ) && <div className="w-1 h-1 rounded-full bg-sky-500"></div>}
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import DiaryImg from "../../../public/diaryImg.png";
 import Image from "next/image";
@@ -38,32 +38,16 @@ const diaries = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
     isPrivate: true,
   },
-  {
-    diaryName: "Diary Name",
-    creationDate: "05 March",
-    img: DiaryImg.src,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-    isPrivate: false,
-  },
-  {
-    diaryName: "Diary Name",
-    creationDate: "05 March",
-    img: DiaryImg.src,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-    isPrivate: false,
-  },
 ];
 
 const MyGarden = () => {
-  const [showAddDiary, setShowAddDiary] = useState(false)
-  const [showDiaryPage, setShowDiaryPage] = useState(false)
+  const [showAddDiary, setShowAddDiary] = useState(false);
+  const [showDiaryPage, setShowDiaryPage] = useState(false);
 
   return (
     <main className="w-full h-screen px-16 py-[52px]">
       <div className="flex justify-start">
-        <div 
+        <div
           className="center p-1 gap-2 cursor-pointer"
           onClick={() => setShowAddDiary(!showAddDiary)}
         >
@@ -103,8 +87,8 @@ const MyGarden = () => {
       <div className="center flex-wrap gap-4 mt-11">
         {diaries.map((diary) => {
           return (
-            <div 
-              key={Math.random()} 
+            <div
+              key={Math.random()}
               className="w-[344px] cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-200 active:scale-95"
               onClick={() => setShowDiaryPage(true)}
             >
@@ -173,8 +157,15 @@ const MyGarden = () => {
           );
         })}
       </div>
-      { showAddDiary && <CreateDiary onClose={() => setShowAddDiary(false)} /> }
-      { showDiaryPage && <DiaryPage onClose={() => setShowDiaryPage(false)} /> }
+      <div className="flex justify-end items-center mt-9 text-sm font-semibold gap-[20px]">
+        <button>Previous</button>
+        <div className="p-2 bg-[#68BB59] bg-opacity-20 rounded-md cursor-pointer">1</div>
+        <div className="p-2 cursor-pointer">2</div>
+        <div className="p-2 cursor-pointer">3</div>
+        <button>Next</button>
+      </div>
+      {showAddDiary && <CreateDiary onClose={() => setShowAddDiary(false)} />}
+      {showDiaryPage && <DiaryPage onClose={() => setShowDiaryPage(false)} />}
     </main>
   );
 };
