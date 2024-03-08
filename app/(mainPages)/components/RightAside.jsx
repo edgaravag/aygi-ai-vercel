@@ -1,15 +1,14 @@
 "use client";
-// import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import Image from "next/image";
-// import "react-calendar/dist/Calendar.css";
 import UserIcon from "../../../public/friendIcon.png";
 import EditIcon from '../../../public/editIcon.png'
+import InfoIcon from '../../../public/info.png'
 import SunIcon from '../../../public/sunIcon.png'
 import SunIconCore from '../../../public/sunIconCore.png'
 import Calendar from "./Calendar";
-
-// const Calendar = dynamic(() => import("react-calendar"), { ssr: false });
+import CountriesList from "./CountriesList";
+import Info from "./Info";
 
 const users = [
   {
@@ -50,10 +49,12 @@ const users = [
 ];
 
 const RightAside = () => {
-  // const [value, onChange] = useState(new Date());
+  const [showCountries, setShowCountries] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
+
   return (
-    <aside className="bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.10)] min-w-[365px] h-[1360px] px-[41px] py-5">
-      <div className="flex justify-between border-b border-[#D9D9D9] pb-4">
+    <aside className="relative bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.10)] min-w-[365px] h-[1360px] px-[41px] py-5">
+      <div className="flex justify-between pb-4">
         <div className="flex gap-2">
           <div className="center gap-[7px]">
             <div className="relative">
@@ -65,12 +66,24 @@ const RightAside = () => {
           <p className="text-lg font-normal">Yerevan</p>
         </div>
         <div className="center gap-2 cursor-pointer">
-          <div>
-            <Image src={EditIcon} alt="" />
+          <div className="flex gap-2" onClick={() => setShowCountries(!showCountries)}>
+            <button>
+              <Image src={EditIcon} alt="" />
+            </button>
+            <button className="center font-normal text-[#68BB59]">
+              Edit
+            </button>
           </div>
-          <button className="center font-normal text-[#68BB59]">Edit</button>
+          <div 
+            className="relative z-50" 
+            onClick={() => setShowInfo(!showInfo)}
+          >
+            <Image src={InfoIcon} alt="" style={{ width: 'auto', height: 'auto' }} />
+          </div>
         </div>
       </div>
+      {showCountries && <CountriesList />}
+      {showInfo && <Info />}
       <div className="mt-6">
         <Calendar />
       </div>
@@ -92,7 +105,7 @@ const RightAside = () => {
                 </div>
               </div>
               <div className="flex justify-end mt-2">
-                <button className="center  bg-[#68BB59] text-white font-normal text-sm px-[15px] py-[1px] rounded-md">
+                <button className="center bg-[#68BB59] text-white font-normal text-sm px-[15px] py-[1px] rounded-md">
                   View
                 </button>
               </div>
