@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import DiaryImg from "../../../public/diaryImg.png";
 import Image from "next/image";
-import { CreateDiary } from "../components/CreateDiary";
+// import { CreateDiary } from "../components/CreateDiary";
 import DiaryPage from "../components/DiaryPage";
 
 const diaries = [

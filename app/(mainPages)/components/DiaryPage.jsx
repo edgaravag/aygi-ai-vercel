@@ -39,45 +39,11 @@ const DiaryPage = ({ onClose }) => {
       className="center z-50 bg-black bg-opacity-60 fixed top-0 left-0 right-0 bottom-0"
       onClick={handleClose}
     >
-<<<<<<< HEAD
       <div onClick={(e) => e.stopPropagation()}>
         <div className="relative w-[816px] h-[889px] px-16 py-8 bg-white rounded-md ">
           <button
             className="absolute z-[100] center w-[41px] h-[41px] top-[-18px] right-[-18px] bg-[#68bb59] rounded-full"
             onClick={handleClose}
-=======
-      <div className="w-[816px] h-[95%] px-16 py-8 bg-white rounded-md overflow-y-scroll">
-        <div className="flex items-center justify-between">
-          <h2 className="font-semibold tracking-widest">
-            Information about Pepper Plant
-          </h2>
-          <div className="cursor-pointer">
-            <Image src={MoreIcon} alt="" width={24} height={6} />
-          </div>
-        </div>
-        <div>
-          <p className="text-[#808080] leading-[22px] text-justify mt-4">
-            Unite with a global network of dedicated gardeners who are as
-            passionate about plants as you are. From beginners to seasoned
-            experts, our community offers a platform to connect, learn, and grow
-            together. Engage in discussions, share your gardening achievements,
-            and seek advice from experienced gardeners across continents.
-            Together, we nurture a thriving community that celebrates the beauty
-            and joy of gardening.
-          </p>
-        </div>
-        <div className="mt-4">
-          <Image src={DiaryImage} alt="" />
-        </div>
-        <div className="flex justify-start items-center p-1 gap-2 mt-6 cursor-pointer">
-          <p className="text-[#68BB59] font-normal">Add New Diary</p>
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
->>>>>>> 8a1fab488d4bce0a2f948ece9ff07324f1630618
           >
             <Image src={CloseIcon} alt="" />
           </button>
@@ -85,7 +51,10 @@ const DiaryPage = ({ onClose }) => {
             <h2 className="font-semibold tracking-widest">
               Information about Pepper Plant
             </h2>
-            <div className="flex gap-2">
+            <div
+              className="flex gap-2"
+              onClick={() => setShowCountries(!showCountries)}
+            >
               <button>
                 <Image src={EditIcon} alt="" />
               </button>
@@ -108,57 +77,62 @@ const DiaryPage = ({ onClose }) => {
           <div className="mt-4">
             <Image src={DiaryImage} alt="" />
           </div>
-          <div className="flex justify-between items-center gap-2 my-6 cursor-pointer">
-            <div className="center gap-2">
-              <p className="text-[#68BB59] font-normal">Add New Post</p>
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  id="Ellipse 44"
-                  cx="20"
-                  cy="20"
-                  r="19.5"
-                  stroke="#68BB59"
-                />
-                <foreignObject x="10" y="10" width="20" height="20">
-                  <div xmlns="http://www.w3.org/1999/xhtml">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g id="content/add_24px">
-                        <path
-                          id=" &#226;&#134;&#179;Color"
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M15.8827 10.7518H11.1769V15.2616H9.60823V10.7518H4.90234V9.24857H9.60823V4.73877H11.1769V9.24857H15.8827V10.7518Z"
-                          fill="#68BB59"
-                        />
-                      </g>
-                    </svg>
-                  </div>
-                </foreignObject>
-              </svg>
+          <div className="flex items-center justify-between my-[20px]">
+            <div className="flex">
+              <div className="center p-1 gap-2 cursor-pointer">
+                <p className="text-[#68BB59] font-normal">Add New Post</p>
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    id="Ellipse 44"
+                    cx="20"
+                    cy="20"
+                    r="19.5"
+                    stroke="#68BB59"
+                  />
+                  <foreignObject x="10" y="10" width="20" height="20">
+                    <div xmlns="http://www.w3.org/1999/xhtml">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g id="content/add_24px">
+                          <path
+                            id=" &#226;&#134;&#179;Color"
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M15.8827 10.7518H11.1769V15.2616H9.60823V10.7518H4.90234V9.24857H9.60823V4.73877H11.1769V9.24857H15.8827V10.7518Z"
+                            fill="#68BB59"
+                          />
+                        </g>
+                      </svg>
+                    </div>
+                  </foreignObject>
+                </svg>
+              </div>
             </div>
             <label className="center gap-2">
               <div className="center rounded-full">
-                <input type="checkbox" className="w-[20px] h-[20px] rounded-full" />
+                <input
+                  type="checkbox"
+                  className="w-[20px] h-[20px] rounded-full"
+                />
               </div>
               Make Private
             </label>
           </div>
           <div className="flex flex-col gap-6">
-            {posts.map((post) => {
+            {posts.map((post, index) => {
               return (
-                <div key={Math.random()}>
+                <div key={index}>
                   <div className="flex justify-between items-center">
                     <div className="flex items-center justify-start gap-4">
                       <div>
