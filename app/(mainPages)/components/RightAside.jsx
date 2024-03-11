@@ -76,13 +76,14 @@ const RightAside = () => {
           </div>
           <div 
             className="relative z-50" 
-            onClick={() => setShowInfo(!showInfo)}
+            onMouseEnter={() => setShowInfo(true)}
+            onMouseLeave={() => setShowInfo(false)}
           >
             <Image src={InfoIcon} alt="" style={{ width: 'auto', height: 'auto' }} />
           </div>
         </div>
       </div>
-      {showCountries && <CountriesList />}
+      {showCountries && <CountriesList setShowCountries={setShowCountries} />}
       {showInfo && <Info />}
       <div className="mt-6">
         <Calendar />

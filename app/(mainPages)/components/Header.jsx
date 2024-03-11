@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SearchIcon from "../../../public/search.png";
 import NotificationIcon from "../../../public/notification.png";
-import UserIcon from "../../../public/userIcon.png";
+import UserIcon from "../../../public/headerUserIcon.png";
 
 const Header = () => {
   const [showInput, setShowInput] = useState(false);

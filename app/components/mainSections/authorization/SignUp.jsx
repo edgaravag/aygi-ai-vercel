@@ -1,41 +1,97 @@
 "use client";
 import React from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 import FacebookIcon from "../../../../public/colorfullFacebookIcon.svg";
 import GoogleIcon from "../../../../public/googleIcon.svg";
 import Image from "next/image";
 
+const handleSignUp = (data) => {
+  axios.post(`${process.env.NEXT_PUBLIC_AUTH_URL}/signup`, data)
+  .catch((error) => {
+    console.error(error)
+    throw new Error('Registration is failed')
+  }) 
+}
+
+const onSubmitHandler = async (data) => {
+  try {
+    await handleSignUp(data)
+  } catch (error) {
+    console.error(error)
+    throw new Error('Registration is failed')
+  }
+  console.log(data)
+}
+
+
 const SignUp = () => {
+  const { 
+    register,
+    handleSubmit,
+    formState: { errors } 
+  } = useForm();
+
   return (
-    <form className="mt-12" autoComplete="off">
+    <form 
+      className="mt-12" 
+      autoComplete="off"
+      onSubmit={handleSubmit(onSubmitHandler)}
+    >
+      
       <div className="flex flex-col gap-4 relative">
         <div>
-          <p className="absolute left-4 px-[5px] bg-white text-[#808080] text-xs">
+          <p className={`absolute left-4 px-[5px] bg-white ${errors.username ? "text-[#C31031]" : "text-[#808080]"} text-xs`}>
             Your name
           </p>
           <input
-            type="email"
-            className="w-full mt-2 border border-[#808080] px-5 rounded-md h-[54px] text-black text-sm outline-none"
+            {...register("username", {
+              required: "Username is required"
+            })}
+            type="text"
+            className={`w-full mt-2 border ${errors.username ? "border-[#C31031]" : "border-[#808080]"} px-5 rounded-md h-[54px] text-black text-sm outline-none`}
           />
+          {errors.username && (
+            <p className="text-[#C31031] text-xs mt-[5px]">{errors.username.message}</p>
+          )}
         </div>
         <div>
-          <p className="absolute left-4 px-[5px] bg-white text-[#808080] text-xs">
+          <p className={`absolute left-4 px-[5px] bg-white ${errors.email ? "text-[#C31031]" : "text-[#808080]"} text-xs`}>
             Email
           </p>
           <input
+            {...register("email", {
+              required: "Email is required",
+              pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+            })}
             type="email"
-            className="w-full mt-2 border border-[#808080] px-5 rounded-md h-[54px] text-black text-sm outline-none"
+            className={`w-full mt-2 border ${errors.email ? "border-[#C31031]" : "border-[#808080]"} px-5 rounded-md h-[54px] text-black text-sm outline-none`}
           />
+          {errors.email && (
+            <p className="text-[#C31031] text-xs mt-[5px]">{errors.email.message}</p>
+          )}
         </div>
         <div>
-          <p className="absolute left-4 px-[5px] bg-white text-[#808080] text-xs">
+          <p className={`absolute left-4 px-[5px] bg-white ${errors.password ? "text-[#C31031]" : "text-[#808080]"} text-xs`}>
             Password
           </p>
           <input
-            type="email"
-            className="w-full mt-2 border border-[#808080] px-5 rounded-md h-[54px] text-black text-sm outline-none"
+            {...register("password", {
+              required: "Password is required",
+              minLength: 6,
+            })}
+            type="password"
+            className={`w-full mt-2 border ${errors.password ? "border-[#C31031]" : "border-[#808080]"} px-5 rounded-md h-[54px] text-black text-sm outline-none`}
           />
+          {errors.password && (
+            <p className="text-[#C31031] text-xs mt-[5px]">{errors.password.message}</p>
+          )}
         </div>
-        <button className="w-full center mt-6 h-[54px] text-white bg-[#68bb59] font-medium rounded-md">
+        <button 
+          type="submit"
+          className="w-full center mt-6 h-[54px] text-white bg-[#68bb59] font-medium rounded-md"
+        >
           Sign Up
         </button>
       </div>

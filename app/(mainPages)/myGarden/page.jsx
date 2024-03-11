@@ -41,57 +41,67 @@ const diaries = [
 ];
 
 const MyGarden = () => {
-  const [showAddDiary, setShowAddDiary] = useState(false);
+  // const [showAddDiary, setShowAddDiary] = useState(false);
   const [showDiaryPage, setShowDiaryPage] = useState(false);
 
   return (
-    <main className="w-full h-screen px-16 py-[52px]">
-      <div className="flex justify-start">
-        <div
-          className="center p-1 gap-2 cursor-pointer"
-          onClick={() => setShowAddDiary(!showAddDiary)}
-        >
-          <p className="text-[#68BB59] font-normal">Add New Diary</p>
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle id="Ellipse 44" cx="20" cy="20" r="19.5" stroke="#68BB59" />
-            <foreignObject x="10" y="10" width="20" height="20">
-              <div xmlns="http://www.w3.org/1999/xhtml">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g id="content/add_24px">
-                    <path
-                      id=" &#226;&#134;&#179;Color"
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M15.8827 10.7518H11.1769V15.2616H9.60823V10.7518H4.90234V9.24857H9.60823V4.73877H11.1769V9.24857H15.8827V10.7518Z"
-                      fill="#68BB59"
-                    />
-                  </g>
-                </svg>
-              </div>
-            </foreignObject>
-          </svg>
-        </div>
-      </div>
-      <div className="center flex-wrap gap-4 mt-11">
-        {diaries.map((diary) => {
+    <main className="w-full h-screen px-16 min-[1800px]:px-48 py-[52px]">
+      <div className="center flex-wrap gap-4">
+        {diaries.map((diary, index) => {
           return (
             <div
-              key={Math.random()}
-              className="w-[344px] cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-200 active:scale-95"
+              key={index}
+              className={`${
+                index !== 0 && "mt-[70px]"
+              } w-[344px] cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-200 active:scale-95`}
               onClick={() => setShowDiaryPage(true)}
             >
+              {index === 0 && (
+                <div className="flex mb-6">
+                  <div
+                    className="center p-1 gap-2 cursor-pointer"
+                    // onClick={() => setShowAddDiary(!showAddDiary)}
+                  >
+                    <p className="text-[#68BB59] font-normal">Add New Diary</p>
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        id="Ellipse 44"
+                        cx="20"
+                        cy="20"
+                        r="19.5"
+                        stroke="#68BB59"
+                      />
+                      <foreignObject x="10" y="10" width="20" height="20">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g id="content/add_24px">
+                              <path
+                                id=" &#226;&#134;&#179;Color"
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M15.8827 10.7518H11.1769V15.2616H9.60823V10.7518H4.90234V9.24857H9.60823V4.73877H11.1769V9.24857H15.8827V10.7518Z"
+                                fill="#68BB59"
+                              />
+                            </g>
+                          </svg>
+                        </div>
+                      </foreignObject>
+                    </svg>
+                  </div>
+                </div>
+              )}
               <div className="flex justify-between items-center gap-14">
                 <div className="flex flex-col p-3 pb-2">
                   <p className="font-medium tracking-wider">
@@ -159,12 +169,14 @@ const MyGarden = () => {
       </div>
       <div className="flex justify-end items-center mt-9 text-sm font-semibold gap-[20px]">
         <button>Previous</button>
-        <div className="p-2 bg-[#68BB59] bg-opacity-20 rounded-md cursor-pointer">1</div>
+        <div className="p-2 bg-[#68BB59] bg-opacity-20 rounded-md cursor-pointer">
+          1
+        </div>
         <div className="p-2 cursor-pointer">2</div>
         <div className="p-2 cursor-pointer">3</div>
         <button>Next</button>
       </div>
-      {showAddDiary && <CreateDiary onClose={() => setShowAddDiary(false)} />}
+      {/* {showAddDiary && <CreateDiary onClose={() => setShowAddDiary(false)} />} */}
       {showDiaryPage && <DiaryPage onClose={() => setShowDiaryPage(false)} />}
     </main>
   );
