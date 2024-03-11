@@ -7,7 +7,6 @@ import NotificationIcon from "../../../public/notification.png";
 import UserIcon from "../../../public/headerUserIcon.png";
 
 const Header = () => {
-  const [showInput, setShowInput] = useState(false);
   return (
     <header className="sticky h-auto py-[26px] flex justify-around items-center flex-wrap bg-black w-full gap-x-12 gap-y-5 px-4 2xl:px-[237px] xl:px-32 lg:px-16 lg:justify-between sm:px-14">
       <div>
@@ -27,15 +26,13 @@ const Header = () => {
             width={18}
             height={18}
             style={{ width: "auto", height: "auto" }}
-            onClick={() => setShowInput(!showInput)}
           />
-          {showInput && (
             <input
               type="search"
               className="h-8 rounded-md px-3 outline-none"
               placeholder="Search"
             />
-          )}
+          
         </button>
         <button className="center">
           <Image
