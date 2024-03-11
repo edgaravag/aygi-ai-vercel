@@ -1,10 +1,12 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import MoreIcon from "../../../public/moreIcon.png";
 import DiaryImage from "../../../public/diaryPageImage.png";
 import DiaryPostImage from "../../../public/diaryPost.png";
 import EditIcon from "../../../public/editIcon.png";
 import CloseIcon from "../../../public/closeIcon.svg";
+import OpenCard from "./OpenCard";
 
 const posts = [
   {
@@ -31,6 +33,8 @@ const posts = [
 ];
 
 const DiaryPage = ({ onClose }) => {
+  const [showOpenCard, setShowOpenCard] = useState(false);
+
   const handleClose = () => {
     onClose();
   };
@@ -40,7 +44,7 @@ const DiaryPage = ({ onClose }) => {
       onClick={handleClose}
     >
       <div onClick={(e) => e.stopPropagation()}>
-        <div className="relative w-[816px] h-[889px] px-16 py-8 bg-white rounded-md ">
+        <div className={`relative w-[816px] h-[889px] px-16 py-8 bg-white rounded-md ${showOpenCard && "hidden"}`}>
           <button
             className="absolute z-[100] center w-[41px] h-[41px] top-[-18px] right-[-18px] bg-[#68bb59] rounded-full"
             onClick={handleClose}
@@ -51,10 +55,7 @@ const DiaryPage = ({ onClose }) => {
             <h2 className="font-semibold tracking-widest">
               Information about Pepper Plant
             </h2>
-            <div
-              className="flex gap-2"
-              onClick={() => setShowCountries(!showCountries)}
-            >
+            <div className="flex gap-2">
               <button>
                 <Image src={EditIcon} alt="" />
               </button>
@@ -149,7 +150,13 @@ const DiaryPage = ({ onClose }) => {
                       <Image src={MoreIcon} alt="" className="cursor-pointer" />
                     </div>
                   </div>
-                  <div className="bg-[#F6F6F6] py-[10px] px-2 mt-2">
+                  <div
+                    className="bg-[#F6F6F6] py-[10px] px-2 mt-2 cursor-pointer"
+                    onClick={() => {
+                      setShowOpenCard(!showOpenCard);
+                      // handleClose()
+                    }}
+                  >
                     <p className="text-sm font-normal">{post.comment}</p>
                   </div>
                 </div>
@@ -158,6 +165,7 @@ const DiaryPage = ({ onClose }) => {
           </div>
         </div>
       </div>
+      {showOpenCard && <OpenCard onClose={onClose} />}
     </div>
   );
 };
