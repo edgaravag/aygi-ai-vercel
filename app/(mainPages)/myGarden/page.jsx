@@ -1,9 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import DiaryImg from "../../../public/diaryImg.png";
 import Image from "next/image";
-// import { CreateDiary } from "../components/CreateDiary";
 import DiaryPage from "../components/DiaryPage";
+// import { CreateDiary } from "../components/CreateDiary";
+import DiaryImg from "../../../public/diaryImg.png";
+import EditIcon from "../../../public/grayEditIcon.svg";
+import EditDiary from "../components/EditDiary";
 
 const diaries = [
   {
@@ -41,8 +43,8 @@ const diaries = [
 ];
 
 const MyGarden = () => {
-  // const [showAddDiary, setShowAddDiary] = useState(false);
   const [showDiaryPage, setShowDiaryPage] = useState(false);
+  const [showEditDiary, setShowEditDiary] = useState(false);
 
   return (
     <main className="w-full h-screen px-16 min-[1800px]:px-48 py-[52px]">
@@ -111,26 +113,14 @@ const MyGarden = () => {
                     {diary.creationDate}
                   </p>
                 </div>
-                <div className="cursor-pointer">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <g clipPath="url(#clip0_3369_7837)">
-                      <path
-                        d="M11.1159 3.02331L1.21212 12.9279C1.16225 12.9779 1.12671 13.0403 1.1092 13.1087L0.0114199 17.5149C-0.00472561 17.5803 -0.00373616 17.6487 0.0142927 17.7136C0.0323216 17.7785 0.0667806 17.8377 0.114341 17.8853C0.187394 17.9581 0.286304 17.9991 0.389444 17.9992C0.421261 17.9991 0.452956 17.9952 0.483812 17.9875L4.88995 16.8895C4.95846 16.8723 5.02099 16.8368 5.07086 16.7868L14.9756 6.88289L11.1159 3.02331ZM17.4292 1.67283L16.3267 0.570409C15.5899 -0.166413 14.3057 -0.165682 13.5697 0.570409L12.2192 1.92089L16.0787 5.78032L17.4292 4.42988C17.7972 4.06198 17.9999 3.57227 17.9999 3.05145C17.9999 2.53063 17.7972 2.04091 17.4292 1.67283Z"
-                        fill="#808080"
-                      />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_3369_7837">
-                        <rect width="18" height="18" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
+                <div
+                  className="cursor-pointer"
+                  onClick={(e) => { 
+                    e.stopPropagation()
+                    setShowEditDiary(true)
+                  }}
+                >
+                  <Image src={EditIcon} alt="" />
                 </div>
               </div>
               <Image src={diary.img} alt="" width={344} height={194} />
@@ -178,6 +168,7 @@ const MyGarden = () => {
       </div>
       {/* {showAddDiary && <CreateDiary onClose={() => setShowAddDiary(false)} />} */}
       {showDiaryPage && <DiaryPage onClose={() => setShowDiaryPage(false)} />}
+      {showEditDiary && <EditDiary onClose={() => setShowEditDiary(false)} />}
     </main>
   );
 };
