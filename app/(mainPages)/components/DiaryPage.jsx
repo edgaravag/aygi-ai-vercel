@@ -40,7 +40,7 @@ const DiaryPage = ({ onClose }) => {
       onClick={handleClose}
     >
       <div onClick={(e) => e.stopPropagation()}>
-        <div className="relative w-[816px] h-[889px] px-16 py-8 bg-white rounded-md ">
+        <div className="relative w-[816px] h-[909px] px-16 py-8 bg-white rounded-md ">
           <button
             className="absolute z-[100] center w-[41px] h-[41px] top-[-18px] right-[-18px] bg-[#68bb59] rounded-full"
             onClick={handleClose}
