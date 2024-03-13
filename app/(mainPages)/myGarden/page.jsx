@@ -104,8 +104,8 @@ const MyGarden = () => {
                   </div>
                 </div>
               )}
-              <div className="flex justify-between items-center gap-14">
-                <div className="flex flex-col p-3 pb-2">
+              <div className="flex justify-between items-center gap-14 pl-3 py-2">
+                <div className="flex flex-col">
                   <p className="font-medium tracking-wider">
                     {diary.diaryName}
                   </p>
@@ -114,7 +114,7 @@ const MyGarden = () => {
                   </p>
                 </div>
                 <div
-                  className="cursor-pointer"
+                  className="center cursor-pointer w-10 h-10"
                   onClick={(e) => { 
                     e.stopPropagation()
                     setShowEditDiary(true)

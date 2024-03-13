@@ -41,7 +41,7 @@ const OpenCard = ({ onClose }) => {
                   </p>
                 </div>
               </div>
-              <button>
+              <button className="w-6 h-[6px]">
                 <Image src={MoreIcon} alt="" />
               </button>
             </div>
@@ -70,26 +70,26 @@ const OpenCard = ({ onClose }) => {
                 </div>
               </div>
             </div>
-			<div className="flex justify-between mt-7 px-[20px]">
-				<div className="center gap-4">
-					<div>
-						<Image src={LikeIcon} alt="" />
-					</div>
-					<button className="font-normal text-[#808080]">Like</button>
-				</div>
-				<div className="center gap-4">
-					<div>
-						<Image src={CommentIcon} alt="" />
-					</div>
-					<button className="font-normal text-[#808080]">Comment</button>
-				</div>
-				<div className="center gap-4">
-					<div>
-						<Image src={ShareIcon} alt="" />
-					</div>
-					<button className="font-normal text-[#808080]">Share</button>
-				</div>
-			</div>
+            <div className="flex justify-between mt-7 px-[20px]">
+              <div className="center gap-4">
+                <div>
+                  <Image src={LikeIcon} alt="" />
+                </div>
+                <button className="font-normal text-[#808080]">Like</button>
+              </div>
+              <div className="center gap-4">
+                <div>
+                  <Image src={CommentIcon} alt="" />
+                </div>
+                <button className="font-normal text-[#808080]">Comment</button>
+              </div>
+              <div className="center gap-4">
+                <div>
+                  <Image src={ShareIcon} alt="" />
+                </div>
+                <button className="font-normal text-[#808080]">Share</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

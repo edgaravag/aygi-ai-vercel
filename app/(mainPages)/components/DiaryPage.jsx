@@ -7,6 +7,7 @@ import DiaryPostImage from "../../../public/diaryPost.png";
 import EditIcon from "../../../public/editIcon.png";
 import CloseIcon from "../../../public/closeIcon.svg";
 import OpenCard from "./OpenCard";
+import EditDiary from "./EditDiary";
 
 const posts = [
   {
@@ -34,17 +35,18 @@ const posts = [
 
 const DiaryPage = ({ onClose }) => {
   const [showOpenCard, setShowOpenCard] = useState(false);
+  const [showEditDiary, setShowEditDiary] = useState(false);
 
   const handleClose = () => {
     onClose();
   };
   return (
     <div
-      className="center z-50 bg-black bg-opacity-60 fixed top-0 left-0 right-0 bottom-0"
+      className={`center z-50 ${!showEditDiary && "bg-black bg-opacity-60 "} fixed top-0 left-0 right-0 bottom-0`}
       onClick={handleClose}
     >
       <div onClick={(e) => e.stopPropagation()}>
-        <div className={`relative w-[816px] h-[889px] px-16 py-8 bg-white rounded-md ${showOpenCard && "hidden"}`}>
+        <div className={`relative w-[816px] h-[889px] px-16 py-8 bg-white rounded-md ${showOpenCard && "hidden" || showEditDiary && "hidden" }`}>
           <button
             className="absolute z-[100] center w-[41px] h-[41px] top-[-18px] right-[-18px] bg-[#68bb59] rounded-full"
             onClick={handleClose}
@@ -55,7 +57,10 @@ const DiaryPage = ({ onClose }) => {
             <h2 className="font-semibold tracking-widest">
               Information about Pepper Plant
             </h2>
-            <div className="flex gap-2">
+            <div 
+              className="flex gap-2"
+              onClick={() => setShowEditDiary(true)}
+            >
               <button>
                 <Image src={EditIcon} alt="" />
               </button>
@@ -166,6 +171,7 @@ const DiaryPage = ({ onClose }) => {
         </div>
       </div>
       {showOpenCard && <OpenCard onClose={onClose} />}
+      {showEditDiary && <EditDiary onClose={onClose} />}
     </div>
   );
 };
