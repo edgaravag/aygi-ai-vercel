@@ -6,6 +6,7 @@ import OpenCardImg from "../../../public/openCardImg.png";
 import LikeIcon from "../../../public/likeIcon.png";
 import CommentIcon from "../../../public/commentIcon.png";
 import ShareIcon from "../../../public/shareIcon.png";
+import ColorIcon from "../../../public/↳Color.png"
 const FeedSinglePost = ({ post, index }) => {
   return (
     <div className="border-2 border-[#f8f8f8] rounded py-4 px-2 w-[571px] mx-auto bg-white">
@@ -22,9 +23,20 @@ const FeedSinglePost = ({ post, index }) => {
             </p>
           </div>
         </div>
+        {/* <button>
+          <Image src={MoreIcon} alt="" className="w-6 h-[6px] left-[201px]" />
+        </button>
+        <button>
+          <Image src={ColorIcon} alt="" className="w-6 h-[24px] left-[531px]" />
+        </button> */}
+        <div className="flex justify-end gap-3 px-2 pb-9">
         <button>
           <Image src={MoreIcon} alt="" className="w-6 h-[6px]" />
         </button>
+        <button>
+          <Image src={ColorIcon} alt="" className="w-4 h-4" />
+        </button>
+        </div>
       </div>
       <div className="px-2 pt-8 pb-6">
         <Image src={post.feedImg} alt="" width={539} height={277}/>
