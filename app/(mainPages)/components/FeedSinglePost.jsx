@@ -23,12 +23,6 @@ const FeedSinglePost = ({ post, index }) => {
             </p>
           </div>
         </div>
-        {/* <button>
-          <Image src={MoreIcon} alt="" className="w-6 h-[6px] left-[201px]" />
-        </button>
-        <button>
-          <Image src={ColorIcon} alt="" className="w-6 h-[24px] left-[531px]" />
-        </button> */}
         <div className="flex justify-end gap-3 px-2 pb-9">
         <button>
           <Image src={MoreIcon} alt="" className="w-6 h-[6px]" />
