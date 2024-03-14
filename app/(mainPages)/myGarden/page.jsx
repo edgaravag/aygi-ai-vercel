@@ -47,7 +47,7 @@ const MyGarden = () => {
   const [showEditDiary, setShowEditDiary] = useState(false);
 
   return (
-    <main className="w-full h-screen px-16 min-[1800px]:px-48 py-[52px]">
+    <main className="w-full h-screen mx-auto py-[52px]">
       <div className="center flex-wrap gap-4">
         {diaries.map((diary, index) => {
           return (

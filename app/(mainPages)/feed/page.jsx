@@ -28,7 +28,7 @@ const posts = [
 ];
 const Feed = () => {
   return (
-    <main className="w-full h-screen px-[130px] pt-9">
+    <main className="w-full h-screen mx-auto pt-9">
       <div className="flex flex-col gap-4">
         {posts.map((post, index) => {
           return (
