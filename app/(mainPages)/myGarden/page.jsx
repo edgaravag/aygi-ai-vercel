@@ -34,7 +34,7 @@ const diaries = [
   },
   {
     diaryName: "Diary Name",
-    creationDate: "05 March",
+    creationDate: "06 March",
     img: DiaryImg.src,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
