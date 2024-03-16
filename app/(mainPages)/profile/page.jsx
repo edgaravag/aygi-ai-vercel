@@ -22,7 +22,9 @@ const Profile = () => {
                 Edit Profile
                 <Image src={GreenPen} alt="" />
             </button>
+          
           </div>
+       
         </div>
       </div>
     </main>
