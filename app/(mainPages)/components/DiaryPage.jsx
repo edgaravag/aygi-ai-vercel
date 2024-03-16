@@ -85,8 +85,8 @@ const DiaryPage = ({ onClose }) => {
           </div>
           <div className="flex items-center justify-between my-[20px]">
             <div className="flex">
-              <div className="center p-1 gap-2 cursor-pointer">
-                <p className="text-[#68BB59] font-normal">Add New Post</p>
+              <button className="center p-1 gap-2 cursor-pointer text-[#68BB59] font-normal">
+                Add New Post
                 <svg
                   width="40"
                   height="40"
@@ -123,7 +123,7 @@ const DiaryPage = ({ onClose }) => {
                     </div>
                   </foreignObject>
                 </svg>
-              </div>
+              </button>
             </div>
             <label className="center gap-2">
               <div className="center rounded-full">

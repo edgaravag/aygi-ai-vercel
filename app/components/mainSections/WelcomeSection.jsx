@@ -1,6 +1,7 @@
 import React from "react";
 import ModbileImg from "../../../public/mobile.png";
 import Image from "next/image";
+import ImageComp from "../../../public/Rectangle.png"
 
 const WelcomeSection = () => {
   return (
@@ -19,7 +20,8 @@ const WelcomeSection = () => {
         </button>
       </div>
       <div className="center flex-wrap gap-12  max-[661px]:gap-20">
-        <Image src={ModbileImg} alt="" priority />
+        <Image src={ImageComp} className="relative "/>
+        <Image src={ModbileImg} alt="" priority className="absolute top-[220px]" />
         <div className="flex items-center max-[1149px]:flex-row-reverse">
           <div className='center h-[212px] w-[2px] bg-[url("../../public/welcomeLine.png")] max-[1149px]:ml-[34px] max-[661px]:hidden'>
             <div className="mt-[10px]">
