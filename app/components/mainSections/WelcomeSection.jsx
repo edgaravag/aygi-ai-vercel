@@ -5,7 +5,7 @@ import ImageComp from "../../../public/Rectangle.png"
 
 const WelcomeSection = () => {
   return (
-    <section className='center flex-wrap w-full h-full px-10 bg-[url("../../public/welcome.png")] bg-cover bg-center pb-[84px] pt-[168px] gap-44 max-[661px]:gap-28'>
+    <section className='center flex-wrap w-full h-full px-10 bg-[url("../../public/welcome.png")] bg-cover bg-center pb-[84px] pt-[168px] max-[661px]:gap-28'>
       <div>
         <h1 className="text-[#0f0701] font-bold text-[46px] leading-[48px] max-[1149px]:text-center">
           Welcome to <br />
@@ -19,9 +19,16 @@ const WelcomeSection = () => {
           Let's start
         </button>
       </div>
+      <div className="relative">
+        <Image src={ImageComp} className=" w-[553px] h-[456px]"/>
+        <Image src={ModbileImg} alt="" priority className="absolute bottom-[-25px] right-16 w-[174px] h-[347px]"/>
+      </div>
       <div className="center flex-wrap gap-12  max-[661px]:gap-20">
-        <Image src={ImageComp} className="relative "/>
-        <Image src={ModbileImg} alt="" priority className="absolute top-[220px]" />
+        {/* <div className="relative top-[143px] left-[473px]">
+          <Image src={ImageComp} className=" w-[553px] h-[456px]"/>
+          <Image src={ModbileImg} alt="" priority className="top-[310px] w-[174px] h-[347px] left-[916px]" />
+        </div> */}
+
         <div className="flex items-center max-[1149px]:flex-row-reverse">
           <div className='center h-[212px] w-[2px] bg-[url("../../public/welcomeLine.png")] max-[1149px]:ml-[34px] max-[661px]:hidden'>
             <div className="mt-[10px]">

@@ -3,8 +3,8 @@ import Image from "next/image";
 import CloseIcon from "../../../public/closeIcon.svg";
 import UserIcon from "../../../public/headerUserIcon.png";
 import AddImageIcon from "../../../public/addImage.png";
-import GrayCloseIcon from "../../../public/grayCloseIcon.png";
-
+import UploadImage from "../../../public/imgUpload.png";
+import GarbageImage from "../../../public/garbageImage.png";
 const EditDiary = ({ onClose }) => {
   const handleClose = () => {
     onClose();
@@ -45,18 +45,19 @@ const EditDiary = ({ onClose }) => {
                 <button className="text-[#808080]">Edit your text</button>
               </p>
             </div>
-            <div className="h-[108px] mt-[10px] px-[17px] py-[9px] bg-[#f7f7f7]">
-              <div className="flex justify-between">
-                <Image
-                  src={AddImageIcon}
-                  alt=""
-                  style={{ width: "auto", height: "auto" }}
-                  className="cursor-pointer"
-                />
-                <Image src={GrayCloseIcon} alt="" className="cursor-pointer" />
-              </div>
+            <div className="flex h-[108px] mt-[10px] px-[17px] py-[9px]  items-end justify-between">
+              <Image
+                src={GarbageImage}
+                alt=""
+                style={{ width: "auto", height: "auto" }}
+                className="cursor-pointer"
+              />
+              <button className="center gap-2 text-sm text-[#808080] font-normal ">
+                <Image src={UploadImage} alt="" className="cursor-pointer" />
+                Upload image
+              </button>
             </div>
-            <div className="flex items-center justify-between p-4">
+            <div className="flex items-center justify-between p-4 border-t border-t-[#D9D9D9]">
               <label className="center gap-2">
                 <div className="center rounded-full">
                   <input
@@ -66,9 +67,14 @@ const EditDiary = ({ onClose }) => {
                 </div>
                 Make Private
               </label>
-              <button className="center py-[14px] px-[34px] rounded-md bg-[#318C21] text-sm text-white font-normal">
-                Make a public
-              </button>
+              <div className="flex gap-6">
+                <button className="font-normal text-sm text-[#808080] ">
+                  Cancel
+                </button>
+                <button className="center py-[14px] px-[34px] rounded-md bg-[#318C21] text-sm text-white font-normal">
+                  Make a public
+                </button>
+              </div>
             </div>
           </div>
         </div>

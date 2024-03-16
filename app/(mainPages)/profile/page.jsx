@@ -26,20 +26,18 @@ const Profile = () => {
           <div className="w-full">
             <div className="flex gap-3 items-center justify-between">
               <p className="text-2xl font-semibold">User Name</p>
-              <p className="text-sm font-normal px-[13px] py-1.5 bg-[#dddddd] rounded-md">
+              <p className="text-sm font-normal px-[13px] py-1.5 bg-[#dddddd] rounded-md  opacity-2-">
                 Armenia
               </p>
-              <button
+              {/* <button
                 className="flex gap-2 font-normal underline text-[#68BB59]"
                 onClick={() => setOpenSetting(true)}
               >
                 Edit Profile
                 <Image src={GreenPen} alt="" />
-<<<<<<< HEAD
             </button>
           
-=======
-              </button>
+              </button> */}
             </div>
             <p className="font-normal text-black opacity-60 mt-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -50,7 +48,6 @@ const Profile = () => {
 				<p className="font-normal cursor-pointer"><span className="font-semibold">200</span> Followers</p>
 				<p className="font-normal cursor-pointer"><span className="font-semibold">500</span> Followings</p>
 			</div>
->>>>>>> ceebe94669dddc44128251821a07c48b709fb5c1
           </div>
        
         </div>

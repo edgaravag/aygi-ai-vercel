@@ -3,7 +3,7 @@ import Image from "next/image";
 import CloseIcon from "../../../public/closeIcon.svg";
 import UserImage from "../../../public/openCardUserImg.png";
 import MoreIcon from "../../../public/moreIcon.png";
-import OpenCardImg from "../../../public/openCardImg.png";
+import OpenCardLemon from "../../../public/OpenCard.png";
 import LikeIcon from "../../../public/likeIcon.png";
 import CommentIcon from "../../../public/commentIcon.png";
 import ShareIcon from "../../../public/shareIcon.png";
@@ -18,15 +18,15 @@ const OpenCard = ({ onClose }) => {
       onClick={handleClose}
     >
       <div onClick={(e) => e.stopPropagation()}>
-        <div className="relative w-[635px] h-[608px] rounded-md bg-white px-8 py-12">
+        <div className="relative rounded-md bg-white p-[96px]">
           <button
             className="absolute z-[100] center w-[41px] h-[41px] top-[-18px] right-[-18px] bg-[#68bb59] rounded-full"
             onClick={handleClose}
           >
             <Image src={CloseIcon} alt="" />
           </button>
-          <div className="border-2 border-[#f8f8f8] rounded py-4 px-2">
-            <div className="flex justify-between">
+          <div className="border-2 border-[#f8f8f8] w-[571px] rounded py-4 px-4">
+            <div className="flex justify-between items-center">
               <div className="flex justify-start gap-4">
                 <div>
                   <Image src={UserImage} alt="" />
@@ -36,17 +36,20 @@ const OpenCard = ({ onClose }) => {
                   <p className="text-sm font-normal text-[#808080]">
                     User date
                   </p>
-                  <p className="text-sm font-normal text-[#808080] mt-1">
-                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                  </p>
                 </div>
               </div>
               <button className="w-6 h-[6px]">
                 <Image src={MoreIcon} alt="" />
               </button>
             </div>
-            <div className="px-2 pt-8 pb-6">
-              <Image src={OpenCardImg} alt="" />
+            <div className="mt-[20px]">
+              <p className="text-sm text-[#808080] opacity-70 font-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<span className="text-sm text-[#4A4949] font-medium opacity-100">Hide text</span></p>
+            </div>
+            <div className="mt-[20px] text-sm font-normal">
+              <h3 className="">Today's Activiy</h3>
+            </div>
+            <div className="pt-8 pb-6">
+              <Image src={OpenCardLemon} alt="" />
             </div>
             <div className="flex justify-between px-4">
               <div className="center gap-[9px]">

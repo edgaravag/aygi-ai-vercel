@@ -6,7 +6,7 @@ import OpenCardImg from "../../../public/openCardImg.png";
 import LikeIcon from "../../../public/likeIcon.png";
 import CommentIcon from "../../../public/commentIcon.png";
 import ShareIcon from "../../../public/shareIcon.png";
-import ColorIcon from "../../../public/↳Color.png"
+import ColorIcon from "../../../public/↳Color.png" 
 const FeedSinglePost = ({ post, index }) => {
   return (
     <div className="border-2 border-[#f8f8f8] rounded py-4 px-2 w-[571px] mx-auto bg-white">
