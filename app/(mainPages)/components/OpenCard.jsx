@@ -19,12 +19,12 @@ const OpenCard = ({ onClose }) => {
     >
       <div onClick={(e) => e.stopPropagation()}>
         <div className="relative rounded-md bg-white p-[96px]">
-          <button
+          {/* <button
             className="absolute z-[100] center w-[41px] h-[41px] top-[-18px] right-[-18px] bg-[#68bb59] rounded-full"
             onClick={handleClose}
           >
             <Image src={CloseIcon} alt="" />
-          </button>
+          </button> */}
           <div className="border-2 border-[#f8f8f8] w-[571px] rounded py-4 px-4">
             <div className="flex justify-between items-center">
               <div className="flex justify-start gap-4">
