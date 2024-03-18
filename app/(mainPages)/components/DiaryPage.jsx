@@ -48,7 +48,7 @@ const DiaryPage = ({ onClose }) => {
       >
         <div onClick={(e) => e.stopPropagation()}>
           <div
-            className={`relative w-[816px] px-16 py-8 bg-white rounded-md ${
+            className={`relative w-[816px] max-h-screen  px-16 py-8 bg-white rounded-md ${
               showOpenCard && "hidden",
               showEditDiary && "hidden"
             }`}

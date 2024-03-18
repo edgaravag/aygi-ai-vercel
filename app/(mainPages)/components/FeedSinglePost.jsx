@@ -10,6 +10,7 @@ import ColorIcon from "../../../public/↳Color.png"
 const FeedSinglePost = ({ post, index }) => {
   return (
     <div className="border-2 border-[#f8f8f8] rounded py-4 px-2 w-[571px] mx-auto bg-white">
+      
       <div className="flex justify-between">
         <div className="flex justify-start gap-4">
           <div>
