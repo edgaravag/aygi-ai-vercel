@@ -4,6 +4,7 @@ import FunctionalityImg1 from "../../../public/functionalityImg1.svg";
 import FunctionalityImg2 from "../../../public/functionalityImg2.svg";
 import FunctionalityImg3 from "../../../public/functionalityImg3.svg";
 import FunctionalityImg4 from "../../../public/functionalityImg4.svg";
+import Button from "@/uiComponents/Button";
 
 const infos = [
   {
@@ -63,9 +64,9 @@ const AppFunctionalitySection = () => {
               </div>
             );
           })}
-          <button className="center self-center text-white md:self-end bg-[#0F0701] w-[150px] h-11 p-[10px] font-medium tracking-wider rounded-md">
+          <Button className="self-center text-white md:self-end bg-[#0F0701] w-[150px] h-11 p-[10px] font-medium tracking-wider">
             Let's Start
-          </button>
+          </Button>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ import TomatoImg from "../../../public/tomato.png";
 import CornImg from "../../../public/corn.png";
 import RaspberriesImg from "../../../public/raspberries.png";
 import Image from "next/image";
+import Button from "@/uiComponents/Button";
 
 const plants = [
   {
@@ -57,7 +58,7 @@ const PlantExploringSection = () => {
                   <p className="text-[#808080] text-sm text-justify w-[300px] mt-6">
                     {plant.description}
                   </p>
-                  <button className="center gap-2 font-semibold text-[#68bb59] mt-10">
+                  <Button className="gap-2 font-semibold text-[#68bb59] mt-10">
                     Read more
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +79,7 @@ const PlantExploringSection = () => {
                         </clipPath>
                       </defs>
                     </svg>
-                  </button>
+                  </Button>
                 </div>
               );
             })}

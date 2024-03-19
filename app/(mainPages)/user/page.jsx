@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import UserImg from "../../../public/profileUserImg.png";
 import GreenPen from "../../../public/greenPen.png";
-import ProfileSettings from "../components/ProfileSettings";
+import ProfileSettings from "../components/EditProfile";
 import ProfileImg1 from "../../../public/profileImg1.png";
 import ProfileImg2 from "../../../public/profileImg2.png";
 import ProfileImg3 from "../../../public/profileImg3.png";
@@ -12,6 +12,7 @@ import ProfileImg5 from "../../../public/profileImg5.png";
 import ProfileImg6 from "../../../public/profileImg6.png";
 import FriendFollow from "../../../public/followFriendIcon.png"
 import UserMessageIcon from "../../../public/userMessage.png"
+import Button from "@/uiComponents/Button";
 
 const images = [
   ProfileImg1.src,
@@ -23,8 +24,6 @@ const images = [
 ];
 
 const Profile = () => {
-  const [openSettings, setOpenSetting] = useState(false);
-  const [myDiaries, setMyDiaries] = useState(true);
   return (
     <main className="h-screen mx-auto py-9 px-[95px]">
       <div className="w-[617px]">
@@ -59,17 +58,15 @@ const Profile = () => {
             </div>
           </div>
         </div>
-
-        <div className="flex w-[224px] h-[36px] top-[271px] left-[338px] gap-3 mt-8">
-          <button className="center w-[106px] h-[36px] gap-3 bg-[#68BB59] text-white rounded">
+        <div className="flex gap-3 mt-8">
+          <Button className="py-2.5 px-3 gap-6 bg-[#68BB59] text-white rounded">
             Follow
             <Image src={FriendFollow} alt=""/>
-          </button>
-          
-          <button className="center w-[106px] h-[36px] gap-3 bg-[#C2C2C2] text-white rounded">
+          </Button>
+          <Button className="py-2.5 px-3 gap-3 bg-[#C2C2C2] text-white rounded">
             Message
             <Image  src={UserMessageIcon} alt=""/>
-          </button>
+          </Button>
         </div>
         <div className="grid grid-rows-2 grid-cols-3 gap-3 mt-8">
           {images.map((image, index) => {
@@ -86,7 +83,6 @@ const Profile = () => {
           })}
         </div>
       </div>
-      {openSettings && <ProfileSettings setOpenSetting={setOpenSetting} />}
     </main>
   );
 };

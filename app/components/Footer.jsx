@@ -10,17 +10,20 @@ import twitterIconHover from "../../public/twitterIcon-hover.svg";
 import pinterestIconHover from "../../public/pinterestIcon-hover.svg";
 import youtubeIconHover from "../../public/youtubeIcon-hover.svg";
 import instagramIconHover from "../../public/instagramIcon-hover.svg";
+import Button from "@/uiComponents/Button";
 const Footer = () => {
   return (
     <footer className="w-full bg-[#0F0701]">
       <div className="center justify-around gap-20 flex-wrap max-w-[1440px] mx-auto py-36 px-[200px] max-[1460px]:px-[100px] max-[1190px]:px-[50px]">
         <div>
-          <h2 className="text-white text-[26px] font-medium mb-2 max-[1090px]:text-center">AYGI AI</h2>
+          <h2 className="text-white text-[26px] font-medium mb-2 max-[1090px]:text-center">
+            AYGI AI
+          </h2>
           <p className="text-white leading-[22px] max-w-[310px] mb-[37px] max-[1090px]:text-center">
             The best free plant identifier app for plant lovers and experts
           </p>
           <div className="flex justify-center flex-wrap gap-4">
-            <button className="center text-white p-[10px] border rounded-md font-medium gap-2 tracking-wider">
+            <Button className="text-white p-[10px] border font-medium gap-2 tracking-wider">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -59,8 +62,8 @@ const Footer = () => {
                 </defs>
               </svg>
               Google Play
-            </button>
-            <button className="center text-white p-[10px] border rounded-md font-medium gap-2 tracking-wider">
+            </Button>
+            <Button className="text-white p-[10px] border font-medium gap-2 tracking-wider">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
@@ -103,30 +106,70 @@ const Footer = () => {
                 </defs>
               </svg>
               App Store
-            </button>
+            </Button>
           </div>
         </div>
         <div className="flex flex-col items-end pt-8 gap-[43px] max-[1090px]:items-center">
           <div className="flex justify-center flex-wrap items-center gap-6">
             <div className="relative w-[55px] h-[55px] center">
-              <Image src={facebookIcon} alt="" className="absolute hover:opacity-1" />
-              <Image src={facebookIconHover} alt="" className="opacity-0 hover:opacity-100 z-10" />
+              <Image
+                src={facebookIcon}
+                alt=""
+                className="absolute hover:opacity-1"
+              />
+              <Image
+                src={facebookIconHover}
+                alt=""
+                className="opacity-0 hover:opacity-100 z-10"
+              />
             </div>
             <div className="relative w-[55px] h-[55px] center">
-              <Image src={twitterIcon} alt="" className="absolute hover:opacity-1" />
-              <Image src={twitterIconHover} alt="" className="opacity-0 hover:opacity-100 z-10"/>
+              <Image
+                src={twitterIcon}
+                alt=""
+                className="absolute hover:opacity-1"
+              />
+              <Image
+                src={twitterIconHover}
+                alt=""
+                className="opacity-0 hover:opacity-100 z-10"
+              />
             </div>
             <div className="relative w-[55px] h-[55px] center">
-              <Image src={pinterestIcon} alt="" className="absolute hover:opacity-1" />
-              <Image src={pinterestIconHover} alt="" className="opacity-0 hover:opacity-100 z-10" />
+              <Image
+                src={pinterestIcon}
+                alt=""
+                className="absolute hover:opacity-1"
+              />
+              <Image
+                src={pinterestIconHover}
+                alt=""
+                className="opacity-0 hover:opacity-100 z-10"
+              />
             </div>
             <div className="relative w-[55px] h-[55px] center">
-              <Image src={youtubeIcon} alt="" className="absolute hover:opacity-1" />
-              <Image src={youtubeIconHover} alt="" className="opacity-0 hover:opacity-100 z-10" />
+              <Image
+                src={youtubeIcon}
+                alt=""
+                className="absolute hover:opacity-1"
+              />
+              <Image
+                src={youtubeIconHover}
+                alt=""
+                className="opacity-0 hover:opacity-100 z-10"
+              />
             </div>
             <div className="relative w-[55px] h-[55px] center">
-              <Image src={instagramIcon} alt="" className="absolute hover:opacity-1" />
-              <Image src={instagramIconHover} alt="" className="opacity-0 hover:opacity-100 z-10" />
+              <Image
+                src={instagramIcon}
+                alt=""
+                className="absolute hover:opacity-1"
+              />
+              <Image
+                src={instagramIconHover}
+                alt=""
+                className="opacity-0 hover:opacity-100 z-10"
+              />
             </div>
           </div>
           <div className="flex justify-center flex-wrap gap-6 py-2">

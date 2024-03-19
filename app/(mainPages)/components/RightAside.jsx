@@ -115,12 +115,12 @@ const RightAside = () => {
                 </Link>
 
                 <div className="flex flex-col gap-[5px]">
-                <Link href={'/user'}>
-                <p className="font-normal cursor-pointer">
-                    {user.name + " " + user.surname}
-                  </p>
-                </Link>
-                 
+                  <Link href={"/user"}>
+                    <p className="font-normal cursor-pointer">
+                      {user.name + " " + user.surname}
+                    </p>
+                  </Link>
+
                   <p className="font-normal text-[#808080]">{user.title}</p>
                   <p className="font-normal text-[12px]">{user.description}</p>
                 </div>

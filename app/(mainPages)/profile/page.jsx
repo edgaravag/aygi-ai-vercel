@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import UserImg from "../../../public/profileUserImg.png";
 import GreenPen from "../../../public/greenPen.png";
-import ProfileSettings from "../components/ProfileSettings";
+import EditProfile from "../components/EditProfile";
 import ProfileImg1 from "../../../public/profileImg1.png";
 import ProfileImg2 from "../../../public/profileImg2.png";
 import ProfileImg3 from "../../../public/profileImg3.png";
@@ -133,7 +133,7 @@ const Profile = () => {
           })}
         </div>
       </div>
-      {openSettings && <ProfileSettings setOpenSetting={setOpenSetting} />}
+      {openSettings && <EditProfile setOpenSetting={setOpenSetting} />}
     </main>
   );
 };

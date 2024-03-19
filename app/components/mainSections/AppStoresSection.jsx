@@ -1,3 +1,4 @@
+import Button from "@/uiComponents/Button";
 import React from "react";
 
 const AppStoresSection = () => {
@@ -8,7 +9,7 @@ const AppStoresSection = () => {
           Start your plant care journey on
         </h2>
         <div className="flex justify-center flex-wrap gap-4">
-          <button className="center text-white  p-[10px] border rounded-md font-medium gap-2 tracking-wider">
+          <Button className="text-white p-[10px] border font-medium gap-2 tracking-wider">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
@@ -47,8 +48,8 @@ const AppStoresSection = () => {
               </defs>
             </svg>
             Google Play
-          </button>
-          <button className="center text-white p-[10px] border rounded-md font-medium gap-2 tracking-wider">
+          </Button>
+          <Button className="text-white p-[10px] border font-medium gap-2 tracking-wider">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="22"
@@ -91,7 +92,7 @@ const AppStoresSection = () => {
               </defs>
             </svg>
             App Store
-          </button>
+          </Button>
         </div>
       </div>
     </section>

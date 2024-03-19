@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import GetAdviceImg from "../../../public/getAdvice.svg";
+import Button from "@/uiComponents/Button";
 
 const GetAdviceSection = () => {
   return (
@@ -23,9 +24,9 @@ const GetAdviceSection = () => {
             techniques, our platform equips you with the expertise you need to
             nurture your plants and watch them flourish.
           </p>
-          <button className="center text-white bg-[#68bb59] py-[14px] px-[22px] rounded-md w-[138px] h-[46px]">
+          <Button className="text-white bg-[#68bb59] py-[14px] px-[22px] w-[138px] h-[46px]">
             GET ADVICE
-          </button>
+          </Button>
         </div>
       </div>
     </section>
