@@ -7,7 +7,6 @@ import GoogleIcon from "../../../../public/googleIcon.svg";
 import Image from "next/image";
 import SignIn from "./SignIn";
 import PopUpWrap from "@/uiComponents/PopUpWrap";
-import CloseButton from "@/uiComponents/CloseButton";
 import Button from "@/uiComponents/Button";
 
 const SignUp = ({ onClose }) => {
@@ -47,9 +46,8 @@ const SignUp = ({ onClose }) => {
 
   return (
     <>
-      {!showForm && <PopUpWrap onClose={onClose}>
-        <div className="relative max-w-[448px] py-11 px-16 bg-white rounded-md">
-          <CloseButton onClose={onClose} />
+      {!showForm && (
+        <PopUpWrap onClose={onClose} className="max-w-[448px] py-11 px-16">
           <div className="flex flex-col">
             <div className="flex">
               <button
@@ -200,8 +198,8 @@ const SignUp = ({ onClose }) => {
               </div>
             </form>
           </div>
-        </div>
-      </PopUpWrap>}
+        </PopUpWrap>
+      )}
       {showForm && <SignIn onClose={handleClose} />}
     </>
   );

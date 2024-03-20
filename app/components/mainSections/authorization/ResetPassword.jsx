@@ -1,8 +1,10 @@
+import Button from "@/uiComponents/Button";
+import PopUpWrap from "@/uiComponents/PopUpWrap";
 import React from "react";
 
-const ResetPassword = () => {
+const ResetPassword = ({ onClose }) => {
   return (
-    <div className="absolute z-50 top-0 left-0 right-0 bottom-0 center bg-white py-16 pb-[294px] rounded-md">
+    <PopUpWrap onClose={onClose} className="w-[448px] center py-16 pb-[294px]">
       <div className="flex flex-col w-full px-16">
         <h2 className="text-xl font-medium">Reset account password</h2>
         <p className="text-sm font-normal mt-1">
@@ -29,12 +31,12 @@ const ResetPassword = () => {
           </div>
         </div>
         <div className="flex flex-col gap-3 mt-[38px]">
-          <button className="center bg-[#68BB59] text-white w-full py-[14px] rounded-md">
+          <Button className="bg-[#68BB59] text-white w-full py-[14px]">
             Reset password
-          </button>
+          </Button>
         </div>
       </div>
-    </div>
+    </PopUpWrap>
   );
 };
 
