@@ -1,10 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import CloseIcon from "../../../public/closeIcon.svg";
 import UserIcon from "../../../public/headerUserIcon.png";
 import UploadImage from "../../../public/imgUpload.png";
 import GarbageImage from "../../../public/garbageImage.png";
-import CloseButton from "@/uiComponents/CloseButton";
 import PopUpWrap from "@/uiComponents/PopUpWrap";
 import Button from "@/uiComponents/Button";
 

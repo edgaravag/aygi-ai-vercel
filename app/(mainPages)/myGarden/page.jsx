@@ -8,6 +8,7 @@ import EditIcon from "../../../public/grayEditIcon.svg";
 import PlusIcon from "../../../public/plusIcon.svg";
 import EditDiary from "../components/EditDiary";
 import Button from "@/uiComponents/Button";
+import NewDiary from "../components/NewDiary";
 
 const diaries = [
   {
@@ -47,6 +48,7 @@ const diaries = [
 const MyGarden = () => {
   const [showDiaryPage, setShowDiaryPage] = useState(false);
   const [showEditDiary, setShowEditDiary] = useState(false);
+  const [showNewDiary, setShowNewDiary] = useState(false);
 
   return (
     <>
@@ -57,15 +59,21 @@ const MyGarden = () => {
               <div
                 key={index}
                 className={`${index === 0 && "mt-[-70px]"} relative w-[344px]`}
-                onClick={() => setShowDiaryPage(true)}
+                
               >
                 {index === 0 && (
-                  <Button className="mb-6 p-1 gap-2 text-[#68BB59] font-normal">
+                  <Button 
+                    className="mb-6 p-1 gap-2 text-[#68BB59] font-normal"
+                    onClick={() => setShowNewDiary(true)}
+                  >
                     Add New Diary
                     <Image src={PlusIcon} alt="" />
                   </Button>
                 )}
-                <div className=" cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-200 active:scale-95">
+                <div 
+                  className=" cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-200 active:scale-95"
+                  onClick={() => setShowDiaryPage(true)}
+                >
                   <div className="flex justify-between items-center gap-14 pl-3 py-2">
                     <div className="flex flex-col">
                       <p className="font-medium tracking-wider">
@@ -141,6 +149,7 @@ const MyGarden = () => {
       {/* {showAddDiary && <CreateDiary onClose={() => setShowAddDiary(false)} />} */}
       {showDiaryPage && <DiaryPage onClose={() => setShowDiaryPage(false)} />}
       {showEditDiary && <EditDiary onClose={() => setShowEditDiary(false)} />}
+      {showNewDiary && <NewDiary onClose={() => setShowNewDiary(false)}/>}
     </>
   );
 };

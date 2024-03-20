@@ -23,8 +23,3 @@ const PopUpWrap = ({ onClose, children, className }) => {
 
 export default PopUpWrap;
 
-{/* <PopUpWrap>
-  <div className="bg-white w-[572px] py-[51px] px-[51px]">
-    <CloseButton />
-  </div>
-</PopUpWrap> */}
