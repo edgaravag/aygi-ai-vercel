@@ -27,17 +27,21 @@ const NewDiary = ({ onClose }) => {
         </div>
       </div>
 
-      <div className="flex mt-4 justify-between">
-        <label className="flex">
-          <input 
-          type="checkbox" 
-          className="w-[20px] h-[20px] rounded-full" 
-          />
+      <div className="flex items-center justify-between p-4 border-t border-t-[#D9D9D9]">
+        <label className="center gap-2">
+          <div className="center rounded-full">
+            <input type="checkbox" className="w-[20px] h-[20px] rounded-full" />
+          </div>
           Make Private
         </label>
-        
-        <Button className="px-10">Cancle</Button>
-        <Button className="bg-[#68BB59] w-[154px] h-[41px] text-[#FFFFFF]">Create Diary</Button>
+        <div className="flex gap-6">
+          <button className="font-normal text-sm text-[#808080] ">
+            Cancel
+          </button>
+          <Button className="py-[14px] px-[34px] bg-[#68BB59] text-sm text-white font-normal">
+            Create Diary
+          </Button>
+        </div>
       </div>
     </PopUpWrap>
   );
