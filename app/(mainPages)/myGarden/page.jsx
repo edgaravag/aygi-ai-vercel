@@ -57,7 +57,7 @@ const MyGarden = () => {
             return (
               <div
                 key={index}
-                className={`${index === 0 && "mt-[-70px]"} relative w-[344px]`}
+                className={`${index === 0 && "mt-[-70px]"} relative w-[344px] `}
                 
               >
                 {index === 0 && (

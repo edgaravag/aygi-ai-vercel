@@ -9,29 +9,25 @@ const NewDiary = ({ onClose }) => {
       <h2 className="font-medium ">Create new diary</h2>
       <input
         type="text"
-        name=""
-        id=""
-        className="h-[46px] w-[474px] bg-[#F6F6F6] text-[#808080] mt-[64px] rounded-md px-4"
+        className="py-3 px-4 w-full bg-[#F6F6F6] text-[#808080] mt-[64px] rounded-md outline-none"
         placeholder="Diary Name"
       />
 
-      <div className="h-[213px] mt-[26px] bg-[#F6F6F6] flex flex-col justify-between rounded-md">
+      <div className="h-[213px] mt-[14px] py-3 px-[18px] bg-[#F6F6F6] flex flex-col justify-between rounded-md">
         <input
           type="text"
           placeholder="Description"
           className="w-full outline-none bg-[#F6F6F6] px-4"
         />
-        <div className="self-end flex px-4 py-4">
+        <button className="self-end flex text-[#808080]">
           <Image src={UploadImage} alt="" className="mr-2" />
-          <p className="text-[#808080]">Upload image</p>
-        </div>
+          Upload image
+        </button>
       </div>
 
-      <div className="flex items-center justify-between p-4 border-t border-t-[#D9D9D9]">
+      <div className="flex items-center justify-between mt-4">
         <label className="center gap-2">
-          <div className="center rounded-full">
-            <input type="checkbox" className="w-[20px] h-[20px] rounded-full" />
-          </div>
+          <input type="checkbox" className="size-[20px] rounded-full" />
           Make Private
         </label>
         <div className="flex gap-6">

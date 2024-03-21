@@ -2,8 +2,12 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import UserImg from "../../../public/profileUserImg.png";
+import UserImage from "../../../public/openCardUserImg.png";
 import GreenPen from "../../../public/greenPen.png";
-import EditProfile from "../components/EditProfile";
+import MoreIcon from "../../../public/moreIcon.png";
+import LikeIcon from "../../../public/likeIcon.png";
+import CommentIcon from "../../../public/commentIcon.png";
+import ShareIcon from "../../../public/shareIcon.png";
 import ProfileImg1 from "../../../public/profileImg1.png";
 import ProfileImg2 from "../../../public/profileImg2.png";
 import ProfileImg3 from "../../../public/profileImg3.png";
@@ -11,9 +15,11 @@ import ProfileImg4 from "../../../public/profileImg4.png";
 import ProfileImg5 from "../../../public/profileImg5.png";
 import ProfileImg6 from "../../../public/profileImg6.png";
 import PlusIcon from "../../../public/plusIcon.svg";
+import OpenCardLemon from "../../../public/OpenCard.png";
+import EditProfile from "../components/EditProfile";
 import Followers from "../components/Followers";
-import Button from "@/uiComponents/Button";
 import Followwings from "../components/Followings";
+import Button from "@/uiComponents/Button";
 
 const images = [
   ProfileImg1.src,
@@ -24,6 +30,39 @@ const images = [
   ProfileImg6.src,
 ];
 
+const saved = [
+  {
+    img: OpenCardLemon.src,
+    username: "User name",
+    publishedTime: "5 hours ago",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    likesCount: 15,
+    commentsCount: 14,
+    shareCount: 7,
+  },
+  {
+    img: "",
+    username: "User name",
+    publishedTime: "5 hours ago",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    likesCount: 15,
+    commentsCount: 14,
+    shareCount: 7,
+  },
+  {
+    img: "",
+    username: "User name",
+    publishedTime: "5 hours ago",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    likesCount: 15,
+    commentsCount: 14,
+    shareCount: 7,
+  },
+];
+
 const Profile = () => {
   const [openSettings, setOpenSetting] = useState(false);
   const [myDiaries, setMyDiaries] = useState(true);
@@ -32,7 +71,7 @@ const Profile = () => {
 
   return (
     <>
-      <main className="h-screen mx-auto py-9 px-[95px]">
+      <main className="mx-auto py-9 px-[95px]">
         <div className="w-[617px]">
           <div className="flex gap-8">
             <div>
@@ -81,7 +120,7 @@ const Profile = () => {
             Add New Post
             <Image src={PlusIcon} alt="" />
           </Button>
-          <div className="flex bg-white w-80 mt-[40px]">
+          <div className="flex bg-white w-80 mt-[40px] shadow-lg">
             <button
               className={`center w-40 px-8 py-4 font-medium tracking-widest text-sm ${
                 myDiaries
@@ -118,7 +157,102 @@ const Profile = () => {
                 );
               })}
             </div>
-          ) : null}
+          ) : (
+            <div className="flex flex-col gap-4 mt-8">
+              {saved.map((save, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="bg-white border-2 border-[#f8f8f8] w-[571px] rounded-sm py-4 px-4 shadow-lg"
+                  >
+                    <div className="flex justify-between items-center">
+                      <div className="flex justify-start gap-4">
+                        <div>
+                          <Image src={UserImage} alt="" />
+                        </div>
+                        <div>
+                          <p>{save.username}</p>
+                          <p className="text-sm font-normal text-[#808080]">
+                            {save.publishedTime}
+                          </p>
+                        </div>
+                      </div>
+                      <button className="w-6 h-[6px]">
+                        <Image src={MoreIcon} alt="" />
+                      </button>
+                    </div>
+                    <div className="mt-[20px]">
+                      <p className="text-sm text-[#808080] opacity-70 font-normal">
+                        {save.description}
+                        <span className="text-sm text-[#4a4949] font-medium opacity-100">
+                          ...More
+                        </span>
+                      </p>
+                    </div>
+                    {
+                      save.img && (
+                        <div className="py-6">
+                          <Image src={save.img} alt="" width={539} height={277} />
+                        </div>
+                      )
+                    }
+                    <div className={`flex justify-between px-4 ${!save.img && "mt-7"}`}>
+                      <div className="center gap-[9px]">
+                        <p className="text-sm font-normal text-[#808080]">{save.likesCount}</p>
+                        <button>
+                          <Image src={LikeIcon} alt="" />
+                        </button>
+                      </div>
+                      <div className="flex gap-[20px]">
+                        <div className="flex gap-[9px]">
+                          <p className="text-sm font-normal text-[#808080]">
+                            {save.commentsCount}
+                          </p>
+                          <button>
+                            <Image src={CommentIcon} alt="" />
+                          </button>
+                        </div>
+                        <div className="flex gap-[9px]">
+                          <p className="text-sm font-normal text-[#808080]">
+                            {save.shareCount}
+                          </p>
+                          <button>
+                            <Image src={ShareIcon} alt="" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex justify-between mt-7 px-[20px]">
+                      <div className="center gap-4 cursor-pointer">
+                        <div>
+                          <Image src={LikeIcon} alt="" />
+                        </div>
+                        <button className="font-normal text-[#808080]">
+                          Like
+                        </button>
+                      </div>
+                      <div className="center gap-4 cursor-pointer">
+                        <div>
+                          <Image src={CommentIcon} alt="" />
+                        </div>
+                        <button className="font-normal text-[#808080]">
+                          Comment
+                        </button>
+                      </div>
+                      <div className="center gap-4 cursor-pointer">
+                        <div>
+                          <Image src={ShareIcon} alt="" />
+                        </div>
+                        <button className="font-normal text-[#808080]">
+                          Share
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </main>
       {openSettings && <EditProfile setOpenSetting={setOpenSetting} />}

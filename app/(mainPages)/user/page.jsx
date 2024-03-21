@@ -1,5 +1,4 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import UserImg from "../../../public/profileUserImg.png";
 import ProfileImg1 from "../../../public/profileImg1.png";
@@ -11,8 +10,6 @@ import ProfileImg6 from "../../../public/profileImg6.png";
 import FriendFollow from "../../../public/followFriendIcon.png";
 import UserMessageIcon from "../../../public/userMessage.png";
 import Button from "@/uiComponents/Button";
-import Followers from "../components/Followers";
-import Followwings from "../components/Followings";
 
 const images = [
   ProfileImg1.src,
@@ -24,8 +21,6 @@ const images = [
 ];
 
 const Profile = () => {
-  const [showFollowers, setShowFollowers] = useState(false);
-  const [showFollowings, setShowFollowings] = useState(false);
   return (
     <>
       <main className="h-screen mx-auto py-9 px-[95px]">
@@ -51,16 +46,10 @@ const Profile = () => {
                 <button className="font-normal">
                   <span className="font-semibold">40</span> Diary
                 </button>
-                <button 
-                  className="font-normal"
-                  onClick={() => setShowFollowers(true)}
-                >
+                <button className="font-normal">
                   <span className="font-semibold">200</span> Followers
                 </button>
-                <button 
-                  className="font-normal"
-                  onClick={() => setShowFollowings(true)}
-                >
+                <button className="font-normal">
                   <span className="font-semibold">500</span> Followings
                 </button>
               </div>
@@ -92,10 +81,6 @@ const Profile = () => {
           </div>
         </div>
       </main>
-      {showFollowers && <Followers onClose={() => setShowFollowers(false)} />}
-      {showFollowings && (
-        <Followwings onClose={() => setShowFollowings(false)} />
-      )}
     </>
   );
 };
