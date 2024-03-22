@@ -6,6 +6,7 @@ import UserImage from "../../../public/feedUserImage.png";
 import PlusIcon from "../../../public/plusIcon.svg";
 import Image from "next/image";
 
+
 const posts = [
   {
     userName: "User Name",
@@ -30,7 +31,7 @@ const posts = [
 ];
 const Feed = () => {
   return (
-    <main className="w-full h-screen mx-auto pt-9">
+    <main className="w-full h-screen mx-auto pt-9 px-16 ">
       <div className="flex flex-col gap-4">
         <div className="w-[571px] mx-auto flex mb-2">
           <div className="center p-1 gap-2 cursor-pointer">
