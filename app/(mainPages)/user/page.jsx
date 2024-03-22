@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import Image from "next/image";
 import UserImg from "../../../public/profileUserImg.png";
 import ProfileImg1 from "../../../public/profileImg1.png";
@@ -10,6 +11,7 @@ import ProfileImg6 from "../../../public/profileImg6.png";
 import FriendFollow from "../../../public/followFriendIcon.png";
 import UserMessageIcon from "../../../public/userMessage.png";
 import Button from "@/uiComponents/Button";
+import DiaryPage from "../components/DiaryPage";
 
 const images = [
   ProfileImg1.src,
@@ -21,6 +23,8 @@ const images = [
 ];
 
 const Profile = () => {
+  const [showDiaryPage, setShowDiaryPage] = useState(false);
+
   return (
     <>
       <main className="h-screen mx-auto py-9 px-[95px]">
@@ -75,12 +79,14 @@ const Profile = () => {
                   width={206}
                   height={242}
                   className="cursor-pointer"
+                  onClick={() => setShowDiaryPage(true)}
                 />
               );
             })}
           </div>
         </div>
       </main>
+      {showDiaryPage && <DiaryPage onClose={() => setShowDiaryPage(false)}/>}
     </>
   );
 };
