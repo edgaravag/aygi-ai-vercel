@@ -20,8 +20,8 @@ const activities = [
 
 const OpenCard = ({ onClose }) => {
   return (
-    <PopUpWrap onClose={onClose} className="p-[16px]">
-      <div className="border-2 border-[#f8f8f8] w-[571px] rounded py-4 px-4">
+    <PopUpWrap onClose={onClose} className="py-8 px-12">
+      <div className="border-2 border-[#f8f8f8] w-[571px] rounded py-4 px-2">
         <div className="flex justify-between items-center">
           <div className="flex justify-start gap-4">
             <div>
@@ -49,14 +49,14 @@ const OpenCard = ({ onClose }) => {
             </span>
           </p>
         </div>
-        <div className="mt-[20px]">
+        <div className="my-[20px]">
           <h3 className="text-sm font-normal">Today's Activity</h3>
           <div className="flex flex-wrap gap-3 mt-3">
             {activities.map((activity, index) => {
               return (
                 <div
                   key={index}
-                  className={`py-2.5 px-3 bg-[${activity.color}] rounded-3xl`}
+                  className={`py-2.5 px-3 bg-[#E4FEDF] rounded-3xl`}
                 >
                   <p className="text-xs font-normal text-[#4A4949]">
                     {activity.title}

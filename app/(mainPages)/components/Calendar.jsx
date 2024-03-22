@@ -51,7 +51,7 @@ const Calendar = () => {
   }
 
   return (
-    <div className="border border-[#9D9E9F] rounded-md px-4 py-[10px] shadow-lg">
+    <div className="border border-[#9D9E9F] rounded-md px-4 py-[10px] shadow-[0_5px_15px_0_rgba(0,0,0,0.15)]">
       <div className="flex items-center">
         <h2 className="flex-auto font-medium text-lg text-[#333333]">
           {format(firstDayCurrentMonth, "MMMM yyyy")}

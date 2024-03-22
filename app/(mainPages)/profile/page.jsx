@@ -120,7 +120,7 @@ const Profile = () => {
             Add New Post
             <Image src={PlusIcon} alt="" />
           </Button>
-          <div className="flex bg-white w-80 mt-[40px] shadow-lg">
+          <div className="flex bg-white w-80 mt-[40px] shadow-lg rounded-md">
             <button
               className={`center w-40 px-8 py-4 font-medium tracking-widest text-sm ${
                 myDiaries
@@ -163,7 +163,7 @@ const Profile = () => {
                 return (
                   <div
                     key={index}
-                    className="bg-white border-2 border-[#f8f8f8] w-[571px] rounded-sm py-4 px-4 shadow-lg"
+                    className="bg-white border-2 border-[#f8f8f8] w-[571px] rounded-md py-4 px-4 shadow-lg"
                   >
                     <div className="flex justify-between items-center">
                       <div className="flex justify-start gap-4">

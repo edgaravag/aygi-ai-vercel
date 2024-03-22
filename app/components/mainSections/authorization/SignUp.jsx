@@ -11,9 +11,6 @@ import Button from "@/uiComponents/Button";
 
 const SignUp = ({ onClose }) => {
   const [showForm, setShowForm] = useState(false);
-  const handleClose = () => {
-    onClose();
-  };
 
   const {
     register,
@@ -72,7 +69,7 @@ const SignUp = ({ onClose }) => {
               </button>
             </div>
             <form
-              className="mt-12"
+              className="mt-8"
               autoComplete="off"
               onSubmit={handleSubmit(onSubmitHandler)}
             >
@@ -168,11 +165,7 @@ const SignUp = ({ onClose }) => {
                     </p>
                   )}
                 </div>
-                {errors.root && (
-                  <p className="text-[#C31031] text-xs mt-[5px]">
-                    {errors.root.message}
-                  </p>
-                )}
+
                 <Button
                   type="submit"
                   className="w-full mt-6 h-[54px] text-white bg-[#68bb59] font-medium"
@@ -187,20 +180,20 @@ const SignUp = ({ onClose }) => {
                 <div className="border border-[#bfbfbf] w-[43%] h-[1.5px]"></div>
               </div>
               <div className="flex flex-col gap-5 mt-5">
-                <Button className="py-[14px] gap-4 border border-[#808080]">
+                <Button className="py-[14px] gap-4 border border-[#808080] text-[#808080]">
                   <Image src={FacebookIcon} alt="" />
-                  <p className="text-[#808080]">Sign in with Facebook</p>
+                  Sign in with Facebook
                 </Button>
-                <Button className="py-[14px] gap-4 border border-[#808080]">
+                <Button className="py-[14px] gap-4 border border-[#808080] text-[#808080]">
                   <Image src={GoogleIcon} alt="" />
-                  <p className="text-[#808080]">Sign in with Google</p>
+                  Sign in with Google
                 </Button>
               </div>
             </form>
           </div>
         </PopUpWrap>
       )}
-      {showForm && <SignIn onClose={handleClose} />}
+      {showForm && <SignIn onClose={onClose} />}
     </>
   );
 };

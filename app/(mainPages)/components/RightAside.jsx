@@ -105,7 +105,7 @@ const RightAside = () => {
           return (
             <div
               key={Math.random()}
-              className="border-b border-[#D9D9D9] px-5 pb-3"
+              className="border-b border-[#D9D9D9] px-5 py-3 rounded-lg shadow-[0_3px_8px_rgba(0,0,0,0.24)]"
             >
               <div className="flex gap-4">
                 <Link href={"/user"}>
@@ -113,14 +113,12 @@ const RightAside = () => {
                     <Image alt="" src={user.icon} width={62} height={62} />
                   </div>
                 </Link>
-
                 <div className="flex flex-col gap-[5px]">
                   <Link href={"/user"}>
                     <p className="font-normal cursor-pointer">
                       {user.name + " " + user.surname}
                     </p>
                   </Link>
-
                   <p className="font-normal text-[#808080]">{user.title}</p>
                   <p className="font-normal text-[12px]">{user.description}</p>
                 </div>

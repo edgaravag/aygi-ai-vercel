@@ -44,7 +44,7 @@ const DiaryPage = ({ onClose }) => {
       {!showEditDiary && !showOpenCard && (
         <PopUpWrap
           onClose={onClose}
-          className={`relative w-[816px] max-h-screen  px-16 py-8 bg-white rounded-md ${
+          className={`relative w-[816px] max-h-screen px-12 py-8 bg-white rounded-md ${
             (showOpenCard && "hidden", showEditDiary && "hidden")
           }`}
         >
@@ -74,7 +74,7 @@ const DiaryPage = ({ onClose }) => {
             </p>
           </div>
           <div className="mt-4">
-            <Image src={DiaryImage} alt="" />
+            <Image src={DiaryImage} alt="" className="w-full" />
           </div>
           <div className="flex items-center justify-between my-[20px]">
             <div className="flex">
@@ -83,7 +83,7 @@ const DiaryPage = ({ onClose }) => {
                 <Image src={PlusIcon} alt="" />
               </Button>
             </div>
-            <label className="center gap-2">
+            <label className="center gap-2 text-xs font-normal">
               <div className="center rounded-full">
                 <input
                   type="checkbox"

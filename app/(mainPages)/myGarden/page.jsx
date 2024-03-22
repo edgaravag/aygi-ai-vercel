@@ -51,25 +51,19 @@ const MyGarden = () => {
 
   return (
     <>
-      <main className="w-full h-screen mx-auto py-[122px] px-16">
+      <main className="w-full h-screen mx-auto py-9 px-16">
+        <button
+          className="flex items-center w-[704px] mb-6 mx-auto p-1 gap-2 text-[#68BB59] font-normal"
+          onClick={() => setShowNewDiary(true)}
+        >
+          Add New Diary
+          <Image src={PlusIcon} alt="" />
+        </button>
         <div className="center flex-wrap mx-auto gap-4 max-[2166px]:w-[704px] max-[1440px]:w-auto">
           {diaries.map((diary, index) => {
             return (
-              <div
-                key={index}
-                className={`${index === 0 && "mt-[-70px]"} relative w-[344px] `}
-                
-              >
-                {index === 0 && (
-                  <Button 
-                    className="mb-6 p-1 gap-2 text-[#68BB59] font-normal"
-                    onClick={() => setShowNewDiary(true)}
-                  >
-                    Add New Diary
-                    <Image src={PlusIcon} alt="" />
-                  </Button>
-                )}
-                <div 
+              <div key={index} className="relative w-[344px]">
+                <div
                   className=" cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-200 active:scale-95"
                   onClick={() => setShowDiaryPage(true)}
                 >
@@ -129,7 +123,7 @@ const MyGarden = () => {
                     )}
                   </div>
                 </div>
-                {index === diaries.length - 1 && (
+                {/* {index === diaries.length - 1 && (
                   <div className="absolute flex left-[105px] mt-9 text-sm font-semibold gap-[20px]">
                     <button>Previous</button>
                     <div className="p-2 bg-[#68BB59] bg-opacity-20 rounded-md cursor-pointer">
@@ -139,15 +133,24 @@ const MyGarden = () => {
                     <div className="p-2 cursor-pointer">3</div>
                     <button>Next</button>
                   </div>
-                )}
+                )} */}
               </div>
             );
           })}
         </div>
+        <div className="flex items-center justify-end mx-auto w-[704px] mt-9 text-sm font-semibold gap-[20px]">
+          <button>Previous</button>
+          <div className="p-2 bg-[#68BB59] bg-opacity-20 rounded-md cursor-pointer">
+            1
+          </div>
+          <div className="p-2 cursor-pointer">2</div>
+          <div className="p-2 cursor-pointer">3</div>
+          <button>Next</button>
+        </div>
       </main>
       {showDiaryPage && <DiaryPage onClose={() => setShowDiaryPage(false)} />}
       {showEditDiary && <EditDiary onClose={() => setShowEditDiary(false)} />}
-      {showNewDiary && <NewDiary onClose={() => setShowNewDiary(false)}/>}
+      {showNewDiary && <NewDiary onClose={() => setShowNewDiary(false)} />}
     </>
   );
 };

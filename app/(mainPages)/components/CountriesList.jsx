@@ -12,7 +12,7 @@ const CountriesList = ({ setShowCountries }) => {
         </button>
         <Image src={ArrowDown} alt="" className="cursor-pointer" />
       </div>
-      <div className="flex flex-col h-[511px] py-4 overflow-y-scroll">
+      <div className="flex flex-col h-[511px] overflow-y-scroll">
         {countries.map((country) => {
           return (
             <div
