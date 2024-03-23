@@ -9,7 +9,7 @@ import PopularQuestionsSection from './mainSections/PopularQuestionsSection'
 
 const Main = () => {
   return (
-	<main className='flex flex-col justify-center'>
+	<main className='flex flex-col justify-center '>
 	  <WelcomeSection />
 	  <AppStoresSection />
 	  <AppDescriptionSection />
