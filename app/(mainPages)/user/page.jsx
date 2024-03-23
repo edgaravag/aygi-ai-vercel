@@ -23,7 +23,6 @@ const images = [
 ];
 
 const Profile = () => {
-  const [showDiaryPage, setShowDiaryPage] = useState(false);
   return (
     <>
       <main className="h-screen mx-auto py-9 px-[95px]">
@@ -86,7 +85,6 @@ const Profile = () => {
           </div>
         </div>
       </main>
-      {showDiaryPage && <DiaryPage onClose={() => setShowDiaryPage(false)} />}
     </>
   );
 };
