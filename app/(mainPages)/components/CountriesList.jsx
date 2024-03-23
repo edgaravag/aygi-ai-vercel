@@ -6,11 +6,13 @@ import { countries } from "../../../lists/index";
 const CountriesList = ({ setShowCountries }) => {
   return (
     <div className="absolute right-[41px] z-10 bg-white w-[230px] h-[544px] border border-[#68BB59] rounded-md">
-      <div className="flex items-center justify-between px-4">
+      <div className="flex items-center justify-between pl-4 pr-1">
         <button className="text-sm text-[#808080] py-[6px]">
           Choose Country
         </button>
-        <Image src={ArrowDown} alt="" className="cursor-pointer" />
+        <div className="center size-6">
+          <Image src={ArrowDown} alt="" className="cursor-pointer" />
+        </div>
       </div>
       <div className="flex flex-col h-[511px] overflow-y-scroll">
         {countries.map((country) => {

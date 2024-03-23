@@ -79,7 +79,7 @@ const DiaryPage = ({ onClose }) => {
           <div className="flex items-center justify-between my-[20px]">
             <div className="flex">
               <Button className="p-1 gap-2 cursor-pointer text-[#68BB59] font-normal">
-                Add New Post
+                Garden Journal Entry
                 <Image src={PlusIcon} alt="" />
               </Button>
             </div>

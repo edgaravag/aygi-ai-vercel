@@ -117,7 +117,7 @@ const Profile = () => {
             </div>
           </div>
           <Button className="p-1 gap-2 text-[#68BB59] font-normal mt-8">
-            Add New Post
+            Garden Journal Entry
             <Image src={PlusIcon} alt="" />
           </Button>
           <div className="flex bg-white w-80 mt-[40px] shadow-lg rounded-md">

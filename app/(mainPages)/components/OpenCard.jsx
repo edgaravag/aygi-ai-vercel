@@ -21,8 +21,8 @@ const activities = [
 const OpenCard = ({ onClose }) => {
   return (
     <PopUpWrap onClose={onClose} className="py-8 px-12">
-      <div className="border-2 border-[#f8f8f8] w-[571px] rounded py-4 px-2">
-        <div className="flex justify-between items-center">
+      <div className="border-2 border-[#f8f8f8] w-[571px] rounded py-4 px-4">
+        <div className="flex justify-between ">
           <div className="flex justify-start gap-4">
             <div>
               <Image src={UserImage} alt="" />
