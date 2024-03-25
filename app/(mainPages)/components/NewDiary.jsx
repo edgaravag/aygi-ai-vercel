@@ -24,8 +24,11 @@ const NewDiary = ({ onClose }) => {
         </button>
       </div>
       <div className="flex items-center justify-between mt-4">
-        <label className="center gap-2">
-          <input type="checkbox" className="size-[20px] rounded-full" />
+        <label className="center gap-2 text-xs font-normal">
+          <input
+            type="checkbox"
+            className="w-[20px] h-[20px] rounded-full border border-[#D1D1D6] appearance-none checked:bg-[#68BB59]"
+          />
           Make Private
         </label>
         <div className="flex gap-6">

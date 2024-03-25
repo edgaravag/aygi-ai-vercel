@@ -6,10 +6,12 @@ import DiaryImage from "../../../public/diaryPageImage.png";
 import DiaryPostImage from "../../../public/diaryPost.png";
 import EditIcon from "../../../public/editIcon.png";
 import PlusIcon from "../../../public/plusIcon.svg";
+import CheckedIcon from "../../../public/checkedIcon.png";
 import OpenCard from "./OpenCard";
 import EditDiary from "./EditDiary";
 import PopUpWrap from "@/uiComponents/PopUpWrap";
 import Button from "@/uiComponents/Button";
+import AddNewPost from "./AddNewPost";
 
 const posts = [
   {
@@ -38,13 +40,14 @@ const posts = [
 const DiaryPage = ({ onClose }) => {
   const [showOpenCard, setShowOpenCard] = useState(false);
   const [showEditDiary, setShowEditDiary] = useState(false);
+  const [showAddNewPost, setShowAddNewPost] = useState(false);
 
   return (
     <>
       {!showEditDiary && !showOpenCard && (
         <PopUpWrap
           onClose={onClose}
-          className={`relative w-[816px] max-h-screen px-12 py-8 bg-white rounded-md ${
+          className={`relative w-[784px] h-[900px] px-12 py-8 bg-white rounded-md ${
             (showOpenCard && "hidden", showEditDiary && "hidden")
           }`}
         >
@@ -78,18 +81,19 @@ const DiaryPage = ({ onClose }) => {
           </div>
           <div className="flex items-center justify-between my-[20px]">
             <div className="flex">
-              <Button className="p-1 gap-2 cursor-pointer text-[#68BB59] font-normal">
+              <Button 
+                className="p-1 gap-2 cursor-pointer text-[#68BB59] font-normal"
+                onClick={() => setShowAddNewPost(true)}
+              >
                 Garden Journal Entry
                 <Image src={PlusIcon} alt="" />
               </Button>
             </div>
             <label className="center gap-2 text-xs font-normal">
-              <div className="center rounded-full">
-                <input
-                  type="checkbox"
-                  className="w-[20px] h-[20px] rounded-full"
-                />
-              </div>
+              <input
+                type="checkbox"
+                className="w-[20px] h-[20px] rounded-full border border-[#D1D1D6] appearance-none checked:bg-[#68BB59]"
+              />
               Make Private
             </label>
           </div>
@@ -127,6 +131,7 @@ const DiaryPage = ({ onClose }) => {
       )}
       {showOpenCard && <OpenCard onClose={onClose} />}
       {showEditDiary && <EditDiary onClose={onClose} />}
+      {showAddNewPost && <AddNewPost onClose={() => setShowAddNewPost(false)} />}
     </>
   );
 };

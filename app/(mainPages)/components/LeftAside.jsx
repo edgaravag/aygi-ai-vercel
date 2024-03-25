@@ -13,7 +13,7 @@ import FaqIcon from "../../../public/faq.png";
 import LogoutIcon from "../../../public/logout.png";
 
 const leftSideLinks = [
-  { img: HomeIcon.src, hoverImg: "", title: "Home", path: "/myGarden" },
+  { img: HomeIcon.src, hoverImg: "", title: "Home", path: "/mygarden" },
   { img: UserIcon.src, hoverImg: "", title: "Profile", path: "/profile" },
   { img: PlantIcon.src, hoverImg: "", title: "Feed", path: "/feed" },
   { img: FavoritesIcon.src, hoverImg: "", title: "Favorites", path: "/favorites" },
