@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import FavoritesComponent from '@/app/components/pages/favorites/Favorites'
 

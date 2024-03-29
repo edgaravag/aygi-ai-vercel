@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import UserProfileComponent from '@/app/components/pages/user/User'
 

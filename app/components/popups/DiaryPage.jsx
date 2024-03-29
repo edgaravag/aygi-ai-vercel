@@ -49,7 +49,7 @@ const DiaryPage = ({ onClose }) => {
             (showOpenCard && "hidden", showEditDiary && "hidden")
           }`}
         >
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-5">
             <h2 className="font-semibold tracking-widest">
               Information about Pepper Plant
             </h2>
@@ -57,7 +57,7 @@ const DiaryPage = ({ onClose }) => {
               className="flex gap-2 cursor-pointer"
               onClick={() => setShowEditDiary(true)}
             >
-              <button>
+              <button className="flex-shrink-0">
                 <Image src={EditIcon} alt="" />
               </button>
               <Button className="font-normal text-[#68BB59]">Edit</Button>
@@ -77,7 +77,7 @@ const DiaryPage = ({ onClose }) => {
           <div className="mt-4">
             <Image src={DiaryImage} alt="" className="w-full" />
           </div>
-          <div className="flex items-center justify-between my-[20px]">
+          <div className="flex items-center justify-between gap-5 my-[20px]">
             <div className="flex">
               <Button 
                 className="p-1 gap-2 cursor-pointer text-[#68BB59] font-normal"
@@ -90,7 +90,7 @@ const DiaryPage = ({ onClose }) => {
             <label className="center gap-2 text-xs font-normal">
               <input
                 type="checkbox"
-                className="w-[20px] h-[20px] rounded-full border border-[#D1D1D6] appearance-none checked:bg-[#68BB59]"
+                className="w-[20px] h-[20px] rounded-full flex-shrink-0 border border-[#D1D1D6] appearance-none checked:bg-[#68BB59]"
               />
               Make Private
             </label>
@@ -99,7 +99,7 @@ const DiaryPage = ({ onClose }) => {
             {posts.map((post, index) => {
               return (
                 <div key={index}>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center gap-5">
                     <div className="flex items-center justify-start gap-4">
                       <div>
                         <Image src={post.img} alt="" width={40} height={40} />
@@ -116,7 +116,7 @@ const DiaryPage = ({ onClose }) => {
                     </div>
                   </div>
                   <div
-                    className="bg-[#F6F6F6] py-[10px] px-2 mt-2 cursor-pointer"
+                    className="bg-[#F6F6F6] py-[10px] px-2 mt-2 cursor-pointer rounded-md"
                     onClick={() => setShowOpenCard(!showOpenCard)}
                   >
                     <p className="text-sm font-normal">{post.comment}</p>
