@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import DiaryPage from "../../popups/DiaryPage";
-import NextUser from "@public/icons/nextUser.png";
-import FavoriteUserIcon from "@public/users/favoriteUser.png";
-import ProfileImg1 from "@public/plants/profileImg1.png";
-import ProfileImg2 from "@public/plants/profileImg2.png";
-import ProfileImg3 from "@public/plants/profileImg3.png";
-import ProfileImg4 from "@public/plants/profileImg4.png";
-import ProfileImg5 from "@public/plants/profileImg5.png";
-import ProfileImg6 from "@public/plants/profileImg6.png";
+import NextUser from "@public/icons/nextUser.webp";
+import FavoriteUserIcon from "@public/users/favoriteUser.webp";
+import ProfileImg1 from "@public/plants/profileImg1.webp";
+import ProfileImg2 from "@public/plants/profileImg2.webp";
+import ProfileImg3 from "@public/plants/profileImg3.webp";
+import ProfileImg4 from "@public/plants/profileImg4.webp";
+import ProfileImg5 from "@public/plants/profileImg5.webp";
+import ProfileImg6 from "@public/plants/profileImg6.webp";
 
 const favorites = [
   { img: FavoriteUserIcon.src, name: "Name" },

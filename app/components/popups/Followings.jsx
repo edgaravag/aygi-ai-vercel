@@ -2,8 +2,8 @@ import React from "react";
 import Image from "next/image";
 import PopUpWrap from "../ui/PopUpWrap";
 import Button from "../ui/Button";
-import SearchIcon from "@public/icons/graySearchIcon.png";
-import FollowerImg from "@public/users/followerImg.png";
+import SearchIcon from "@public/icons/graySearchIcon.webp";
+import FollowerImg from "@public/users/followerImg.webp";
 
 const followings = [
   {

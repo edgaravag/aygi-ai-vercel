@@ -1,3 +1,4 @@
+'use client'
 import Header from "../components/pages/layout/Header";
 import LeftAside from "../components/pages/layout/LeftAside";
 import RightAside from "../components/pages/layout/RightAside";

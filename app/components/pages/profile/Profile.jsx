@@ -4,21 +4,21 @@ import EditProfile from "../../popups/EditProfile";
 import Followers from "../../popups/Followers";
 import Followwings from "../../popups/Followings";
 import Button from "@/app/components/ui/Button";
-import UserImg from "@public/users/profileUserImg.png";
-import UserImage from "@public/users/UserImageWithoutImage.png";
-import GreenPen from "@public/icons/greenPen.png";
-import MoreIcon from "@public/icons/moreIcon.png";
-import LikeIcon from "@public/icons/likeIcon.png";
-import CommentIcon from "@public/icons/commentIcon.png";
-import ShareIcon from "@public/icons/shareIcon.png";
-import ProfileImg1 from "@public/plants/profileImg1.png";
-import ProfileImg2 from "@public/plants/profileImg2.png";
-import ProfileImg3 from "@public/plants/profileImg3.png";
-import ProfileImg4 from "@public/plants/profileImg4.png";
-import ProfileImg5 from "@public/plants/profileImg5.png";
-import ProfileImg6 from "@public/plants/profileImg6.png";
+import UserImg from "@public/users/profileUserImg.webp";
+import UserImage from "@public/users/UserImageWithoutImage.webp";
+import GreenPen from "@public/icons/greenPen.webp";
+import MoreIcon from "@public/icons/moreIcon.webp";
+import LikeIcon from "@public/icons/likeIcon.webp";
+import CommentIcon from "@public/icons/commentIcon.webp";
+import ShareIcon from "@public/icons/shareIcon.webp";
+import ProfileImg1 from "@public/plants/profileImg1.webp";
+import ProfileImg2 from "@public/plants/profileImg2.webp";
+import ProfileImg3 from "@public/plants/profileImg3.webp";
+import ProfileImg4 from "@public/plants/profileImg4.webp";
+import ProfileImg5 from "@public/plants/profileImg5.webp";
+import ProfileImg6 from "@public/plants/profileImg6.webp";
 import PlusIcon from "@public/icons/plusIcon.svg";
-import OpenCardLemon from "@public/plants/OpenCard.png";
+import OpenCardLemon from "@public/plants/OpenCard.webp";
 
 const images = [
   ProfileImg1.src,

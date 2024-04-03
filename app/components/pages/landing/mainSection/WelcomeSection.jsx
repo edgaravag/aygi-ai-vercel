@@ -3,15 +3,15 @@ import React, { useState } from "react";
 import Image from "next/image";
 import SignUp from "./authorization/SignUp";
 import Button from "@/app/components/ui/Button";
-import MobileImg from '@public/landing/mobile.png';
-import ImageComp from "@public/landing/laptop.png";
+import MobileImg from '@public/landing/mobile.webp';
+import ImageComp from "@public/landing/laptop.webp";
 
 const WelcomeSection = () => {
   const [showSignUp, setShowSignUp] = useState(false);
 
   return (
     <>
-      <section className='center min-h-[633px] gap-0 xl:gap-10 max-[1160px]:gap-12 flex-wrap w-full h-full px-10 max-[975px]:px-3 bg-[url("../../public/landing/welcome.png")] bg-cover bg-center pb-[84px] pt-[208px]'>
+      <section className='center min-h-[633px] gap-0 xl:gap-10 max-[1160px]:gap-12 flex-wrap w-full h-full px-10 max-[975px]:px-3 bg-[url("../../public/landing/welcome.webp")] bg-cover bg-center pb-[84px] pt-[208px]'>
         <div>
           <h1 className="text-[#0f0701] font-bold text-[46px] leading-[48px] max-[1160px]:text-center">
             Welcome to <br />
@@ -46,7 +46,7 @@ const WelcomeSection = () => {
           </div>
           <div className="center flex-wrap gap-12 max-[661px]:gap-20">
             <div className="flex items-center max-[1160px]:flex-row-reverse max-[1160px]:mr-7 max-[850px]:mr-0">
-              <div className='center h-[212px] w-[2px] bg-[url("../../public/landing/welcomeLine.png")] max-[1160px]:ml-[34px] max-[918px]:hidden'>
+              <div className='center h-[212px] w-[2px] bg-[url("../../public/landing/welcomeLine.webp")] max-[1160px]:ml-[34px] max-[918px]:hidden'>
                 <div className="mt-[10px]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import PopUpWrap from "../ui/PopUpWrap";
 import Button from "../ui/Button";
-import UserIcon from "@public/users/headerUserIcon.png";
-import UploadImage from "@public/icons/userUploadImage.png";
-import GarbageImage from "@public/icons/garbageImage.png";
+import UserIcon from "@public/users/headerUserIcon.webp";
+import UploadImage from "@public/icons/userUploadImage.webp";
+import GarbageImage from "@public/icons/garbageImage.webp";
 
 const EditDiary = ({ onClose }) => {
   return (

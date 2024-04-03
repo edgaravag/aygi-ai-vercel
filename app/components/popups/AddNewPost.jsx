@@ -3,10 +3,10 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import PopUpWrap from "../ui/PopUpWrap";
 import Button from "../ui/Button";
-import UserIcon from "@public/users/headerUserIcon.png";
-import ArrowDown from "@public/icons/arrowDown.png";
-import GreenPlusIcon from "@public/icons/greenPlusIcon.png";
-import UploadImage from "@public/icons/userUploadImage.png";
+import UserIcon from "@public/users/headerUserIcon.webp";
+import ArrowDown from "@public/icons/arrowDown.webp";
+import GreenPlusIcon from "@public/icons/greenPlusIcon.webp";
+import UploadImage from "@public/icons/userUploadImage.webp";
 
 const diaryNames = [
   "Diary name 1",

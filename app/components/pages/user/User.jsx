@@ -4,15 +4,15 @@ import DiaryPage from "../../popups/DiaryPage";
 import Followers from "../../popups/Followers";
 import Followwings from "../../popups/Followings";
 import Button from "@/app/components/ui/Button";
-import UserImg from "@public/users/profileUserImg.png";
-import ProfileImg1 from "@public/plants/profileImg1.png";
-import ProfileImg2 from "@public/plants/profileImg2.png";
-import ProfileImg3 from "@public/plants/profileImg3.png";
-import ProfileImg4 from "@public/plants/profileImg4.png";
-import ProfileImg5 from "@public/plants/profileImg5.png";
-import ProfileImg6 from "@public/plants/profileImg6.png";
-import FriendFollow from "@public/icons/followFriendIcon.png";
-import UserMessageIcon from "@public/icons/userMessage.png";
+import UserImg from "@public/users/profileUserImg.webp";
+import ProfileImg1 from "@public/plants/profileImg1.webp";
+import ProfileImg2 from "@public/plants/profileImg2.webp";
+import ProfileImg3 from "@public/plants/profileImg3.webp";
+import ProfileImg4 from "@public/plants/profileImg4.webp";
+import ProfileImg5 from "@public/plants/profileImg5.webp";
+import ProfileImg6 from "@public/plants/profileImg6.webp";
+import FriendFollow from "@public/icons/followFriendIcon.webp";
+import UserMessageIcon from "@public/icons/userMessage.webp";
 
 const images = [
   ProfileImg1.src,

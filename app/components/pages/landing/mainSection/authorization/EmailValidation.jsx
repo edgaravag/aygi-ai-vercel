@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import ResetPassword from "./ResetPassword";
 import PopUpWrap from "@/app/components/ui/PopUpWrap";
 import Button from "@/app/components/ui/Button";
-import ValidationIcon from "@public/icons/emailValidation.png";
+import ValidationIcon from "@public/icons/emailValidation.webp";
 
 const EmailValidation = ({ onClose }) => {
   const [showResetPassword, setShowResetPassword] = useState(false);

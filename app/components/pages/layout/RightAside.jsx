@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,11 +6,11 @@ import CountriesList from "./CountriesList";
 import Info from "./Info";
 import OpenCard from "../../popups/OpenCard";
 import Button from "@/app/components/ui/Button";
-import UserIcon from "@public/users/friendIcon.png";
-import EditIcon from "@public/icons/editIcon.png";
-import InfoIcon from "@public/icons/info.png";
-import SunIcon from "@public/icons/sunIcon.png";
-import SunIconCore from "@public/icons/sunIconCore.png";
+import UserIcon from "@public/users/friendIcon.webp";
+import EditIcon from "@public/icons/editIcon.webp";
+import InfoIcon from "@public/icons/info.webp";
+import SunIcon from "@public/icons/sunIcon.webp";
+import SunIconCore from "@public/icons/sunIconCore.webp";
 
 const users = [
   {

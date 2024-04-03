@@ -1,14 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import PopUpWrap from "../ui/PopUpWrap";
-import UserImage from "@public/users/UserImageWithoutImage.png";
-import OpenCardLemon from "@public/plants/OpenCard.png";
-import MoreIcon from "@public/icons/moreIcon.png";
-import LikeIcon from "@public/icons/likeIcon.png";
-import CommentIcon from "@public/icons/commentIcon.png";
-import ShareIcon from "@public/icons/shareIcon.png";
-import SunIcon from "@public/icons/sunIcon.png";
-import SunIconCore from "@public/icons/sunIconCore.png";
+import UserImage from "@public/users/UserImageWithoutImage.webp";
+import OpenCardLemon from "@public/plants/OpenCard.webp";
+import MoreIcon from "@public/icons/moreIcon.webp";
+import LikeIcon from "@public/icons/likeIcon.webp";
+import CommentIcon from "@public/icons/commentIcon.webp";
+import ShareIcon from "@public/icons/shareIcon.webp";
+import SunIcon from "@public/icons/sunIcon.webp";
+import SunIconCore from "@public/icons/sunIconCore.webp";
 
 const activities = [
   { title: "Flower deadheading", color: "#E4FEDF" },

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import PopUpWrap from "../ui/PopUpWrap";
 import Button from "../ui/Button";
-import UserImg from "@public/users/profileUserImg.png";
+import UserImg from "@public/users/profileUserImg.webp";
 
 const EditProfile = ({ setOpenSetting }) => {
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import PopUpWrap from "../ui/PopUpWrap";
 import Button from "../ui/Button";
-import UploadImage from "@public/icons/userUploadImage.png";
+import UploadImage from "@public/icons/userUploadImage.webp";
 
 const NewDiary = ({ onClose }) => {
   return (

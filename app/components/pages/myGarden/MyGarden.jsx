@@ -4,7 +4,7 @@ import DiaryPage from "../../popups/DiaryPage";
 import EditDiary from "../../popups/EditDiary";
 import NewDiary from "../../popups/NewDiary";
 import Button from "@/app/components/ui/Button";
-import DiaryImg from "@public/plants/diaryImg.png";
+import DiaryImg from "@public/plants/diaryImg.webp";
 import EditIcon from "@public/icons/grayEditIcon.svg";
 import PlusIcon from "@public/icons/plusIcon.svg";
 import PrivateIcon from '@public/icons/privateIcon.svg'

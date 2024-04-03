@@ -1,7 +1,7 @@
 import React from "react";
-import TomatoImg from "@public/landing/tomato.png";
-import CornImg from "@public/landing/corn.png";
-import RaspberriesImg from "@public/landing/raspberries.png";
+import TomatoImg from "@public/landing/tomato.webp";
+import CornImg from "@public/landing/corn.webp";
+import RaspberriesImg from "@public/landing/raspberries.webp";
 import Image from "next/image";
 import Button from "@/app/components/ui/Button";
 

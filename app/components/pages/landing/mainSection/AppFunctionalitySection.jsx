@@ -35,7 +35,7 @@ const infos = [
 
 const AppFunctionalitySection = () => {
   return (
-    <section className='w-full bg-[#68bb59] bg-[url("../../public/landing/green_plants_background.png")] bg-right-bottom bg-auto bg-no-repeat'>
+    <section className='w-full bg-[#68bb59] bg-[url("../../public/landing/green_plants_background.webp")] bg-right-bottom bg-auto bg-no-repeat'>
       <div className="max-w-[1440px] mx-auto py-16 px-[200px] max-[1465px]:px-[100px] max-[1250px]:px-[40px] max-[950px]:px-[20px]">
         <div className="flex flex-col gap-[60px]">
           {infos.map((info) => {

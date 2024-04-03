@@ -1,16 +1,15 @@
-'use client'
 import Image from "next/image";
 import React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import HomeIcon from "@public/icons/homeIcon.png";
-import PlantIcon from "@public/icons/plant.png";
-import UserIcon from "@public/icons/user.png";
-import FavoritesIcon from "@public/icons/favorites.png";
-import DetectionsIcon from "@public/icons/detections.png";
-import ChatIcon from "@public/icons/aichat.png";
-import FaqIcon from "@public/icons/faq.png";
-import LogoutIcon from "@public/icons/logout.png";
+import HomeIcon from "@public/icons/homeIcon.webp";
+import PlantIcon from "@public/icons/feedIcon.webp";
+import UserIcon from "@public/icons/user.webp";
+import FavoritesIcon from "@public/icons/favorites.webp";
+import DetectionsIcon from "@public/icons/detections.webp";
+import ChatIcon from "@public/icons/aichat.webp";
+import FaqIcon from "@public/icons/faq.webp";
+import LogoutIcon from "@public/icons/logout.webp";
 
 const leftSideLinks = [
   { img: HomeIcon.src, hoverImg: "", title: "Home", path: "/mygarden" },

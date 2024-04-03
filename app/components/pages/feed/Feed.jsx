@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import AddNewPost from "../../popups/AddNewPost";
 import FeedSinglePost from "./FeedSinglePost";
-import PostImage1 from "@public/plants/feedPostImg1.png";
-import PostImage2 from "@public/plants/feedPostImg2.png";
-import UserImage from "@public/users/UserImageWithoutImage.png";
+import PostImage1 from "@public/plants/feedPostImg1.webp";
+import PostImage2 from "@public/plants/feedPostImg2.webp";
+import UserImage from "@public/users/UserImageWithoutImage.webp";
 import PlusIcon from "@public/icons/plusIcon.svg";
 
 const posts = [

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import ArrowDown from "@public/icons/arrowDown.png";
-import { countries } from "../../../../lists/index";
+import ArrowDown from "@public/icons/arrowDown.webp";
+import { countries } from "../../../constants/countriesList";
 
 const CountriesList = ({ setShowCountries }) => {
   return (

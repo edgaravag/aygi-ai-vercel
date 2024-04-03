@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import OpenCard from "../../popups/OpenCard";
-import UserImage from "@public/users/UserImageWithoutImage.png";
-import MoreIcon from "@public/icons/moreIcon.png";
-import LikeIcon from "@public/icons/likeIcon.png";
-import CommentIcon from "@public/icons/commentIcon.png";
-import ShareIcon from "@public/icons/shareIcon.png";
-import ColorIcon from "@public/icons/closeIcon.png";
+import UserImage from "@public/users/UserImageWithoutImage.webp";
+import MoreIcon from "@public/icons/moreIcon.webp";
+import LikeIcon from "@public/icons/likeIcon.webp";
+import CommentIcon from "@public/icons/commentIcon.webp";
+import ShareIcon from "@public/icons/shareIcon.webp";
+import ColorIcon from "@public/icons/closeIcon.webp";
 
 const FeedSinglePost = ({ post }) => {
   const [showOpenCard, setShowOpenCard] = useState(false);
