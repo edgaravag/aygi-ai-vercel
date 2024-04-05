@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import SignIn from "./mainSection/authorization/SignIn";
-import SignUp from "./mainSection/authorization/SignUp";
+import SignIn from "../../../components/pages/landing/mainSection/authorization/SignIn";
+import SignUp from "../../../components/pages/landing/mainSection/authorization/SignUp";
 import Button from "@/app/components/ui/Button";
 
 const Header = () => {
