@@ -10,7 +10,7 @@ import xIconHover from "@public/socialMediaIcons/xIconHover.svg";
 import pinterestIconHover from "@public/socialMediaIcons/pinterestIcon-hover.svg";
 import youtubeIconHover from "@public/socialMediaIcons/youtubeIcon-hover.svg";
 import instagramIconHover from "@public/socialMediaIcons/instagramIcon-hover.svg";
-import Button from "@/app/components/ui/Button";
+import Button from "@/src/components/ui/Button";
 const Footer = () => {
   return (
     <footer className="w-full bg-[#0F0701]">

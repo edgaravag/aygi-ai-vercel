@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import ResetPassword from "./ResetPassword";
-import PopUpWrap from "@/app/components/ui/PopUpWrap";
-import Button from "@/app/components/ui/Button";
+import PopUpWrap from "@/src/components/ui/PopUpWrap";
+import Button from "@/src/components/ui/Button";
 import ValidationIcon from "@public/icons/emailValidation.webp";
 
 const EmailValidation = ({ onClose }) => {

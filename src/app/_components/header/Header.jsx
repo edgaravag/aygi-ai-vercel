@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import SignIn from "../../../components/pages/landing/mainSection/authorization/SignIn";
-import SignUp from "../../../components/pages/landing/mainSection/authorization/SignUp";
-import Button from "@/app/components/ui/Button";
+import SignIn from "./authorization/SignIn";
+import SignUp from "./authorization/SignUp";
+import Button from "@/src/components/ui/Button";
 
 const Header = () => {
   const [showSignIn, setShowSignIn] = useState(false);
