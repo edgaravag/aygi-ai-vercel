@@ -4,10 +4,10 @@ import PopUpWrap from "../ui/PopUpWrap";
 import Button from "../ui/Button";
 import UserImg from "@public/users/profileUserImg.webp";
 
-const EditProfile = ({ setOpenSetting }) => {
+const EditProfile = ({ setShowEditProfile }) => {
   return (
     <PopUpWrap
-      onClose={() => setOpenSetting(false)}
+      onClose={() => setShowEditProfile(false)}
       className="w-[448px] px-16 py-[20px] "
     >
       <div>

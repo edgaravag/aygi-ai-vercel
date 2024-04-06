@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 import facebookIcon from "@public/socialMediaIcons/facebookIcon.svg";
 import xIcon from "@public/socialMediaIcons/xIcon.svg";
 import pinterestIcon from "@public/socialMediaIcons/pinterestIcon.svg";
@@ -10,6 +9,7 @@ import xIconHover from "@public/socialMediaIcons/xIconHover.svg";
 import pinterestIconHover from "@public/socialMediaIcons/pinterestIcon-hover.svg";
 import youtubeIconHover from "@public/socialMediaIcons/youtubeIcon-hover.svg";
 import instagramIconHover from "@public/socialMediaIcons/instagramIcon-hover.svg";
+
 import Button from "@/src/components/ui/Button";
 const Footer = () => {
   return (

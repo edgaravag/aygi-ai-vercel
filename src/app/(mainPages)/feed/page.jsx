@@ -1,9 +1,50 @@
-'use client'
-import React from 'react'
-import FeedComponent from '@/app/components/pages/feed/Feed'
+import FeedSinglePost from "./_components/FeedSinglePost";
+import PostImage1 from "@public/plants/feedPostImg1.webp";
+import PostImage2 from "@public/plants/feedPostImg2.webp";
+import UserImage from "@public/users/UserImageWithoutImage.webp";
+import GardenJournalEntry from "./_components/GardenJournalEntry";
 
-const FeedPage = () => {
-  return <FeedComponent />
-}
+const posts = [
+  {
+    userName: "User Name",
+    postDate: "Post Date",
+    postName: "Post Name",
+    feedImg: PostImage1.src,
+    userImage: UserImage.src,
+    likesCount: 15,
+    commentsCount: 15,
+    shareCount: 7,
+  },
+  {
+    userName: "User Name",
+    postDate: "Post Date",
+    postName: "Post Name",
+    feedImg: PostImage2.src,
+    userImage: UserImage.src,
+    likesCount: 15,
+    commentsCount: 15,
+    shareCount: 7,
+  },
+];
 
-export default FeedPage
+const FeedComponent = () => {
+
+  return (
+    <main className="w-full h-screen mx-auto pt-9 px-16 ">
+      <div className="flex flex-col gap-4">
+        <div className="w-[571px] mx-auto flex mb-2">
+          <GardenJournalEntry />
+        </div>
+        {posts.map((post, index) => {
+          return (
+            <div key={index}>
+              <FeedSinglePost post={post} />
+            </div>
+          );
+        })}
+      </div>
+    </main>
+  );
+};
+
+export default FeedComponent;

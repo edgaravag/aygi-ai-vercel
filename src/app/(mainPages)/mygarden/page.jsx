@@ -1,9 +1,60 @@
-'use client'
-import React from 'react'
-import MyGardenComponent from '@/app/components/pages/myGarden/MyGarden'
+import ShowNewDiary from "./_components/ShowNewDiary";
+import SingleDiary from "./_components/SingleDiary";
+import PrevAndNextPages from "./_components/PrevAndNextPages";
+import DiaryImg from "@public/plants/diaryImg.webp";
 
-const MyGardenPage = () => {
-  return <MyGardenComponent />
-}
+const diaries = [
+  {
+    diaryName: "Diary Name",
+    creationDate: "05 March",
+    img: DiaryImg.src,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    isPrivate: false,
+  },
+  {
+    diaryName: "Diary Name",
+    creationDate: "05 March",
+    img: DiaryImg.src,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    isPrivate: false,
+  },
+  {
+    diaryName: "Diary Name",
+    creationDate: "05 March",
+    img: DiaryImg.src,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    isPrivate: true,
+  },
+  {
+    diaryName: "Diary Name",
+    creationDate: "06 March",
+    img: DiaryImg.src,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    isPrivate: true,
+  },
+];
 
-export default MyGardenPage
+const MyGardenComponent = () => {
+
+  return (
+    <>
+      <main className="w-full h-screen mx-auto py-9 px-16">
+        <ShowNewDiary />
+        <div className="center flex-wrap mx-auto gap-4 max-[2166px]:w-[704px] max-[1440px]:w-auto">
+          {diaries.map((diary, index) => {
+            return (
+              <SingleDiary diary={diary} key={index} />
+            );
+          })}
+        </div>
+        <PrevAndNextPages />
+      </main>
+    </>
+  );
+};
+
+export default MyGardenComponent;

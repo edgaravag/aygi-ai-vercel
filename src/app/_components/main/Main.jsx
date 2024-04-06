@@ -1,23 +1,22 @@
-import React from 'react'
-import WelcomeSection from '../../../components/pages/landing/mainSection/WelcomeSection'
-import AppStoresSection from '../../../components/pages/landing/mainSection/AppStoresSection'
-import AppDescriptionSection from '../../../components/pages/landing/mainSection/AppDescriptionSection'
-import GetAdviceSection from '../../../components/pages/landing/mainSection/GetAdviceSection'
-import PlantExploringSection from '../../../components/pages/landing/mainSection/PlantExploringSection'
-import AppFunctionalitySection from '../../../components/pages/landing/mainSection/AppFunctionalitySection'
-import PopularQuestionsSection from '../../../components/pages/landing/mainSection/PopularQuestionsSection'
+import WelcomeSection from './_components/WelcomeSection'
+import AppStoresSection from './_components/AppStoresSection'
+import AppDescriptionSection from './_components/AppDescriptionSection'
+import GetAdviceSection from './_components/GetAdviceSection'
+import PlantExploringSection from './_components/PlantExploringSection'
+import AppFunctionalitySection from './_components/AppFunctionalitySection'
+import PopularQuestionsSection from './_components/PopularQuestionsSection'
 
 const Main = () => {
   return (
-	<main className='flex flex-col justify-center '>
-	  <WelcomeSection />
-	  <AppStoresSection />
-	  <AppDescriptionSection />
-	  <GetAdviceSection />
-	  <PlantExploringSection />
-	  <AppFunctionalitySection />
-	  <PopularQuestionsSection />
-	</main>
+		<main className='flex flex-col justify-center '>
+			<WelcomeSection />
+			<AppStoresSection />
+			<AppDescriptionSection />
+			<GetAdviceSection />
+			<PlantExploringSection />
+			<AppFunctionalitySection />
+			<PopularQuestionsSection />
+		</main>
   )
 }
 

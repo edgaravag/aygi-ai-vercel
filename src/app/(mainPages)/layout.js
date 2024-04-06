@@ -1,7 +1,6 @@
-'use client'
-import Header from "../components/pages/layout/Header";
-import LeftAside from "../components/pages/layout/LeftAside";
-import RightAside from "../components/pages/layout/RightAside";
+import Header from "./_components/header/Header";
+import LeftAside from "./_components/leftAside/LeftAside";
+import RightAside from "./_components/rightAside/RightAside";
 
 export default function RootLayout({ children }) {
   return (
