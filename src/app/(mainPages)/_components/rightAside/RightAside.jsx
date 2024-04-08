@@ -44,7 +44,7 @@ const friends = [
 
 const RightAside = () => {
   return (
-    <aside className="relative bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.10)] min-w-[365px] h-[1360px] px-[41px] py-5">
+    <aside className="bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.10)] min-w-[365px] h-[1360px] px-[41px] py-5">
       <div className="flex justify-between pb-4">
         <Weather />
         <EditCountry />
