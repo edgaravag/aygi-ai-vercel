@@ -39,21 +39,16 @@ const diaries = [
 ];
 
 const MyGardenComponent = () => {
-
   return (
-    <>
-      <main className="w-full h-screen mx-auto py-9 px-16">
-        <ShowNewDiary />
-        <div className="center flex-wrap mx-auto gap-4 max-[2166px]:w-[704px] max-[1440px]:w-auto">
-          {diaries.map((diary, index) => {
-            return (
-              <SingleDiary diary={diary} key={index} />
-            );
-          })}
-        </div>
-        <PrevAndNextPages />
-      </main>
-    </>
+    <main className="w-full h-screen mx-auto py-9 px-16">
+      <ShowNewDiary />
+      <div className="center flex-wrap mx-auto gap-4 max-[2166px]:w-[704px] max-[1440px]:w-auto">
+        {diaries.map((diary, index) => {
+          return <SingleDiary diary={diary} key={index} />;
+        })}
+      </div>
+      <PrevAndNextPages />
+    </main>
   );
 };
 

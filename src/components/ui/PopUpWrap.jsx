@@ -1,4 +1,3 @@
-import React from "react";
 import CloseIcon from "@public/icons/closeIcon.svg";
 import Image from "next/image";
 
