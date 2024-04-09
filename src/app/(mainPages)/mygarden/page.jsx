@@ -2,6 +2,7 @@ import ShowNewDiary from "./_components/ShowNewDiary";
 import SingleDiary from "./_components/SingleDiary";
 import PrevAndNextPages from "./_components/PrevAndNextPages";
 import DiaryImg from "@public/plants/diaryImg.webp";
+import AddNewBusiness from "./_components/AddNewBusiness";
 
 const diaries = [
   {
@@ -42,17 +43,17 @@ const MyGardenComponent = () => {
 
   return (
     <>
-      <main className="w-full h-screen mx-auto py-9 px-16">
-        <ShowNewDiary />
-        <div className="center flex-wrap mx-auto gap-4 max-[2166px]:w-[704px] max-[1440px]:w-auto">
-          {diaries.map((diary, index) => {
-            return (
-              <SingleDiary diary={diary} key={index} />
-            );
-          })}
-        </div>
-        <PrevAndNextPages />
-      </main>
+      <h2 className="text-xl font-semibold">My Garden</h2>
+      <AddNewBusiness />
+      <ShowNewDiary />
+      <div className="center flex-wrap mx-auto gap-4 max-[2166px]:w-[704px] max-[1440px]:w-auto">
+        {diaries.map((diary, index) => {
+          return (
+            <SingleDiary diary={diary} key={index} />
+          );
+        })}
+      </div>
+      <PrevAndNextPages />
     </>
   );
 };

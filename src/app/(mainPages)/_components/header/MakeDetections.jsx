@@ -1,14 +1,11 @@
 "use client";
-import { useState } from "react";
 import Button from "@/src/components/ui/Button";
-import MakeDetection from "@/src/components/popups/MakeDetection";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getModalState,
   setIsOpen,
 } from "@/src/store/features/modalSlice/modalSlice";
 const MakeDetections = () => {
-  // const [showMakeDetection, setShowMakeDetection] = useState(false);
   const isOpen = useSelector(getModalState);
   const dispatch = useDispatch();
   const handleModalClick = () => {
@@ -22,9 +19,6 @@ const MakeDetections = () => {
       >
         Make Detection
       </Button>
-      {/* {showMakeDetection && (
-        <MakeDetection onClose={() => setShowMakeDetection(false)} />
-      )} */}
     </>
   );
 };

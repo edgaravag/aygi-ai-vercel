@@ -1,8 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit'
 import modalSlice from "./features/modalSlice/modalSlice";
 
-const store = configureStore({
-  reducer: { modal: modalSlice },
-});
-
-export default store;
+export const makeStore = () => {
+  return configureStore({
+    reducer: { modal: modalSlice }
+  })
+}

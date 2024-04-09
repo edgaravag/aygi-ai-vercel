@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import PopUpWrap from "../ui/PopUpWrap";
 import MakeDetectionIcon1 from "@public/icons/makeDetectionIcon1.webp";

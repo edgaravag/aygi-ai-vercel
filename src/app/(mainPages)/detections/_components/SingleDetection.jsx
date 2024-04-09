@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from "next/image";
 import Button from "@/src/components/ui/Button";
 import DeleteDetectionButton from "./DeleteDetectionButton";
@@ -20,9 +21,11 @@ const SingleDetection = ({ detection }) => {
           <p className="text-xs mt-1.5">{detection.date}</p>
         </div>
       </div>
-      <div className="flex flex-col justify-between items-end">
+      <div className="flex flex-col justify-between items-end gap-10">
         <DeleteDetectionButton />
-        <Button className="bg-[#68BB59] text-white py-px px-4">View</Button>
+        <Link href={'/detections/view'}>
+          <Button className="bg-[#68BB59] text-white py-px px-4">View</Button>
+        </Link>
       </div>
     </div>
   );

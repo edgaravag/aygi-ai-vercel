@@ -1,5 +1,5 @@
-import StoreProvider from "./StoreProvider";
 import "./globalCss/globals.css";
+import StoreProvider from "./StoreProvider";
 export const metadata = {
   title: "Aygi | AI",
   description: "Aygi | AI",

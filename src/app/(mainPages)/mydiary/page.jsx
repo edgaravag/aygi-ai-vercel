@@ -42,7 +42,7 @@ const DiaryPage = () => {
 
   return (
     <>
-      <div className="relative w-full h-[900px] px-[72px] py-9 bg-[#f7f7f7] rounded-md">
+      <div className="relativebg-[#f7f7f7] rounded-md">
         <div className="w-[688px] mx-auto">
           <div className="flex items-center justify-between gap-5">
             <h2 className="font-semibold tracking-widest">
