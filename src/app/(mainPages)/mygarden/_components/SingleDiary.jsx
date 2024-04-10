@@ -34,8 +34,9 @@ const SingleDiary = ({ diary }) => {
           </div>
           <Image
             src={diary.img}
-            alt=""
+            alt="Diary Image"
             loading="eager"
+            priority
             width={344}
             height={194}
             className={diary.isPrivate ? "opacity-50" : undefined}

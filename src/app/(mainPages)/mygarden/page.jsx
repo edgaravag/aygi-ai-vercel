@@ -40,7 +40,6 @@ const diaries = [
 ];
 
 const MyGardenComponent = () => {
-
   return (
     <>
       <h2 className="text-xl font-semibold">My Garden</h2>

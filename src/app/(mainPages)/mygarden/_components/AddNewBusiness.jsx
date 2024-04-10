@@ -25,11 +25,10 @@ const AddNewBusiness = () => {
 				{
 					icons.map((icon, index) => {
 						return (
-							<Link href={'/'}>
+							<Link href={'/mybusiness'} key={index}>
 								<Image 
 									src={icon} 
 									alt="Business Icon" 
-									key={index} 
 									width={80}
 									height={80}
 								/>

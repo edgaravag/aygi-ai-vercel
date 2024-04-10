@@ -1,11 +1,10 @@
-import React from "react";
 import Image from "next/image";
 import ArrowDown from "@public/icons/arrowDown.webp";
 import { countries } from "@/src/constants/countriesList";
 
 const CountriesList = ({ setShowCountries }) => {
   return (
-    <div className="absolute right-[41px] top-[60px] z-10 bg-white w-[230px] h-[544px] border border-[#68BB59] rounded-md">
+    <div className="absolute right-[41px] top-[165px] z-10 bg-white w-[230px] h-[544px] border border-[#68BB59] rounded-md">
       <div className="flex items-center justify-between pl-4 pr-1">
         <button className="text-sm text-[#808080] py-[6px]">
           Choose Country

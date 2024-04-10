@@ -164,7 +164,6 @@ const SignUp = ({ onClose }) => {
                     </p>
                   )}
                 </div>
-
                 <Button
                   type="submit"
                   className="w-full mt-6 h-[54px] text-white bg-[#68bb59] font-medium"

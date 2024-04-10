@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import PopUpWrap from "../ui/PopUpWrap";
 import UserImage from "@public/users/UserImageWithoutImage.webp";
