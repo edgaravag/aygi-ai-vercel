@@ -1,7 +1,10 @@
+"use client"
+import React, { useState } from 'react';
 import Image from "next/image";
 import PrivateIcon from "@public/icons/privateIcon.svg";
 import Button from "@/src/components/ui/Button";
 import dynamic from 'next/dynamic'
+import EditIcon from '@public/icons/editicon.webp';
 const DiaryPage = dynamic(() => import("@/src/components/popups/DiaryPage"))
 const EditDiary = dynamic(() => import("@/src/components/popups/EditDiary"))
 
