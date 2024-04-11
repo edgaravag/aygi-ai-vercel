@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import { useState } from "react";
 import OpenCard from "./OpenCard";
 import EditDiary from "./EditDiary";
 import AddNewPost from "./AddNewPost";

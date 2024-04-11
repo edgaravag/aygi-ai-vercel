@@ -30,7 +30,7 @@ const posts = [
 const FeedComponent = () => {
 
   return (
-    <main className="w-full h-screen mx-auto pt-9 px-16 ">
+    <>
       <div className="flex flex-col gap-4">
         <div className="w-[571px] mx-auto flex mb-2">
           <GardenJournalEntry />
@@ -43,7 +43,7 @@ const FeedComponent = () => {
           );
         })}
       </div>
-    </main>
+    </>
   );
 };
 

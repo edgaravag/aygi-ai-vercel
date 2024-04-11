@@ -36,7 +36,7 @@ const images = [
 ];
 const FavoritesComponent = () => {
   return (
-    <main className="mx-auto py-9 px-[60px] ">
+    <>
       <h2 className="font-semibold text-xl">My Favorite Users</h2>
       <div className="flex items-center gap-5">
         <div className="mt-6 flex gap-4">
@@ -54,7 +54,7 @@ const FavoritesComponent = () => {
           return <SingleFavoriteGarden image={image} key={index} />;
         })}
       </div>
-    </main>
+    </>
   );
 };
 

@@ -19,19 +19,17 @@ const images = [
 
 const UserProfileComponent = () => {
   return (
-    <main className="h-screen mx-auto py-9 px-[95px]">
-      <div className="w-[617px]">
-        <ProfileInfo />
-        <FollowAndMessageButtons />
-        <div className="grid grid-rows-2 grid-cols-3 gap-3 mt-8">
-          {images.map((image, index) => {
-            return (
-              <SingleImage image={image} key={index} />
-            );
-          })}
-        </div>
+    <div className="w-[617px]">
+      <ProfileInfo />
+      <FollowAndMessageButtons />
+      <div className="grid grid-rows-2 grid-cols-3 gap-3 mt-8">
+        {images.map((image, index) => {
+          return (
+            <SingleImage image={image} key={index} />
+          );
+        })}
       </div>
-    </main>
+    </div>
   );
 };
 
