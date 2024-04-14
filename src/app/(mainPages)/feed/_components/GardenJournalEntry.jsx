@@ -1,26 +1,32 @@
-'use client'
-import { useState } from "react";
-import Button from "@/src/components/ui/Button";
-import PlusIcon from "@public/icons/plusIcon.svg";
 import Image from "next/image";
-import dynamic from 'next/dynamic';
-const AddNewPost = dynamic(() => import("@/src/components/popups/AddNewPost")) 
+import BusinessIcon from "@public/icons/blueBusinessIcon.webp";
+import UploadImage from "@public/icons/userUploadImage.webp";
 
-const GardenJournalEntry = () => {
-  const [showAddNewPost, setShowAddNewPost] = useState(false);
-
+const WriteTheNews = () => {
   return (
-    <>
-      <Button
-        className="center p-1 gap-2 cursor-pointer"
-        onClick={() => setShowAddNewPost(true)}
-      >
-        <p className="text-[#68BB59] font-normal">Garden Journal Entry</p>
-        <Image src={PlusIcon} alt="" />
-      </Button>
-      {showAddNewPost && <AddNewPost onClose={() => setShowAddNewPost(false)} />}
-    </>
+    <div className="w-full border border-[#68BB59] rounded-md px-4 py-6 mt-6">
+      <div className="flex gap-2">
+        <Image
+          src={BusinessIcon}
+          alt="News Icon"
+          width={62}
+          height={62}
+          style={{ width: "auto" }}
+        />
+        <input
+          type="text"
+          placeholder="write the news"
+          className="w-full bg-[#EBEBEB] px-6 py-5 rounded-[32px] outline-none"
+        />
+      </div>
+      <div className="flex justify-end mt-3">
+        <button className="self-end flex text-[#808080]">
+          <Image src={UploadImage} alt="Upload Image" className="mr-2" />
+          Upload image
+        </button>
+      </div>
+    </div>
   );
 };
 
-export default GardenJournalEntry;
+export default WriteTheNews;
