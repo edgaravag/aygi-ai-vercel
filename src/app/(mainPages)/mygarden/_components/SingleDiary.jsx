@@ -4,19 +4,19 @@ import Image from "next/image";
 import PrivateIcon from "@public/icons/privateIcon.svg";
 import Button from "@/src/components/ui/Button";
 import dynamic from 'next/dynamic'
-import EditIcon from '@public/icons/editIcon.webp';
-import Link from 'next/link';
 const DiaryPage = dynamic(() => import("@/src/components/popups/DiaryPage"))
 const EditDiary = dynamic(() => import("@/src/components/popups/EditDiary"))
 
 const SingleDiary = ({ diary }) => {
+  const [showDiaryPage, setShowDiaryPage] = useState(false);
   const [showEditDiary, setShowEditDiary] = useState(false);
 
   return (
     <>
-      <Link href={'/mydiary'} className="relative w-[344px]">
+      <div className="relative w-[344px]">
         <div
           className="cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-200 active:scale-95"
+          onClick={() => setShowDiaryPage(true)}
         >
           <div className="flex justify-between items-center gap-14 pl-3 py-2">
             <div className="flex flex-col">
@@ -61,7 +61,8 @@ const SingleDiary = ({ diary }) => {
             )}
           </div>
         </div>
-      </Link>
+      </div>
+      {showDiaryPage && <DiaryPage onClose={() => setShowDiaryPage(false)} />}
       {showEditDiary && <EditDiary onClose={() => setShowEditDiary(false)} />}
     </>
   );

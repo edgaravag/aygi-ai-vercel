@@ -47,7 +47,9 @@ const MyGardenComponent = () => {
       <ShowNewDiary />
       <div className="center flex-wrap mx-auto gap-4 max-[2166px]:w-[704px] max-[1440px]:w-auto">
         {diaries.map((diary, index) => {
-          return <SingleDiary diary={diary} key={index} />;
+          return (
+            <SingleDiary diary={diary} key={index} />
+          );
         })}
       </div>
       <PrevAndNextPages />

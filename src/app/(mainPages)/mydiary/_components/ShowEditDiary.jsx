@@ -2,7 +2,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import EditIcon from "@public/icons/grayEditIcon.svg";
+import Button from "@/src/components/ui/Button";
+import EditIcon from "@public/icons/editIcon.webp";
 const EditDiary = dynamic(() => import("@/src/components/popups/EditDiary"));
 
 const ShowEditDiary = () => {
@@ -11,13 +12,13 @@ const ShowEditDiary = () => {
   return (
     <>
       <div
-        className="center cursor-pointer w-10 h-10"
-        onClick={(e) => {
-          e.stopPropagation();
-          setShowEditDiary(true);
-        }}
+        className="flex gap-2 cursor-pointer"
+        onClick={() => setShowEditDiary(true)}
       >
-        <Image src={EditIcon} alt="" />
+        <button className="flex-shrink-0">
+          <Image src={EditIcon} alt="" />
+        </button>
+        <Button className="font-normal text-[#68BB59]">Edit</Button>
       </div>
       {showEditDiary && <EditDiary onClose={() => setShowEditDiary(false)} />}
     </>
