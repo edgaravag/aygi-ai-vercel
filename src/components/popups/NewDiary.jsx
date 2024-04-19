@@ -13,10 +13,10 @@ const NewDiary = ({ onClose }) => {
         placeholder="Diary Name"
       />
       <div className="h-[213px] mt-[14px] py-3 px-[18px] bg-[#F6F6F6] flex flex-col justify-between rounded-md">
-        <input
+        <textarea
           type="text"
           placeholder="Description"
-          className="w-full outline-none bg-[#F6F6F6]"
+          className="w-full h-full outline-none bg-[#F6F6F6]"
         />
         <button className="self-end flex text-[#808080]">
           <Image src={UploadImage} alt="" className="mr-2" />

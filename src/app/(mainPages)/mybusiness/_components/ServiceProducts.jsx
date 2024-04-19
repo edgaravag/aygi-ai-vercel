@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import BusinessIcon from "@public/icons/blueBusinessIcon.webp";
 import NextUser from "@public/icons/nextUser.webp";
 import CreateService from "./CreateService";
@@ -19,14 +20,15 @@ const ServiceProducts = () => {
         <CreateService />
         {icons.map((icon, index) => {
           return (
-            <Image
-              src={icon}
-              alt="Business Icon"
-              key={index}
-              width={80}
-              height={80}
-              className="cursor-pointer"
-            />
+            <Link href={"/service-product-comment"} key={index}>
+              <Image
+                src={icon}
+                alt="Business Icon"
+                width={80}
+                height={80}
+                className="cursor-pointer"
+              />
+            </Link>
           );
         })}
         <div className="cursor-pointer">
