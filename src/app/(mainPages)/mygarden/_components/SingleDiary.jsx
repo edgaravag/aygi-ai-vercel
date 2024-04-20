@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Image from "next/image";
 import PrivateIcon from "@public/icons/privateIcon.svg";
+import EditIcon from "@public/icons/grayEditIcon.svg";
 import Button from "@/src/components/ui/Button";
 import dynamic from 'next/dynamic'
 const DiaryPage = dynamic(() => import("@/src/components/popups/DiaryPage"))
