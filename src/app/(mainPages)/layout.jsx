@@ -31,9 +31,9 @@ export default function RootLayout({ children }) {
         <div className="w-full h-screen flex">
           <LeftAside path={path} />
           <main className="px-8 py-9 mx-auto">{children}</main>
-          {path !== "/faq" && <RightAside />}
+          {!path.includes("/faq") && "/faq" && <RightAside />}
         </div>
-        {path === "/faq" && <Footer />}
+        {path.includes("/faq") && <Footer />}
       </body>
     </html>
   );

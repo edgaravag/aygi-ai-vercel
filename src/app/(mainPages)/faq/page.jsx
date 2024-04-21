@@ -7,46 +7,54 @@ const questions = [
     question: "Account",
     description:
       "Choose a category to find information you  need about account",
+    link: "/faq/account",
   },
   {
     question: "Detection",
     description:
       "Choose a category to find information you  need about detection",
+    link: "/faq/account",
   },
   {
     question: "AI Chat",
     description: "Choose a category to find information you  need about chat",
+    link: "/faq/account",
   },
   {
     question: "Community",
     description:
       "Choose a category to find information you  need about community",
+    link: "/faq/account",
   },
   {
     question: "General",
     description:
       "Choose a category to find information you  need about general",
+    link: "/faq/account",
   },
   {
     question: "Experts",
     description:
       "Choose a category to find information you  need about experts",
+    link: "/faq/account",
   },
   {
     question: "Social Platform",
     description: "Choose a category to find information you  need about chat",
+    link: "/faq/account",
   },
   {
     question: "Lorem Ipsum",
     description:
       "Choose a category to find information you  need about community",
+    link: "/faq/account",
   },
 ];
 
 const FaqPage = () => {
   return (
     <div className="px-[156px]">
-      <div className="flex justify-between items-center gap-[94px] mb-8">
+      <nav className="w-full flex justify-between items-center gap-[94px] mb-8">
         <h2 className="font-semibold text-lg">
           Frequently Asked Questions Aygi AI How we can help you?
         </h2>
@@ -62,7 +70,7 @@ const FaqPage = () => {
             className="absolute right-3 top-3.5 cursor-pointer"
           />
         </div>
-      </div>
+      </nav>
       <div className="flex flex-wrap gap-4">
         {questions.map((question) => {
           return <SingleQuestion key={question.question} question={question} />;

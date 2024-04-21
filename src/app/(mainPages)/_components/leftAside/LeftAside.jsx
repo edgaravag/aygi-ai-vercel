@@ -35,7 +35,7 @@ const LeftAside = ({ path }) => {
   return (
     <aside
       className={`flex flex-col justify-between bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.10)]  ${
-        path === "/faq" ? "min-w-[70px]" : "min-w-[243px]"
+        path.includes("/faq") ? "min-w-[70px]" : "min-w-[243px]"
       } pl-6 pb-[25px] py-4`}
     >
       <div className="flex flex-col gap-6">
@@ -45,7 +45,7 @@ const LeftAside = ({ path }) => {
       </div>
       <button className="flex items-center gap-6 tracking-widest font-normal text-sm text-[#666666]">
         <Image src={LogoutIcon} alt="LogOut Icon" width={24} height={24} />
-        {path !== "/faq" && "Log Out"}
+        {!path.includes("/faq") && "Log Out"}
       </button>
     </aside>
   );

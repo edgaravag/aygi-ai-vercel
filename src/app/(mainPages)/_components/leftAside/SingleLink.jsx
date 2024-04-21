@@ -10,12 +10,11 @@ const SingleLink = ({ link }) => {
     <Link
       href={link.path}
       className={`flex items-center gap-6 cursor-pointer py-3 ${
-        (isActive ? "border-r-4 border-r-[#68bb59]" : "",
-        router === "/faq" ? "" : "")
+        isActive ? "border-r-4 border-r-[#68bb59]" : ""
       }`}
     >
       <Image src={link.img} alt="" width={24} height={24} />
-      {router !== "/faq" && (
+      {!router.includes("/faq") && (
         <p
           className={`text-black text-sm tracking-wider hover:font-semibold ${
             isActive ? "font-semibold" : "font-normal"
