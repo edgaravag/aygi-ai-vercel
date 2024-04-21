@@ -10,6 +10,8 @@ import DiaryImage from "@public/plants/diaryPageImage.webp";
 import UserImage from "@public/users/UserImageWithoutImage.webp";
 import EditIcon from "@public/icons/editIcon.webp";
 import PlusIcon from "@public/icons/plusIcon.svg";
+import ShowEditDiary from "./_components/ShowEditDiary";
+import GardenJournalEntry from "./_components/GardenJournalEntry";
 
 const posts = [
   {
@@ -48,14 +50,15 @@ const DiaryPage = () => {
             <h2 className="font-semibold tracking-widest">
               Information about Pepper Plant
             </h2>
-            <div
-              className="flex gap-2 cursor-pointer"
-              onClick={() => setShowEditDiary(true)}
-            >
-              <button className="flex-shrink-0">
-                <Image src={EditIcon} alt="" />
-              </button>
-              <Button className="font-normal text-[#68BB59]">Edit</Button>
+            <div className="flex gap-5">
+              <ShowEditDiary />
+              <label className="center gap-2 text-xs font-normal">
+                <input
+                  type="checkbox"
+                  className="w-[20px] h-[20px] rounded-full flex-shrink-0 border border-[#D1D1D6] appearance-none checked:bg-[#68BB59]"
+                />
+                Make Private
+              </label>
             </div>
           </div>
           <div>
@@ -72,23 +75,8 @@ const DiaryPage = () => {
           <div className="mt-4">
             <Image src={DiaryImage} alt="" className="w-full" />
           </div>
-          <div className="flex items-center justify-between gap-5 my-[20px]">
-            <div className="flex">
-              <Button
-                className="p-1 gap-2 cursor-pointer text-[#68BB59] font-normal"
-                onClick={() => setShowAddNewPost(true)}
-              >
-                Garden Journal Entry
-                <Image src={PlusIcon} alt="" />
-              </Button>
-            </div>
-            <label className="center gap-2 text-xs font-normal">
-              <input
-                type="checkbox"
-                className="w-[20px] h-[20px] rounded-full flex-shrink-0 border border-[#D1D1D6] appearance-none checked:bg-[#68BB59]"
-              />
-              Make Private
-            </label>
+          <div className="flex justify-center mx-8 my-[20px]">
+            <GardenJournalEntry />
           </div>
           <div className="flex flex-col gap-6">
             {posts.map((post, index) => {
