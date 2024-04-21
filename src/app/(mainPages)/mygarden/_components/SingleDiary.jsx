@@ -32,7 +32,6 @@ const SingleDiary = ({ diary }) => {
                 setShowEditDiary(true);
               }}
             >
-              <Image src={EditIcon} alt="" />
             </div>
           </div>
           <Image

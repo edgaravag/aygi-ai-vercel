@@ -4,12 +4,9 @@ import React, { useState } from "react";
 import OpenCard from "@/src/components/popups/OpenCard";
 import EditDiary from "@/src/components/popups/EditDiary.jsx";
 import AddNewPost from "@/src/components/popups/AddNewPost.jsx";
-import Button from "@/src/components/ui/Button.jsx";
 import MoreIcon from "@public/icons/moreIcon.webp";
 import DiaryImage from "@public/plants/diaryPageImage.webp";
 import UserImage from "@public/users/UserImageWithoutImage.webp";
-import EditIcon from "@public/icons/editIcon.webp";
-import PlusIcon from "@public/icons/plusIcon.svg";
 import ShowEditDiary from "./_components/ShowEditDiary";
 import GardenJournalEntry from "./_components/GardenJournalEntry";
 
