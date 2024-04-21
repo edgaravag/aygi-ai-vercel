@@ -1,9 +1,13 @@
+import { useState } from "react";
 import Image from "next/image";
 import PopUpWrap from "../ui/PopUpWrap";
-import BusinessIcon from "@public/icons/blueBusinessIcon.webp";
 import Button from "../ui/Button";
+import BusinessIcon from "@public/icons/blueBusinessIcon.webp";
+import ArrowIcon from "@public/icons/arrowDown.webp";
 
 const CreateService = ({ onClose }) => {
+  const [showCurrency, setShowCurrency] = useState(false);
+
   return (
     <PopUpWrap onClose={onClose} className="w-[448px] px-16 py-5">
       <h2 className="font-medium">Create my service/products</h2>
@@ -40,16 +44,39 @@ const CreateService = ({ onClose }) => {
             <input
               type="text"
               className="w-full mt-2 border border-[#808080] px-5 rounded-md h-[54px] text-black text-sm outline-none"
+              disabled={true}
             />
+            <div
+              className="absolute center size-[54px] right-0 top-2 cursor-pointer"
+              onClick={() => setShowCurrency(!showCurrency)}
+            >
+              <Image src={ArrowIcon} alt="Arrow Down Icon" />
+            </div>
+            {showCurrency && (
+              <div className="absolute bg-white mt-2.5 w-full border border-[#68BB59] rounded-sm">
+                <div className="flex items-center pl-4 py-2 text-xs cursor-pointer hover:bg-[#E5F7E2]">
+                  <span className="font-bold text-lg mr-4">֏</span>AMD
+                </div>
+                <div className="flex items-center pl-4 py-2 text-xs cursor-pointer hover:bg-[#E5F7E2]">
+                  <span className="font-bold text-lg mr-4">$</span>USD
+                </div>
+                <div className="flex items-center pl-4 py-2 text-xs cursor-pointer hover:bg-[#E5F7E2]">
+                  <span className="font-bold text-lg mr-4">Є</span>EUR
+                </div>
+                <div className="flex items-center pl-4 py-2 text-xs cursor-pointer hover:bg-[#E5F7E2]">
+                  <span className="font-bold text-lg mr-4">£</span>GBP
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <div className="mt-5">
           <p className="absolute left-4 px-[5px] bg-white text-xs text-[#808080]">
             Product Description
           </p>
-          <input
+          <textarea
             type="text"
-            className="w-full mt-2 border border-[#808080] px-5 rounded-md h-[284px] text-black text-sm outline-none"
+            className="w-full py-3 mt-2 border border-[#808080] px-5 rounded-md h-[284px] text-black text-sm outline-none"
           />
         </div>
       </form>
