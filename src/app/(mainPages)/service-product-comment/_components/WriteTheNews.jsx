@@ -1,18 +1,12 @@
 import Image from "next/image";
-import BusinessIcon from "@public/icons/blueBusinessIcon.webp";
+import UserIcon from "@public/users/friendIcon.webp";
 import UploadImage from "@public/icons/userUploadImage.webp";
 
 const WriteTheNews = () => {
   return (
-    <div className="w-full border border-[#68BB59] rounded-md px-4 py-6 mt-6">
+    <div className="border border-[#68BB59] rounded-md px-4 py-6 mt-6">
       <div className="flex gap-2">
-        <Image
-          src={BusinessIcon}
-          alt="News Icon"
-          width={62}
-          height={62}
-          style={{ width: "auto" }}
-        />
+        <Image src={UserIcon} alt="News Icon" width={62} height={62} />
         <input
           type="text"
           placeholder="write the news"

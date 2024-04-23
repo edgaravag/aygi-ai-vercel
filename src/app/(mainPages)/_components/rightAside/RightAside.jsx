@@ -52,7 +52,7 @@ const RightAside = () => {
       <div className="mt-6">
         <Calendar />
       </div>
-      <h2 className="text-lg font-medium mb-6 mt-[38px]">My Friends</h2>
+      <h2 className="text-lg font-medium mb-6 mt-[38px]">My Followings</h2>
       <div className="flex flex-col gap-4 mt-4">
         {friends.map((friend, index) => {
           return <SingleFriend friend={friend} key={index} />;

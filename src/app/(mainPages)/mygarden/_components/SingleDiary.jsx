@@ -1,20 +1,24 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import PrivateIcon from "@public/icons/privateIcon.svg";
 import EditIcon from "@public/icons/grayEditIcon.svg";
 import Button from "@/src/components/ui/Button";
 import dynamic from "next/dynamic";
-import Link from "next/link";
+const DiaryPage = dynamic(() => import("@/src/components/popups/DiaryPage"));
 const EditDiary = dynamic(() => import("@/src/components/popups/EditDiary"));
 
 const SingleDiary = ({ diary }) => {
+  const [showDiaryPage, setShowDiaryPage] = useState(false);
   const [showEditDiary, setShowEditDiary] = useState(false);
 
   return (
     <>
-      <Link className="relative w-[344px]" href={"/mydiary"}>
-        <div className="cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-200 active:scale-95">
+      <div className="relative w-[344px]">
+        <div
+          className="cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-200 active:scale-95"
+          onClick={() => setShowDiaryPage(true)}
+        >
           <div className="flex justify-between items-center gap-14 pl-3 py-2">
             <div className="flex flex-col">
               <p className="font-medium tracking-wider">{diary.diaryName}</p>
@@ -58,7 +62,8 @@ const SingleDiary = ({ diary }) => {
             )}
           </div>
         </div>
-      </Link>
+      </div>
+      {showDiaryPage && <DiaryPage onClose={() => setShowDiaryPage(false)} />}
       {showEditDiary && <EditDiary onClose={() => setShowEditDiary(false)} />}
     </>
   );
