@@ -1,15 +1,10 @@
-"use client";
 import Image from "next/image";
-import React, { useState } from "react";
-import OpenCard from "@/src/components/popups/OpenCard";
-import EditDiary from "@/src/components/popups/EditDiary.jsx";
-import AddNewPost from "@/src/components/popups/AddNewPost.jsx";
-import Button from "@/src/components/ui/Button.jsx";
-import MoreIcon from "@public/icons/moreIcon.webp";
 import DiaryImage from "@public/plants/diaryPageImage.webp";
 import UserImage from "@public/users/UserImageWithoutImage.webp";
-import EditIcon from "@public/icons/editIcon.webp";
-import PlusIcon from "@public/icons/plusIcon.svg";
+import ShowEditDiary from "./_components/ShowEditDiary";
+import MakePrivate from "./_components/MakePrivate";
+import GardenJournalEntry from "./_components/GardenJournalEntry";
+import SingleComment from "./_components/SingleComment";
 
 const posts = [
   {
@@ -36,9 +31,6 @@ const posts = [
 ];
 
 const DiaryPage = () => {
-  const [showOpenCard, setShowOpenCard] = useState(false);
-  const [showEditDiary, setShowEditDiary] = useState(false);
-  const [showAddNewPost, setShowAddNewPost] = useState(false);
 
   return (
     <>
@@ -48,14 +40,9 @@ const DiaryPage = () => {
             <h2 className="font-semibold tracking-widest">
               Information about Pepper Plant
             </h2>
-            <div
-              className="flex gap-2 cursor-pointer"
-              onClick={() => setShowEditDiary(true)}
-            >
-              <button className="flex-shrink-0">
-                <Image src={EditIcon} alt="" />
-              </button>
-              <Button className="font-normal text-[#68BB59]">Edit</Button>
+            <div className="flex gap-5">
+              <ShowEditDiary />
+              <MakePrivate />
             </div>
           </div>
           <div>
@@ -72,61 +59,18 @@ const DiaryPage = () => {
           <div className="mt-4">
             <Image src={DiaryImage} alt="" className="w-full" />
           </div>
-          <div className="flex items-center justify-between gap-5 my-[20px]">
-            <div className="flex">
-              <Button
-                className="p-1 gap-2 cursor-pointer text-[#68BB59] font-normal"
-                onClick={() => setShowAddNewPost(true)}
-              >
-                Garden Journal Entry
-                <Image src={PlusIcon} alt="" />
-              </Button>
-            </div>
-            <label className="center gap-2 text-xs font-normal">
-              <input
-                type="checkbox"
-                className="w-[20px] h-[20px] rounded-full flex-shrink-0 border border-[#D1D1D6] appearance-none checked:bg-[#68BB59]"
-              />
-              Make Private
-            </label>
+          <div className="w-[570px] mx-auto my-5">
+            <GardenJournalEntry />
           </div>
           <div className="flex flex-col gap-6">
             {posts.map((post, index) => {
               return (
-                <div key={index}>
-                  <div className="flex justify-between items-center gap-5">
-                    <div className="flex items-center justify-start gap-4">
-                      <div>
-                        <Image src={post.img} alt="" width={40} height={40} />
-                      </div>
-                      <div className="flex flex-col gap-1">
-                        <p className="text-sm text-[#979797] font-normal">
-                          {post.postDate}
-                        </p>
-                        <p className="text-sm font-normal">{post.title}</p>
-                      </div>
-                    </div>
-                    <div>
-                      <Image src={MoreIcon} alt="" className="cursor-pointer" />
-                    </div>
-                  </div>
-                  <div
-                    className="bg-[#F6F6F6] py-[10px] px-2 mt-2 cursor-pointer rounded-md"
-                    onClick={() => setShowOpenCard(!showOpenCard)}
-                  >
-                    <p className="text-sm font-normal">{post.comment}</p>
-                  </div>
-                </div>
+                <SingleComment post={post} key={index} />
               );
             })}
           </div>
         </div>
       </div>
-      {showOpenCard && <OpenCard onClose={() => setShowOpenCard(false)} />}
-      {showEditDiary && <EditDiary onClose={() => setShowEditDiary(false)} />}
-      {showAddNewPost && (
-        <AddNewPost onClose={() => setShowAddNewPost(false)} />
-      )}
     </>
   );
 };

@@ -4,7 +4,7 @@ import UploadImage from "@public/icons/userUploadImage.webp";
 
 const GardenJournalEntry = () => {
   return (
-    <div className="w-full border border-[#68BB59] rounded-md px-4 py-6 mt-6">
+    <div className="w-full border border-[#68BB59] rounded-md px-4 py-6">
       <div className="flex gap-2">
         <Image src={UserIcon} alt="News Icon" width={62} height={62} />
         <input
