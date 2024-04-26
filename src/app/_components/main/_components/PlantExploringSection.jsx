@@ -1,8 +1,9 @@
+import Image from "next/image";
+import Button from "@/src/components/ui/Button";
 import TomatoImg from "@public/landing/tomato.webp";
 import CornImg from "@public/landing/corn.webp";
 import RaspberriesImg from "@public/landing/raspberries.webp";
-import Image from "next/image";
-import Button from "@/src/components/ui/Button";
+import ArrowRight from "@public/icons/arrowRight.svg";
 
 const plants = [
   {
@@ -59,25 +60,7 @@ const PlantExploringSection = () => {
                   </p>
                   <Button className="gap-2 font-semibold text-[#68bb59] mt-10">
                     Read more
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="22"
-                      viewBox="0 0 20 22"
-                      fill="none"
-                    >
-                      <g clipPath="url(#clip0_1305_749)">
-                        <path
-                          d="M19.7709 10.3917L19.7702 10.3909L15.688 5.92212C15.3821 5.58735 14.8875 5.5886 14.5831 5.92504C14.2787 6.26145 14.2799 6.80556 14.5857 7.14037L17.3265 10.1406H0.78125C0.349766 10.1406 0 10.5254 0 11C0 11.4746 0.349766 11.8594 0.78125 11.8594H17.3264L14.5857 14.8596C14.2799 15.1944 14.2788 15.7385 14.5831 16.075C14.8875 16.4114 15.3822 16.4126 15.688 16.0779L19.7702 11.6091L19.7709 11.6083C20.0769 11.2724 20.0759 10.7265 19.7709 10.3917Z"
-                          fill="#68BB59"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_1305_749">
-                          <rect width="20" height="22" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
+                    <Image src={ArrowRight} alt="Arrow Right Icon" />
                   </Button>
                 </div>
               );

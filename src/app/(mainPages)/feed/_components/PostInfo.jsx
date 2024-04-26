@@ -1,7 +1,7 @@
 import Image from "next/image";
 import UserImage from "@public/users/UserImageWithoutImage.webp";
-import MoreIcon from "@public/icons/moreIcon.webp";
 import ColorIcon from "@public/icons/closeIcon.webp";
+import ShowMoreButton from "./ShowMoreButton";
 
 const PostInfo = ({ post }) => {
   return (
@@ -18,10 +18,8 @@ const PostInfo = ({ post }) => {
           </p>
         </div>
       </div>
-      <div className="flex justify-end gap-3 px-2 pb-9">
-        <button>
-          <Image src={MoreIcon} alt="" className="w-6 h-[6px]" />
-        </button>
+      <div className="relative flex items-center h-6 gap-3 px-2">
+        <ShowMoreButton />
         <button>
           <Image src={ColorIcon} alt="" className="w-4 h-4" />
         </button>

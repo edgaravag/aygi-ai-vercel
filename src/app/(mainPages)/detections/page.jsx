@@ -57,8 +57,8 @@ const detections = [
 const Detections = () => {
   return (
     <div className="w-full">
-      <div className="mx-auto flex flex-col w-full gap-4 ">
-      <h2 className="font-semibold text-lg">Detection History</h2>
+      <div className="mx-auto flex flex-col w-full gap-4">
+      <h2 className="font-semibold text-lg tracking-wider">Detection History</h2>
         {detections.map((detection, index) => {
           return <SingleDetection key={index} detection={detection} />;
         })}
