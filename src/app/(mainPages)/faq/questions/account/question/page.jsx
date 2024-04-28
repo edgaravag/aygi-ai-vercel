@@ -5,7 +5,7 @@ import BackIcon from "@public/icons/backButton.webp";
 const AccountQuestionPage = () => {
 	return (
 		<>
-			<Link href={"/faq/account"} className="mt-6 flex items-center gap-4">
+			<Link href={"/faq/questions/account"} className="mt-6 flex items-center gap-4">
         <Image src={BackIcon} alt="Back Button" />
         Back
       </Link>

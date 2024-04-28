@@ -32,6 +32,24 @@ body{
   }
 }
 
+@layer components {
+  .border-green {
+    @apply border-[#68BB59]
+  }
+}
+
+@layer components {
+  .bg-green {
+    @apply bg-[#68BB59]
+  }
+}
+
+@layer components {
+  .text-green {
+    @apply text-[#68BB59]
+  }
+}
+
 *::-webkit-scrollbar {
   width: 18px;
   height: 18px;

@@ -28,7 +28,7 @@ const questions = [
 const FaqAccountPage = () => {
   return (
     <>
-      <Link href={"/faq"} className="mt-6 flex items-center gap-4">
+      <Link href={"/faq/questions"} className="mt-6 flex items-center gap-4">
         <Image src={BackIcon} alt="Back Button" />
         Back to main
       </Link>
@@ -36,7 +36,7 @@ const FaqAccountPage = () => {
         {questions.map((question, index) => {
           return (
             <Link
-              href={"/faq/account/question"}
+              href={"/faq/questions/account/question"}
               key={index}
               className="flex flex-col gap-3"
             >

@@ -1,19 +1,19 @@
 import Image from "next/image";
 import SearchIcon from "@public/icons/greenSearchIcon.webp";
-import SingleQuestion from "./_components/SingleQuestion";
+import SingleQuestion from "../_components/SingleQuestion";
 
 const questions = [
   {
     question: "Account",
     description:
       "Choose a category to find information you  need about account",
-    link: "/faq/account",
+    link: "/faq/questions/account",
   },
   {
     question: "Detection",
     description:
       "Choose a category to find information you  need about detection",
-    link: "/faq/account",
+    link: "/faq/questions/account",
   },
   {
     question: "AI Chat",
@@ -24,30 +24,30 @@ const questions = [
     question: "Community",
     description:
       "Choose a category to find information you  need about community",
-    link: "/faq/account",
+    link: "/faq/questions/account",
   },
   {
     question: "General",
     description:
       "Choose a category to find information you  need about general",
-    link: "/faq/account",
+    link: "/faq/questions/account",
   },
   {
     question: "Experts",
     description:
       "Choose a category to find information you  need about experts",
-    link: "/faq/account",
+    link: "/faq/questions/account",
   },
   {
     question: "Social Platform",
     description: "Choose a category to find information you  need about chat",
-    link: "/faq/account",
+    link: "/faq/questions/account",
   },
   {
     question: "Lorem Ipsum",
     description:
       "Choose a category to find information you  need about community",
-    link: "/faq/account",
+    link: "/faq/questions/account",
   },
 ];
 
