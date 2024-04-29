@@ -29,6 +29,7 @@ const SignUp = ({ onClose }) => {
         });
         throw new Error("Registration failed");
       });
+    // console.log(data)
   };
 
   const onSubmitHandler = async (data) => {
@@ -86,11 +87,11 @@ const SignUp = ({ onClose }) => {
                   <input
                     {...register("username", {
                       required: "Username is required",
-                      pattern: /^[a-zA-Z0-9_]{3,16}$/,
-                      minLength: {
-                        value: 3,
-                        message: "Username must have at least 3 characters",
-                      },
+                      // pattern: /^[a-zA-Z0-9_]{3,16}$/,
+                      // minLength: {
+                      //   value: 3,
+                      //   message: "Username must have at least 3 characters",
+                      // },
                     })}
                     type="text"
                     className={`w-full mt-2 border ${
@@ -118,7 +119,7 @@ const SignUp = ({ onClose }) => {
                   <input
                     {...register("email", {
                       required: "Email is required",
-                      pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                      // pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
                     })}
                     type="email"
                     className={`w-full mt-2 border ${
@@ -146,10 +147,10 @@ const SignUp = ({ onClose }) => {
                   <input
                     {...register("password", {
                       required: "Password is required",
-                      minLength: {
-                        value: 6,
-                        message: "Password must have at least 8 characters",
-                      },
+                      // minLength: {
+                      //   value: 6,
+                      //   message: "Password must have at least 8 characters",
+                      // },
                     })}
                     type="password"
                     className={`w-full mt-2 border ${

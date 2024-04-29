@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Image from "next/image";
@@ -12,18 +12,50 @@ import ForgotPassword from "./ForgotPassword";
 const SignIn = ({ onClose }) => {
   const [showForgot, setShowForgot] = useState(false);
   const [showForm, setShowForm] = useState(true);
+  const [userData, setUserData] = useState(true);
+    useEffect(() => {
+      // Get the token from localStorage
+      const token = localStorage.getItem("accessToken");
+
+      // If token exists, make the fetch request
+      if (token) {
+        fetch("http://localhost:8080/api/user/", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            setUserData(data);
+            console.log(JSON.stringify(data));
+          })
+          .catch((error) => {
+            console.error("Error fetching user data:", error);
+          });
+      }
+    }, []);
 
   const {
     register,
     handleSubmit,
     setError,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm();
 
   const handleSignIn = (data) => {
     axios
       .post(`${process.env.NEXT_PUBLIC_AUTH_URL}/signin`, data)
-      .then((data) => console.log(data))
+      .then((response) => {
+        const token = response.data.token.slice(7);
+        localStorage.setItem("accessToken", token);
+      })
       .catch((error) => {
         console.error(error);
         setError("root", {
@@ -31,6 +63,7 @@ const SignIn = ({ onClose }) => {
         });
         throw new Error("Registration failed");
       });
+
   };
 
   const onSubmitHandler = async (data) => {
@@ -87,9 +120,9 @@ const SignIn = ({ onClose }) => {
                       Email
                     </p>
                     <input
-                      {...register("email", {
+                      {...register("username", {
                         required: "Email is required",
-                        pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                        // pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
                       })}
                       type="email"
                       className={`w-full mt-2 border ${
@@ -117,10 +150,10 @@ const SignIn = ({ onClose }) => {
                     <input
                       {...register("password", {
                         required: "Password is required",
-                        minLength: {
-                          value: 6,
-                          message: "Password must have at least 8 characters",
-                        },
+                        // minLength: {
+                        //   value: 6,
+                        //   message: "Password must have at least 8 characters",
+                        // },
                       })}
                       type="password"
                       className={`w-full mt-2 border ${
@@ -144,9 +177,9 @@ const SignIn = ({ onClose }) => {
                 <Button
                   type="submit"
                   className="w-full mt-6 h-[54px] text-white bg-[#68bb59] font-medium"
-                  disabled={isSubmitting}
+                  // disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Loading..." : "Sign In"}
+                  Sign In
                 </Button>
                 <button
                   className="text-sm font-normal text-black opacity-60 mt-5"
