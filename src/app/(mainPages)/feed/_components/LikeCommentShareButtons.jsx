@@ -1,8 +1,8 @@
 import Image from "next/image";
 import LikeIcon from "@public/icons/likeIcon.webp";
 import CommentIcon from "@public/icons/commentIcon.webp";
-import ShareIcon from "@public/icons/shareIcon.webp";
 import ShowOpenCard from "./ShowOpenCard";
+import ShowShareButton from "./ShowShareButton";
 
 const LikeCommentShareButtons = () => {
   return (
@@ -19,12 +19,7 @@ const LikeCommentShareButtons = () => {
         </div>
         <ShowOpenCard />
       </div>
-      <div className="center gap-4">
-        <div>
-          <Image src={ShareIcon} alt="" />
-        </div>
-        <button className="font-normal text-[#808080]">Share</button>
-      </div>
+      <ShowShareButton />
     </div>
   );
 };

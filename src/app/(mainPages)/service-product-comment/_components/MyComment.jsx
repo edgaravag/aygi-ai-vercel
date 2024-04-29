@@ -1,21 +1,31 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 import UserIcon from "@public/users/friendIcon.webp";
 import BloomIcon from "@public/icons/bloomIcon.svg";
 import ShareIcon from "@public/icons/shareIcon.webp";
+import ShowMoreButton from "./ShowMoreButton";
 
 const MyComment = () => {
+  const [showMore, setShowMore] = useState(false);
+
   return (
     <>
-      <div className="flex gap-2">
-        <Image
-          src={UserIcon}
-          alt="User Icon"
-          width={62}
-          height={62}
-        />
-        <div className="w-full px-6 py-2.5 rounded-[32px] bg-[#EBEBEB]">
-          <p className="font-semibold text-[#68BB59]">John Doe</p>
-          <p>I love this fertilizier!!! Super!!!</p>
+      <div
+        onMouseEnter={() => setShowMore(true)}
+        onMouseLeave={() => setShowMore(false)}
+      >
+        <div className="relative flex items-center gap-2">
+          <Image src={UserIcon} alt="User Icon" width={62} height={62} />
+          <div className="w-full px-6 py-2.5 rounded-[32px] bg-[#EBEBEB]">
+            <p className="font-semibold text-[#68BB59]">John Doe</p>
+            <p>I love this fertilizier!!! Super!!!</p>
+          </div>
+          {showMore && (
+            <div className="absolute right-[-45px]">
+              <ShowMoreButton />
+            </div>
+          )}
         </div>
       </div>
       <div className="flex justify-between mt-4 border-b border-b-[#D9D9D9] pb-2">

@@ -20,21 +20,22 @@ export default function RootLayout({ children }) {
     dispatch(setIsOpen(false));
   };
 
-  const path = usePathname();
+  const router = usePathname();
 
   return (
     <html lang="en">
       <body className="bg-[#F7F7F7]">
         {isOpen && <MakeDetection onClose={handleClose} />}
-
+  
         <Header />
-        <div className="w-full h-screen flex">
-          <LeftAside path={path} />
+        <div className="w-full flex pt-[104px]">
+          <LeftAside path={router} />
           <main className="px-8 py-9 mx-auto">{children}</main>
-          {!path.includes("/faq") && "/faq" && <RightAside />}
+          {router.includes("/faq/questions") || router.includes("/library") ? null : <RightAside />}
         </div>
-        {path.includes("/faq") && <Footer />}
+        {router.includes("/faq/questions") || router.includes("/library") ? <Footer /> : null}
       </body>
     </html>
   );
+  
 }

@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import NextUser from '@public/icons/nextUser.webp';
-import RootLayout from './RootLayout';
 import FavoriteUserIcon from '@public/users/favoriteUser.webp';
 import ProfileImg1 from '@public/plants/profileImg1.webp';
 import ProfileImg2 from '@public/plants/profileImg2.webp';
@@ -38,25 +37,23 @@ const images = [
 const FavoritesComponent = () => {
   return (
     <>
-      <RootLayout>
-        <h2 className='font-semibold text-xl'>My Favorite Users</h2>
-        <div className='flex items-center gap-5'>
-          <div className='mt-6 flex gap-4'>
-            {favorites.map((favorite, index) => {
-              return <SingleFavorite favorite={favorite} key={index} />;
-            })}
-          </div>
-          <div>
-            <Image alt='' src={NextUser} />
-          </div>
-        </div>
-        <h2 className='font-semibold text-xl mt-10'>My Favorite Gardens</h2>
-        <div className='flex flex-wrap gap-3 w-[642px] mt-6'>
-          {images.map((image, index) => {
-            return <SingleFavoriteGarden image={image} key={index} />;
+      <h2 className='font-semibold text-xl'>My Favorite Users</h2>
+      <div className='flex items-center gap-5'>
+        <div className='mt-6 flex gap-4'>
+          {favorites.map((favorite, index) => {
+            return <SingleFavorite favorite={favorite} key={index} />;
           })}
         </div>
-      </RootLayout>
+        <div>
+          <Image alt='' src={NextUser} />
+        </div>
+      </div>
+      <h2 className='font-semibold text-xl mt-10'>My Favorite Gardens</h2>
+      <div className='flex flex-wrap gap-3 w-[642px] mt-6'>
+        {images.map((image, index) => {
+          return <SingleFavoriteGarden image={image} key={index} />;
+        })}
+      </div>
     </>
   );
 };

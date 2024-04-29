@@ -1,16 +1,15 @@
 "use client";
 import Button from "@/src/components/ui/Button";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  getModalState,
-  setIsOpen,
-} from "@/src/store/features/modalSlice/modalSlice";
+import { getModalState, setIsOpen } from "@/src/store/features/modalSlice/modalSlice";
+
 const MakeDetections = () => {
   const isOpen = useSelector(getModalState);
   const dispatch = useDispatch();
   const handleModalClick = () => {
     dispatch(setIsOpen(!isOpen));
   };
+
   return (
     <>
       <Button
