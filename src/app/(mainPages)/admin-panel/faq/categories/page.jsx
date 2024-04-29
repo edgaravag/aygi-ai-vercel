@@ -1,7 +1,10 @@
 "use client";
 import "froala-editor/css/froala_style.min.css";
 import "froala-editor/css/froala_editor.pkgd.min.css";
-import FroalaEditorComponent from "react-froala-wysiwyg";
+import dynamic from 'next/dynamic';
+const FroalaEditorComponent = dynamic(() => import('react-froala-wysiwyg'), {
+  ssr: false
+});
 
 const FaqCategoriesPage = () => {
   return (
