@@ -14,8 +14,7 @@ const SignIn = ({ onClose }) => {
   const [showForgot, setShowForgot] = useState(false);
   const [showForm, setShowForm] = useState(true);
 
-  const router = usePathname()
-  
+  const router = usePathname();
 
   const {
     register,
@@ -27,12 +26,14 @@ const SignIn = ({ onClose }) => {
   const handleSignIn = (data) => {
     axios
       .post(`${process.env.NEXT_PUBLIC_AUTH_URL}/signin`, data, {
-        headers: { 'Content-Type': 'application.json' },
-        withCredentials: true
+        headers: { "Content-Type": "application.json" },
+        withCredentials: true,
       })
       .then((response) => {
-        const token = response.data.token.slice(7);
-        localStorage.setItem("accessToken", token);
+        if (response.data.token) {
+          const token = response.data.token.slice(7);
+          localStorage.setItem("accessToken", token);
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -41,17 +42,16 @@ const SignIn = ({ onClose }) => {
         });
         throw new Error("Registration failed");
       });
-
   };
 
-  const onSubmitHandler = async (data) => {
-    try {
-      await handleSignIn(data);
-    } catch (error) {
-      console.error(error);
-      throw new Error("Registration failed");
-    }
-  };
+  // const onSubmitHandler = async (data) => {
+  //   try {
+  //     await handleSignIn(data);
+  //   } catch (error) {
+  //     console.error(error);
+  //     throw new Error("Registration failed");
+  //   }
+  // };
 
   return (
     <>
@@ -83,7 +83,7 @@ const SignIn = ({ onClose }) => {
             <form
               className="mt-8"
               autoComplete="off"
-              onSubmit={handleSubmit(onSubmitHandler)}
+              onSubmit={handleSubmit(handleSignIn)}
             >
               <div className="relative">
                 <div className="flex flex-col gap-4">
@@ -155,7 +155,9 @@ const SignIn = ({ onClose }) => {
                 <Button
                   type="submit"
                   className="w-full mt-6 h-[54px] text-white bg-[#68bb59] font-medium"
-                  onClick={() => !errors.root ? router.push('/mygarden') : null}
+                  onClick={() =>
+                    !errors.root ? router.push("/mygarden") : null
+                  }
                   // disabled={isSubmitting}
                 >
                   Sign In
