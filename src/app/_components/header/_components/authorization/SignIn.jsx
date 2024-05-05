@@ -8,39 +8,14 @@ import Button from "@/src/components/ui/Button";
 import FacebookIcon from "@public/socialMediaIcons/colorfullFacebookIcon.svg";
 import GoogleIcon from "@public/socialMediaIcons/googleIcon.svg";
 import ForgotPassword from "./ForgotPassword";
+import { usePathname } from "next/navigation";
 
 const SignIn = ({ onClose }) => {
   const [showForgot, setShowForgot] = useState(false);
   const [showForm, setShowForm] = useState(true);
-  const [userData, setUserData] = useState(true);
-    useEffect(() => {
-      // Get the token from localStorage
-      const token = localStorage.getItem("accessToken");
 
-      // If token exists, make the fetch request
-      if (token) {
-        fetch("http://localhost:8080/api/user/", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return response.json();
-          })
-          .then((data) => {
-            setUserData(data);
-            console.log(JSON.stringify(data));
-          })
-          .catch((error) => {
-            console.error("Error fetching user data:", error);
-          });
-      }
-    }, []);
+  const router = usePathname()
+  
 
   const {
     register,
@@ -51,7 +26,10 @@ const SignIn = ({ onClose }) => {
 
   const handleSignIn = (data) => {
     axios
-      .post(`${process.env.NEXT_PUBLIC_AUTH_URL}/signin`, data)
+      .post(`${process.env.NEXT_PUBLIC_AUTH_URL}/signin`, data, {
+        headers: { 'Content-Type': 'application.json' },
+        withCredentials: true
+      })
       .then((response) => {
         const token = response.data.token.slice(7);
         localStorage.setItem("accessToken", token);
@@ -177,6 +155,7 @@ const SignIn = ({ onClose }) => {
                 <Button
                   type="submit"
                   className="w-full mt-6 h-[54px] text-white bg-[#68bb59] font-medium"
+                  onClick={() => !errors.root ? router.push('/mygarden') : null}
                   // disabled={isSubmitting}
                 >
                   Sign In
