@@ -26,7 +26,7 @@ const SignIn = ({ onClose }) => {
   const handleSignIn = (data) => {
     axios
       .post(`${process.env.NEXT_PUBLIC_AUTH_URL}/signin`, data, {
-        headers: { "Content-Type": "application.json" },
+        headers: { "Content-Type": "application/json" },
         withCredentials: true,
       })
       .then((response) => {
