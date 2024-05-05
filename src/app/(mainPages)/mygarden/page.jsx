@@ -4,8 +4,10 @@ import SingleDiary from "./_components/SingleDiary";
 import PrevAndNextPages from "./_components/PrevAndNextPages";
 import DiaryImg from "@public/plants/diaryImg.webp";
 import AddNewBusiness from "./_components/AddNewBusiness";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
+import { useDispatch } from 'react-redux';
+import { setUserData } from "@/src/store/features/userDataSlice/userDataSlice";
 
 const diaries = [
   {
@@ -43,30 +45,27 @@ const diaries = [
 ];
 
 const MyGardenComponent = () => {
-  const [userData, setUserData] = useState();
-
+  const dispatch = useDispatch();
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
 
     if (token) {
       axios
-        .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user`, {
+        .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
         })
         .then((data) => {
-          setUserData(data);
-          console.log(data);
+          dispatch(setUserData(data.data));
         })
         .catch((error) => {
           console.error("Error fetching user data:", error);
         });
     }
-  }, []);
+  }, [dispatch]);
 
-  console.log(userData);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Image from "next/image";
@@ -8,13 +8,13 @@ import Button from "@/src/components/ui/Button";
 import FacebookIcon from "@public/socialMediaIcons/colorfullFacebookIcon.svg";
 import GoogleIcon from "@public/socialMediaIcons/googleIcon.svg";
 import ForgotPassword from "./ForgotPassword";
-import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const SignIn = ({ onClose }) => {
   const [showForgot, setShowForgot] = useState(false);
   const [showForm, setShowForm] = useState(true);
 
-  const router = usePathname();
+  const router = useRouter();
 
   const {
     register,
@@ -27,12 +27,13 @@ const SignIn = ({ onClose }) => {
     axios
       .post(`${process.env.NEXT_PUBLIC_AUTH_URL}/signin`, data, {
         headers: { "Content-Type": "application/json" },
-        withCredentials: true,
+        // withCredentials: true,
       })
       .then((response) => {
         if (response.data.token) {
           const token = response.data.token.slice(7);
           localStorage.setItem("accessToken", token);
+          router.push('/mygarden')
         }
       })
       .catch((error) => {
@@ -155,9 +156,6 @@ const SignIn = ({ onClose }) => {
                 <Button
                   type="submit"
                   className="w-full mt-6 h-[54px] text-white bg-[#68bb59] font-medium"
-                  onClick={() =>
-                    !errors.root ? router.push("/mygarden") : null
-                  }
                   // disabled={isSubmitting}
                 >
                   Sign In

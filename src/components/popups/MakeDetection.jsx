@@ -6,8 +6,27 @@ import UploadImage from "@public/icons/uploadImageIcon.svg";
 import DetectionImage from "@public/plants/detectionImg.webp";
 import GarbageIcon from "@public/icons/garbageIcon.webp";
 import Button from "../ui/Button";
+import { useState, useRef } from "react";
 
 const MakeDetection = ({ onClose }) => {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const fileInputRef = useRef(null);
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setSelectedImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleClick = () => {
+    fileInputRef.current.click();
+  };
+
   return (
     <PopUpWrap onClose={onClose} className="flex gap-12 p-16">
       <div className="pt-[26px] border-2 border-[#68BB59] rounded-md">
@@ -28,7 +47,7 @@ const MakeDetection = ({ onClose }) => {
           <p className="text-lg font-semibold">
             Upload photo to identify plant
           </p>
-          <div className="w-full mt-6 h-[208px] center flex-col bg-white rounded-md">
+          {/* <div className="w-full mt-6 h-[208px] center flex-col bg-white rounded-md">
             <Image
               src={UploadImage}
               alt="Upload Image Icon"
@@ -40,6 +59,32 @@ const MakeDetection = ({ onClose }) => {
             <p className="text-[#B3B3B3] text-xs mt-1">
               Support png /jpg / jpeg
             </p>
+          </div> */}
+          <div className="relative w-full mt-6 h-[208px] center flex-col bg-white rounded-md">
+            <Image
+              src={UploadImage}
+              alt="Upload Image Icon"
+              width={38}
+              height={35}
+              className="w-[38px] h-[35px]"
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              style={{ display: "none" }}
+              ref={fileInputRef}
+            />
+            <button onClick={handleClick} className="mt-1 text-[#68BB59] text-xs">Select Image</button>
+            <p className="text-[#B3B3B3] text-xs mt-1">
+              Support png /jpg / jpeg
+            </p>
+            {selectedImage && (
+              <div className="absolute">
+                <button className="" onClick={() => setSelectedImage(false)}>Delete Image</button>
+                <Image src={selectedImage} alt="Selected Image" width={320} height={208} />
+              </div>
+            )}
           </div>
           <Button className="mt-8 py-2.5 px-3 mx-auto text-white bg-[#808080]">
             Plant Identification
