@@ -4,7 +4,7 @@ import SingleDiary from "./_components/SingleDiary";
 import PrevAndNextPages from "./_components/PrevAndNextPages";
 import DiaryImg from "@public/plants/diaryImg.webp";
 import AddNewBusiness from "./_components/AddNewBusiness";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch } from 'react-redux';
 import { setUserData } from "@/src/store/features/userDataSlice/userDataSlice";
@@ -45,6 +45,7 @@ const diaries = [
 ];
 
 const MyGardenComponent = () => {
+
   const dispatch = useDispatch();
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
