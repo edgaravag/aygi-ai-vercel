@@ -39,7 +39,7 @@ const SignIn = ({ onClose }) => {
       .catch((error) => {
         console.error(error);
         setError("root", {
-          message: "Something went wrong...",
+          message: error.response.data.message,
         });
         throw new Error("Registration failed");
       });
@@ -90,7 +90,7 @@ const SignIn = ({ onClose }) => {
                       Email
                     </p>
                     <input
-                      {...register("username", {
+                      {...register("email", {
                         required: "Email is required",
                         // pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
                       })}
@@ -138,12 +138,12 @@ const SignIn = ({ onClose }) => {
                       </p>
                     )}
                   </div>
-                  {errors.root && (
-                    <p className="text-[#C31031] text-xs mt-[5px]">
-                      {errors.root.message}
-                    </p>
-                  )}
                 </div>
+                {errors.root && (
+                  <p className="text-[#C31031] text-xs mt-[5px]">
+                    {errors.root.message}
+                  </p>
+                )}
                 <Button
                   type="submit"
                   className="w-full mt-6 h-[54px] text-white bg-[#68bb59] font-medium"
