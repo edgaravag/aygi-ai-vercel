@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 const ViewPage = () => {
 	const geminiText = useSelector((state) => state?.geminiText?.text)
 	console.log(geminiText);
+	
 	return (
 		<div className="w-[688px]">
 			<h2 className="text-lg font-bold mb-3">Detection Result</h2>

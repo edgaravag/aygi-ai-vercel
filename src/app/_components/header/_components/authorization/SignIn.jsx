@@ -33,7 +33,7 @@ const SignIn = ({ onClose }) => {
         if (response.data.token) {
           const token = response.data.token.slice(7);
           localStorage.setItem("accessToken", token);
-          router.push('/mygarden')
+          router.push('/profile')
         }
       })
       .catch((error) => {

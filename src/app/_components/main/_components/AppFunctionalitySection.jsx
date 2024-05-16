@@ -4,7 +4,6 @@ import FunctionalityImg2 from "@public/landing/functionalityImg2.svg";
 import FunctionalityImg3 from "@public/landing/functionalityImg3.svg";
 import FunctionalityImg4 from "@public/landing/functionalityImg4.svg";
 import Button from "@/src/components/ui/Button";
-
 const infos = [
   {
     img: FunctionalityImg1.src,
@@ -33,6 +32,7 @@ const infos = [
 ];
 
 const AppFunctionalitySection = () => {
+
   return (
     <section className='w-full bg-[#68bb59] bg-[url("../../../public/landing/green_plants_background.webp")] bg-right-bottom bg-auto bg-no-repeat'>
       <div className="max-w-[1440px] mx-auto py-16 px-[200px] max-[1465px]:px-[100px] max-[1250px]:px-[40px] max-[950px]:px-[20px]">
@@ -63,7 +63,9 @@ const AppFunctionalitySection = () => {
               </div>
             );
           })}
-          <Button className="self-center text-white md:self-end bg-[#0F0701] w-[150px] h-11 p-[10px] font-medium tracking-wider">
+          <Button className="self-center text-white md:self-end bg-[#0f0f0e] w-[150px] h-11 p-[10px] font-medium tracking-wider"
+          
+          >
             Let's Start
           </Button>
         </div>
