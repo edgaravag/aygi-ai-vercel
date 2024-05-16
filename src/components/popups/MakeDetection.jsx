@@ -6,25 +6,58 @@ import UploadImage from "@public/icons/uploadImageIcon.svg";
 import DetectionImage from "@public/plants/detectionImg.webp";
 import GarbageIcon from "@public/icons/garbageIcon.webp";
 import Button from "../ui/Button";
-import { useState, useRef } from "react";
+import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { setGeiminiText } from "@/src/store/features/geminiTextSlice/geminiTextSlice";
 
 const MakeDetection = ({ onClose }) => {
   const [selectedImage, setSelectedImage] = useState(null);
-  const fileInputRef = useRef(null);
+
+  const router = useRouter();
+
+  const dispatch = useDispatch();
+
+  const accessToken = localStorage.getItem("accessToken");
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "multipart/form-data",
+    },
+  };
+
+  const handleSendImage = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("file", selectedImage);
+
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/gemini/image`,
+        formData,
+        config
+      );
+
+      dispatch(
+        setGeiminiText(response?.data?.candidates[0]?.content?.parts[0]?.text)
+      );
+      onClose();
+      router.push("/detections/view");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setSelectedImage(reader.result);
-      };
-      reader.readAsDataURL(file);
+      setSelectedImage(file);
     }
   };
 
   const handleClick = () => {
-    fileInputRef.current.click();
+    document.getElementById("fileInput").click();
   };
 
   return (
@@ -47,19 +80,6 @@ const MakeDetection = ({ onClose }) => {
           <p className="text-lg font-semibold">
             Upload photo to identify plant
           </p>
-          {/* <div className="w-full mt-6 h-[208px] center flex-col bg-white rounded-md">
-            <Image
-              src={UploadImage}
-              alt="Upload Image Icon"
-              width={38}
-              height={35}
-              className="w-[38px] h-[35px]"
-            />
-            <p className="text-[#68BB59] text-xs">Drag & Drop or Browse</p>
-            <p className="text-[#B3B3B3] text-xs mt-1">
-              Support png /jpg / jpeg
-            </p>
-          </div> */}
           <div className="relative w-full mt-6 h-[208px] center flex-col bg-white rounded-md">
             <Image
               src={UploadImage}
@@ -69,24 +89,50 @@ const MakeDetection = ({ onClose }) => {
               className="w-[38px] h-[35px]"
             />
             <input
+              id="fileInput"
               type="file"
               accept="image/*"
               onChange={handleImageChange}
               style={{ display: "none" }}
-              ref={fileInputRef}
             />
-            <button onClick={handleClick} className="mt-1 text-[#68BB59] text-xs">Select Image</button>
+            <button
+              onClick={handleClick}
+              className="mt-1 text-[#68BB59] text-xs"
+            >
+              Select Image
+            </button>
             <p className="text-[#B3B3B3] text-xs mt-1">
               Support png /jpg / jpeg
             </p>
             {selectedImage && (
-              <div className="absolute">
-                <button className="" onClick={() => setSelectedImage(false)}>Delete Image</button>
-                <Image src={selectedImage} alt="Selected Image" width={320} height={208} />
+              <div className="absolute z-10">
+                <button
+                  className="absolute left-2 top-2"
+                  onClick={() => setSelectedImage(null)}
+                >
+                  <div className="absolute center bg-[#68BB59] size-[40px] rounded-full cursor-pointer">
+                    <Image
+                      src={GarbageIcon}
+                      alt="Garbage Icon"
+                      width={20}
+                      height={24}
+                      className="w-[20px] h-6"
+                    />
+                  </div>
+                </button>
+                <img
+                  src={URL.createObjectURL(selectedImage)}
+                  alt="Selected Image"
+                  width={320}
+                  height={208}
+                />
               </div>
             )}
           </div>
-          <Button className="mt-8 py-2.5 px-3 mx-auto text-white bg-[#808080]">
+          <Button
+            className="mt-8 py-2.5 px-3 mx-auto text-white bg-[#808080]"
+            onClick={handleSendImage}
+          >
             Plant Identification
           </Button>
         </div>

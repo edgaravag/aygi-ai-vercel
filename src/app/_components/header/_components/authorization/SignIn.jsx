@@ -27,6 +27,7 @@ const SignIn = ({ onClose }) => {
     axios
       .post(`${process.env.NEXT_PUBLIC_AUTH_URL}/signin`, data, {
         headers: { "Content-Type": "application/json" },
+        
       })
       .then((response) => {
         if (response.data.token) {
@@ -43,15 +44,6 @@ const SignIn = ({ onClose }) => {
         throw new Error("Registration failed");
       });
   };
-
-  // const onSubmitHandler = async (data) => {
-  //   try {
-  //     await handleSignIn(data);
-  //   } catch (error) {
-  //     console.error(error);
-  //     throw new Error("Registration failed");
-  //   }
-  // };
 
   return (
     <>
