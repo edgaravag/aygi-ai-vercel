@@ -1,13 +1,17 @@
-'use client'
-import { useState }  from "react";
+"use client";
+import { useState } from "react";
 import Button from "@/src/components/ui/Button";
-import dynamic from 'next/dynamic'
-const SignIn = dynamic(() => import("./authorization/SignIn"))
-const SignUp = dynamic(() => import("./authorization/SignUp"))
+import dynamic from "next/dynamic";
+const SignIn = dynamic(() => import("./authorization/SignIn"));
+const SignUp = dynamic(() => import("./authorization/SignUp"));
+const EmailValidation = dynamic(() => import("./authorization/EmailValidation")) 
+const ConfirmEmail = dynamic(() => import("./authorization/ConfirmEmail")) 
 
 const RegisterButtons = () => {
-	const [showSignIn, setShowSignIn] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
+  const [showEmailValidation, setShowEmailValidation] = useState(false);
+  const [showConfirmEmail, setShowConfirmEmail] = useState(false);
 
   return (
     <>
@@ -23,8 +27,25 @@ const RegisterButtons = () => {
       >
         Sign Up
       </Button>
-			{showSignIn && <SignIn onClose={() => setShowSignIn(false)} showSignUp={showSignUp} />}
-      {showSignUp && <SignUp onClose={() => setShowSignUp(false)} showSignIn={showSignIn} />}
+      {showSignIn && <SignIn onClose={() => setShowSignIn(false)} />}
+      {showSignUp && (
+        <SignUp
+          onClose={() => setShowSignUp(false)}
+          setShowEmailValidation={setShowEmailValidation}
+        />
+      )}
+      {showEmailValidation && (
+        <EmailValidation
+          onClose={() => setShowEmailValidation(false)}
+          setShowConfirmEmail={setShowConfirmEmail}
+        />
+      )}
+      {showConfirmEmail && (
+        <ConfirmEmail
+          onClose={() => setShowConfirmEmail(false)}
+          showEmailValidation={showEmailValidation}
+        />
+      )}
     </>
   );
 };
