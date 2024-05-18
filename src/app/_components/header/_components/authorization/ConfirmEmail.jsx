@@ -10,7 +10,7 @@ const ConfirmEmail = ({ onClose, showEmailValidation }) => {
     axios
       .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/activate?code=${code}`)
       .then((data) => {
-        console.log(data);
+        console.log(data.data.message);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
