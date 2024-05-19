@@ -11,6 +11,7 @@ import SettingsIcon from "@public/icons/Settings.webp";
 import LibraryIcon from "@public/icons/libraryIcon.webp";
 import AdminIcon from "@public/icons/adminIcon.webp";
 import SingleLink from "./SingleLink";
+import { useRouter } from "next/navigation";
 
 const leftSideLinks = [
   { img: HomeIcon.src, title: "Home", path: "/mygarden" },
@@ -25,7 +26,15 @@ const leftSideLinks = [
   { img: SettingsIcon.src, title: "Settings", path: "/settings" },
 ];
 
+
 const LeftAside = ({ path }) => {
+  const router = useRouter();
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    router.push("/");
+  };
+  
   return (
     <aside
       className={`h-fit bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.10)] ${
@@ -39,9 +48,14 @@ const LeftAside = ({ path }) => {
           return <SingleLink link={link} key={index} />;
         })}
       </div>
-      <button className="flex items-center mt-20 gap-6 tracking-widest text-sm text-[#666666]">
+      <button
+        onClick={handleLogout}
+        className="flex items-center mt-20 gap-6 tracking-widest text-sm text-[#666666]"
+      >
         <Image src={LogoutIcon} alt="LogOut Icon" width={24} height={24} />
-        {path.includes("/faq/questions") || path === "/library" ? null : "Log Out"}
+        {path.includes("/faq/questions") || path === "/library"
+          ? null
+          : "Log Out"}
       </button>
     </aside>
   );

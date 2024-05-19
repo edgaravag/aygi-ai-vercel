@@ -27,7 +27,6 @@ const SignIn = ({ onClose }) => {
     axios
       .post(`${process.env.NEXT_PUBLIC_AUTH_URL}/signin`, data, {
         headers: { "Content-Type": "application/json" },
-        
       })
       .then((response) => {
         if (response.data.token) {
@@ -35,6 +34,7 @@ const SignIn = ({ onClose }) => {
           localStorage.setItem("accessToken", token);
           router.push('/mygarden')
         }
+        console.log(response);
       })
       .catch((error) => {
         console.error(error);

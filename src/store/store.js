@@ -12,5 +12,12 @@ export const makeStore = () => {
       userData: userDataSlice,
       geminiText: geminiTextSlice,
     },
+    // middleware: (getDefaultMiddleware) =>
+    //   getDefaultMiddleware({
+    //     serializableCheck: {
+    //       ignoredActions: ["geminiText/setGeminiText"],
+    //       ignoredPaths: ["geminiText.image"],
+    //     },
+    //   }),
   });
 };

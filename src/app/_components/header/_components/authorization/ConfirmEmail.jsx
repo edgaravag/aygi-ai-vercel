@@ -5,12 +5,13 @@ import Button from "@/src/components/ui/Button";
 
 const ConfirmEmail = ({ onClose, showEmailValidation }) => {
   const [code, setCode] = useState(null);
+  const [message, setMessage] = useState("");
 
   const handleCompareCode = () => {
     axios
       .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/activate?code=${code}`)
       .then((data) => {
-        console.log(data.data.message);
+        setMessage(data.data.message)
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
@@ -44,6 +45,7 @@ const ConfirmEmail = ({ onClose, showEmailValidation }) => {
             >
               Confirm
             </Button>
+            {message && <p className="mt-2">{message}</p>}
           </div>
         </PopUpWrap>
       )}

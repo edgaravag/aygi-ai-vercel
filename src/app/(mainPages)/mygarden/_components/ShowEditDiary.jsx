@@ -12,10 +12,7 @@ const ShowEditDiary = () => {
     <>
       <div
         className="center cursor-pointer w-10 h-10"
-        onClick={(e) => {
-          e.stopPropagation();
-          setShowEditDiary(true);
-        }}
+        onClick={() => setShowEditDiary(true)}
       >
         <Image src={EditIcon} alt="" />
       </div>
