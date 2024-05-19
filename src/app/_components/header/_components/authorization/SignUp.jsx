@@ -123,7 +123,7 @@ const SignUp = ({ onClose, setShowEmailValidation }) => {
                   <input
                     {...register("email", {
                       required: "Email is required",
-                      // pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                      pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
                     })}
                     type="email"
                     className={`w-full mt-2 border ${
@@ -151,10 +151,10 @@ const SignUp = ({ onClose, setShowEmailValidation }) => {
                   <input
                     {...register("password", {
                       required: "Password is required",
-                      // minLength: {
-                      //   value: 6,
-                      //   message: "Password must have at least 8 characters",
-                      // },
+                      minLength: {
+                        value: 6,
+                        message: "Password must have at least 8 characters",
+                      },
                     })}
                     type="password"
                     className={`w-full mt-2 border ${
