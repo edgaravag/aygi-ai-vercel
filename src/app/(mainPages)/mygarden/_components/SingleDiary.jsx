@@ -70,7 +70,7 @@ const SingleDiary = ({ diary }) => {
           <Button className="py-[10px] px-2 text-[#68BB59] text-sm font-medium tracking-widest underline">
             MORE
           </Button>
-          {diary.isPrivate && (
+          {diary.public && (
             <div className="flex items-center mt-3 gap-1">
               <p className="text-[#808080] text-sm font-normal">Private</p>
               <Image alt="Private Icon" src={PrivateIcon} />
