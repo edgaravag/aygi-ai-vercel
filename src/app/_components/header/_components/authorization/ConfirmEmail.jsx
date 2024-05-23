@@ -39,13 +39,14 @@ const ConfirmEmail = ({ onClose, showEmailValidation }) => {
               className={`w-full mt-2 border border-[#808080] px-5 rounded-md h-[54px] text-black text-sm outline-none`}
               onChange={(e) => setCode(e.target.value)}
             />
+            {message && <p className="mt-2">{message}</p>}
             <Button
               className="w-full mt-6 h-[54px] text-white bg-[#68bb59] font-medium"
               onClick={handleCompareCode}
+              disabled={message ? true : false}
             >
               Confirm
             </Button>
-            {message && <p className="mt-2">{message}</p>}
           </div>
         </PopUpWrap>
       )}
