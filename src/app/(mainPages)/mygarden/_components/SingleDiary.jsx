@@ -5,7 +5,10 @@ import Link from "next/link";
 import Button from "@/src/components/ui/Button";
 import axiosInstance from "@/src/utils/axiosInstance";
 import PrivateIcon from "@public/icons/privateIcon.svg";
-import EditIcon from "@public/icons/grayEditIcon.svg";
+import GrayEditIcon from "@public/icons/grayEditIcon.svg";
+import EditIcon from "@public/icons/editIcon.svg";
+import GarbageIcon from "@public/icons/grayGarbageIcon.svg";
+import DeleteDiary from "@/src/components/popups/DeleteDiary";
 const EditDiary = dynamic(() => import("@/src/components/popups/EditDiary"));
 
 const formatDate = (dateString) => {
@@ -21,6 +24,8 @@ const SingleDiary = ({ diary }) => {
   const [diaryImage, setDiaryImage] = useState(null);
   const formattedDate = formatDate(diary.createdDate);
   const [showOptions, setShowOptions] = useState(false);
+  const [showEditDiary, setShowEditDiary] = useState(false);
+  const [showDeleteDiary, setShowDeleteDiary] = useState(false);
 
   useEffect(() => {
     axiosInstance
@@ -47,17 +52,26 @@ const SingleDiary = ({ diary }) => {
               {formattedDate}
             </p>
           </div>
-          <button
-            className="center cursor-pointer w-10 h-10"
-            onClick={() => setShowOptions(true)}
-          >
-            <Image src={EditIcon} alt="Edit Icon" />
-          </button>
-          {showOptions && (
-            <div>
-              
-            </div>
-          )}
+          <div className="relative">
+            <button
+              className="center cursor-pointer w-10 h-10"
+              onClick={() => setShowOptions(!showOptions)}
+            >
+              <Image src={GrayEditIcon} alt="Edit Icon" />
+            </button>
+            {showOptions && (
+              <div className="absolute z-10 right-0 bg-white border border-[#979797] rounded-md py-5 px-2">
+                <button className="center w-full flex gap-2 px-4 py-2 text-[#808080] mb-2" onClick={() => setShowEditDiary(true)}>
+                  <Image src={EditIcon} alt="Edit Icon" />
+                  <p className="w-[100px]">Edit Diary</p>
+                </button>
+                <button className="center w-full flex gap-2 px-4 py-2 text-[#808080]" onClick={() => setShowDeleteDiary(true)}>
+                  <Image src={GarbageIcon} alt="Edit Icon" />
+                  <p className="w-[120px]">Delete Diary</p>
+                </button>
+              </div>
+            )}
+          </div>
         </div>
         {diaryImage ? (
           <Image
@@ -93,7 +107,8 @@ const SingleDiary = ({ diary }) => {
           )}
         </div>
       </div>
-      {/* {showOptions && <EditDiary onClose={() => setShowEditDiary(false)} diary={diary} />} */}
+      {showEditDiary && <EditDiary onClose={() => setShowEditDiary(false)} diary={diary} />}
+      {showDeleteDiary && <DeleteDiary onClose={() => setShowDeleteDiary(false)} />}
     </>
   );
 };
