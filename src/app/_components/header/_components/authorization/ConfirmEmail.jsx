@@ -6,15 +6,19 @@ import Button from "@/src/components/ui/Button";
 const ConfirmEmail = ({ onClose, showEmailValidation }) => {
   const [code, setCode] = useState(null);
   const [message, setMessage] = useState("");
+  const [isSuccessfullyConfirmed, setIsSuccessfullyConfirmed] = useState(false);
 
   const handleCompareCode = () => {
     axios
       .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/activate?code=${code}`)
       .then((data) => {
+        console.log(data)
         setMessage(data.data.message)
+        setIsSuccessfullyConfirmed(true)
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
+        setMessage(error.response.data.message)
       });
   };
 
@@ -43,7 +47,7 @@ const ConfirmEmail = ({ onClose, showEmailValidation }) => {
             <Button
               className="w-full mt-6 h-[54px] text-white bg-[#68bb59] font-medium"
               onClick={handleCompareCode}
-              disabled={message ? true : false}
+              disabled={isSuccessfullyConfirmed}
             >
               Confirm
             </Button>

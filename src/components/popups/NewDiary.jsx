@@ -53,7 +53,7 @@ const NewDiary = ({ onClose }) => {
       >
         <input
           type="text"
-          className="py-3 px-4 w-full bg-[#F6F6F6] text-[#808080] mt-8 rounded-md outline-none"
+          className="py-3 px-4 w-full bg-[#F6F6F6]  mt-8 rounded-md outline-none"
           placeholder="Diary Name"
           {...register("name", {
             required: "Diary name is required",
