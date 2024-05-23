@@ -11,7 +11,7 @@ const ShowEditDiary = () => {
   return (
     <>
       <div
-        className="center cursor-pointer w-10 h-10"
+        className="center cursor-pointer w-10 h-10" 
         onClick={() => setShowEditDiary(true)}
       >
         <Image src={EditIcon} alt="" />

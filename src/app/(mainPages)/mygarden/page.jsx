@@ -2,7 +2,7 @@
 import ShowNewDiary from "./_components/ShowNewDiary";
 import SingleDiary from "./_components/SingleDiary";
 import PrevAndNextPages from "./_components/PrevAndNextPages";
-import DiaryImg from "@public/plants/diaryImg.webp";
+// import DiaryImg from "@public/plants/diaryImg.webp";
 import AddNewBusiness from "./_components/AddNewBusiness";
 import { useEffect, useState } from "react";
 import { useDispatch } from 'react-redux';

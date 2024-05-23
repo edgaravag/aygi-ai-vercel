@@ -5,10 +5,13 @@ import UploadImage from "@public/icons/userUploadImage.webp";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axiosInstance from "@/src/utils/axiosInstance";
+import { useRouter } from "next/router";
 
 const NewDiary = ({ onClose }) => {
   const [isPublic, setIsPublic] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
+
+  const router = useRouter()
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -41,7 +44,11 @@ const NewDiary = ({ onClose }) => {
           'Content-Type': 'multipart/form-data',
         }
       })
-      .then((response) => console.log(response))
+      .then((response) => {
+        console.log(response)
+        onClose()
+        router.reload()
+       })
   };
 
   return (

@@ -18,6 +18,7 @@ const formatDate = (dateString) => {
 const SingleDiary = ({ diary }) => {
   const [diaryImage, setDiaryImage] = useState(null);
   const formattedDate = formatDate(diary.createdDate);
+  // console.log(diary)
 
   useEffect(() => {
     axiosInstance
@@ -32,10 +33,10 @@ const SingleDiary = ({ diary }) => {
       .catch((error) => {
         console.error("Error fetching diary image:", error);
       });
-  }, [diary.id]); // Adding diary.id to the dependency array
+  }, [diary.id]);
 
   return (
-    <Link className="relative w-[344px]" href={"/mydiary"}>
+    <div className="relative w-[344px]">
       <div className="cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-200 active:scale-95">
         <div className="flex justify-between items-center gap-14 pl-3 py-2">
           <div className="flex flex-col">
@@ -44,7 +45,9 @@ const SingleDiary = ({ diary }) => {
               {formattedDate}
             </p>
           </div>
-          <ShowEditDiary />
+          <div onClick={(e) => e.stopPropagation()}>
+            <ShowEditDiary />
+          </div>
         </div>
         {diaryImage ? (
           <Image
@@ -54,7 +57,7 @@ const SingleDiary = ({ diary }) => {
             priority
             width={344}
             height={194}
-            className={diary.isPrivate ? "opacity-50" : undefined}
+            className={`w-auto h-auto ${diary.isPrivate ? "opacity-50" : ""}`}
           />
         ) : (
           <div className="w-[344px] h-[194px] bg-gray-200 flex items-center justify-center">
@@ -78,7 +81,7 @@ const SingleDiary = ({ diary }) => {
           )}
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
