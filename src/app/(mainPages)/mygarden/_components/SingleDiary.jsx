@@ -6,7 +6,7 @@ import Button from "@/src/components/ui/Button";
 import axiosInstance from "@/src/utils/axiosInstance";
 import PrivateIcon from "@public/icons/privateIcon.svg";
 import GrayEditIcon from "@public/icons/grayEditIcon.svg";
-import EditIcon from "@public/icons/editIcon.svg";
+import EditIcon from "@publc/icons/editIcon.svg";
 import GarbageIcon from "@public/icons/grayGarbageIcon.svg";
 import DeleteDiary from "@/src/components/popups/DeleteDiary";
 const EditDiary = dynamic(() => import("@/src/components/popups/EditDiary"));
@@ -108,7 +108,7 @@ const SingleDiary = ({ diary }) => {
         </div>
       </div>
       {showEditDiary && <EditDiary onClose={() => setShowEditDiary(false)} diary={diary} />}
-      {showDeleteDiary && <DeleteDiary onClose={() => setShowDeleteDiary(false)} />}
+      {showDeleteDiary && <DeleteDiary onClose={() => setShowDeleteDiary(false)} diaryId={diary.id} />}
     </>
   );
 };
