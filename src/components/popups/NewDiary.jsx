@@ -11,7 +11,7 @@ const NewDiary = ({ onClose }) => {
   const [isPublic, setIsPublic] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const router = useRouter()
+  // const router = useRouter()
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -46,8 +46,7 @@ const NewDiary = ({ onClose }) => {
       })
       .then((response) => {
         console.log(response)
-        onClose()
-        router.reload()
+        window.location.reload()
        })
   };
 

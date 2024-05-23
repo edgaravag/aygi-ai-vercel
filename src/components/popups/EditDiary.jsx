@@ -1,13 +1,17 @@
+import { useEffect } from "react";
 import Image from "next/image";
 import PopUpWrap from "../ui/PopUpWrap";
 import Button from "../ui/Button";
 import UserIcon from "@public/users/headerUserIcon.webp";
 import UploadImage from "@public/icons/userUploadImage.webp";
 import GarbageImage from "@public/icons/garbageImage.webp";
+import { useSelector } from "react-redux";
 
-const EditDiary = ({ onClose }) => {
+const EditDiary = ({ onClose, diary }) => {
+  const userData = useSelector((state) => state?.userData?.userData);
+
   return (
-    <PopUpWrap onClose={onClose} className="w-[635px] py-16 px-[72px] ">
+    <PopUpWrap onClose={onClose} className="w-[635px] py-10 px-9 ">
       <div className="border border-[#D9D9D9] rounded">
         <h2 className="py-4 text-center font-semibold text-[#666666] tracking-widest border-b border-b-[#D9D9D9]">
           Edit your diary
@@ -18,16 +22,15 @@ const EditDiary = ({ onClose }) => {
               <Image src={UserIcon} alt="" width={40} height={40} />
             </div>
             <div className="flex flex-col gap-1">
-              <p className="font-normal">John Doe</p>
+              <p className="font-medium">{userData?.username}</p>
               <p className="font-normal">
-                Information about Pepper Plant{" "}
+                {diary.name}{" "}
                 <button className="text-[#808080]">Edit your text</button>
               </p>
             </div>
           </div>
           <p className="mt-4">
-            Unite with a global network of dedicated gardeners who are as
-            passionate about plants as you are.{" "}
+            {diary.about}{" "}
             <button className="text-[#808080]">Edit your text</button>
           </p>
         </div>
@@ -52,7 +55,7 @@ const EditDiary = ({ onClose }) => {
             Make Private
           </label>
           <div className="flex gap-6">
-            <button className="font-normal text-sm text-[#808080] ">
+            <button className="font-normal text-sm text-[#808080]" onClick={() => onClose()}>
               Cancel
             </button>
             <Button className="py-[14px] px-[34px] bg-[#318C21] text-sm text-white font-normal">
