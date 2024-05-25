@@ -7,11 +7,12 @@ import UploadImage from "@public/icons/userUploadImage.webp";
 import GarbageImage from "@public/icons/garbageImage.webp";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import axiosInstance from "@/src/utils/axiosInstance";
 
 const EditDiary = ({ onClose, diary }) => {
   const userData = useSelector((state) => state?.userData?.userData);
-
-  const ref = useRef()
+  const nameInputRef = useRef();
+  // console.log(nameInputRef)
 
   const {
     register,
@@ -21,16 +22,22 @@ const EditDiary = ({ onClose, diary }) => {
   } = useForm();
 
   useEffect(() => {
-    if (diary?.name) {
+    if (diary.name) {
       setValue('name', diary.name);
     }
-    if (diary?.about) {
+    if (diary.about) {
       setValue('about', diary.about);
     }
   }, [diary, setValue]);
 
   const handleEditDiary = (data) => {
-    console.log(data);
+    axiosInstance.patch(`/diary/${diary.id}/update`, data, {
+      contentType: "multipart/form-data",
+    })
+    .then(() => window.location.reload())
+    .catch(error => 
+      console.error(error)
+    )
   };
 
   return (
@@ -52,18 +59,21 @@ const EditDiary = ({ onClose, diary }) => {
               <p className="font-medium">{userData?.username}</p>
               <div className="flex flex-col gap-1 items-start">
                 <input
-                  type='text'
+                  type="text"
                   className="w-[300px] outline-none py-1 placeholder:text-sm"
                   placeholder="Edit the name of your diary"
-                  ref={ref}
                   {...register("name", {
                     required: "Diary name is required",
+                    ref: (e) => {
+                      nameInputRef.current = e;
+                    },
                   })}
+                // ref={nameInputRef}
                 />
                 <button
                   type="button"
                   className="text-[#808080]"
-                  onClick={() => ref.current.focus()}
+                  onClick={nameInputRef.current?.focus}
                 >
                   Edit the name of your diary
                 </button>
@@ -72,7 +82,7 @@ const EditDiary = ({ onClose, diary }) => {
           </div>
           {errors.name && <p className="text-red-500 text-sm ml-[56px]">{errors.name.message}</p>}
           <p className="mt-4">
-            <textarea />
+            <textarea {...register("about")} className="w-full outline-none py-1 placeholder:text-sm" placeholder="Edit the description of your diary"></textarea>
             <button type="button" className="text-[#808080]">Edit description</button>
           </p>
           <div className="flex h-[108px] mt-[10px] px-[17px] py-[9px]  items-end justify-between">

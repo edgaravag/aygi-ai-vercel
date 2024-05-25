@@ -12,6 +12,7 @@ const WriteTheNews = () => {
           width={62}
           height={62}
           style={{ width: "auto" }}
+          priority
         />
         <input
           type="text"

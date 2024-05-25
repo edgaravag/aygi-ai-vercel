@@ -81,7 +81,7 @@ const SingleDiary = ({ diary }) => {
             priority
             width={344}
             height={194}
-            className={`w-auto h-auto ${diary.isPrivate ? "opacity-50" : ""}`}
+            className={`w-[344px] h-[194px] ${diary.isPrivate ? "opacity-50" : ""}`}
           />
         ) : (
           <div className="w-[344px] h-[194px] bg-gray-200 flex items-center justify-center">
