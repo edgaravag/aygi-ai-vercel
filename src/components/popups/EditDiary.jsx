@@ -1,9 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import PopUpWrap from "../ui/PopUpWrap";
 import Button from "../ui/Button";
 import UserIcon from "@public/users/headerUserIcon.webp";
-import UploadImage from "@public/icons/userUploadImage.webp";
+import ChangeImage from "@public/icons/userUploadImage.webp";
 import GarbageImage from "@public/icons/garbageImage.webp";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
@@ -11,14 +11,14 @@ import axiosInstance from "@/src/utils/axiosInstance";
 
 const EditDiary = ({ onClose, diary }) => {
   const userData = useSelector((state) => state?.userData?.userData);
+  const [selectedImage, setSelectedImage] = useState(null);
   const nameInputRef = useRef();
-  // console.log(nameInputRef)
 
   const {
     register,
     handleSubmit,
     setValue,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm();
 
   useEffect(() => {
@@ -30,14 +30,33 @@ const EditDiary = ({ onClose, diary }) => {
     }
   }, [diary, setValue]);
 
+  const handleEditDiaryImage = () => {
+    axiosInstance.patch(`/diary/image/${diary.id}`, { photo: selectedImage }, {
+      contentType: "multipart/form-data",
+    })
+      .then(() => window.location.reload())
+      .catch(error => console.error(error));
+  };
+
   const handleEditDiary = (data) => {
+    console.log(data);
     axiosInstance.patch(`/diary/${diary.id}/update`, data, {
       contentType: "multipart/form-data",
     })
-    .then(() => window.location.reload())
-    .catch(error => 
-      console.error(error)
-    )
+      .then(() => window.location.reload())
+      .catch(error => console.error(error))
+    if (selectedImage) {
+      handleEditDiaryImage()
+    }
+  };
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedImage(file);
+  };
+
+  const handleClick = () => {
+    document.getElementById("fileInput").click();
   };
 
   return (
@@ -50,6 +69,7 @@ const EditDiary = ({ onClose, diary }) => {
           className="p-4"
           autoComplete="off"
           onSubmit={handleSubmit(handleEditDiary)}
+          encType="multipart/form-data"
         >
           <div className="flex gap-4">
             <div>
@@ -68,7 +88,6 @@ const EditDiary = ({ onClose, diary }) => {
                       nameInputRef.current = e;
                     },
                   })}
-                // ref={nameInputRef}
                 />
                 <button
                   type="button"
@@ -92,10 +111,19 @@ const EditDiary = ({ onClose, diary }) => {
               style={{ width: "auto", height: "auto" }}
               className="cursor-pointer"
             />
-            <Button className="gap-2 text-sm text-[#808080] font-normal ">
-              <Image src={UploadImage} alt="" className="cursor-pointer" />
-              Upload image
-            </Button>
+            <div className="text-sm text-[#808080] font-normal">
+              <input
+                id="fileInput"
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                style={{ display: "none" }}
+              />
+              <div className="cursor-pointer center gap-2" onClick={handleClick}>
+                <Image src={ChangeImage} alt="Change Image" className="cursor-pointer" />
+                Change image
+              </div>
+            </div>
           </div>
           <div className="flex items-center justify-between p-4 border-t border-t-[#D9D9D9]">
             <label className="center gap-2 text-xs font-normal">
