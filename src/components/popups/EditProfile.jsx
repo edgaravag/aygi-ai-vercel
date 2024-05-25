@@ -1,9 +1,28 @@
 import Image from "next/image";
 import PopUpWrap from "../ui/PopUpWrap";
 import Button from "../ui/Button";
-import UserImg from "@public/users/profileUserImg.webp";
+import UserIcon from "@public/users/user.png";
+import useGetUserPhoto from "@/src/hooks/useGetUserPhoto";
+import axiosInstance from "@/src/utils/axiosInstance";
+import { useState } from "react";
 
 const EditProfile = ({ setShowEditProfile }) => {
+  const [selectedImage, setSelectedImage] = useState(null)
+  const userImage = useGetUserPhoto()
+  
+  const handleUploadPhoto = () => {
+    axiosInstance.post('/images/')
+  }
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedImage(file);
+  };
+
+  const handleClick = () => {
+    document.getElementById("fileInput").click();
+  };
+  
   return (
     <PopUpWrap
       onClose={() => setShowEditProfile(false)}
@@ -12,10 +31,17 @@ const EditProfile = ({ setShowEditProfile }) => {
       <div>
         <p className="font-medium">Settings / Edit Profile</p>
         <div className="center gap-6 mt-[20px]">
-          <Image src={UserImg} alt="" width={106} height={106} />
+          <Image src={userImage ? userImage : UserIcon} alt="" width={106} height={106} />
           <div className="flex gap-3">
-            <Button className="bg-[#dddddd] py-3.5 px-2.5 text-xs text-white">
+            <Button className="bg-[#dddddd] py-3.5 px-2.5 text-xs text-white" onClick={handleClick}>
               Upload Photo
+              <input
+                id="fileInput"
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                style={{ display: "none" }}
+              />
             </Button>
             <button className="text-sm text-[#808080]">Remove</button>
           </div>
