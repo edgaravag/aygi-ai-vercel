@@ -83,7 +83,7 @@ const MakeDetection = ({ onClose }) => {
 
   return (
     <PopUpWrap onClose={onClose} className="flex gap-12 p-16">
-      <div className="pt-[26px] border-2 border-[#68BB59] rounded-md">
+      <div className="pt-[26px] border-2 border-[#68BB59] rounded-md h-fit">
         <div className="px-4">
           <div className="flex items-center gap-3">
             <div className="rounded-full bg-[#66B059] py-2 px-4">
@@ -101,7 +101,7 @@ const MakeDetection = ({ onClose }) => {
           <p className="text-lg font-semibold">
             Upload photo to identify plant
           </p>
-          <div className="relative w-full mt-6 h-[208px] center flex-col bg-white rounded-md">
+          <div className="relative w-full mt-6 h-[208px] overflow-hidden center flex-col bg-white rounded-md">
             {!imageURL && (
               <>
                 <Image
@@ -148,29 +148,31 @@ const MakeDetection = ({ onClose }) => {
                     />
                   </div>
                 </button>
-                <div className="">
+                <div>
                   <img
                     src={imageURL}
                     alt="Selected Image"
                     width={320}
                     height={208}
+                    className="w-full h-full object-contain"
                   />
-                  {isLoading && (
-                    <p className="absolute m-auto">Wait for response...</p>
-                  )}
                 </div>
+
               </div>
             )}
           </div>
+          {isLoading && (
+            <p className="mt-2">Wait for response...</p>
+          )}
           <Button
-            className="mt-8 py-2.5 px-3 mx-auto text-white bg-[#808080]"
+            className="mt-6 py-2.5 px-3 mx-auto text-white bg-[#808080]"
             onClick={handleSendImage}
           >
             Plant Identification
           </Button>
         </div>
       </div>
-      <div className="pt-[26px] border-2 border-[#68BB59] rounded-md">
+      <div className="pt-[26px] border-2 border-[#68BB59] rounded-md h-fit">
         <div className="px-4">
           <div className="flex items-center gap-3">
             <div className="rounded-full bg-[#66B059] py-2 px-4">
