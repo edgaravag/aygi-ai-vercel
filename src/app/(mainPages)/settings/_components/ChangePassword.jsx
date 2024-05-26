@@ -10,6 +10,9 @@ const ChangePassword = () => {
           <input
             type="text"
             className="w-full mt-2 border border-[#808080] px-5 rounded-md h-[54px] text-black text-sm outline-none"
+            // {...register("password", {
+            //   required: "Password is required"
+            // })}
           />
         </div>
         <div className="relative mt-4 ">

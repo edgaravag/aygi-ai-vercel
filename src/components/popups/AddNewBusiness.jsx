@@ -13,6 +13,7 @@ const AddNewBusiness = ({ onClose }) => {
           alt="Business Icon"
           width={106}
           height={106}
+          priority
         />
         <Button className="text-white text-xs font-semibold px-2.5 py-3.5 bg-[#C2C2C2]">
           Upload Photo

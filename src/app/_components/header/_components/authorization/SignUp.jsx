@@ -8,7 +8,7 @@ import FacebookIcon from "@public/socialMediaIcons/colorfullFacebookIcon.svg";
 import GoogleIcon from "@public/socialMediaIcons/googleIcon.svg";
 import PopUpWrap from "@/src/components/ui/PopUpWrap";
 
-const SignUp = ({ onClose }) => {
+const SignUp = ({ onClose, setShowEmailValidation }) => {
   const [showForm, setShowForm] = useState(false);
 
   const {
@@ -21,14 +21,19 @@ const SignUp = ({ onClose }) => {
   const handleSignUp = (data) => {
     axios
       .post(`${process.env.NEXT_PUBLIC_AUTH_URL}/signup`, data)
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        onClose();
+        setShowEmailValidation(true);
+      })
       .catch((error) => {
         console.error(error);
         setError("root", {
-          message: "This user already exists",
+          message: error.response.data.message,
         });
         throw new Error("Registration failed");
       });
+    // console.log(data)
   };
 
   const onSubmitHandler = async (data) => {
@@ -86,11 +91,11 @@ const SignUp = ({ onClose }) => {
                   <input
                     {...register("username", {
                       required: "Username is required",
-                      pattern: /^[a-zA-Z0-9_]{3,16}$/,
-                      minLength: {
-                        value: 3,
-                        message: "Username must have at least 3 characters",
-                      },
+                      // pattern: /^[a-zA-Z0-9_]{3,16}$/,
+                      // minLength: {
+                      //   value: 3,
+                      //   message: "Username must have at least 3 characters",
+                      // },
                     })}
                     type="text"
                     className={`w-full mt-2 border ${
@@ -164,6 +169,11 @@ const SignUp = ({ onClose }) => {
                     </p>
                   )}
                 </div>
+                {errors.root && (
+                  <p className="text-[#C31031] text-xs mt-[5px]">
+                    {errors.root.message}
+                  </p>
+                )}
                 <Button
                   type="submit"
                   className="w-full mt-6 h-[54px] text-white bg-[#68bb59] font-medium"

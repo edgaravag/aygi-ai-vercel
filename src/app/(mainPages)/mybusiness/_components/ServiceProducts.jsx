@@ -27,6 +27,7 @@ const ServiceProducts = () => {
                 width={80}
                 height={80}
                 className="cursor-pointer"
+                priority
               />
             </Link>
           );

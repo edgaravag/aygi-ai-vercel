@@ -6,7 +6,6 @@ const ProfileComponent = () => {
   return (
     <div className="w-[617px]">
       <ProfileInfo />
-      <GardenJournalEntry />
       <MyDiariesAndSaved />
     </div>
   );

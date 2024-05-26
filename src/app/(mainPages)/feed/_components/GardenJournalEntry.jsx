@@ -1,6 +1,9 @@
 import Image from "next/image";
 import BusinessIcon from "@public/icons/blueBusinessIcon.webp";
 import UploadImage from "@public/icons/userUploadImage.webp";
+import ArrowIcon from "@public/icons/arrowDown.webp";
+import ChooseDiary from "./ChooseDiary";
+import ChooseActivities from "./ChooseActivities";
 
 const WriteTheNews = () => {
   return (
@@ -12,6 +15,7 @@ const WriteTheNews = () => {
           width={62}
           height={62}
           style={{ width: "auto" }}
+          priority
         />
         <input
           type="text"
@@ -19,7 +23,9 @@ const WriteTheNews = () => {
           className="w-full bg-[#EBEBEB] px-6 py-5 rounded-[32px] outline-none"
         />
       </div>
-      <div className="flex justify-end mt-3">
+      <div className="flex justify-between mt-3">
+        <ChooseDiary />
+        <ChooseActivities />
         <button className="self-end flex text-[#808080]">
           <Image src={UploadImage} alt="Upload Image" className="mr-2" />
           Upload image

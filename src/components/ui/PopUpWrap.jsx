@@ -9,7 +9,7 @@ const PopUpWrap = ({ onClose, children, className }) => {
   return (
     <div
       className="center z-[1000] bg-black bg-opacity-40 fixed top-0 left-0 right-0 bottom-0"
-      onClick={handleClose}
+      // onClick={handleClose}
     >
       <div
         className={`relative bg-white rounded-md ${className}`}
