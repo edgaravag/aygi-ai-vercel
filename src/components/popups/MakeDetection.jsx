@@ -1,12 +1,11 @@
 import Image from "next/image";
 import PopUpWrap from "../ui/PopUpWrap";
 import MakeDetectionIcon1 from "@public/icons/makeDetectionIcon1.webp";
-import MakeDetectionIcon2 from "@public/icons/makeDetectionIcon1.webp";
 import UploadImage from "@public/icons/uploadImageIcon.svg";
 import DetectionImage from "@public/plants/detectionImg.webp";
 import GarbageIcon from "@public/icons/garbageIcon.webp";
 import Button from "../ui/Button";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
@@ -41,7 +40,8 @@ const MakeDetection = ({ onClose }) => {
         config
       );
 
-      const generatedText = response?.data?.candidates[0]?.content?.parts[0]?.text;
+      const generatedText =
+        response?.data?.candidates[0]?.content?.parts[0]?.text;
 
       dispatch(
         setGeminiText({
@@ -72,15 +72,6 @@ const MakeDetection = ({ onClose }) => {
     document.getElementById("fileInput").click();
   };
 
-  // useEffect(() => {
-  //   return () => {
-  //     // Revoke the data URI when component unmounts to avoid memory leaks
-  //     if (imageURL) {
-  //       URL.revokeObjectURL(imageURL);
-  //     }
-  //   };
-  // }, [imageURL]);
-
   return (
     <PopUpWrap onClose={onClose} className="flex gap-12 p-16">
       <div className="pt-[26px] border-2 border-[#68BB59] rounded-md h-fit">
@@ -104,33 +95,35 @@ const MakeDetection = ({ onClose }) => {
           <div className="relative w-full mt-6 h-[208px] overflow-hidden center flex-col bg-white rounded-md">
             {!imageURL && (
               <>
-                <Image
-                  src={UploadImage}
-                  alt="Upload Image Icon"
-                  width={38}
-                  height={35}
-                  className="w-[38px] h-[35px]"
-                />
-                <input
-                  id="fileInput"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageChange}
-                  style={{ display: "none" }}
-                />
-                <button
+                <div
+                  className="flex flex-col items-center"
                   onClick={handleClick}
-                  className="mt-1 text-[#68BB59] text-xs"
                 >
-                  Select Image
-                </button>
+                  <Image
+                    src={UploadImage}
+                    alt="Upload Image Icon"
+                    width={38}
+                    height={35}
+                    className="w-[38px] h-[35px]"
+                  />
+                  <input
+                    id="fileInput"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                    style={{ display: "none" }}
+                  />
+                  <button className="mt-1 text-[#68BB59] text-xs">
+                    Select Image
+                  </button>
+                </div>
                 <p className="text-[#B3B3B3] text-xs mt-1">
                   Support png /jpg / jpeg
                 </p>
               </>
             )}
             {imageURL && (
-              <div className="absolute z-10">
+              <div className="absolute z-10 w-full h-full">
                 <button
                   className="absolute left-2 top-2"
                   onClick={() => {
@@ -148,25 +141,25 @@ const MakeDetection = ({ onClose }) => {
                     />
                   </div>
                 </button>
-                <div>
-                  <img
-                    src={imageURL}
-                    alt="Selected Image"
-                    width={320}
-                    height={208}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
 
+                <img
+                  src={imageURL}
+                  alt="Selected Image"
+                  className="w-full h-full object-cover"
+                />
+                {isLoading && (
+                  <p className="absolute inset-0 flex items-center justify-center text-white bg-black bg-opacity-50 text-lg">
+                    Wait for response...
+                  </p>
+                )}
               </div>
             )}
           </div>
-          {isLoading && (
-            <p className="mt-2">Wait for response...</p>
-          )}
+          {isLoading && <p className="mt-2">Wait for response...</p>}
           <Button
             className="mt-6 py-2.5 px-3 mx-auto text-white bg-[#808080]"
             onClick={handleSendImage}
+            disabled={isLoading}
           >
             Plant Identification
           </Button>
@@ -176,7 +169,7 @@ const MakeDetection = ({ onClose }) => {
         <div className="px-4">
           <div className="flex items-center gap-3">
             <div className="rounded-full bg-[#66B059] py-2 px-4">
-              <Image src={MakeDetectionIcon2} alt="" />
+              <Image src={MakeDetectionIcon1} alt="" />
             </div>
             <p className="text-lg font-semibold">Disease Detection</p>
           </div>
@@ -196,6 +189,7 @@ const MakeDetection = ({ onClose }) => {
               alt="Upload Photo Image"
               width={320}
               height={208}
+              className="w-full h-full object-cover"
             />
             <div className="absolute center bg-[#68BB59] size-[40px] top-3 right-3 rounded-full cursor-pointer">
               <Image
