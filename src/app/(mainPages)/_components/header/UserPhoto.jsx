@@ -4,6 +4,7 @@ import useGetUserPhoto from "@/src/hooks/useGetUserPhoto";
 
 const UserPhoto = () => {
   const userImage = useGetUserPhoto()
+  // console.log(userImage);
 
   return (
     <div className="cursor-pointer">

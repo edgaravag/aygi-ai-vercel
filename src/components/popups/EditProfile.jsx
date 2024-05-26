@@ -4,14 +4,35 @@ import Button from "../ui/Button";
 import UserIcon from "@public/users/user.png";
 import useGetUserPhoto from "@/src/hooks/useGetUserPhoto";
 import axiosInstance from "@/src/utils/axiosInstance";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { setImageId } from "@/src/store/features/imageIdSlice/imageIdSlice";
+import { useDispatch } from "react-redux";
 
 const EditProfile = ({ setShowEditProfile }) => {
   const [selectedImage, setSelectedImage] = useState(null)
+  const [userPhoto, setUserPhoto] = useState(null)
   const userImage = useGetUserPhoto()
-  
+
+  useEffect(() => {
+    setUserPhoto(userImage)
+  }, [userImage])
+
+  const dispatch = useDispatch();
+
   const handleUploadPhoto = () => {
-    axiosInstance.post('/images/')
+    axiosInstance.post('/images/', { photo: selectedImage }, {
+      contentType: "multipart/form-data",
+    })
+      .then((res) => {
+        console.log(res.data);
+        const responseString = res.data;
+        const imageIdMatch = responseString.match(/ImageId:\s*(\d+)/);
+        const imageId = imageIdMatch[1]
+        console.log(imageId)
+        dispatch(setImageId(imageId));
+        window.location.reload()
+       })
+      .catch(error => console.error(error))
   }
 
   const handleImageChange = (event) => {
@@ -22,7 +43,7 @@ const EditProfile = ({ setShowEditProfile }) => {
   const handleClick = () => {
     document.getElementById("fileInput").click();
   };
-  
+
   return (
     <PopUpWrap
       onClose={() => setShowEditProfile(false)}
@@ -31,7 +52,7 @@ const EditProfile = ({ setShowEditProfile }) => {
       <div>
         <p className="font-medium">Settings / Edit Profile</p>
         <div className="center gap-6 mt-[20px]">
-          <Image src={userImage ? userImage : UserIcon} alt="" width={106} height={106} />
+          <Image src={userPhoto ? userPhoto : UserIcon} alt="" width={106} height={106} />
           <div className="flex gap-3">
             <Button className="bg-[#dddddd] py-3.5 px-2.5 text-xs text-white" onClick={handleClick}>
               Upload Photo
@@ -99,7 +120,7 @@ const EditProfile = ({ setShowEditProfile }) => {
         </div>
       </form>
       <div className="flex justify-end">
-        <Button className="mt-[20px] bg-[#68BB59] py-2.5 px-[26px] text-white text-sm">
+        <Button className="mt-[20px] bg-[#68BB59] py-2.5 px-[26px] text-white text-sm" onClick={handleUploadPhoto}>
           Save Changes
         </Button>
       </div>

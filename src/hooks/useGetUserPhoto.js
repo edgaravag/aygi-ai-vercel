@@ -4,21 +4,26 @@ const { default: axiosInstance } = require("../utils/axiosInstance");
 
 export default function useGetUserPhoto() {
   const [userImage, setUserImage] = useState(null);
-  const userData = useSelector((state) => state?.userData?.userData);
+  const imageId = useSelector((state) => state?.imageId?.imageId);
+  // console.log(imageId);
 
   useEffect(() => {
-    if (userData && userData.id) {
+    if (imageId) {
       axiosInstance
-      .get(`/images/${userData.id}`)
-      .then((res) => {
-        setUserImage(res.data);
-        console.log(res);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+        .get(`/images/${imageId}`, { responseType: "blob" })
+        .then((res) => {
+          console.log(res);
+          const reader = new FileReader();
+          reader.readAsDataURL(res.data);
+          reader.onloadend = () => {
+            setUserImage(reader.result);
+          };
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
-  }, [userData])
-    
-    return userImage;
-};
+  }, [imageId]);
+
+  return userImage;
+}

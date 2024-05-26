@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/src/components/ui/Button";
-import axiosInstance from "@/src/utils/axiosInstance";
+// import axiosInstance from "@/src/utils/axiosInstance";
 import PrivateIcon from "@public/icons/privateIcon.svg";
 import GrayEditIcon from "@public/icons/grayEditIcon.svg";
 import EditIcon from "@public/icons/editIcon.svg";
 import GarbageIcon from "@public/icons/grayGarbageIcon.svg";
 import DeleteDiary from "@/src/components/popups/DeleteDiary";
+import useGetDiaryImage from "@/src/hooks/useGetDiaryImage";
 const EditDiary = dynamic(() => import("@/src/components/popups/EditDiary"));
 
 const formatDate = (dateString) => {
@@ -21,26 +22,13 @@ const formatDate = (dateString) => {
 };
 
 const SingleDiary = ({ diary }) => {
-  const [diaryImage, setDiaryImage] = useState(null);
+  // const [diaryImage, setDiaryImage] = useState(null);
   const formattedDate = formatDate(diary.createdDate);
   const [showOptions, setShowOptions] = useState(false);
   const [showEditDiary, setShowEditDiary] = useState(false);
   const [showDeleteDiary, setShowDeleteDiary] = useState(false);
 
-  useEffect(() => {
-    axiosInstance
-      .get(`diary/image/${diary.id}`, { responseType: 'blob' })
-      .then((response) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(response.data);
-        reader.onloadend = () => {
-          setDiaryImage(reader.result);
-        };
-      })
-      .catch((error) => {
-        console.error("Error fetching diary image:", error);
-      });
-  }, [diary.id]);
+  const diaryImage = useGetDiaryImage(diary.id)
 
   return (
     <>
@@ -94,7 +82,7 @@ const SingleDiary = ({ diary }) => {
           </p>
         </div>
         <div className="flex justify-between">
-          <Link href={'/mydiary'}>
+          <Link href={`/mydiary/${diary.id}`}>
             <Button className="py-[10px] px-2 text-[#68BB59] text-sm font-medium tracking-widest underline">
               MORE
             </Button>

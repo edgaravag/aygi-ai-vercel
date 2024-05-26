@@ -4,8 +4,8 @@ import SingleDiary from "./_components/SingleDiary";
 import PrevAndNextPages from "./_components/PrevAndNextPages";
 import AddNewBusiness from "./_components/AddNewBusiness";
 import { useEffect, useState } from "react";
-import { useDispatch } from 'react-redux';
-import { setUserData } from "@/src/store/features/userDataSlice/userDataSlice";
+// import { useDispatch } from 'react-redux';
+// import { setUserData } from "@/src/store/features/userDataSlice/userDataSlice";
 import axiosInstance from "@/src/utils/axiosInstance";
 
 const MyGardenComponent = () => {
