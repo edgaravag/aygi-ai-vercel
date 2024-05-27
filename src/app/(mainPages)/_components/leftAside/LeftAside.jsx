@@ -22,10 +22,9 @@ const leftSideLinks = [
   { img: ChatIcon.src, title: "AI Chat", path: "/aichat" },
   { img: LibraryIcon.src, title: "Library", path: "/library" },
   { img: FaqIcon.src, title: "FAQ", path: "/faq/questions" },
-  { isAdmin: true, img: AdminIcon.src, title: "Admin Panel", path: "" },
+  { isAdmin: false, img: AdminIcon.src, title: "Admin Panel", path: "" },
   { img: SettingsIcon.src, title: "Settings", path: "/settings" },
 ];
-
 
 const LeftAside = ({ path }) => {
   const router = useRouter();

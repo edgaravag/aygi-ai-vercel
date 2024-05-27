@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import dynamic from 'next/dynamic';
 import ProfileImg1 from "@public/plants/profileImg1.webp";
@@ -9,6 +9,7 @@ import ProfileImg4 from "@public/plants/profileImg4.webp";
 import ProfileImg5 from "@public/plants/profileImg5.webp";
 import ProfileImg6 from "@public/plants/profileImg6.webp";
 import MyDiariesAndSavedButtons from "./MyDiariesAndSavedButtons";
+import axiosInstance from "@/src/utils/axiosInstance";
 const Saved = dynamic(() => import("./Saved"))
 
 const images = [
@@ -22,6 +23,22 @@ const images = [
 
 const MyDiariesAndSaved = () => {
   const [myDiaries, setMyDiaries] = useState(true);
+
+  const [diaryImage, setDiaryImage] = useState(null);
+  const [showOptions, setShowOptions] = useState(false);
+  const [showEditDiary, setShowEditDiary] = useState(false);
+  const [showDeleteDiary, setShowDeleteDiary] = useState(false);
+console.log(diaryImage);
+  useEffect(() => {
+    axiosInstance
+      .get(`/diary`)
+      .then((response) => {
+       console.log(response);
+      })
+      .catch((error) => {
+        console.error("Error fetching diary image:", error);
+      });
+  },);
 
   return (
     <>
