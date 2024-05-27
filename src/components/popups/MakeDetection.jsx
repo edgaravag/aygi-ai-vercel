@@ -7,16 +7,16 @@ import GarbageIcon from "@public/icons/garbageIcon.webp";
 import Button from "../ui/Button";
 import { useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { setGeminiText } from "@/src/store/features/geminiTextSlice/geminiTextSlice";
 
-const MakeDetection = ({ onClose }) => {
+const MakeDetection = ({ onClose, setShowDetectionResult }) => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageURL, setImageURL] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const router = useRouter();
+  // const router = useRouter();
   const dispatch = useDispatch();
 
   const accessToken = localStorage.getItem("accessToken");
@@ -40,9 +40,7 @@ const MakeDetection = ({ onClose }) => {
         config
       );
 
-      const generatedText =
-        response?.data?.candidates[0]?.content?.parts[0]?.text;
-
+      const generatedText = response?.data?.candidates[0]?.content?.parts[0]?.text;
 
       dispatch(
         setGeminiText({
@@ -52,7 +50,8 @@ const MakeDetection = ({ onClose }) => {
       );
 
       onClose();
-      router.push("/detections/view");
+      // router.push("/detections/view");
+      setShowDetectionResult(true)
     } catch (error) {
       console.error(error);
       setIsLoading(false);
@@ -157,7 +156,7 @@ const MakeDetection = ({ onClose }) => {
                 </div>
               )}
             </div>
-            {isLoading && <p className="mt-2">Wait for response...</p>}
+            {/* {isLoading && <p className="mt-2">Wait for response...</p>} */}
             <Button
               className="mt-6 py-2.5 px-3 mx-auto text-white bg-[#808080]"
               onClick={handleSendImage}
