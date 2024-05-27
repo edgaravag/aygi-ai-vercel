@@ -4,7 +4,7 @@ import Image from "next/image";
 import ArrowIcon from "@public/icons/arrowDown.webp";
 
 const ChooseDiary = () => {
-  const [showChooseDiary, setShowChooseDiary] = useState(true);
+  const [showChooseDiary, setShowChooseDiary] = useState(false);
 
   return (
     <div className="relative">

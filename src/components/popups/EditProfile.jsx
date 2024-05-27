@@ -47,7 +47,7 @@ const EditProfile = ({ setShowEditProfile }) => {
   return (
     <PopUpWrap
       onClose={() => setShowEditProfile(false)}
-      className="w-[448px] px-16 py-[20px] "
+      className="w-[448px] px-10 py-[20px] "
     >
       <div>
         <p className="font-medium">Settings / Edit Profile</p>

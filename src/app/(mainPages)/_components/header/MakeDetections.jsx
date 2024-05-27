@@ -5,8 +5,11 @@ import { useState } from "react";
 const MakeDetection = dynamic(() =>
   import('@/src/components/popups/MakeDetection'),
 );
+const DetectionResult = dynamic(() => import("@/src/components/popups/DetectionResult"))
+
 const MakeDetections = () => {
   const [showMakeDetections, setShowMakeDetections] = useState(false);
+  const [showDetectionResult, setShowDetectionResult] = useState(false)
 
   return (
     <>
@@ -16,7 +19,15 @@ const MakeDetections = () => {
       >
         Make Detection
       </Button>
-      {showMakeDetections && <MakeDetection onClose={() => setShowMakeDetections(false)} />}
+      {showMakeDetections &&
+        <MakeDetection
+          onClose={() => setShowMakeDetections(false)}
+          setShowDetectionResult={setShowDetectionResult}
+        />}
+      {showDetectionResult &&
+        <DetectionResult
+          onClose={() => setShowDetectionResult(false)}
+        />}
     </>
   );
 };

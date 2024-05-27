@@ -2,26 +2,18 @@ import CloseIcon from "@public/icons/closeIcon.svg";
 import Image from "next/image";
 
 const PopUpWrap = ({ onClose, children, className }) => {
-  const handleClose = () => {
-    onClose();
-  };
-
   return (
-    <div
-      className="center z-[1000] bg-black bg-opacity-40 fixed top-0 left-0 right-0 bottom-0"
-      // onClick={handleClose}
-    >
-      <div
-        className={`relative bg-white rounded-md ${className}`}
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div className="center z-[1000] bg-black bg-opacity-40 fixed top-0 left-0 right-0 bottom-0 h-screen">
+      <div className={`relative bg-white rounded-md mx-5 ${className}`}>
         <button
           className="absolute z-[1000] center w-[41px] h-[41px] top-[-18px] right-[-18px] bg-[#68bb59] rounded-full overflow-hidden"
-          onClick={handleClose}
+          onClick={() => onClose()}
         >
-          <Image src={CloseIcon} alt="" />
+          <Image src={CloseIcon} alt="Close Icon" />
         </button>
-        {children}
+        <div className="w-full">
+          {children}
+        </div>
       </div>
     </div>
   );
