@@ -6,7 +6,6 @@ import DetectionImage from "@public/plants/detectionImg.webp";
 import GarbageIcon from "@public/icons/garbageIcon.webp";
 import Button from "../ui/Button";
 import { useState } from "react";
-import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
@@ -43,8 +42,7 @@ const MakeDetection = ({ onClose }) => {
 
       const generatedText =
         response?.data?.candidates[0]?.content?.parts[0]?.text;
-      const generatedText =
-        response?.data?.candidates[0]?.content?.parts[0]?.text;
+
 
       dispatch(
         setGeminiText({
