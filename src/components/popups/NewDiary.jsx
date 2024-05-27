@@ -51,7 +51,7 @@ const NewDiary = ({ onClose }) => {
   };
 
   return (
-    <PopUpWrap onClose={onClose} className="w-[572px] py-8 px-12">
+    <PopUpWrap onClose={onClose} className="w-[572px] py-8 px-10">
       <h2 className="font-medium">Create new diary</h2>
       <form
         autoComplete="off"
