@@ -4,7 +4,7 @@ import UploadedPhotoImg from "@public/plants/detectionImg.webp";
 import { useSelector } from "react-redux";
 import PopUpWrap from "../ui/PopUpWrap";
 
-const DetectionResult = () => {
+const DetectionResult = ({ onClose }) => {
     const geminiText = useSelector((state) => state?.geminiText?.text);
     const geminiImage = useSelector((state) => state?.geminiText?.imageURL);
 
@@ -31,7 +31,7 @@ const DetectionResult = () => {
             : "";
 
     return (
-        <PopUpWrap className="w-[720px] p-6">
+        <PopUpWrap onClose={onClose} className="w-[720px] p-6">
             <h1 className="text-3xl font-bold mb-6">Plant Identification Result</h1>
             <Image
                 src={geminiImage ? geminiImage : UploadedPhotoImg}

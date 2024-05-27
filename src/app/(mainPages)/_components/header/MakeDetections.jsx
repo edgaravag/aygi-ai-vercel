@@ -27,7 +27,6 @@ const MakeDetections = () => {
       {showDetectionResult &&
         <DetectionResult
           onClose={() => setShowDetectionResult(false)}
-          setShowDetectionResult={setShowDetectionResult}
         />}
     </>
   );
