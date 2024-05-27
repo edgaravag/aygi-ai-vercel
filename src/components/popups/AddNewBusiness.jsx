@@ -5,7 +5,7 @@ import BusinessIcon from "@public/icons/blueBusinessIcon.webp";
 
 const AddNewBusiness = ({ onClose }) => {
   return (
-    <PopUpWrap onClose={onClose} className="px-16 py-5">
+    <PopUpWrap onClose={onClose} className="px-10 py-5">
       <h2 className="font-medium">Create my business page</h2>
       <div className="mt-5 flex items-center gap-6">
         <Image

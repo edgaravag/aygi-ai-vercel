@@ -73,7 +73,7 @@ const MakeDetection = ({ onClose }) => {
   };
 
   return (
-    <PopUpWrap onClose={onClose} className="flex gap-12 p-16">
+    <PopUpWrap onClose={onClose} className="flex gap-12 p-8">
       <div className="pt-[26px] border-2 border-[#68BB59] rounded-md h-fit">
         <div className="px-4">
           <div className="flex items-center gap-3">

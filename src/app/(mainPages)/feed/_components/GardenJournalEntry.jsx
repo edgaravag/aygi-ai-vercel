@@ -14,7 +14,8 @@ const WriteTheNews = () => {
           alt="News Icon"
           width={62}
           height={62}
-          style={{ width: "auto" }}
+          // style={{ width: "auto" }}
+          className="h-[62px] w-[62px]"
           priority
         />
         <input
