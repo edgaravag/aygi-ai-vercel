@@ -12,24 +12,24 @@ import axiosInstance from "@/src/utils/axiosInstance";
 const Footer = dynamic(() => import("../_components/footer/Footer"));
 
 export default function RootLayout({ children }) {
-  const [accessToken, setAccessToken] = useState(null);
+  // const [accessToken, setAccessToken] = useState(null);
   const router = usePathname();
   const path = useRouter();
 
-  useLayoutEffect(() => {
-    const token = localStorage.getItem("accessToken");
-    setAccessToken(token);
-  }, [accessToken]);
+  // useLayoutEffect(() => {
+  //   const token = localStorage.getItem("accessToken");
+  //   setAccessToken(token);
+  // }, [accessToken]);
 
   // console.log(accessToken);
 
-  useEffect(() => {
-    const token = localStorage.getItem("accessToken");
-    if (!token) {
-      // console.log("useEffect" + token);
-      window.location.href = "/";
-    }
-  }, [accessToken, router]);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("accessToken");
+  //   if (!token) {
+  //     // console.log("useEffect" + token);
+  //     window.location.href = "/";
+  //   }
+  // }, [accessToken, router]);
 
   // const cookiesStore = cookies();
   // const JSESSIONID = cookiesStore.get('JSESSIONID');
@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
       });
   }, [dispatch]);
 
-  if (accessToken) {
+  // if (accessToken) {
     return (
       <div className="bg-[#F7F7F7]">
         <Header />
@@ -65,7 +65,7 @@ export default function RootLayout({ children }) {
         ) : null}
       </div>
     );
-  } else {
-    return null;
-  }
+  // } else {
+  //   return null;
+  // }
 }
