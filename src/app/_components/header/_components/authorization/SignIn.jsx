@@ -184,7 +184,7 @@ const SignIn = ({ onClose }) => {
                 </Button>
                 <div
                   onClick={handleSignInWithGoogle}
-                  className='py-[14px] gap-4 border border-[#808080] text-[#808080]'
+                  className='center rounded-md py-[14px] gap-4 border border-[#808080] text-[#808080]'
                 >
                   <Image src={GoogleIcon} alt='' />
                   Sign in with Google

@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const ViewPage = () => {
 	const geminiText = useSelector((state) => state?.geminiText?.text);
 	const geminiImage = useSelector((state) => state?.geminiText?.imageURL);
-  console.log(JSON.parse(geminiText));
+  // console.log(JSON.parse(geminiText));
 
   const lines = geminiText ? geminiText.split("\n") : [];
 
