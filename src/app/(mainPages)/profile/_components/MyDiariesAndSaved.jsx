@@ -45,7 +45,7 @@ console.log(diaryImage);
       <div className="flex bg-white w-80 mt-[40px] shadow-lg rounded-md">
         <MyDiariesAndSavedButtons myDiaries={myDiaries} setMyDiaries={setMyDiaries} />
       </div>
-      {myDiaries ? (
+      {myDiaries ? (  
         <div className="grid grid-rows-2 grid-cols-3 gap-3 mt-3">
           {images.map((image, index) => {
             return (
