@@ -28,7 +28,7 @@ const MyDiariesAndSaved = () => {
   const [showOptions, setShowOptions] = useState(false);
   const [showEditDiary, setShowEditDiary] = useState(false);
   const [showDeleteDiary, setShowDeleteDiary] = useState(false);
-console.log(diaryImage);
+// console.log(diaryImage);
   useEffect(() => {
     axiosInstance
       .get(`/diary`)
