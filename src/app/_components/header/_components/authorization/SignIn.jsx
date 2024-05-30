@@ -49,7 +49,7 @@ const SignIn = ({ onClose }) => {
     axios
       .get(`${process.env.NEXT_PUBLIC_AUTH_URL}/signInWithGoogle`)
       .then((response) => {
-        // console.log(response);
+        console.log(response);
         const result = response.data.substring(12);
         console.log(result);
         router.push(result);
@@ -178,10 +178,10 @@ const SignIn = ({ onClose }) => {
                 <div className='border border-[#bfbfbf] w-[43%] h-[1.5px]'></div>
               </div>
               <div className='flex flex-col gap-5 mt-5'>
-                <Button className='py-[14px] gap-4 border border-[#808080] text-[#808080]'>
+                <div className='center rounded-md py-[14px] gap-4 border border-[#808080] text-[#808080]'>
                   <Image src={FacebookIcon} alt='' />
                   Sign in with Facebook
-                </Button>
+                </div>
                 <div
                   onClick={handleSignInWithGoogle}
                   className='center rounded-md py-[14px] gap-4 border border-[#808080] text-[#808080]'

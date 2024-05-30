@@ -188,14 +188,14 @@ const SignUp = ({ onClose, setShowEmailValidation }) => {
                 <div className="border border-[#bfbfbf] w-[43%] h-[1.5px]"></div>
               </div>
               <div className="flex flex-col gap-5 mt-5">
-                <Button className="py-[14px] gap-4 border border-[#808080] text-[#808080]">
+                <div className="center rounded-md py-[14px] gap-4 border border-[#808080] text-[#808080]">
                   <Image src={FacebookIcon} alt="" />
                   Sign in with Facebook
-                </Button>
-                <Button className="py-[14px] gap-4 border border-[#808080] text-[#808080]">
+                </div>
+                <div className="center rounded-md py-[14px] gap-4 border border-[#808080] text-[#808080]">
                   <Image src={GoogleIcon} alt="" />
                   Sign in with Google
-                </Button>
+                </div>
               </div>
             </form>
           </div>
