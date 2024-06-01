@@ -6,27 +6,15 @@ import DetectionImage from "@public/plants/detectionImg.webp";
 import GarbageIcon from "@public/icons/garbageIcon.webp";
 import Button from "../ui/Button";
 import { useState } from "react";
-import axios from "axios";
-// import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { setGeminiText } from "@/src/store/features/geminiTextSlice/geminiTextSlice";
+import axiosInstance from "@/src/utils/axiosInstance";
+import useUploadImage from "@/src/hooks/useUploadImage";
 
 const MakeDetection = ({ onClose, setShowDetectionResult }) => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [imageURL, setImageURL] = useState(null);
+  const { selectedImage, imageURL, handleImageChange, resetImage } = useUploadImage();
   const [isLoading, setIsLoading] = useState(false);
-
-  // const router = useRouter();
   const dispatch = useDispatch();
-
-  const accessToken = localStorage.getItem("accessToken");
-
-  const config = {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      "Content-Type": "multipart/form-data",
-    },
-  };
 
   const handleSendImage = async () => {
     try {
@@ -34,10 +22,12 @@ const MakeDetection = ({ onClose, setShowDetectionResult }) => {
       const formData = new FormData();
       formData.append("file", selectedImage);
 
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/gemini/image`,
-        formData,
-        config
+      const response = await axiosInstance.post('/auth/gemini/image', formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
 
       const generatedText = response?.data?.candidates[0]?.content?.parts[0]?.text;
@@ -50,21 +40,12 @@ const MakeDetection = ({ onClose, setShowDetectionResult }) => {
       );
 
       onClose();
-      // router.push("/detections/view");
-      setShowDetectionResult(true)
+      setShowDetectionResult(true);
     } catch (error) {
       console.error(error);
       setIsLoading(false);
     } finally {
       setIsLoading(false);
-    }
-  };
-
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setSelectedImage(file);
-      setImageURL(URL.createObjectURL(file));
     }
   };
 
@@ -127,10 +108,7 @@ const MakeDetection = ({ onClose, setShowDetectionResult }) => {
                 <div className="absolute z-10 w-full h-full">
                   <button
                     className="absolute left-2 top-2"
-                    onClick={() => {
-                      setSelectedImage(null);
-                      setImageURL(null);
-                    }}
+                    onClick={resetImage}
                   >
                     <div className="absolute center bg-[#68BB59] size-[40px] rounded-full cursor-pointer">
                       <Image
@@ -156,7 +134,6 @@ const MakeDetection = ({ onClose, setShowDetectionResult }) => {
                 </div>
               )}
             </div>
-            {/* {isLoading && <p className="mt-2">Wait for response...</p>} */}
             <Button
               className="mt-6 py-2.5 px-3 mx-auto text-white bg-[#808080]"
               onClick={handleSendImage}
