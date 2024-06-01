@@ -14,7 +14,7 @@ const posts = [
     feedImg: PostImage1.src,
     userImage: UserImage.src,
     likes: 15,
-    comments: [ 15 ],
+    comments: [15],
     shareCount: 7,
   },
   {
@@ -22,8 +22,8 @@ const posts = [
     createdDate: "Post Date",
     feedImg: PostImage2.src,
     userImage: UserImage.src,
-    likesCount: 15,
-    commentsCount: 15,
+    likes: 15,
+    comments: [15],
     shareCount: 7,
   },
 ];
