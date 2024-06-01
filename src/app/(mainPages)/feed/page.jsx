@@ -10,18 +10,16 @@ import UserImage from "@public/users/UserImageWithoutImage.webp";
 const posts = [
   {
     userName: "User Name",
-    postDate: "Post Date",
-    postName: "Post Name",
+    createdDate: "Post Date",
     feedImg: PostImage1.src,
     userImage: UserImage.src,
-    likesCount: 15,
-    commentsCount: 15,
+    likes: 15,
+    comments: [ 15 ],
     shareCount: 7,
   },
   {
     userName: "User Name",
-    postDate: "Post Date",
-    postName: "Post Name",
+    createdDate: "Post Date",
     feedImg: PostImage2.src,
     userImage: UserImage.src,
     likesCount: 15,
@@ -32,7 +30,6 @@ const posts = [
 
 const FeedComponent = () => {
   const [posts1, setPosts] = useState([]);
-  console.log(posts1);
 
   useEffect(() => {
     axiosInstance

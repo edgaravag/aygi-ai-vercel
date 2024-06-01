@@ -7,7 +7,7 @@ const LikesCommentsSharedCount = ({ post }) => {
   return (
     <div className="flex justify-between px-4">
       <div className="center gap-[9px]">
-        <p className="text-sm font-normal text-[#808080]">{post.likesCount}</p>
+        <p className="text-sm font-normal text-[#808080]">{post.likes}</p>
         <button>
           <Image src={LikeIcon} alt="" />
         </button>
@@ -15,7 +15,7 @@ const LikesCommentsSharedCount = ({ post }) => {
       <div className="flex gap-[20px]">
         <div className="flex gap-[9px]">
           <p className="text-sm font-normal text-[#808080]">
-            {post.commentsCount}
+            {post.comments?.length}
           </p>
           <button>
             <Image src={CommentIcon} alt="" />
