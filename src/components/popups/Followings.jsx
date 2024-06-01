@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PopUpWrap from "../ui/PopUpWrap";
+import Modal from "../ui/Modal";
 import Button from "../ui/Button";
 import SearchIcon from "@public/icons/graySearchIcon.webp";
 import FollowerImg from "@public/users/followerImg.webp";
@@ -34,7 +34,7 @@ const followings = [
 
 const Followwings = ({ onClose }) => {
   return (
-    <PopUpWrap onClose={onClose} className="w-[572px] py-[20px]">
+    <Modal onClose={onClose} className="w-[572px] py-[20px]">
       <h2 className="font-normal text-lg text-center pb-4 border-b border-b-[#808080]">
         Followings
       </h2>
@@ -73,7 +73,7 @@ const Followwings = ({ onClose }) => {
           })}
         </div>
       </div>
-    </PopUpWrap>
+    </Modal>
   );
 };
 

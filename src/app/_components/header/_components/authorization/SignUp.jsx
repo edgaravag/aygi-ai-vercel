@@ -6,7 +6,7 @@ import SignIn from "./SignIn";
 import Button from "@/src/components/ui/Button";
 import FacebookIcon from "@public/socialMediaIcons/colorfullFacebookIcon.svg";
 import GoogleIcon from "@public/socialMediaIcons/googleIcon.svg";
-import PopUpWrap from "@/src/components/ui/PopUpWrap";
+import Modal from "@/src/components/ui/Modal";
 
 const SignUp = ({ onClose, setShowEmailValidation }) => {
   const [showForm, setShowForm] = useState(false);
@@ -48,25 +48,23 @@ const SignUp = ({ onClose, setShowEmailValidation }) => {
   return (
     <>
       {!showForm && (
-        <PopUpWrap onClose={onClose} className="max-w-[448px] py-11 px-16">
+        <Modal onClose={onClose} className="max-w-[448px] py-11 px-16">
           <div className="flex flex-col">
             <div className="flex">
               <button
-                className={`center py-4 font-medium text-sm ${
-                  showForm
+                className={`center py-4 font-medium text-sm ${showForm
                     ? "border-b-2 border-b-[#68bb59] text-[#68bb59]"
                     : "text-[#808080]"
-                } w-[160px] tracking-widest`}
+                  } w-[160px] tracking-widest`}
                 onClick={() => setShowForm(!showForm)}
               >
                 SIGN IN
               </button>
               <button
-                className={`center py-4 font-medium text-sm ${
-                  !showForm
+                className={`center py-4 font-medium text-sm ${!showForm
                     ? "border-b-2 border-b-[#68bb59] text-[#68bb59]"
                     : "text-[#808080]"
-                } w-[160px] tracking-widest`}
+                  } w-[160px] tracking-widest`}
                 onClick={() => setShowForm(!showForm)}
               >
                 SIGN UP
@@ -80,11 +78,10 @@ const SignUp = ({ onClose, setShowEmailValidation }) => {
               <div className="flex flex-col gap-4 relative">
                 <div>
                   <p
-                    className={`absolute left-4 px-[5px] bg-white ${
-                      errors.username || errors.root
+                    className={`absolute left-4 px-[5px] bg-white ${errors.username || errors.root
                         ? "text-[#C31031]"
                         : "text-[#808080]"
-                    } text-xs`}
+                      } text-xs`}
                   >
                     Your name
                   </p>
@@ -98,11 +95,10 @@ const SignUp = ({ onClose, setShowEmailValidation }) => {
                       // },
                     })}
                     type="text"
-                    className={`w-full mt-2 border ${
-                      errors.username || errors.root
+                    className={`w-full mt-2 border ${errors.username || errors.root
                         ? "border-[#C31031]"
                         : "border-[#808080]"
-                    } px-5 rounded-md h-[54px] text-black text-sm outline-none`}
+                      } px-5 rounded-md h-[54px] text-black text-sm outline-none`}
                   />
                   {errors.username && (
                     <p className="text-[#C31031] text-xs mt-[5px]">
@@ -112,11 +108,10 @@ const SignUp = ({ onClose, setShowEmailValidation }) => {
                 </div>
                 <div>
                   <p
-                    className={`absolute left-4 px-[5px] bg-white ${
-                      errors.email || errors.root
+                    className={`absolute left-4 px-[5px] bg-white ${errors.email || errors.root
                         ? "text-[#C31031]"
                         : "text-[#808080]"
-                    } text-xs`}
+                      } text-xs`}
                   >
                     Email
                   </p>
@@ -126,11 +121,10 @@ const SignUp = ({ onClose, setShowEmailValidation }) => {
                       pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
                     })}
                     type="email"
-                    className={`w-full mt-2 border ${
-                      errors.email || errors.root
+                    className={`w-full mt-2 border ${errors.email || errors.root
                         ? "border-[#C31031]"
                         : "border-[#808080]"
-                    } px-5 rounded-md h-[54px] text-black text-sm outline-none`}
+                      } px-5 rounded-md h-[54px] text-black text-sm outline-none`}
                   />
                   {errors.email && (
                     <p className="text-[#C31031] text-xs mt-[5px]">
@@ -140,11 +134,10 @@ const SignUp = ({ onClose, setShowEmailValidation }) => {
                 </div>
                 <div>
                   <p
-                    className={`absolute left-4 px-[5px] bg-white ${
-                      errors.password || errors.root
+                    className={`absolute left-4 px-[5px] bg-white ${errors.password || errors.root
                         ? "text-[#C31031]"
                         : "text-[#808080]"
-                    } text-xs`}
+                      } text-xs`}
                   >
                     Password
                   </p>
@@ -157,11 +150,10 @@ const SignUp = ({ onClose, setShowEmailValidation }) => {
                       },
                     })}
                     type="password"
-                    className={`w-full mt-2 border ${
-                      errors.password || errors.root
+                    className={`w-full mt-2 border ${errors.password || errors.root
                         ? "border-[#C31031]"
                         : "border-[#808080]"
-                    } px-5 rounded-md h-[54px] text-black text-sm outline-none`}
+                      } px-5 rounded-md h-[54px] text-black text-sm outline-none`}
                   />
                   {errors.password && (
                     <p className="text-[#C31031] text-xs mt-[5px]">
@@ -199,7 +191,7 @@ const SignUp = ({ onClose, setShowEmailValidation }) => {
               </div>
             </form>
           </div>
-        </PopUpWrap>
+        </Modal>
       )}
       {showForm && <SignIn onClose={onClose} />}
     </>

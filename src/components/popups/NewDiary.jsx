@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PopUpWrap from "../ui/PopUpWrap";
+import Modal from "../ui/Modal";
 import Button from "../ui/Button";
 import UploadImage from "@public/icons/userUploadImage.webp";
 import { useForm } from "react-hook-form";
@@ -47,11 +47,11 @@ const NewDiary = ({ onClose }) => {
       .then((response) => {
         console.log(response)
         window.location.reload()
-       })
+      })
   };
 
   return (
-    <PopUpWrap onClose={onClose} className="w-[572px] py-8 px-10">
+    <Modal onClose={onClose} className="w-[572px] py-8 px-10">
       <h2 className="font-medium">Create new diary</h2>
       <form
         autoComplete="off"
@@ -122,7 +122,7 @@ const NewDiary = ({ onClose }) => {
           </div>
         </div>
       </form>
-    </PopUpWrap>
+    </Modal>
   );
 };
 

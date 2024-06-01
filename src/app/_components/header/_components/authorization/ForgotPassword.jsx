@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import PopUpWrap from '@/src/components/ui/PopUpWrap';
+import Modal from '@/src/components/ui/Modal';
 import Button from '@/src/components/ui/Button';
 import axiosInstance from '@/src/utils/axiosInstance';
 import axios from 'axios';
@@ -27,7 +27,7 @@ const ForgotPassword = ({ onClose }) => {
   };
   return (
     <>
-      <PopUpWrap onClose={onClose} className='w-[448px] py-16 pb-[294px]'>
+      <Modal onClose={onClose} className='w-[448px] py-16 pb-[294px]'>
         <div className='flex flex-col w-full px-16'>
           <h2 className='text-xl font-medium'>Forgot Password?</h2>
           <p className='text-sm font-normal mt-1'>
@@ -57,7 +57,7 @@ const ForgotPassword = ({ onClose }) => {
             </Button>
           </div>
         </div>
-      </PopUpWrap>
+      </Modal>
     </>
   );
 };

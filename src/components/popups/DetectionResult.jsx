@@ -2,7 +2,7 @@
 import Image from "next/image";
 import UploadedPhotoImg from "@public/plants/detectionImg.webp";
 import { useSelector } from "react-redux";
-import PopUpWrap from "../ui/PopUpWrap";
+import Modal from "../ui/Modal";
 
 const DetectionResult = ({ onClose }) => {
     const geminiText = useSelector((state) => state?.geminiText?.text);
@@ -31,7 +31,7 @@ const DetectionResult = ({ onClose }) => {
             : "";
 
     return (
-        <PopUpWrap onClose={onClose} className="w-[720px] p-6">
+        <Modal onClose={onClose} className="w-[720px] p-6">
             <h1 className="text-3xl font-bold mb-6">Plant Identification Result</h1>
             <Image
                 src={geminiImage ? geminiImage : UploadedPhotoImg}
@@ -68,7 +68,7 @@ const DetectionResult = ({ onClose }) => {
                     <div className="text-lg whitespace-pre-line">{careInstructions}</div>
                 </div>
             )}
-        </PopUpWrap>
+        </Modal>
     );
 };
 

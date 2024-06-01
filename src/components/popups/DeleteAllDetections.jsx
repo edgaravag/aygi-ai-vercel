@@ -1,9 +1,9 @@
-import PopUpWrap from "../ui/PopUpWrap"
+import Modal from "../ui/Modal"
 import Button from "../ui/Button"
 
 const DeleteAllDetections = ({ onClose }) => {
 	return (
-		<PopUpWrap onClose={onClose} className="p-8">
+		<Modal onClose={onClose} className="p-8">
 			<h2 className="font-semibold text-xl text-center">Delete Detections</h2>
 			<p className="mt-[20px]">Are you sure you want to delete <span className="font-semibold">all history?</span></p>
 			<div className="flex justify-between mt-6">
@@ -14,7 +14,7 @@ const DeleteAllDetections = ({ onClose }) => {
 					Yes, Delete
 				</Button>
 			</div>
-		</PopUpWrap>
+		</Modal>
 	)
 }
 

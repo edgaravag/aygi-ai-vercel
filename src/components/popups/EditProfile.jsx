@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PopUpWrap from "../ui/PopUpWrap";
+import Modal from "../ui/Modal";
 import Button from "../ui/Button";
 import UserIcon from "@public/users/user.png";
 import useGetUserPhoto from "@/src/hooks/useGetUserPhoto";
@@ -31,7 +31,7 @@ const EditProfile = ({ setShowEditProfile }) => {
         console.log(imageId)
         dispatch(setImageId(imageId));
         window.location.reload()
-       })
+      })
       .catch(error => console.error(error))
   }
 
@@ -45,7 +45,7 @@ const EditProfile = ({ setShowEditProfile }) => {
   };
 
   return (
-    <PopUpWrap
+    <Modal
       onClose={() => setShowEditProfile(false)}
       className="w-[448px] px-10 py-[20px] "
     >
@@ -115,7 +115,7 @@ const EditProfile = ({ setShowEditProfile }) => {
           Save Changes
         </Button>
       </div>
-    </PopUpWrap>
+    </Modal>
   );
 };
 

@@ -4,7 +4,7 @@ import { useState } from "react";
 import OpenCard from "./OpenCard";
 import EditDiary from "./EditDiary";
 import AddNewPost from "./AddNewPost";
-import PopUpWrap from "../ui/PopUpWrap";
+import Modal from "../ui/Modal";
 import Button from "../ui/Button";
 import MoreIcon from "@public/icons/moreIcon.webp";
 import DiaryImage from "@public/plants/diaryPageImage.webp";
@@ -44,11 +44,10 @@ const DiaryPage = ({ onClose }) => {
   return (
     <>
       {!showEditDiary && !showOpenCard && (
-        <PopUpWrap
+        <Modal
           onClose={onClose}
-          className={`relative w-[784px] h-[900px] px-12 py-8 bg-white rounded-md ${
-            (showOpenCard && "hidden", showEditDiary && "hidden")
-          }`}
+          className={`relative w-[784px] h-[900px] px-12 py-8 bg-white rounded-md ${(showOpenCard && "hidden", showEditDiary && "hidden")
+            }`}
         >
           <div className="flex items-center justify-between gap-5">
             <h2 className="font-semibold tracking-widest">
@@ -80,7 +79,7 @@ const DiaryPage = ({ onClose }) => {
           </div>
           <div className="flex items-center justify-between gap-5 my-[20px]">
             <div className="flex">
-              <Button 
+              <Button
                 className="p-1 gap-2 cursor-pointer text-[#68BB59] font-normal"
                 onClick={() => setShowAddNewPost(true)}
               >
@@ -126,7 +125,7 @@ const DiaryPage = ({ onClose }) => {
               );
             })}
           </div>
-        </PopUpWrap>
+        </Modal>
       )}
       {showOpenCard && <OpenCard onClose={onClose} />}
       {showEditDiary && <EditDiary onClose={onClose} />}

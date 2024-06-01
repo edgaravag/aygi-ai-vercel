@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PopUpWrap from "../ui/PopUpWrap";
+import Modal from "../ui/Modal";
 import UserImage from "@public/users/UserImageWithoutImage.webp";
 import OpenCardLemon from "@public/plants/OpenCard.webp";
 import MoreIcon from "@public/icons/moreIcon.webp";
@@ -19,7 +19,7 @@ const activities = [
 
 const OpenCard = ({ onClose }) => {
   return (
-    <PopUpWrap onClose={onClose} className="py-8 px-10">
+    <Modal onClose={onClose} className="py-8 px-10">
       <div className="border-2 border-[#f8f8f8] w-[571px] rounded py-4 px-4">
         <div className="flex justify-between ">
           <div className="flex justify-start gap-4">
@@ -125,7 +125,7 @@ const OpenCard = ({ onClose }) => {
           </div>
         </div>
       </div>
-    </PopUpWrap>
+    </Modal>
   );
 };
 

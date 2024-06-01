@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PopUpWrap from "../ui/PopUpWrap";
+import Modal from "../ui/Modal";
 import MakeDetectionIcon1 from "@public/icons/makeDetectionIcon1.webp";
 import UploadImage from "@public/icons/uploadImageIcon.svg";
 import DetectionImage from "@public/plants/detectionImg.webp";
@@ -73,7 +73,7 @@ const MakeDetection = ({ onClose, setShowDetectionResult }) => {
   };
 
   return (
-    <PopUpWrap onClose={onClose} className="p-8">
+    <Modal onClose={onClose} className="p-8">
       <div className="flex gap-12">
         <div className="pt-[26px] border-2 border-[#68BB59] rounded-md h-fit">
           <div className="px-4">
@@ -208,7 +208,7 @@ const MakeDetection = ({ onClose, setShowDetectionResult }) => {
           </div>
         </div>
       </div>
-    </PopUpWrap>
+    </Modal>
   );
 };
 

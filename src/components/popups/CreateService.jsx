@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
-import PopUpWrap from "../ui/PopUpWrap";
+import Modal from "../ui/Modal";
 import Button from "../ui/Button";
 import BusinessIcon from "@public/icons/blueBusinessIcon.webp";
 import ArrowIcon from "@public/icons/arrowDown.webp";
@@ -9,7 +9,7 @@ const CreateService = ({ onClose }) => {
   const [showCurrency, setShowCurrency] = useState(false);
 
   return (
-    <PopUpWrap onClose={onClose} className="w-[448px] px-10 py-5">
+    <Modal onClose={onClose} className="w-[448px] px-10 py-5">
       <h2 className="font-medium">Create my service/products</h2>
       <div className="flex items-center gap-6 mt-5">
         <Image src={BusinessIcon} alt="Service icon" width={106} height={106} priority />
@@ -85,7 +85,7 @@ const CreateService = ({ onClose }) => {
           Publish
         </Button>
       </div>
-    </PopUpWrap>
+    </Modal>
   );
 };
 

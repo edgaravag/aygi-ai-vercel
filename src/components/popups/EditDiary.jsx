@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import PopUpWrap from "../ui/PopUpWrap";
+import Modal from "../ui/Modal";
 import Button from "../ui/Button";
 import UserIcon from "@public/users/headerUserIcon.webp";
 import ChangeImage from "@public/icons/userUploadImage.webp";
@@ -60,7 +60,7 @@ const EditDiary = ({ onClose, diary }) => {
   };
 
   return (
-    <PopUpWrap onClose={onClose} className="w-[635px] py-10 px-9 ">
+    <Modal onClose={onClose} className="w-[635px] py-10 px-9 ">
       <div className="border border-[#D9D9D9] rounded">
         <h2 className="py-4 text-center font-semibold text-[#666666] tracking-widest border-b border-b-[#D9D9D9]">
           Edit your diary
@@ -147,7 +147,7 @@ const EditDiary = ({ onClose, diary }) => {
           </div>
         </form>
       </div>
-    </PopUpWrap>
+    </Modal>
   );
 };
 

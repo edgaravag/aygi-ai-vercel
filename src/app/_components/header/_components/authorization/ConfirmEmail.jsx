@@ -1,4 +1,4 @@
-import PopUpWrap from "@/src/components/ui/PopUpWrap";
+import Modal from "@/src/components/ui/Modal";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Button from "@/src/components/ui/Button";
@@ -25,7 +25,7 @@ const ConfirmEmail = ({ onClose, showEmailValidation }) => {
   return (
     <>
       {!showEmailValidation && (
-        <PopUpWrap
+        <Modal
           onClose={onClose}
           className="w-[448px] pt-[20px] pb-[40px] px-14"
         >
@@ -52,7 +52,7 @@ const ConfirmEmail = ({ onClose, showEmailValidation }) => {
               Confirm
             </Button>
           </div>
-        </PopUpWrap>
+        </Modal>
       )}
     </>
   );

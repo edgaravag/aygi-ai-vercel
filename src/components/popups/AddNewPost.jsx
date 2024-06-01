@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import PopUpWrap from "../ui/PopUpWrap";
+import Modal from "../ui/Modal";
 import Button from "../ui/Button";
 import UserIcon from "@public/users/headerUserIcon.webp";
 import ArrowDown from "@public/icons/arrowDown.webp";
@@ -50,7 +50,7 @@ const AddNewPost = ({ onClose }) => {
   };
 
   return (
-    <PopUpWrap onClose={onClose} className="w-[572px] py-8 px-12">
+    <Modal onClose={onClose} className="w-[572px] py-8 px-12">
       <div className="flex items-center gap-4">
         <Image alt="" src={UserIcon} width={40} />
         <p>User name</p>
@@ -59,9 +59,8 @@ const AddNewPost = ({ onClose }) => {
         {router !== "/mygarden" && (
           <div className="w-full relative">
             <div
-              className={`flex items-center justify-between text-sm text-[#808080] cursor-pointer py-1.5 pl-4 pr-1 rounded-md border border-[#68BB59] ${
-                showChooseDiary && "rounded-b-none"
-              }`}
+              className={`flex items-center justify-between text-sm text-[#808080] cursor-pointer py-1.5 pl-4 pr-1 rounded-md border border-[#68BB59] ${showChooseDiary && "rounded-b-none"
+                }`}
               onClick={() => setShowChooseDiary(!showChooseDiary)}
             >
               Choose Diary
@@ -91,14 +90,12 @@ const AddNewPost = ({ onClose }) => {
           </div>
         )}
         <div
-          className={`${
-            router === "/mygarden" ? "w-[230px]" : "w-full"
-          } relative`}
+          className={`${router === "/mygarden" ? "w-[230px]" : "w-full"
+            } relative`}
         >
           <div
-            className={`flex items-center justify-between text-sm text-[#808080] cursor-pointer py-1.5 pl-4 pr-1 rounded-md border border-[#68BB59] ${
-              showTodaysActivities && "rounded-b-none"
-            }`}
+            className={`flex items-center justify-between text-sm text-[#808080] cursor-pointer py-1.5 pl-4 pr-1 rounded-md border border-[#68BB59] ${showTodaysActivities && "rounded-b-none"
+              }`}
             onClick={() => setShowTodaysActivities(!showTodaysActivities)}
           >
             Today’s Activities
@@ -163,7 +160,7 @@ const AddNewPost = ({ onClose }) => {
           </div>
         </div>
       </div>
-    </PopUpWrap>
+    </Modal>
   );
 };
 

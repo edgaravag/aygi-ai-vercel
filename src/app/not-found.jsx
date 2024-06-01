@@ -7,7 +7,7 @@ import Footer from './_components/footer/Footer';
 const NotFound = () => {
   return (
     <>
-      <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-32 xl:px-56 2xl:px-72 text-center">
+      <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-32 xl:px-56 2xl:px-72 text-center mb-10">
         <Image src={NotFoundImage} layout="responsive" width={536} height={443} alt="Not Found" />
         <div className="mt-8 flex justify-center">
           <Link href="/mygarden" passHref>

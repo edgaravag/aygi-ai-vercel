@@ -1,9 +1,9 @@
 import Button from "@/src/components/ui/Button";
-import PopUpWrap from "@/src/components/ui/PopUpWrap";
+import Modal from "@/src/components/ui/Modal";
 
 const ResetPassword = ({ onClose }) => {
   return (
-    <PopUpWrap onClose={onClose} className="w-[448px] center py-16 pb-[294px]">
+    <Modal onClose={onClose} className="w-[448px] center py-16 pb-[294px]">
       <div className="flex flex-col w-full px-16">
         <h2 className="text-xl font-medium">Reset account password</h2>
         <p className="text-sm font-normal mt-1">
@@ -35,7 +35,7 @@ const ResetPassword = ({ onClose }) => {
           </Button>
         </div>
       </div>
-    </PopUpWrap>
+    </Modal>
   );
 };
 
