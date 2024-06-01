@@ -39,12 +39,12 @@ export default function RootLayout({ children }) {
 
   useEffect(() => {
     axiosInstance
-      .get('/user/')
+      .get("/user/")
       .then((response) => {
         dispatch(setUserData(response.data));
       })
       .catch((error) => {
-        console.error('Error fetching user data:', error);
+        console.error("Error fetching user data:", error);
       });
   }, [dispatch]);
 

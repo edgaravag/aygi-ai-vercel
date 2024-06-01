@@ -91,15 +91,6 @@ const EditProfile = ({ setShowEditProfile }) => {
             </div>
             <div>
               <p className="absolute left-4 px-[5px] bg-white text-[#808080] text-xs">
-                Password
-              </p>
-              <input
-                type="password"
-                className="w-full mt-2 border border-[#808080] px-5 rounded-md h-[54px] text-black text-sm outline-none"
-              />
-            </div>
-            <div>
-              <p className="absolute left-4 px-[5px] bg-white text-[#808080] text-xs">
                 Country
               </p>
               <input

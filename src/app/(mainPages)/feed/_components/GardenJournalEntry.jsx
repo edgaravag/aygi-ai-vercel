@@ -1,13 +1,21 @@
+'use client'
 import Image from "next/image";
 import BusinessIcon from "@public/icons/blueBusinessIcon.webp";
 import UploadImage from "@public/icons/userUploadImage.webp";
-import ArrowIcon from "@public/icons/arrowDown.webp";
+// import ArrowIcon from "@public/icons/arrowDown.webp";
 import ChooseDiary from "./ChooseDiary";
 import ChooseActivities from "./ChooseActivities";
+import { useState } from "react";
 
 const WriteTheNews = () => {
+  const [diary, setDiary] = useState(null)
+  const [selectedActivities, setSelectedActivities] = useState([])
+  
+
+  // onKeyDown={handleKeyPress}
+
   return (
-    <div className="w-full border border-[#68BB59] rounded-md px-4 py-6 mt-6">
+    <div className="w-full border border-[#68BB59] rounded-md px-4 py-6 mt-6"> 
       <div className="flex gap-2">
         <Image
           src={BusinessIcon}
@@ -25,8 +33,11 @@ const WriteTheNews = () => {
         />
       </div>
       <div className="flex justify-between mt-3">
-        <ChooseDiary />
-        <ChooseActivities />
+        <ChooseDiary setDiary={setDiary} />
+        <ChooseActivities 
+          setSelectedActivities={setSelectedActivities} 
+          selectedActivities={selectedActivities} 
+        />
         <button className="self-end flex text-[#808080]">
           <Image src={UploadImage} alt="Upload Image" className="mr-2" />
           Upload image
