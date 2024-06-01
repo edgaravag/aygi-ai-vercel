@@ -1,25 +1,18 @@
 import Image from "next/image";
 import Modal from "../ui/Modal";
+import UploadImage from "../ui/UploadImage";
 import Button from "../ui/Button";
-import UploadImage from "@public/icons/userUploadImage.webp";
+import GarbageIcon from "@public/icons/garbageImage.webp";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axiosInstance from "@/src/utils/axiosInstance";
-import { useRouter } from "next/router";
+import useUploadImage from "@/src/hooks/useUploadImage";
 
 const NewDiary = ({ onClose }) => {
   const [isPublic, setIsPublic] = useState(true);
-  const [selectedImage, setSelectedImage] = useState(null);
 
-  // const router = useRouter()
-
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setSelectedImage(file);
-      // setImageURL(URL.createObjectURL(file));
-    }
-  };
+  // Use the custom hook
+  const { selectedImage, imageURL, handleImageChange, resetImage } = useUploadImage();
 
   const handleClick = () => {
     document.getElementById("fileInput").click();
@@ -45,21 +38,18 @@ const NewDiary = ({ onClose }) => {
         }
       })
       .then((response) => {
-        console.log(response)
-        window.location.reload()
-      })
+        console.log(response);
+        window.location.reload();
+      });
   };
 
   return (
     <Modal onClose={onClose} className="w-[572px] py-8 px-10">
       <h2 className="font-medium">Create new diary</h2>
-      <form
-        autoComplete="off"
-        onSubmit={handleSubmit(handleCreateDiary)}
-      >
+      <form autoComplete="off" onSubmit={handleSubmit(handleCreateDiary)}>
         <input
           type="text"
-          className="py-3 px-4 w-full bg-[#F6F6F6]  mt-8 rounded-md outline-none"
+          className="py-3 px-4 w-full bg-[#F6F6F6] mt-8 rounded-md outline-none"
           placeholder="Diary Name"
           {...register("name", {
             required: "Diary name is required",
@@ -78,22 +68,32 @@ const NewDiary = ({ onClose }) => {
               required: "Description is required",
             })}
           />
-          <div className="cursor-pointer self-end flex text-[#808080]" onClick={handleClick}>
-            <input
-              id="fileInput"
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              style={{ display: "none" }}
-            />
-            <Image src={UploadImage} alt="" className="mr-2" />
-            Upload image
-          </div>
+          <UploadImage
+            handleClick={handleClick}
+            handleImageChange={handleImageChange}
+          />
         </div>
         {errors.about && (
           <p className="text-[#C31031] text-xs mt-[5px]">
             {errors.about.message}
           </p>
+        )}
+        {imageURL && (
+          <div className="flex items-center justify-end gap-2 mt-2">
+            <img
+              src={imageURL}
+              alt="Selected"
+              className="size-20 object-cover rounded-md"
+            />
+            <Image
+              src={GarbageIcon}
+              alt="Garbage Icon"
+              width={24}
+              height={24}
+              className="cursor-pointer size-6"
+              onClick={resetImage}
+            />
+          </div>
         )}
         <div className="flex items-center justify-between mt-4">
           <label className="flex items-center gap-2 text-xs font-normal">
