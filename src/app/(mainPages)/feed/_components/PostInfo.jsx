@@ -11,11 +11,13 @@ const PostInfo = ({ post }) => {
         </div>
         <div>
           <p>{post.userName}</p>
-          <p className="text-sm font-normal text-[#808080]">{post.createdDate}</p>
+          <p className="text-sm font-normal text-[#808080]">
+            {post.createdDate}
+          </p>
         </div>
       </div>
       <div className="relative flex items-center h-6 gap-3 px-2">
-        <ShowMoreButton />
+        <ShowMoreButton postId={post.id} />
       </div>
     </div>
   );

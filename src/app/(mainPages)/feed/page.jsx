@@ -33,7 +33,7 @@ const FeedComponent = () => {
 
   useEffect(() => {
     axiosInstance
-      .get("/post/all")
+      .get("post/all")
       .then((response) => {
         console.log(response.data);
         setPosts(response.data);
