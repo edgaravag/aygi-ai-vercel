@@ -1,7 +1,7 @@
-'use client'
+"use client";
 import { useState } from "react";
-import dynamic from 'next/dynamic';
-const Followers = dynamic(() => import("@/src/components/popups/Followers")) 
+import dynamic from "next/dynamic";
+const Followers = dynamic(() => import("@/src/components/modals/Followers"));
 
 const ShowFollowers = () => {
   const [showFollowers, setShowFollowers] = useState(false);

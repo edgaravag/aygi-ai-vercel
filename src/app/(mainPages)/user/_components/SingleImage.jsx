@@ -1,8 +1,8 @@
-'use client'
+"use client";
 import { useState } from "react";
 import Image from "next/image";
-import dynamic from 'next/dynamic';
-const DiaryPage = dynamic(() => import("@/src/components/popups/DiaryPage")) 
+import dynamic from "next/dynamic";
+const DiaryPage = dynamic(() => import("@/src/components/modals/DiaryPage"));
 
 const SingleImage = ({ image }) => {
   const [showDiaryPage, setShowDiaryPage] = useState(false);

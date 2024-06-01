@@ -1,7 +1,7 @@
-'use client'
+"use client";
 import { useState } from "react";
 import Button from "@/src/components/ui/Button";
-import OpenCard from "@/src/components/popups/OpenCard";
+import OpenCard from "@/src/components/modals/OpenCard";
 
 const ShowOpenCard = () => {
   const [showOpenCard, setShowOpenCard] = useState(false);

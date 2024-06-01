@@ -4,7 +4,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import Button from "@/src/components/ui/Button";
 import EditIcon from "@public/icons/editIcon.webp";
-const EditDiary = dynamic(() => import("@/src/components/popups/EditDiary"));
+const EditDiary = dynamic(() => import("@/src/components/modals/EditDiary"));
 
 const ShowEditDiary = () => {
   const [showEditDiary, setShowEditDiary] = useState(false);

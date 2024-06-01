@@ -7,16 +7,16 @@ import PrivateIcon from "@public/icons/privateIcon.svg";
 import GrayEditIcon from "@public/icons/grayEditIcon.svg";
 import EditIcon from "@public/icons/editIcon.svg";
 import GarbageIcon from "@public/icons/grayGarbageIcon.svg";
-import DeleteDiary from "@/src/components/popups/DeleteDiary";
+import DeleteDiary from "@/src/components/modals/DeleteDiary";
 import useGetDiaryImage from "@/src/hooks/useGetDiaryImage";
-const EditDiary = dynamic(() => import("@/src/components/popups/EditDiary"));
+const EditDiary = dynamic(() => import("@/src/components/modals/EditDiary"));
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 };
 
@@ -27,7 +27,7 @@ const SingleDiary = ({ diary }) => {
   const [showEditDiary, setShowEditDiary] = useState(false);
   const [showDeleteDiary, setShowDeleteDiary] = useState(false);
 
-  const diaryImage = useGetDiaryImage(diary.id)
+  const diaryImage = useGetDiaryImage(diary.id);
 
   return (
     <>
@@ -48,11 +48,17 @@ const SingleDiary = ({ diary }) => {
             </button>
             {showOptions && (
               <div className="absolute z-10 right-0 bg-white border border-[#979797] rounded-md py-5 px-2">
-                <button className="center w-full flex gap-2 px-4 py-2 text-[#808080] mb-2" onClick={() => setShowEditDiary(true)}>
+                <button
+                  className="center w-full flex gap-2 px-4 py-2 text-[#808080] mb-2"
+                  onClick={() => setShowEditDiary(true)}
+                >
                   <Image src={EditIcon} alt="Edit Icon" />
                   <p className="w-[100px]">Edit Diary</p>
                 </button>
-                <button className="center w-full flex gap-2 px-4 py-2 text-[#808080]" onClick={() => setShowDeleteDiary(true)}>
+                <button
+                  className="center w-full flex gap-2 px-4 py-2 text-[#808080]"
+                  onClick={() => setShowDeleteDiary(true)}
+                >
                   <Image src={GarbageIcon} alt="Edit Icon" />
                   <p className="w-[120px]">Delete Diary</p>
                 </button>
@@ -68,7 +74,9 @@ const SingleDiary = ({ diary }) => {
             priority
             width={344}
             height={194}
-            className={`w-[344px] h-[194px] ${diary.isPrivate ? "opacity-50" : ""}`}
+            className={`w-[344px] h-[194px] ${
+              diary.isPrivate ? "opacity-50" : ""
+            }`}
           />
         ) : (
           <div className="w-[344px] h-[194px] bg-gray-200 flex items-center justify-center">
@@ -94,8 +102,15 @@ const SingleDiary = ({ diary }) => {
           )}
         </div>
       </div>
-      {showEditDiary && <EditDiary onClose={() => setShowEditDiary(false)} diary={diary} />}
-      {showDeleteDiary && <DeleteDiary onClose={() => setShowDeleteDiary(false)} diaryId={diary.id} />}
+      {showEditDiary && (
+        <EditDiary onClose={() => setShowEditDiary(false)} diary={diary} />
+      )}
+      {showDeleteDiary && (
+        <DeleteDiary
+          onClose={() => setShowDeleteDiary(false)}
+          diaryId={diary.id}
+        />
+      )}
     </>
   );
 };
