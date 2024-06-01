@@ -14,7 +14,7 @@ const PostInfo = ({ post }) => {
           <p className="text-sm font-normal text-[#808080]">{post.createdDate}</p>
         </div>
       </div>
-      <div className="px-2">
+      <div className="relative flex items-center h-6 gap-3 px-2">
         <ShowMoreButton />
       </div>
     </div>

@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/src/components/ui/Button";
-// import axiosInstance from "@/src/utils/axiosInstance";
 import PrivateIcon from "@public/icons/privateIcon.svg";
 import GrayEditIcon from "@public/icons/grayEditIcon.svg";
 import EditIcon from "@public/icons/editIcon.svg";
