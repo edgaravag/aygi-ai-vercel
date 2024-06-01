@@ -14,10 +14,6 @@ const NewDiary = ({ onClose }) => {
   // Use the custom hook
   const { selectedImage, imageURL, handleImageChange, resetImage } = useUploadImage();
 
-  const handleClick = () => {
-    document.getElementById("fileInput").click();
-  };
-
   const {
     register,
     handleSubmit,
@@ -40,7 +36,10 @@ const NewDiary = ({ onClose }) => {
       .then((response) => {
         console.log(response);
         window.location.reload();
-      });
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   };
 
   return (
@@ -68,10 +67,7 @@ const NewDiary = ({ onClose }) => {
               required: "Description is required",
             })}
           />
-          <UploadImage
-            handleClick={handleClick}
-            handleImageChange={handleImageChange}
-          />
+          <UploadImage handleImageChange={handleImageChange}/>
         </div>
         {errors.about && (
           <p className="text-[#C31031] text-xs mt-[5px]">

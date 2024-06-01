@@ -4,7 +4,7 @@ import Image from "next/image";
 import ArrowIcon from "@public/icons/arrowDown.webp";
 import axiosInstance from "@/src/utils/axiosInstance";
 
-const ChooseDiary = ({ setDiary }) => {
+const ChooseDiary = ({ setDiaryId }) => {
   const [showChooseDiary, setShowChooseDiary] = useState(false);
   const [diaries, setDiaries] = useState([])
 
@@ -39,7 +39,7 @@ const ChooseDiary = ({ setDiary }) => {
                   key={diary.id}
                   onClick={() => {
                     setShowChooseDiary(false)
-                    setDiary(diary.id)
+                    setDiaryId(diary.id)
                   }}
                 >
                   <p className="text-[#808080] text-sm">

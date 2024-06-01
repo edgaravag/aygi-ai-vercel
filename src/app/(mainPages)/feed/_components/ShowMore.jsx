@@ -25,6 +25,7 @@ const ShowMore = () => {
               alt="Actions Image"
               width={17}
               height={22}
+              className="w-[17px] h-[22px]"
             />
             <p>{action.title}</p>
           </div>

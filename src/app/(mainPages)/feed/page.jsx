@@ -1,8 +1,11 @@
+"use client";
+import { useEffect, useState } from "react";
+import axiosInstance from "@/src/utils/axiosInstance";
 import FeedSinglePost from "./_components/FeedSinglePost";
+import GardenJournalEntry from "./_components/GardenJournalEntry";
 import PostImage1 from "@public/plants/feedPostImg1.webp";
 import PostImage2 from "@public/plants/feedPostImg2.webp";
 import UserImage from "@public/users/UserImageWithoutImage.webp";
-import GardenJournalEntry from "./_components/GardenJournalEntry";
 
 const posts = [
   {
@@ -28,6 +31,21 @@ const posts = [
 ];
 
 const FeedComponent = () => {
+  const [posts1, setPosts] = useState([]);
+  console.log(posts1);
+
+  useEffect(() => {
+    axiosInstance
+      .get("/post/all")
+      .then((response) => {
+        console.log(response.data);
+        setPosts(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+  
   return (
     <>
       <div className="flex flex-col gap-4">

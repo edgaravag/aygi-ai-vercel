@@ -1,7 +1,11 @@
 import Image from "next/image";
 import UploadIcon from "@public/icons/userUploadImage.webp";
 
-const UploadImage = ({ handleClick, handleImageChange }) => {
+const UploadImage = ({ handleImageChange }) => {
+  const handleClick = () => {
+    document.getElementById("fileInput").click();
+  };
+
   return (
     <div
       className="cursor-pointer self-end flex text-[#808080]"
