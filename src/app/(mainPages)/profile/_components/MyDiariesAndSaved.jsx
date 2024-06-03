@@ -24,21 +24,22 @@ const images = [
 const MyDiariesAndSaved = () => {
   const [myDiaries, setMyDiaries] = useState(true);
 
-  const [diaryImage, setDiaryImage] = useState(null);
-  const [showOptions, setShowOptions] = useState(false);
-  const [showEditDiary, setShowEditDiary] = useState(false);
-  const [showDeleteDiary, setShowDeleteDiary] = useState(false);
-// console.log(diaryImage);
-  useEffect(() => {
-    axiosInstance
-      .get(`/diary`)
-      .then((response) => {
-       console.log(response);
-      })
-      .catch((error) => {
-        console.error("Error fetching diary image:", error);
-      });
-  },);
+//   const [diaryImage, setDiaryImage] = useState(null);
+//   const [showOptions, setShowOptions] = useState(false);
+//   const [showOptions, setShowOptions] = useState(false);
+//   const [showEditDiary, setShowEditDiary] = useState(false);
+//   const [showDeleteDiary, setShowDeleteDiary] = useState(false);
+// // console.log(diaryImage);
+//   useEffect(() => {
+//     axiosInstance
+//       .get(`/diary`)
+//       .then((response) => {
+//        console.log(response);
+//       })
+//       .catch((error) => {
+//         console.error("Error fetching diary image:", error);
+//       });
+//   },);
 
   return (
     <>
