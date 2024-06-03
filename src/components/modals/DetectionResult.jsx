@@ -6,7 +6,7 @@ import Modal from "../ui/Modal";
 
 const DetectionResult = ({ onClose }) => {
     const geminiText = useSelector((state) => state?.geminiText?.text);
-    const geminiImage = useSelector((state) => state?.geminiText?.imageURL);
+    const geminiImage = useSelector((state) => state?.geminiText?.image);
 
     const lines = geminiText ? geminiText.split("\n") : [];
 
@@ -31,44 +31,58 @@ const DetectionResult = ({ onClose }) => {
             : "";
 
     return (
-        <Modal onClose={onClose} className="w-[720px] p-6">
-            <h1 className="text-3xl font-bold mb-6">Plant Identification Result</h1>
-            <Image
-                src={geminiImage ? geminiImage : UploadedPhotoImg}
-                alt="Uploaded Plant"
-                className="mb-6 rounded-lg"
-            />
+      <Modal onClose={onClose} className="w-[720px] p-6">
+        <h1 className="text-3xl font-bold mb-6">Plant Identification Result</h1>
+        {geminiImage ? (
+          <img
+            src={`data:image/jpeg;base64,${geminiImage}`}
+            width={240}
+            height={180}
+            alt="Uploaded Plant"
+            className="mb-6 rounded-lg"
+          />
+        ) : (
+          <Image
+            src={UploadedPhotoImg}
+            width={240}
+            height={180}
+            alt="Uploaded Plant"
+            className="mb-6 rounded-lg"
+          />
+        )}
 
-            {plantCategory && (
-                <div className="mb-6">
-                    <h2 className="text-2xl font-semibold mb-2">Plant Category:</h2>
-                    <p className="text-lg">{plantCategory}</p>
-                </div>
-            )}
+        {plantCategory && (
+          <div className="mb-6">
+            <h2 className="text-2xl font-semibold mb-2">Plant Category:</h2>
+            <p className="text-lg">{plantCategory}</p>
+          </div>
+        )}
 
-            {plantName && (
-                <div className="mb-6">
-                    <h2 className="text-2xl font-semibold mb-2">Plant Name:</h2>
-                    <p className="text-lg">{plantName}</p>
-                </div>
-            )}
+        {plantName && (
+          <div className="mb-6">
+            <h2 className="text-2xl font-semibold mb-2">Plant Name:</h2>
+            <p className="text-lg">{plantName}</p>
+          </div>
+        )}
 
-            {aboutPlant && (
-                <div className="mb-6">
-                    <h2 className="text-2xl font-semibold mb-2">About the Plant:</h2>
-                    <p className="text-lg whitespace-pre-line">{aboutPlant}</p>
-                </div>
-            )}
+        {aboutPlant && (
+          <div className="mb-6">
+            <h2 className="text-2xl font-semibold mb-2">About the Plant:</h2>
+            <p className="text-lg whitespace-pre-line">{aboutPlant}</p>
+          </div>
+        )}
 
-            {careInstructions && (
-                <div className="mb-6">
-                    <h2 className="text-2xl font-semibold mb-2">
-                        How to Care for the Morning Glory:
-                    </h2>
-                    <div className="text-lg whitespace-pre-line">{careInstructions}</div>
-                </div>
-            )}
-        </Modal>
+        {careInstructions && (
+          <div className="mb-6">
+            <h2 className="text-2xl font-semibold mb-2">
+              How to Care for the Morning Glory:
+            </h2>
+            <div className="text-lg whitespace-pre-line">
+              {careInstructions}
+            </div>
+          </div>
+        )}
+      </Modal>
     );
 };
 

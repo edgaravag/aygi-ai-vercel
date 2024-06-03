@@ -30,12 +30,20 @@ const MakeDetection = ({ onClose, setShowDetectionResult }) => {
         }
       );
 
-      const generatedText = response?.data?.candidates[0]?.content?.parts[0]?.text;
+      // const data = {
+      //   text: response?.data?.geminiResponse?.candidates[0]?.content?.parts[0]?.text,
+      //   image: response?.data?.uploadedImageBase64,
+      // };
+
+      console.log(response)
+
+      const generatedText = response?.data?.geminiResponse?.candidates[0]?.content?.parts[0]?.text;
+      const responseImageURL = response?.data?.uploadedImageBase64
 
       dispatch(
         setGeminiText({
           text: generatedText,
-          image: imageURL,
+          imageURL: responseImageURL,
         })
       );
 

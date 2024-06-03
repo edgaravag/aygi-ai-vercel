@@ -10,7 +10,7 @@ import axiosInstance from "@/src/utils/axiosInstance";
 
 const MyGardenComponent = () => {
   const [diaries, setDiaries] = useState([])
-  console.log(diaries);
+  // console.log(diaries);
 
   useEffect(() => {
     axiosInstance
