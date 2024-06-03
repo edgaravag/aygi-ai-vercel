@@ -7,58 +7,6 @@ import DetectionImage from "@public/plants/detectionImage.webp";
 import axiosInstance from "@/src/utils/axiosInstance";
 import axios from "axios";
 
-const detections = [
-  {
-    img: DetectionImage.src,
-    name: "Plant Name",
-    description: "Lorem Ipsum Lorem Ipsum lorem Lorem Ipsum Lorem Ipsum lorem Lorem",
-    date: "08.10.2014",
-  },
-  {
-    img: DetectionImage.src,
-    name: "Plant Name",
-    description: "Lorem Ipsum Lorem Ipsum lorem Lorem Ipsum Lorem Ipsum lorem Lorem",
-    date: "08.10.2014",
-  },
-  {
-    img: DetectionImage.src,
-    name: "Plant Name",
-    description: "Lorem Ipsum Lorem Ipsum lorem Lorem Ipsum Lorem Ipsum lorem Lorem",
-    date: "08.10.2014",
-  },
-  {
-    img: DetectionImage.src,
-    name: "Plant Name",
-    description: "Lorem Ipsum Lorem Ipsum lorem Lorem Ipsum Lorem Ipsum lorem Lorem",
-    date: "08.10.2014",
-  },
-  {
-    img: DetectionImage.src,
-    name: "Plant Name",
-    description: "Lorem Ipsum Lorem Ipsum lorem Lorem Ipsum Lorem Ipsum lorem Lorem",
-    date: "08.10.2014",
-  },
-  {
-    img: DetectionImage.src,
-    name: "Plant Name",
-    description: "Lorem Ipsum Lorem Ipsum lorem Lorem Ipsum Lorem Ipsum lorem Lorem",
-    date: "08.10.2014",
-  },
-  {
-    img: DetectionImage.src,
-    name: "Plant Name",
-    description: "Lorem Ipsum Lorem Ipsum lorem Lorem Ipsum Lorem Ipsum lorem Lorem",
-    date: "08.10.2014",
-  },
-  {
-    img: DetectionImage.src,
-    name: "Plant Name",
-    description: "Lorem Ipsum Lorem Ipsum lorem Lorem Ipsum Lorem Ipsum lorem Lorem",
-    date: "08.10.2014",
-  },
-];
-
-
 const Detections = () => {
   const [detections, setDetections] = useState([])
 

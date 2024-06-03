@@ -6,6 +6,7 @@ import Modal from "../ui/Modal";
 import Button from "../ui/Button";
 import axiosInstance from "@/src/utils/axiosInstance";
 import axios from "axios";
+import getSectionContent from "@/src/utils/getSectionContent";
 
 const DetectionResult = ({ onClose }) => {
   const geminiText = useSelector((state) => state?.geminiText?.text);
@@ -13,13 +14,8 @@ const DetectionResult = ({ onClose }) => {
 
   const lines = geminiText ? geminiText.split("\n") : [];
 
-  const getSectionContent = (lines, title) => {
-    const line = lines.find((l) => l.startsWith(title));
-    return line ? line.replace(`${title}:`, "").trim() : "";
-  };
-
-  const plantCategory = getSectionContent(lines, " Plant Category");
-  const plantName = getSectionContent(lines, "Plant Name");
+  const plantCategory = getSectionContent(geminiText, " Plant Category");
+  const plantName = getSectionContent(geminiText, "Plant Name");
   const aboutPlantIndex = lines.findIndex((l) =>
     l.startsWith("About the Plant:")
   );
