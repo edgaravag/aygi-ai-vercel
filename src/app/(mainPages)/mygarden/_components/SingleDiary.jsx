@@ -9,16 +9,8 @@ import EditIcon from "@public/icons/editIcon.svg";
 import GarbageIcon from "@public/icons/grayGarbageIcon.svg";
 import DeleteDiary from "@/src/components/modals/DeleteDiary";
 import useGetDiaryImage from "@/src/hooks/useGetDiaryImage";
+import formatDate from "@/src/utils/formatDate";
 const EditDiary = dynamic(() => import("@/src/components/modals/EditDiary"));
-
-const formatDate = (dateString) => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-};
 
 const SingleDiary = ({ diary }) => {
   // const [diaryImage, setDiaryImage] = useState(null);
