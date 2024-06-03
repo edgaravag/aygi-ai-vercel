@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 const SignIn = dynamic(() => import("./authorization/SignIn"));
 const SignUp = dynamic(() => import("./authorization/SignUp"));
 const EmailValidation = dynamic(() => import("./authorization/EmailValidation")) 
-const ConfirmEmail = dynamic(() => import("./authorization/ConfirmEmail")) 
+const ConfirmEmail = dynamic(() => import("./authorization/ConfirmCode")) 
 
 const RegisterButtons = () => {
   const [showSignIn, setShowSignIn] = useState(false);
@@ -44,6 +44,7 @@ const RegisterButtons = () => {
         <ConfirmEmail
           onClose={() => setShowConfirmEmail(false)}
           showEmailValidation={showEmailValidation}
+          setShowSignIn={setShowSignIn}
         />
       )}
     </>

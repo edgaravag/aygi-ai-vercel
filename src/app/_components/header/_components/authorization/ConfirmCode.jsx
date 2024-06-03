@@ -1,9 +1,9 @@
 import Modal from "@/src/components/ui/Modal";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import Button from "@/src/components/ui/Button";
 
-const ConfirmEmail = ({ onClose, showEmailValidation }) => {
+const ConfirmCode = ({ onClose, showEmailValidation, setShowSignIn }) => {
   const [code, setCode] = useState(null);
   const [message, setMessage] = useState("");
   const [isSuccessfullyConfirmed, setIsSuccessfullyConfirmed] = useState(false);
@@ -13,18 +13,20 @@ const ConfirmEmail = ({ onClose, showEmailValidation }) => {
       .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/activate?code=${code}`)
       .then((data) => {
         // console.log(data)
-        setMessage(data.data.message)
-        setIsSuccessfullyConfirmed(true)
+        setMessage(data.data.message);
+        setIsSuccessfullyConfirmed(true);
+        onClose();
+        setShowSignIn(true)
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
-        setMessage(error.response.data.message)
+        setMessage(error.response.data.message);
       });
   };
 
   return (
     <>
-      {!showEmailValidation && (
+      {!showEmailValidation && !isSuccessfullyConfirmed && (
         <Modal
           onClose={onClose}
           className="w-[448px] pt-[20px] pb-[40px] px-14"
@@ -58,4 +60,4 @@ const ConfirmEmail = ({ onClose, showEmailValidation }) => {
   );
 };
 
-export default ConfirmEmail;
+export default ConfirmCode;
