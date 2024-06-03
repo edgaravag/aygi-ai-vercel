@@ -8,9 +8,9 @@ import { useEffect, useState } from "react";
 
 const EditProfile = ({ setShowEditProfile }) => {
   const [selectedImage, setSelectedImage] = useState();
-  const [userPhoto, setUserPhoto] = useState(UserIcon.src);
+  const [userPhoto, setUserPhoto] = useState(null);
   const userImage = useGetUserPhoto();
-
+  
   useEffect(() => {
     setUserPhoto(userImage);
   }, [userImage]);
@@ -26,8 +26,7 @@ const EditProfile = ({ setShowEditProfile }) => {
       )
       .then((res) => {
         console.log(res.data);
-        console.log(imageId);
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((error) => console.error(error));
   };
@@ -50,10 +49,8 @@ const EditProfile = ({ setShowEditProfile }) => {
         <p className="font-medium">Settings / Edit Profile</p>
         <div className="center gap-6 mt-[20px]">
           <Image
-            src={
-              userPhoto
-            }
-            alt=""
+            src={userPhoto ? userPhoto : UserIcon}
+            alt="User Photo"
             width={106}
             height={106}
           />
