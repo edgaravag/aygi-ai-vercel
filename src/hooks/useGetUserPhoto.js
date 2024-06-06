@@ -21,10 +21,7 @@ export default function useGetUserPhoto(width, height) {
             setUserImage(reader.result);
           };
         })
-        .catch((error) => {
-          console.error(error);
-        })
-        .finally(() => setIsLoading(false))
+        .finally(() => setIsLoading(false));
     }
   }, [userId]);
 
@@ -32,5 +29,13 @@ export default function useGetUserPhoto(width, height) {
     return null;
   }
 
-  return <Image src={userImage ? userImage : UserIcon} width={width} height={height} alt="User Photo" className="rounded-full" />;
+  return (
+    <Image
+      src={userImage ? userImage : UserIcon}
+      width={width}
+      height={height}
+      alt="User Photo"
+      className="rounded-full"
+    />
+  );
 }

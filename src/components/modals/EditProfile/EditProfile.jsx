@@ -4,10 +4,23 @@ import Button from "../../ui/Button";
 import useGetUserPhoto from "@/src/hooks/useGetUserPhoto";
 import axiosInstance from "@/src/utils/axiosInstance";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const EditProfile = ({ setShowEditProfile }) => {
   const [selectedImage, setSelectedImage] = useState();
+  const [imagePreview, setImagePreview] = useState();
   const userImage = useGetUserPhoto(106, 106);
+  const userId = useSelector((state) => state?.userData?.userData?.id);
+
+  const handleDeletePhoto = () => {
+    axiosInstance
+      .delete(`/images/${userId}`)
+      .then((res) => {
+        console.log(res.data);
+        window.location.reload();
+      })
+      .catch((error) => console.error(error));
+  };
 
   const handleUploadPhoto = () => {
     axiosInstance
@@ -16,11 +29,11 @@ const EditProfile = ({ setShowEditProfile }) => {
         { photo: selectedImage },
         {
           headers: { "Content-Type": "multipart/form-data" },
-        }
+        },
       )
       .then((res) => {
         console.log(res.data);
-        // window.location.reload();
+        window.location.reload();
       })
       .catch((error) => console.error(error));
   };
@@ -28,6 +41,7 @@ const EditProfile = ({ setShowEditProfile }) => {
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     setSelectedImage(file);
+    setImagePreview(URL.createObjectURL(file));
   };
 
   const handleClick = () => {
@@ -42,7 +56,17 @@ const EditProfile = ({ setShowEditProfile }) => {
       <div>
         <p className="font-medium">Settings / Edit Profile</p>
         <div className="center gap-6 mt-[20px]">
-          {userImage}
+          {imagePreview ? (
+            <Image
+              src={imagePreview}
+              width={106}
+              height={106}
+              alt="User Photo"
+              className="rounded-full"
+            />
+          ) : (
+            <>{userImage}</>
+          )}
           <div className="flex gap-3">
             <Button
               className="bg-[#dddddd] py-3.5 px-2.5 text-xs text-white"
@@ -57,7 +81,12 @@ const EditProfile = ({ setShowEditProfile }) => {
                 style={{ display: "none" }}
               />
             </Button>
-            <button className="text-sm text-[#808080]">Remove</button>
+            <button
+              className="text-sm text-[#808080]"
+              onClick={handleDeletePhoto}
+            >
+              Remove
+            </button>
           </div>
         </div>
       </div>
