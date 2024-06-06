@@ -1,11 +1,10 @@
-"use client";
 import Image from "next/image";
-import UploadedPhotoImg from "@public/plants/detectionImg.webp";
 import { useSelector } from "react-redux";
 import Modal from "../../ui/Modal";
 import Button from "../../ui/Button";
 import axiosInstance from "@/src/utils/axiosInstance";
 import getSectionContent from "@/src/utils/getSectionContent";
+import { useRouter } from "next/navigation";
 
 const DetectionResult = ({ onClose }) => {
   const geminiText = useSelector((state) => state?.geminiText?.text);
@@ -15,19 +14,45 @@ const DetectionResult = ({ onClose }) => {
 
   const plantCategory = getSectionContent(geminiText, " Plant Category");
   const plantName = getSectionContent(geminiText, "Plant Name");
+  const aboutDiseaseIndex = lines.findIndex((l) =>
+    l.startsWith("About the Plant Disease:"),
+  );
+  const aboutTreatmentIndex = lines.findIndex((l) =>
+    l.startsWith("About Treatment:"),
+  );
+  const inConclusionIndex = lines.findIndex((l) =>
+    l.startsWith("In conclusion"),
+  );
+  const conclusionIndex = lines.findIndex((l) => l.startsWith("Сonclusion:"));
+
   const aboutPlantIndex = lines.findIndex((l) =>
     l.startsWith("About the Plant:"),
   );
+
   const aboutPlant =
     aboutPlantIndex !== -1 ? lines.slice(aboutPlantIndex).join("\n") : "";
   const careInstructionsIndex = lines.findIndex((l) =>
     l.startsWith("How to Care for the Morning Glory:"),
   );
-  const careInstructions =
-    careInstructionsIndex !== -1
-      ? lines.slice(careInstructionsIndex).join("\n")
+
+  const aboutDisease =
+    aboutDiseaseIndex !== -1
+      ? lines.slice(aboutDiseaseIndex + 1, aboutTreatmentIndex).join("\n")
+      : "";
+  const aboutTreatment =
+    aboutTreatmentIndex !== -1
+      ? lines
+          .slice(aboutTreatmentIndex + 1, inConclusionIndex || conclusionIndex)
+          .join("\n")
       : "";
 
+  const inConclusion =
+    inConclusionIndex !== -1 ? lines.slice(inConclusionIndex).join("\n") : "";
+
+  const сonclusion =
+    conclusionIndex !== -1 ? lines.slice(conclusionIndex).join("\n") : "";
+
+  const router = useRouter();
   const handleSaveDetection = () => {
     const image = new Blob([geminiImage], { type: "image/jpeg" });
 
@@ -44,34 +69,11 @@ const DetectionResult = ({ onClose }) => {
       .then((res) => {
         console.log(res.data);
         onClose();
+        router.push("/detections");
       })
       .catch((error) => {
         console.error(error);
       });
-    // const token = localStorage.getItem("accessToken");
-    //
-    // const image = new Blob([geminiImage], { type: "image/jpeg" });
-    //
-    // axios
-    //   .post(
-    //     "http://localhost:8080/detections/save",
-    //     {
-    //       text: geminiText,
-    //       image,
-    //     },
-    //     {
-    //       headers: {
-    //         Authorization: `Bearer ${token}`,
-    //         "Content-Type": "multipart/form-data",
-    //       },
-    //     }
-    //   )
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
   };
 
   return (
@@ -112,16 +114,41 @@ const DetectionResult = ({ onClose }) => {
       {aboutPlant && (
         <div className="mb-6">
           <h2 className="text-2xl font-semibold mb-2">About the Plant:</h2>
-          <p className="text-lg whitespace-pre-line">{aboutPlant}</p>
+          <p className="text-lg whitespace-pre-line">
+            {aboutPlant.replace("About the Plant:", "").replace("\n\n", "")}
+          </p>
         </div>
       )}
 
-      {careInstructions && (
+      {aboutDisease && (
         <div className="mb-6">
           <h2 className="text-2xl font-semibold mb-2">
-            How to Care for the Morning Glory:
+            About the Plant Disease:
           </h2>
-          <div className="text-lg whitespace-pre-line">{careInstructions}</div>
+          <p className="text-lg whitespace-pre-line">{aboutDisease}</p>
+        </div>
+      )}
+
+      {aboutTreatment && (
+        <div className="mb-6">
+          <h2 className="text-2xl font-semibold mb-2">About Treatment:</h2>
+          <p className="text-lg whitespace-pre-line">{aboutTreatment}</p>
+        </div>
+      )}
+
+      {inConclusion && (
+        <div className="mb-6">
+          <h2 className="text-2xl font-semibold mb-2">In Conclusion:</h2>
+          <p className="text-lg whitespace-pre-line">
+            {inConclusion.replace("In conclusion, ", "")}
+          </p>
+        </div>
+      )}
+
+      {сonclusion && (
+        <div className="mb-6">
+          <h2 className="text-2xl font-semibold mb-2">Conclusion:</h2>
+          <p className="text-lg whitespace-pre-line">{сonclusion}</p>
         </div>
       )}
 

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState } from "react";
 import Image from "next/image";
 import BusinessIcon from "@public/icons/blueBusinessIcon.webp";
@@ -9,26 +9,33 @@ import axiosInstance from "@/src/utils/axiosInstance";
 import useUploadImage from "@/src/hooks/useUploadImage";
 
 const WriteTheNews = () => {
-  const [diaryId, setDiaryId] = useState(null)
-  const [selectedActivities, setSelectedActivities] = useState([])
-  const [about, setAbout] = useState('')
+  const [diaryId, setDiaryId] = useState(null);
+  const [selectedActivities, setSelectedActivities] = useState([]);
+  const [about, setAbout] = useState("");
   const { selectedImage, handleImageChange } = useUploadImage();
 
-  const handlePostCreate = () => {
-    const data = { diaryId, activeWorksList: selectedActivities, image: selectedImage, about }
-    axiosInstance
-      .post("/post/create", data, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        }
-      })
-      .then((response) => {
-        console.log(response);
-        window.location.reload();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  const handlePostCreate = (e) => {
+    if (e.key === "Enter") {
+      const data = {
+        diaryId,
+        activeWorksList: selectedActivities,
+        image: selectedImage,
+        about,
+      };
+      axiosInstance
+        .post("/post/create", data, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
   };
 
   return (

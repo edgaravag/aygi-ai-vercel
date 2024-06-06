@@ -20,7 +20,10 @@ const MakeDetection = ({ onClose, setShowDetectionResult }) => {
           onClose={onClose}
         />
       ) : (
-        <DiseaseDetection onClose={onClose} />
+        <DiseaseDetection
+          onClose={onClose}
+          setShowDetectionResult={setShowDetectionResult}
+        />
       )}
     </Modal>
   );
