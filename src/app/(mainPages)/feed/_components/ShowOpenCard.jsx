@@ -1,7 +1,9 @@
 "use client";
 import { useState } from "react";
 import dynamic from "next/dynamic";
-const OpenCard = dynamic(() => import("@/src/components/modals/OpenCard"));
+const OpenCard = dynamic(() =>
+  import("@/src/components/modals/OpenCard/OpenCard")
+);
 
 const ShowOpenCard = () => {
   const [showOpenCard, setShowOpenCard] = useState(false);

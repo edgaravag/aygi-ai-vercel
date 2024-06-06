@@ -4,7 +4,7 @@ import Image from "next/image";
 import PlusIcon from "@public/icons/plusIcon.svg";
 import dynamic from "next/dynamic";
 const AddNewBusiness = dynamic(() =>
-  import("@/src/components/modals/AddNewBusiness")
+  import("@/src/components/modals/AddNewBusiness/AddNewBusiness")
 );
 
 const AddNewBusinessButton = () => {

@@ -2,8 +2,8 @@
 import Image from "next/image";
 import UploadedPhotoImg from "@public/plants/detectionImg.webp";
 import { useSelector } from "react-redux";
-import Modal from "../ui/Modal";
-import Button from "../ui/Button";
+import Modal from "../../ui/Modal";
+import Button from "../../ui/Button";
 import axiosInstance from "@/src/utils/axiosInstance";
 import axios from "axios";
 import getSectionContent from "@/src/utils/getSectionContent";
@@ -39,18 +39,22 @@ const DetectionResult = ({ onClose }) => {
     //   })
     const token = localStorage.getItem("accessToken");
 
-  const image = new Blob([geminiImage], { type: "image/jpeg" });
+    const image = new Blob([geminiImage], { type: "image/jpeg" });
 
     axios
-      .post("http://localhost:8080/detections/save", {
-        text: geminiText,
-        image,
-      }, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'multipart/form-data',
+      .post(
+        "http://localhost:8080/detections/save",
+        {
+          text: geminiText,
+          image,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
         }
-      })
+      )
       .then((res) => {
         console.log(res.data);
         onClose();

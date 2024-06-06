@@ -3,7 +3,7 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import Button from "@/src/components/ui/Button";
 const DeleteAllDetections = dynamic(() =>
-  import("@/src/components/modals/DeleteAllDetections")
+  import("@/src/components/modals/DeleteAllDetections/DeleteAllDetections")
 );
 
 const DeleteAllButton = () => {

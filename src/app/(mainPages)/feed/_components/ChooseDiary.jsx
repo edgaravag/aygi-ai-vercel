@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import ArrowIcon from "@public/icons/arrowDown.webp";
 import axiosInstance from "@/src/utils/axiosInstance";
-import NewDiary from "@/src/components/modals/NewDiary";
+import dynamic from "next/dynamic";
+const NewDiary = dynamic(() =>
+  import("@/src/components/modals/NewDiary/NewDiary")
+);
 
 const ChooseDiary = ({ setDiaryId }) => {
   const [showChooseDiary, setShowChooseDiary] = useState(false);

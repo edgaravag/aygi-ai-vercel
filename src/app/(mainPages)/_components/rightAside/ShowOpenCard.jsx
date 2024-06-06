@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
 import Button from "@/src/components/ui/Button";
-import OpenCard from "@/src/components/modals/OpenCard";
+import dynamic from "next/dynamic";
+const OpenCard = dynamic(() => import("@/src/components/modals/OpenCard/OpenCard"))
 
 const ShowOpenCard = () => {
   const [showOpenCard, setShowOpenCard] = useState(false);

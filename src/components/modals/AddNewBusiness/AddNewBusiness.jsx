@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Modal from "../ui/Modal";
-import Button from "../ui/Button";
+import Modal from "../../ui/Modal";
+import Button from "../../ui/Button";
 import BusinessIcon from "@public/icons/blueBusinessIcon.webp";
 
 const AddNewBusiness = ({ onClose }) => {

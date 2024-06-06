@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Modal from "../ui/Modal";
-import Button from "../ui/Button";
+import Modal from "../../ui/Modal";
+import Button from "../../ui/Button";
 import useGetUserPhoto from "@/src/hooks/useGetUserPhoto";
 import axiosInstance from "@/src/utils/axiosInstance";
 import { useState } from "react";

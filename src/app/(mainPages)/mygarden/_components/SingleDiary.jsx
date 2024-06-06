@@ -7,10 +7,12 @@ import PrivateIcon from "@public/icons/privateIcon.svg";
 import GrayEditIcon from "@public/icons/grayEditIcon.svg";
 import EditIcon from "@public/icons/editIcon.svg";
 import GarbageIcon from "@public/icons/grayGarbageIcon.svg";
-import DeleteDiary from "@/src/components/modals/DeleteDiary";
 import useGetDiaryImage from "@/src/hooks/useGetDiaryImage";
 import formatDate from "@/src/utils/formatDate";
-const EditDiary = dynamic(() => import("@/src/components/modals/EditDiary"));
+const DeleteDiary = dynamic(() => import("@/src/components/modals/DeleteDiary/DeleteDiary"))
+const EditDiary = dynamic(() =>
+  import("@/src/components/modals/EditDiary/EditDiary")
+);
 
 const SingleDiary = ({ diary }) => {
   // const [diaryImage, setDiaryImage] = useState(null);

@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Modal from "../ui/Modal";
-import UploadImage from "../ui/UploadImage";
-import Button from "../ui/Button";
+import Modal from "../../ui/Modal";
+import UploadImage from "../../ui/UploadImage";
+import Button from "../../ui/Button";
 import GarbageIcon from "@public/icons/garbageImage.webp";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
@@ -12,7 +12,8 @@ const NewDiary = ({ onClose }) => {
   const [isPublic, setIsPublic] = useState(true);
 
   // Use the custom hook
-  const { selectedImage, imageURL, handleImageChange, resetImage } = useUploadImage();
+  const { selectedImage, imageURL, handleImageChange, resetImage } =
+    useUploadImage();
 
   const {
     register,
@@ -28,18 +29,22 @@ const NewDiary = ({ onClose }) => {
     console.log({ ...data, isPublic, selectedImage });
 
     axiosInstance
-      .post('diary/add', { ...data, isPublic, photo: selectedImage }, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
+      .post(
+        "diary/add",
+        { ...data, isPublic, photo: selectedImage },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
         }
-      })
+      )
       .then((response) => {
         console.log(response);
         window.location.reload();
       })
       .catch((error) => {
-        console.error(error)
-      })
+        console.error(error);
+      });
   };
 
   return (
@@ -67,7 +72,7 @@ const NewDiary = ({ onClose }) => {
               required: "Description is required",
             })}
           />
-          <UploadImage handleImageChange={handleImageChange}/>
+          <UploadImage handleImageChange={handleImageChange} />
         </div>
         {errors.about && (
           <p className="text-[#C31031] text-xs mt-[5px]">

@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Modal from "../ui/Modal";
+import Modal from "../../ui/Modal";
 import MakeDetectionIcon1 from "@public/icons/makeDetectionIcon1.webp";
 import UploadImage from "@public/icons/uploadImageIcon.svg";
 import DetectionImage from "@public/plants/detectionImg.webp";
 import GarbageIcon from "@public/icons/garbageIcon.webp";
-import Button from "../ui/Button";
+import Button from "../../ui/Button";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setGeminiText } from "@/src/store/features/geminiTextSlice/geminiTextSlice";
@@ -12,7 +12,8 @@ import axiosInstance from "@/src/utils/axiosInstance";
 import useUploadImage from "@/src/hooks/useUploadImage";
 
 const MakeDetection = ({ onClose, setShowDetectionResult }) => {
-  const { selectedImage, imageURL, handleImageChange, resetImage } = useUploadImage();
+  const { selectedImage, imageURL, handleImageChange, resetImage } =
+    useUploadImage();
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
@@ -22,7 +23,9 @@ const MakeDetection = ({ onClose, setShowDetectionResult }) => {
       const formData = new FormData();
       formData.append("file", selectedImage);
 
-      const response = await axiosInstance.post('/auth/gemini/image', formData,
+      const response = await axiosInstance.post(
+        "/auth/gemini/image",
+        formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -35,10 +38,11 @@ const MakeDetection = ({ onClose, setShowDetectionResult }) => {
       //   image: response?.data?.uploadedImageBase64,
       // };
 
-      console.log(response)
+      console.log(response);
 
-      const generatedText = response?.data?.geminiResponse?.candidates[0]?.content?.parts[0]?.text;
-      const responseImageURL = response?.data?.uploadedImageBase64
+      const generatedText =
+        response?.data?.geminiResponse?.candidates[0]?.content?.parts[0]?.text;
+      const responseImageURL = response?.data?.uploadedImageBase64;
 
       dispatch(
         setGeminiText({
@@ -161,8 +165,8 @@ const MakeDetection = ({ onClose, setShowDetectionResult }) => {
             </div>
             <p className="mt-4 w-[320px] leading-7">
               Select ‘Disease Detection’, upload a clear photo of your plant's
-              issue, and quickly receive a diagnosis along with treatment options
-              and preventive measures.
+              issue, and quickly receive a diagnosis along with treatment
+              options and preventive measures.
             </p>
           </div>
           <div className="mt-[26px] pt-4 pb-[26px] px-4 bg-[#68BB59]">

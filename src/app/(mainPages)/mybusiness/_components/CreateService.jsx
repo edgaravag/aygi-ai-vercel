@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import CreateServiceIcon from "@public/icons/createServiceIcon.webp";
 const CreateService = dynamic(() =>
-  import("@/src/components/modals/CreateService")
+  import("@/src/components/modals/CreateService/CreateService")
 );
 
 const CreateServiceAndProduct = () => {

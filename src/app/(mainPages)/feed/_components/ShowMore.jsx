@@ -2,7 +2,8 @@ import { useState } from "react";
 import Image from "next/image";
 import EditIcon from "@public/icons/editIcon.svg";
 import GarbageIcon from "@public/icons/grayGarbageIcon.svg";
-import DeletePost from "@/src/components/modals/DeletePost";
+import dynamic from "next/dynamic";
+const DeletePost = dynamic(() => import("@/src/components/modals/DeletePost/DeletePost"))
 
 const ShowMore = ({ postId }) => {
   const [showDeletePost, setShowDeletePost] = useState(false);

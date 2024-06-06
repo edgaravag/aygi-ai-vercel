@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Modal from "../ui/Modal";
-import Button from "../ui/Button";
+import Modal from "../../ui/Modal";
+import Button from "../../ui/Button";
 import UserIcon from "@public/users/headerUserIcon.webp";
 import ChangeImage from "@public/icons/userUploadImage.webp";
 import GarbageImage from "@public/icons/garbageImage.webp";
@@ -23,30 +23,36 @@ const EditDiary = ({ onClose, diary }) => {
 
   useEffect(() => {
     if (diary.name) {
-      setValue('name', diary.name);
+      setValue("name", diary.name);
     }
     if (diary.about) {
-      setValue('about', diary.about);
+      setValue("about", diary.about);
     }
   }, [diary, setValue]);
 
   const handleEditDiaryImage = () => {
-    axiosInstance.patch(`/diary/image/${diary.id}`, { photo: selectedImage }, {
-      contentType: "multipart/form-data",
-    })
+    axiosInstance
+      .patch(
+        `/diary/image/${diary.id}`,
+        { photo: selectedImage },
+        {
+          contentType: "multipart/form-data",
+        }
+      )
       .then(() => window.location.reload())
-      .catch(error => console.error(error));
+      .catch((error) => console.error(error));
   };
 
   const handleEditDiary = (data) => {
     console.log(data);
-    axiosInstance.patch(`/diary/${diary.id}/update`, data, {
-      contentType: "multipart/form-data",
-    })
+    axiosInstance
+      .patch(`/diary/${diary.id}/update`, data, {
+        contentType: "multipart/form-data",
+      })
       .then(() => window.location.reload())
-      .catch(error => console.error(error))
+      .catch((error) => console.error(error));
     if (selectedImage) {
-      handleEditDiaryImage()
+      handleEditDiaryImage();
     }
   };
 
@@ -99,10 +105,20 @@ const EditDiary = ({ onClose, diary }) => {
               </div>
             </div>
           </div>
-          {errors.name && <p className="text-red-500 text-sm ml-[56px]">{errors.name.message}</p>}
+          {errors.name && (
+            <p className="text-red-500 text-sm ml-[56px]">
+              {errors.name.message}
+            </p>
+          )}
           <p className="mt-4">
-            <textarea {...register("about")} className="w-full outline-none py-1 placeholder:text-sm" placeholder="Edit the description of your diary"></textarea>
-            <button type="button" className="text-[#808080]">Edit description</button>
+            <textarea
+              {...register("about")}
+              className="w-full outline-none py-1 placeholder:text-sm"
+              placeholder="Edit the description of your diary"
+            ></textarea>
+            <button type="button" className="text-[#808080]">
+              Edit description
+            </button>
           </p>
           <div className="flex h-[108px] mt-[10px] px-[17px] py-[9px]  items-end justify-between">
             <Image
@@ -119,8 +135,15 @@ const EditDiary = ({ onClose, diary }) => {
                 onChange={handleImageChange}
                 style={{ display: "none" }}
               />
-              <div className="cursor-pointer center gap-2" onClick={handleClick}>
-                <Image src={ChangeImage} alt="Change Image" className="cursor-pointer" />
+              <div
+                className="cursor-pointer center gap-2"
+                onClick={handleClick}
+              >
+                <Image
+                  src={ChangeImage}
+                  alt="Change Image"
+                  className="cursor-pointer"
+                />
                 Change image
               </div>
             </div>
@@ -134,7 +157,10 @@ const EditDiary = ({ onClose, diary }) => {
               Make Private
             </label>
             <div className="flex gap-6">
-              <button className="font-normal text-sm text-[#808080]" onClick={onClose}>
+              <button
+                className="font-normal text-sm text-[#808080]"
+                onClick={onClose}
+              >
                 Cancel
               </button>
               <Button

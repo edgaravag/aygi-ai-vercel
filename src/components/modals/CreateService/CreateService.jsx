@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
-import Modal from "../ui/Modal";
-import Button from "../ui/Button";
+import Modal from "../../ui/Modal";
+import Button from "../../ui/Button";
 import BusinessIcon from "@public/icons/blueBusinessIcon.webp";
 import ArrowIcon from "@public/icons/arrowDown.webp";
 
@@ -12,7 +12,13 @@ const CreateService = ({ onClose }) => {
     <Modal onClose={onClose} className="w-[448px] px-10 py-5">
       <h2 className="font-medium">Create my service/products</h2>
       <div className="flex items-center gap-6 mt-5">
-        <Image src={BusinessIcon} alt="Service icon" width={106} height={106} priority />
+        <Image
+          src={BusinessIcon}
+          alt="Service icon"
+          width={106}
+          height={106}
+          priority
+        />
         <Button className="bg-[#C2C2C2] px-2.5 py-3.5 text-xs text-white font-semibold">
           Upload Photo
         </Button>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Modal from "../ui/Modal";
+import Modal from "../../ui/Modal";
 import UserImage from "@public/users/UserImageWithoutImage.webp";
 import OpenCardLemon from "@public/plants/OpenCard.webp";
 import MoreIcon from "@public/icons/moreIcon.webp";

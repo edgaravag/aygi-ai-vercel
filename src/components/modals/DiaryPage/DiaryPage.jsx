@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import Image from "next/image";
 import { useState } from "react";
 import OpenCard from "./OpenCard";
 import EditDiary from "./EditDiary";
 import AddNewPost from "./AddNewPost";
-import Modal from "../ui/Modal";
-import Button from "../ui/Button";
+import Modal from "../../ui/Modal";
+import Button from "../../ui/Button";
 import MoreIcon from "@public/icons/moreIcon.webp";
 import DiaryImage from "@public/plants/diaryPageImage.webp";
 import UserImage from "@public/users/UserImageWithoutImage.webp";
@@ -46,8 +46,9 @@ const DiaryPage = ({ onClose }) => {
       {!showEditDiary && !showOpenCard && (
         <Modal
           onClose={onClose}
-          className={`relative w-[784px] h-[900px] px-12 py-8 bg-white rounded-md ${(showOpenCard && "hidden", showEditDiary && "hidden")
-            }`}
+          className={`relative w-[784px] h-[900px] px-12 py-8 bg-white rounded-md ${
+            (showOpenCard && "hidden", showEditDiary && "hidden")
+          }`}
         >
           <div className="flex items-center justify-between gap-5">
             <h2 className="font-semibold tracking-widest">
@@ -129,7 +130,9 @@ const DiaryPage = ({ onClose }) => {
       )}
       {showOpenCard && <OpenCard onClose={onClose} />}
       {showEditDiary && <EditDiary onClose={onClose} />}
-      {showAddNewPost && <AddNewPost onClose={() => setShowAddNewPost(false)} />}
+      {showAddNewPost && (
+        <AddNewPost onClose={() => setShowAddNewPost(false)} />
+      )}
     </>
   );
 };

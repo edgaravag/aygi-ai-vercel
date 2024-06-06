@@ -3,10 +3,10 @@ import Button from "@/src/components/ui/Button";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 const MakeDetection = dynamic(() =>
-  import("@/src/components/modals/MakeDetection")
+  import("@/src/components/modals/MakeDetection/MakeDetection")
 );
 const DetectionResult = dynamic(() =>
-  import("@/src/components/modals/DetectionResult")
+  import("@/src/components/modals/DetectionResult/DetectionResult")
 );
 
 const MakeDetections = () => {
