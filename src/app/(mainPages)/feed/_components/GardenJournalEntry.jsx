@@ -31,12 +31,10 @@ const WriteTheNews = () => {
       });
   };
 
-  // onKeyDown={handleKeyPress}
-
   return (
     <div
-      className="w-full border border-[#68BB59] rounded-md px-4 py-6 mt-6"
-      onKeyDown={handlePostCreate}
+      className="bg-white w-full border border-[#68BB59] rounded-md px-4 py-6 mt-6"
+      onKeyPress={handlePostCreate}
     >
       <div className="flex gap-2">
         <Image

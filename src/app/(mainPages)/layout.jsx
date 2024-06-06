@@ -14,7 +14,7 @@ const Footer = dynamic(() => import("../_components/footer/Footer"));
 export default function RootLayout({ children }) {
   const [accessToken, setAccessToken] = useState(null);
   const router = usePathname();
-  const path = useRouter();
+  // const path = useRouter();
 
   useLayoutEffect(() => {
     const token = localStorage.getItem("accessToken");
@@ -51,14 +51,16 @@ export default function RootLayout({ children }) {
 
   if (accessToken) {
     return (
-      <div className="bg-[#F7F7F7]">
+      <div className="bg-[#F7F7F7] h-auto"> 
         <Header />
-        <div className="w-full flex pt-[104px]">
+        <div className="relative w-full flex justify-between pt-[104px]">
           <LeftAside path={router} />
-          <main className="px-8 py-9 mx-auto">{children}</main>
+          <main className="pr-8 pl-[275px] py-9 mx-auto h-full">{children}</main>
           {router.includes("/faq/questions") ||
           router.includes("/library") ? null : (
-            <RightAside />
+            <div className="w-[365px]">
+              <RightAside />
+            </div>
           )}
         </div>
         {router.includes("/faq/questions") || router.includes("/library") ? (
