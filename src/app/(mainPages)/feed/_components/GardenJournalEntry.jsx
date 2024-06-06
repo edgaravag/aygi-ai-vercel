@@ -34,7 +34,10 @@ const WriteTheNews = () => {
   // onKeyDown={handleKeyPress}
 
   return (
-    <div className="w-full border border-[#68BB59] rounded-md px-4 py-6 mt-6">
+    <div
+      className="w-full border border-[#68BB59] rounded-md px-4 py-6 mt-6"
+      onKeyDown={handlePostCreate}
+    >
       <div className="flex gap-2">
         <Image
           src={BusinessIcon}
@@ -58,7 +61,7 @@ const WriteTheNews = () => {
           setSelectedActivities={setSelectedActivities}
           selectedActivities={selectedActivities}
         />
-        <UploadImage handleImageChange={handleImageChange}/>
+        <UploadImage handleImageChange={handleImageChange} />
       </div>
     </div>
   );

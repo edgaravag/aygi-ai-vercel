@@ -47,6 +47,7 @@ export default function RootLayout({ children }) {
         console.error("Error fetching user data:", error);
       });
   }, [dispatch]);
+  
 
   if (accessToken) {
     return (
