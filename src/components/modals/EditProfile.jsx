@@ -1,19 +1,13 @@
 import Image from "next/image";
 import Modal from "../ui/Modal";
 import Button from "../ui/Button";
-import UserIcon from "@public/users/user.webp";
 import useGetUserPhoto from "@/src/hooks/useGetUserPhoto";
 import axiosInstance from "@/src/utils/axiosInstance";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const EditProfile = ({ setShowEditProfile }) => {
   const [selectedImage, setSelectedImage] = useState();
-  const [userPhoto, setUserPhoto] = useState(null);
-  const userImage = useGetUserPhoto();
-  
-  useEffect(() => {
-    setUserPhoto(userImage);
-  }, [userImage]);
+  const userImage = useGetUserPhoto(106, 106);
 
   const handleUploadPhoto = () => {
     axiosInstance
@@ -48,12 +42,7 @@ const EditProfile = ({ setShowEditProfile }) => {
       <div>
         <p className="font-medium">Settings / Edit Profile</p>
         <div className="center gap-6 mt-[20px]">
-          <Image
-            src={userPhoto ? userPhoto : UserIcon}
-            alt="User Photo"
-            width={106}
-            height={106}
-          />
+          {userImage}
           <div className="flex gap-3">
             <Button
               className="bg-[#dddddd] py-3.5 px-2.5 text-xs text-white"

@@ -9,12 +9,12 @@ import useGetUserPhoto from "@/src/hooks/useGetUserPhoto";
 
 const ProfileInfo = () => {
   const userData = useSelector((state) => state?.userData?.userData);
-  const userImage = useGetUserPhoto();
+  const userImage = useGetUserPhoto(120, 120);
 
   return (
     <div className="flex gap-8">
       <div>
-        <Image src={userImage ? userImage : UserIcon} alt="User Photo" />
+        {userImage}
       </div>
       <div className="w-full">
         <div className="flex gap-3 items-center justify-between">
