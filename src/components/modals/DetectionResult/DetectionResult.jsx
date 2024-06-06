@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import Modal from "../../ui/Modal";
 import Button from "../../ui/Button";
 import axiosInstance from "@/src/utils/axiosInstance";
-import axios from "axios";
 import getSectionContent from "@/src/utils/getSectionContent";
 
 const DetectionResult = ({ onClose }) => {
@@ -17,12 +16,12 @@ const DetectionResult = ({ onClose }) => {
   const plantCategory = getSectionContent(geminiText, " Plant Category");
   const plantName = getSectionContent(geminiText, "Plant Name");
   const aboutPlantIndex = lines.findIndex((l) =>
-    l.startsWith("About the Plant:")
+    l.startsWith("About the Plant:"),
   );
   const aboutPlant =
     aboutPlantIndex !== -1 ? lines.slice(aboutPlantIndex).join("\n") : "";
   const careInstructionsIndex = lines.findIndex((l) =>
-    l.startsWith("How to Care for the Morning Glory:")
+    l.startsWith("How to Care for the Morning Glory:"),
   );
   const careInstructions =
     careInstructionsIndex !== -1
@@ -30,30 +29,17 @@ const DetectionResult = ({ onClose }) => {
       : "";
 
   const handleSaveDetection = () => {
-    // axiosInstance.post('detections/save', { text: plantName, image: geminiImage })
-    //   .then((res) => {
-    //     console.log(res.data)
-    //   })
-    //   .catch((error) => {
-    //     console.error(error)
-    //   })
-    const token = localStorage.getItem("accessToken");
-
     const image = new Blob([geminiImage], { type: "image/jpeg" });
 
-    axios
+    axiosInstance
       .post(
-        "http://localhost:8080/detections/save",
-        {
-          text: geminiText,
-          image,
-        },
+        "detections/save",
+        { text: plantName, image },
         {
           headers: {
-            Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
           },
-        }
+        },
       )
       .then((res) => {
         console.log(res.data);
@@ -62,6 +48,30 @@ const DetectionResult = ({ onClose }) => {
       .catch((error) => {
         console.error(error);
       });
+    // const token = localStorage.getItem("accessToken");
+    //
+    // const image = new Blob([geminiImage], { type: "image/jpeg" });
+    //
+    // axios
+    //   .post(
+    //     "http://localhost:8080/detections/save",
+    //     {
+    //       text: geminiText,
+    //       image,
+    //     },
+    //     {
+    //       headers: {
+    //         Authorization: `Bearer ${token}`,
+    //         "Content-Type": "multipart/form-data",
+    //       },
+    //     }
+    //   )
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
   };
 
   return (
