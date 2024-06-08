@@ -135,7 +135,7 @@ const DiseaseDetection = ({ onClose, setShowDetectionResult }) => {
           onClick={handleSendImage}
           disabled={!selectedImage}
         >
-          Plant Identification
+          Disease Detection
         </Button>
       </div>
     </div>
