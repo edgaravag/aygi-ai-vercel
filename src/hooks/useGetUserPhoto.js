@@ -35,7 +35,7 @@ export default function useGetUserPhoto(width, height) {
       width={width}
       height={height}
       alt="User Photo"
-      className="rounded-full"
+      className={`rounded-full w-[${width}px] h-[${height}px]`}
     />
   );
 }

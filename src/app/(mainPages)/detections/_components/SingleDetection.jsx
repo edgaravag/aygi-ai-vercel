@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 import Image from "next/image";
 import Button from "@/src/components/ui/Button";
 import DeleteDetectionButton from "./DeleteDetectionButton";
@@ -12,9 +12,10 @@ const SingleDetection = ({ detection }) => {
 
   const plantName = getSectionContent(detection?.text, "Plant Name");
   const aboutPlantIndex = lines.findIndex((l) =>
-    l.startsWith("About the Plant:")
+    l.startsWith("About the Plant:"),
   );
-  const aboutPlant = aboutPlantIndex !== -1 ? lines.slice(aboutPlantIndex).join("\n") : "";
+  const aboutPlant =
+    aboutPlantIndex !== -1 ? lines.slice(aboutPlantIndex).join("\n") : "";
 
   return (
     <div className="flex justify-between pb-3 border-b">
@@ -29,12 +30,14 @@ const SingleDetection = ({ detection }) => {
         </div>
         <div>
           <p className="font-semibold">{plantName}</p>
-          <p className="w-[430px] text-xs overflow-hidden whitespace-nowrap overflow-ellipsis">{aboutPlant}</p>
+          <p className="w-[430px] text-xs overflow-hidden whitespace-nowrap overflow-ellipsis">
+            {aboutPlant}
+          </p>
           <p className="text-xs mt-1.5">{formattedDate}</p>
         </div>
       </div>
       <div className="flex flex-col justify-between items-end gap-10">
-        <DeleteDetectionButton />
+        <DeleteDetectionButton id={detection.id} />
         <Link href={`/detections/view/${detection.id}`}>
           <Button className="bg-[#68BB59] text-white py-px px-4">View</Button>
         </Link>

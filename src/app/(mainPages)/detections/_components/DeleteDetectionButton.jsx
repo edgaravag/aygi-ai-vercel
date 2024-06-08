@@ -3,11 +3,11 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import GarbageIcon from "@public/icons/grayGarbageIcon.webp";
-const DeleteDetection = dynamic(() =>
-  import("@/src/components/modals/DeleteDetection/DeleteDetection")
+const DeleteDetection = dynamic(
+  () => import("@/src/components/modals/DeleteDetection/DeleteDetection"),
 );
 
-const DeleteDetectionButton = () => {
+const DeleteDetectionButton = ({ id }) => {
   const [showDeleteDetection, setShowDeleteDetection] = useState(false);
 
   return (
@@ -19,7 +19,10 @@ const DeleteDetectionButton = () => {
         onClick={() => setShowDeleteDetection(true)}
       />
       {showDeleteDetection && (
-        <DeleteDetection onClose={() => setShowDeleteDetection(false)} />
+        <DeleteDetection
+          id={id}
+          onClose={() => setShowDeleteDetection(false)}
+        />
       )}
     </>
   );

@@ -124,10 +124,7 @@ const EditProfile = ({ setShowEditProfile }) => {
               <p className="absolute left-4 px-[5px] bg-white text-[#808080] text-xs">
                 Description
               </p>
-              <textarea
-                type="text"
-                className="w-full h-[131px] py-2 mt-2 border border-[#808080] px-5 rounded-md text-black text-sm outline-none"
-              />
+              <textarea className="w-full h-[131px] py-2 mt-2 border border-[#808080] px-5 rounded-md text-black text-sm outline-none" />
             </div>
           </div>
         </div>
