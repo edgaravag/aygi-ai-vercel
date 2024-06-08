@@ -22,8 +22,16 @@ const Profile = () => {
   };
 
   const handleEditPhoto = () => {
+    if (!selectedImage) {
+      console.error("No image selected");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("photo", selectedImage);
+
     axiosInstance
-      .put(`images/${userId}`, selectedImage, {
+      .put(`/images/${userId}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
@@ -33,13 +41,21 @@ const Profile = () => {
       .catch((err) => console.error(err));
   };
 
+  console.log(selectedImage);
+
   return (
     <>
       <div className="flex justify-center my-5">
         {selectedImage ? (
-          <Image src={selectedImage} alt="User Photo" />
+          <Image
+            src={URL.createObjectURL(selectedImage)}
+            alt="User Photo"
+            width={96}
+            height={96}
+            className="rounded-full"
+          />
         ) : (
-          <>{userImage}</>
+          userImage
         )}
       </div>
       <div className="flex justify-center gap-3">
