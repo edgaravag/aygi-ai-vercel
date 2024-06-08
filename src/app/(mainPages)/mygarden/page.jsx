@@ -7,7 +7,8 @@ import { useEffect, useState } from "react";
 // import { useDispatch } from 'react-redux';
 // import { setUserData } from "@/src/store/features/userDataSlice/userDataSlice";
 import axiosInstance from "@/src/utils/axiosInstance";
-
+import Image from "next/image";
+import DiaryImage from "@public/icons/diary.svg"
 const MyGardenComponent = () => {
   const [diaries, setDiaries] = useState([])
   // console.log(diaries);
@@ -34,7 +35,7 @@ const MyGardenComponent = () => {
             return <SingleDiary diary={diary} key={index} />;
           })
         ) : (
-          <div>You don't have any diaries yet</div>
+          <div><Image alt="No diary" src={DiaryImage} width={600} height={500} /></div>
         )}
 
       </div>
