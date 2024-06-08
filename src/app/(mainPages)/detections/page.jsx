@@ -3,9 +3,7 @@ import { useState, useEffect } from "react";
 import DeleteAllButton from "./_components/DeleteAllButton";
 import PrevAndNextPages from "./_components/PrevAndNextPages";
 import SingleDetection from "./_components/SingleDetection";
-import DetectionImage from "@public/plants/detectionImage.webp";
 import axiosInstance from "@/src/utils/axiosInstance";
-import axios from "axios";
 
 const Detections = () => {
   const [detections, setDetections] = useState([]);

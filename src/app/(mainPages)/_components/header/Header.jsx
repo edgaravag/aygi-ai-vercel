@@ -10,7 +10,7 @@ const Header = () => {
     <>
       <header className="fixed w-full z-50 flex flex-wrap justify-between bg-black py-5 px-6 gap-x-20 max-[840px]:justify-around">
         <Logo />
-        <div className="flex items-center gap-10">
+        <div className="flex flex-shrink-0 items-center gap-10">
           <MakeDetections />
           <SearchField />
           <button className="center">
