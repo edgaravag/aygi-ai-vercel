@@ -1,4 +1,3 @@
-
 const PrevAndNextPages = () => {
   return (
     <div className="flex items-center justify-end mx-auto w-[704px] mt-9 text-sm font-semibold gap-[20px]">
