@@ -33,7 +33,7 @@ const MyGardenComponent = () => {
       <h2 className="text-xl font-semibold">My Garden</h2>
       <AddNewBusiness />
       <ShowNewDiary />
-      <div className="center flex-wrap mx-auto gap-4 max-[2166px]:w-[704px] max-[1440px]:w-auto">
+      <div className="center flex-wrap mx-auto gap-4 max-[2166px]:w-[704px]">
         {currentDiaries.length > 0 ? (
           currentDiaries.map((diary, index) => {
             return <SingleDiary diary={diary} key={index} />;
@@ -42,14 +42,12 @@ const MyGardenComponent = () => {
           <div>You don't have any diaries yet</div>
         )}
       </div>
-      {/*{diaries.length > diariesPerPage && (*/}
       <PrevAndNextPages
         diariesPerPage={diariesPerPage}
         totalDiaries={diaries.length}
         paginate={paginate}
         currentPage={currentPage}
       />
-      {/*)}*/}
     </>
   );
 };
