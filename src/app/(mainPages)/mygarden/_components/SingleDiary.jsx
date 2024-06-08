@@ -9,9 +9,11 @@ import EditIcon from "@public/icons/editIcon.svg";
 import GarbageIcon from "@public/icons/grayGarbageIcon.svg";
 import useGetDiaryImage from "@/src/hooks/useGetDiaryImage";
 import formatDate from "@/src/utils/formatDate";
-const DeleteDiary = dynamic(() => import("@/src/components/modals/DeleteDiary/DeleteDiary"))
-const EditDiary = dynamic(() =>
-  import("@/src/components/modals/EditDiary/EditDiary")
+const DeleteDiary = dynamic(
+  () => import("@/src/components/modals/DeleteDiary/DeleteDiary"),
+);
+const EditDiary = dynamic(
+  () => import("@/src/components/modals/EditDiary/EditDiary"),
 );
 
 const SingleDiary = ({ diary }) => {
@@ -88,7 +90,7 @@ const SingleDiary = ({ diary }) => {
               MORE
             </Button>
           </Link>
-          {diary.public && (
+          {!diary.public && (
             <div className="flex items-center mt-3 gap-1">
               <p className="text-[#808080] text-sm font-normal">Private</p>
               <Image alt="Private Icon" src={PrivateIcon} />
