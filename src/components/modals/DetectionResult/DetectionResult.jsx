@@ -69,7 +69,9 @@ const DetectionResult = ({ onClose }) => {
       .then((res) => {
         console.log(res.data);
         onClose();
-        router.push("/detections");
+        window.location.pathname === "/detections"
+          ? window.location.reload()
+          : router.push("/detections");
       })
       .catch((error) => {
         console.error(error);

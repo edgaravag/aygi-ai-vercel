@@ -133,7 +133,7 @@ const DiseaseDetection = ({ onClose, setShowDetectionResult }) => {
         <Button
           className="mt-6 py-2.5 px-3 mx-auto text-white bg-[#808080]"
           onClick={handleSendImage}
-          disabled={isLoading}
+          disabled={!selectedImage}
         >
           Plant Identification
         </Button>

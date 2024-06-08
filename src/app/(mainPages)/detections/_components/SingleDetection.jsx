@@ -7,7 +7,6 @@ import getSectionContent from "@/src/utils/getSectionContent";
 
 const SingleDetection = ({ detection }) => {
   const formattedDate = formatDate(detection?.timestamp);
-
   const lines = detection?.text ? detection?.text.split("\n") : [];
 
   const plantName = getSectionContent(detection?.text, "Plant Name");
