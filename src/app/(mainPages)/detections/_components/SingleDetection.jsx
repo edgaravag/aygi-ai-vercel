@@ -7,7 +7,6 @@ import getSectionContent from "@/src/utils/getSectionContent";
 
 const SingleDetection = ({ detection }) => {
   const formattedDate = formatDate(detection?.timestamp);
-
   const lines = detection?.text ? detection?.text.split("\n") : [];
 
   const plantName = getSectionContent(detection?.text, "Plant Name");
@@ -29,7 +28,7 @@ const SingleDetection = ({ detection }) => {
           />
         </div>
         <div>
-          <p className="font-semibold">{plantName}</p>
+          <p className="font-semibold">{detection.text}</p>
           <p className="w-[430px] text-xs overflow-hidden whitespace-nowrap overflow-ellipsis">
             {aboutPlant}
           </p>

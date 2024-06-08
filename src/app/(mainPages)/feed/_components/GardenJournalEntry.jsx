@@ -7,12 +7,14 @@ import ChooseActivities from "./ChooseActivities";
 import UploadImage from "@/src/components/ui/UploadImage";
 import axiosInstance from "@/src/utils/axiosInstance";
 import useUploadImage from "@/src/hooks/useUploadImage";
+import GarbageIcon from "@public/icons/garbageImage.webp";
 
 const WriteTheNews = () => {
   const [diaryId, setDiaryId] = useState(null);
   const [selectedActivities, setSelectedActivities] = useState([]);
   const [about, setAbout] = useState("");
-  const { selectedImage, handleImageChange } = useUploadImage();
+  const { selectedImage, handleImageChange, resetImage, imageURL } =
+    useUploadImage();
 
   const handlePostCreate = (e) => {
     if (e.key === "Enter") {
@@ -68,6 +70,23 @@ const WriteTheNews = () => {
         />
         <UploadImage handleImageChange={handleImageChange} />
       </div>
+      {imageURL && (
+        <div className="flex items-center justify-end gap-2 mt-4">
+          <img
+            src={imageURL}
+            alt="Selected"
+            className="size-20 object-cover rounded-md"
+          />
+          <Image
+            src={GarbageIcon}
+            alt="Garbage Icon"
+            width={24}
+            height={24}
+            className="cursor-pointer size-6"
+            onClick={resetImage}
+          />
+        </div>
+      )}
     </div>
   );
 };

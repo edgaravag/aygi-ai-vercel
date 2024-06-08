@@ -134,7 +134,7 @@ const PlantIdentification = ({ setShowDetectionResult, onClose }) => {
             selectedImage ? "bg-[#318c21]" : "bg-[#808080]"
           }`}
           onClick={handleSendImage}
-          disabled={isLoading}
+          disabled={!selectedImage}
         >
           Plant Identification
         </Button>
