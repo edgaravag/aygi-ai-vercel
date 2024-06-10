@@ -130,7 +130,9 @@ const PlantIdentification = ({ setShowDetectionResult, onClose }) => {
           )}
         </div>
         <Button
-          className="mt-6 py-2.5 px-3 mx-auto text-white bg-[#808080]"
+           className={`mt-6 py-2.5 px-3 mx-auto text-white ${
+            selectedImage ? "bg-[#318c21]" : "bg-[#808080]"
+          }`}
           onClick={handleSendImage}
           disabled={!selectedImage}
         >

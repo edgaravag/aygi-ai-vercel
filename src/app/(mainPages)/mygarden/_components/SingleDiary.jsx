@@ -10,14 +10,13 @@ import GarbageIcon from "@public/icons/grayGarbageIcon.svg";
 import useGetDiaryImage from "@/src/hooks/useGetDiaryImage";
 import formatDate from "@/src/utils/formatDate";
 const DeleteDiary = dynamic(
-  () => import("@/src/components/modals/DeleteDiary/DeleteDiary"),
+  () => import("@/src/components/modals/DeleteDiary/DeleteDiary")
 );
 const EditDiary = dynamic(
-  () => import("@/src/components/modals/EditDiary/EditDiary"),
+  () => import("@/src/components/modals/EditDiary/EditDiary")
 );
 
 const SingleDiary = ({ diary }) => {
-  // const [diaryImage, setDiaryImage] = useState(null);
   const formattedDate = formatDate(diary.createdDate);
   const [showOptions, setShowOptions] = useState(false);
   const [showEditDiary, setShowEditDiary] = useState(false);
@@ -27,13 +26,11 @@ const SingleDiary = ({ diary }) => {
 
   return (
     <>
-      <div className="relative w-[344px] cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-200 active:scale-95">
+      <div className="relative w-full max-w-[344px] cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-200 active:scale-95">
         <div className="flex justify-between items-center gap-14 pl-3 py-2">
           <div className="flex flex-col">
             <p className="font-medium tracking-wider">{diary.name}</p>
-            <p className="text-sm font-normal text-[#808080]">
-              {formattedDate}
-            </p>
+            <p className="text-sm font-normal text-[#808080]">{formattedDate}</p>
           </div>
           <div className="relative">
             <button
@@ -55,7 +52,7 @@ const SingleDiary = ({ diary }) => {
                   className="center w-full flex gap-2 px-4 py-2 text-[#808080]"
                   onClick={() => setShowDeleteDiary(true)}
                 >
-                  <Image src={GarbageIcon} alt="Edit Icon" />
+                  <Image src={GarbageIcon} alt="Delete Icon" />
                   <p className="w-[120px]">Delete Diary</p>
                 </button>
               </div>
@@ -70,12 +67,13 @@ const SingleDiary = ({ diary }) => {
             priority
             width={344}
             height={194}
-            className={`w-[344px] h-[194px] ${
+            className={`w-full h-auto object-cover ${
               diary.isPrivate ? "opacity-50" : ""
             }`}
+            style={{ aspectRatio: "16/9" }}
           />
         ) : (
-          <div className="w-[344px] h-[194px] bg-gray-200 flex items-center justify-center">
+          <div className="w-full max-w-[344px] h-[194px] bg-gray-200 flex items-center justify-center">
             <span>Loading...</span>
           </div>
         )}
