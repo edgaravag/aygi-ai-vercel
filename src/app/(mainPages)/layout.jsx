@@ -49,7 +49,7 @@ export default function RootLayout({ children }) {
   }, [dispatch]);
   
 
-  if (accessToken) {
+  // if (accessToken) {
     return (
       <div className="bg-[#F7F7F7] h-auto"> 
         <Header />
@@ -68,7 +68,7 @@ export default function RootLayout({ children }) {
         ) : null}
       </div>
     );
-  } else {
-    return null;
-  }
+  // } else {
+  //   return null;
+  // }
 }
