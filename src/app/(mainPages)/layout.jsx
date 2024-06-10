@@ -4,49 +4,44 @@ import Header from "./_components/header/Header";
 import LeftAside from "./_components/leftAside/LeftAside";
 import dynamic from "next/dynamic";
 import { usePathname, useRouter } from "next/navigation";
-import { useDispatch } from "react-redux";
-import { setUserData } from "@/src/store/features/userDataSlice/userDataSlice";
-import { useEffect, useLayoutEffect, useState } from "react";
-import axiosInstance from "@/src/utils/axiosInstance";
-// import { cookies } from 'next/headers';
+// import { useDispatch } from "react-redux";
+// import { setUserData } from "@/src/store/features/userDataSlice/userDataSlice";
+// import { useEffect, useLayoutEffect, useState } from "react";
+// import axiosInstance from "@/src/utils/axiosInstance";
 const Footer = dynamic(() => import("../_components/footer/Footer"));
 
 export default function RootLayout({ children }) {
-  const [accessToken, setAccessToken] = useState(null);
+  // const [accessToken, setAccessToken] = useState(null);
   const router = usePathname();
   // const path = useRouter();
 
-  useLayoutEffect(() => {
-    const token = localStorage.getItem("accessToken");
-    setAccessToken(token);
-  }, [accessToken]);
+  // useLayoutEffect(() => {
+  //   const token = localStorage.getItem("accessToken");
+  //   setAccessToken(token);
+  // }, [accessToken]);
 
   // console.log(accessToken);
 
-  useEffect(() => {
-    const token = localStorage.getItem("accessToken");
-    if (!token) {
-      // console.log("useEffect" + token);
-      window.location.href = "/";
-    }
-  }, [accessToken, router]);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("accessToken");
+  //   if (!token) {
+  //     // console.log("useEffect" + token);
+  //     window.location.href = "/";
+  //   }
+  // }, [accessToken, router]);
 
-  // const cookiesStore = cookies();
-  // const JSESSIONID = cookiesStore.get('JSESSIONID');
-  // console.log(JSESSIONID + '----');
+  // const dispatch = useDispatch();
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    axiosInstance
-      .get("/user/")
-      .then((response) => {
-        dispatch(setUserData(response.data));
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
-      });
-  }, [dispatch]);
+  // useEffect(() => {
+  //   axiosInstance
+  //     .get("/user/")
+  //     .then((response) => {
+  //       dispatch(setUserData(response.data));
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching user data:", error);
+  //     });
+  // }, [dispatch]);
   
 
   // if (accessToken) {
