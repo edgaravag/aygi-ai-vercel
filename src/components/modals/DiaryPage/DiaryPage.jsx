@@ -9,9 +9,9 @@ import DiaryImage from "@public/plants/diaryPageImage.webp";
 import UserImage from "@public/users/UserImageWithoutImage.webp";
 import EditIcon from "@public/icons/editIcon.webp";
 import PlusIcon from "@public/icons/plusIcon.svg";
-const OpenCard = dynamic(() => import("./OpenCard")) 
-const EditDiary = dynamic(() => import("./EditDiary")) 
-const AddNewPost = dynamic(() => import("./AddNewPost")) 
+const OpenCard = dynamic(() => import("./OpenCard"));
+const EditDiary = dynamic(() => import("./EditDiary"));
+const AddNewPost = dynamic(() => import("./AddNewPost"));
 
 const posts = [
   {
