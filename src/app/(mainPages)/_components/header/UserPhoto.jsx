@@ -1,16 +1,14 @@
 import Image from "next/image";
-import UserIcon from "@public/users/user.png";
 import useGetUserPhoto from "@/src/hooks/useGetUserPhoto";
 
 const UserPhoto = () => {
-  const userImage = useGetUserPhoto()
-  // console.log(userImage);
+  const userImage = useGetUserPhoto(52, 52);
 
   return (
     <div className="cursor-pointer">
-      <Image src={userImage ? userImage : UserIcon} alt="User Photo" width={52} height={52} />
+      {userImage}
     </div>
   );
-}
+};
 
 export default UserPhoto;

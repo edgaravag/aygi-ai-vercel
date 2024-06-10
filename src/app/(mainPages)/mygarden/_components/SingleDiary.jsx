@@ -3,42 +3,34 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/src/components/ui/Button";
-// import axiosInstance from "@/src/utils/axiosInstance";
 import PrivateIcon from "@public/icons/privateIcon.svg";
 import GrayEditIcon from "@public/icons/grayEditIcon.svg";
 import EditIcon from "@public/icons/editIcon.svg";
 import GarbageIcon from "@public/icons/grayGarbageIcon.svg";
-import DeleteDiary from "@/src/components/popups/DeleteDiary";
 import useGetDiaryImage from "@/src/hooks/useGetDiaryImage";
-const EditDiary = dynamic(() => import("@/src/components/popups/EditDiary"));
-
-const formatDate = (dateString) => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-};
+import formatDate from "@/src/utils/formatDate";
+const DeleteDiary = dynamic(
+  () => import("@/src/components/modals/DeleteDiary/DeleteDiary")
+);
+const EditDiary = dynamic(
+  () => import("@/src/components/modals/EditDiary/EditDiary")
+);
 
 const SingleDiary = ({ diary }) => {
-  // const [diaryImage, setDiaryImage] = useState(null);
   const formattedDate = formatDate(diary.createdDate);
   const [showOptions, setShowOptions] = useState(false);
   const [showEditDiary, setShowEditDiary] = useState(false);
   const [showDeleteDiary, setShowDeleteDiary] = useState(false);
 
-  const diaryImage = useGetDiaryImage(diary.id)
+  const diaryImage = useGetDiaryImage(diary.id);
 
   return (
     <>
-      <div className="relative w-[344px] cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-200 active:scale-95">
+      <div className="relative w-full max-w-[344px] cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-200 active:scale-95">
         <div className="flex justify-between items-center gap-14 pl-3 py-2">
           <div className="flex flex-col">
             <p className="font-medium tracking-wider">{diary.name}</p>
-            <p className="text-sm font-normal text-[#808080]">
-              {formattedDate}
-            </p>
+            <p className="text-sm font-normal text-[#808080]">{formattedDate}</p>
           </div>
           <div className="relative">
             <button
@@ -49,12 +41,18 @@ const SingleDiary = ({ diary }) => {
             </button>
             {showOptions && (
               <div className="absolute z-10 right-0 bg-white border border-[#979797] rounded-md py-5 px-2">
-                <button className="center w-full flex gap-2 px-4 py-2 text-[#808080] mb-2" onClick={() => setShowEditDiary(true)}>
+                <button
+                  className="center w-full flex gap-2 px-4 py-2 text-[#808080] mb-2"
+                  onClick={() => setShowEditDiary(true)}
+                >
                   <Image src={EditIcon} alt="Edit Icon" />
                   <p className="w-[100px]">Edit Diary</p>
                 </button>
-                <button className="center w-full flex gap-2 px-4 py-2 text-[#808080]" onClick={() => setShowDeleteDiary(true)}>
-                  <Image src={GarbageIcon} alt="Edit Icon" />
+                <button
+                  className="center w-full flex gap-2 px-4 py-2 text-[#808080]"
+                  onClick={() => setShowDeleteDiary(true)}
+                >
+                  <Image src={GarbageIcon} alt="Delete Icon" />
                   <p className="w-[120px]">Delete Diary</p>
                 </button>
               </div>
@@ -69,10 +67,13 @@ const SingleDiary = ({ diary }) => {
             priority
             width={344}
             height={194}
-            className={`w-[344px] h-[194px] ${diary.isPrivate ? "opacity-50" : ""}`}
+            className={`w-full h-auto object-cover ${
+              diary.isPrivate ? "opacity-50" : ""
+            }`}
+            style={{ aspectRatio: "16/9" }}
           />
         ) : (
-          <div className="w-[344px] h-[194px] bg-gray-200 flex items-center justify-center">
+          <div className="w-full max-w-[344px] h-[194px] bg-gray-200 flex items-center justify-center">
             <span>Loading...</span>
           </div>
         )}
@@ -87,7 +88,7 @@ const SingleDiary = ({ diary }) => {
               MORE
             </Button>
           </Link>
-          {diary.public && (
+          {!diary.public && (
             <div className="flex items-center mt-3 gap-1">
               <p className="text-[#808080] text-sm font-normal">Private</p>
               <Image alt="Private Icon" src={PrivateIcon} />
@@ -95,8 +96,15 @@ const SingleDiary = ({ diary }) => {
           )}
         </div>
       </div>
-      {showEditDiary && <EditDiary onClose={() => setShowEditDiary(false)} diary={diary} />}
-      {showDeleteDiary && <DeleteDiary onClose={() => setShowDeleteDiary(false)} diaryId={diary.id} />}
+      {showEditDiary && (
+        <EditDiary onClose={() => setShowEditDiary(false)} diary={diary} />
+      )}
+      {showDeleteDiary && (
+        <DeleteDiary
+          onClose={() => setShowDeleteDiary(false)}
+          diaryId={diary.id}
+        />
+      )}
     </>
   );
 };

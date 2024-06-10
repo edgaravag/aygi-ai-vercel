@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState } from "react";
 import Image from "next/image";
 import CountriesList from "./CountriesList";
@@ -6,6 +6,7 @@ import Info from "./Info";
 import EditIcon from "@public/icons/editIcon.webp";
 import InfoIcon from "@public/icons/info.webp";
 import Button from "@/src/components/ui/Button";
+import CitiesList from "./CitiesList";
 
 const EditCountry = () => {
   const [showInfo, setShowInfo] = useState(false);

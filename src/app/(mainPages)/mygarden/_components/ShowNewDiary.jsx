@@ -1,9 +1,11 @@
-'use client'
+"use client";
 import { useState } from "react";
 import Image from "next/image";
 import PlusIcon from "@public/icons/plusIcon.svg";
-import dynamic from 'next/dynamic';
-const NewDiary = dynamic(() => import("@/src/components/popups/NewDiary"))
+import dynamic from "next/dynamic";
+const NewDiary = dynamic(() =>
+  import("@/src/components/modals/NewDiary/NewDiary")
+);
 
 const ShowNewDiary = () => {
   const [showNewDiary, setShowNewDiary] = useState(false);

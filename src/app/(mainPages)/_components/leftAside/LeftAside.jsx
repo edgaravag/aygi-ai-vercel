@@ -36,7 +36,7 @@ const LeftAside = ({ path }) => {
   
   return (
     <aside
-      className={`h-fit bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.10)] ${
+      className={`fixed h-fit bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.10)] ${
         path.includes("/faq/questions") || path === "/library"
           ? "min-w-[70px]"
           : "min-w-[243px]"

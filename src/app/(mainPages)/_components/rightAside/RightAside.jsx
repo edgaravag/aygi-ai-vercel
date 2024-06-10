@@ -3,6 +3,7 @@ import Weather from "./Weather";
 import EditCountry from "./EditCountry";
 import SingleFriend from "./SingleFriend";
 import UserIcon from "@public/users/friendIcon.webp";
+import { useState } from "react";
 
 const friends = [
   {
@@ -43,12 +44,15 @@ const friends = [
 ];
 
 const RightAside = () => {
+  const [errorMessage, setErrorMessage] = useState("");
+
   return (
-    <aside className="bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.10)] min-w-[365px] h-[1360px] px-[41px] py-5">
-      <div className="flex justify-between pb-4">
-        <Weather />
+    <aside className="fixed bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.10)] min-w-[365px] px-6 pt-5 pb-10">
+      <div className="flex gap-2 justify-between pb-4">
+        <Weather setErrorMessage={setErrorMessage} />
         <EditCountry />
       </div>
+      {errorMessage && <p>{errorMessage}</p>}
       <div className="mt-6">
         <Calendar />
       </div>

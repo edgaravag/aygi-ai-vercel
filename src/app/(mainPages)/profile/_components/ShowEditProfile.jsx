@@ -4,7 +4,7 @@ import Image from "next/image";
 import GreenPen from "@public/icons/greenPen.webp";
 import dynamic from "next/dynamic";
 const EditProfile = dynamic(() =>
-  import("@/src/components/popups/EditProfile")
+  import("@/src/components/modals/EditProfile/EditProfile")
 );
 
 const ShowEditProfile = () => {

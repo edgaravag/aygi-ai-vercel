@@ -1,12 +1,17 @@
 "use client";
 import Button from "@/src/components/ui/Button";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import { useState } from "react";
 const MakeDetection = dynamic(() =>
-  import('@/src/components/popups/MakeDetection'),
+  import("@/src/components/modals/MakeDetection/MakeDetection")
 );
+const DetectionResult = dynamic(() =>
+  import("@/src/components/modals/DetectionResult/DetectionResult")
+);
+
 const MakeDetections = () => {
   const [showMakeDetections, setShowMakeDetections] = useState(false);
+  const [showDetectionResult, setShowDetectionResult] = useState(false);
 
   return (
     <>
@@ -16,7 +21,15 @@ const MakeDetections = () => {
       >
         Make Detection
       </Button>
-      {showMakeDetections && <MakeDetection onClose={() => setShowMakeDetections(false)} />}
+      {showMakeDetections && (
+        <MakeDetection
+          onClose={() => setShowMakeDetections(false)}
+          setShowDetectionResult={setShowDetectionResult}
+        />
+      )}
+      {showDetectionResult && (
+        <DetectionResult onClose={() => setShowDetectionResult(false)} />
+      )}
     </>
   );
 };

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   text: '',
-  image: null,
+  imageURL: null,
 };
 
 const geminiTextSlice = createSlice({

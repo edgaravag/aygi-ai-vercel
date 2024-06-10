@@ -1,18 +1,20 @@
 "use client";
 import { useSelector } from "react-redux";
 import Image from "next/image";
-import UserIcon from "@public/users/user.png";
+import UserIcon from "@public/users/user.webp";
 import ShowEditProfile from "./ShowEditProfile";
 import ShowFollowers from "./ShowFollowers";
 import ShowFollowings from "./ShowFollowings";
+import useGetUserPhoto from "@/src/hooks/useGetUserPhoto";
 
 const ProfileInfo = () => {
   const userData = useSelector((state) => state?.userData?.userData);
-  
+  const userImage = useGetUserPhoto(120, 120);
+
   return (
     <div className="flex gap-8">
       <div>
-        <Image src={UserIcon} alt="" />
+        {userImage}
       </div>
       <div className="w-full">
         <div className="flex gap-3 items-center justify-between">
