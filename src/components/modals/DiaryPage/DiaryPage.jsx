@@ -1,9 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import OpenCard from "./OpenCard";
-import EditDiary from "./EditDiary";
-import AddNewPost from "./AddNewPost";
+import dynamic from "next/dynamic";
 import Modal from "../../ui/Modal";
 import Button from "../../ui/Button";
 import MoreIcon from "@public/icons/moreIcon.webp";
@@ -11,6 +9,9 @@ import DiaryImage from "@public/plants/diaryPageImage.webp";
 import UserImage from "@public/users/UserImageWithoutImage.webp";
 import EditIcon from "@public/icons/editIcon.webp";
 import PlusIcon from "@public/icons/plusIcon.svg";
+const OpenCard = dynamic(() => import("./OpenCard")) 
+const EditDiary = dynamic(() => import("./EditDiary")) 
+const AddNewPost = dynamic(() => import("./AddNewPost")) 
 
 const posts = [
   {
